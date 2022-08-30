@@ -26,6 +26,11 @@ extension RootPresenter: RootModuleInput {
 // MARK: - View - Presenter
 extension RootPresenter: RootViewOutputProtocol {
     
+    func didCompleteInitialisation() {
+        // TODO: open user flow
+        print(#function)
+    }
+    
 }
 
 // MARK: - Router - Presenter

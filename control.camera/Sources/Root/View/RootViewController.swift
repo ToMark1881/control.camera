@@ -41,17 +41,19 @@ private extension RootViewController {
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 0.5,
                        options: [],
-                       animations: {
-            self.logoEllipseImageView.transform = startTransformation
-        }) { _ in
+                       animations: { [weak self] in
+            self?.logoEllipseImageView.transform = startTransformation
+        }) { [weak self] _ in
             UIView.animate(withDuration: 0.5,
                            delay: 0.0,
                            usingSpringWithDamping: 0.3,
                            initialSpringVelocity: 0.3,
                            options: [],
-                           animations: {
-                self.logoEllipseImageView.transform = finalTransformation
-            })
+                           animations: { [weak self] in
+                self?.logoEllipseImageView.transform = finalTransformation
+            }) { [weak self] _ in
+                self?.output.didCompleteInitialisation()
+            }
         }
     }
     

@@ -9,5 +9,5 @@
 import UIKit
 
 protocol RootViewOutputProtocol: AnyObject {
-            
+    func didCompleteInitialisation()
 }
