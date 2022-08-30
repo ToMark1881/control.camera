@@ -12,13 +12,47 @@ class RootViewController: BaseViewController {
     
     //MARK: - Injected
     var output: RootViewOutputProtocol!
+    
+    // MARK: - Outlet
 
+    @IBOutlet private weak var logoImageView: UIImageView!
+    @IBOutlet private weak var logoEllipseImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animateEllipse()
     }
 
 }
 
 extension RootViewController: RootViewInputProtocol {
 
+}
+
+private extension RootViewController {
+    
+    func animateEllipse() {
+        let startTransformation = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        let finalTransformation = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.3,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 0.5,
+                       options: [],
+                       animations: {
+            self.logoEllipseImageView.transform = startTransformation
+        }) { _ in
+            UIView.animate(withDuration: 0.5,
+                           delay: 0.0,
+                           usingSpringWithDamping: 0.3,
+                           initialSpringVelocity: 0.3,
+                           options: [],
+                           animations: {
+                self.logoEllipseImageView.transform = finalTransformation
+            })
+        }
+    }
+    
 }

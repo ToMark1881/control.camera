@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="RootViewController" id="Y6W-OH-hqX" customClass="RootViewController" customModule="TempateApplication" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" id="Y6W-OH-hqX" customClass="RootViewController" customModule="Staging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, world!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6x-Ob-KvX">
-                                <rect key="frame" x="160" y="437.5" width="94.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipse from Logo" translatesAutoresizingMaskIntoConstraints="NO" id="hFA-Ql-MyF">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Bwi-uw-vtP"/>
+                                    <constraint firstAttribute="height" constant="100" id="Fj4-AE-W3d"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo without Ellipse" translatesAutoresizingMaskIntoConstraints="NO" id="B1R-mb-iwW">
+                                <rect key="frame" x="125" y="366" width="164" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="164" id="Tif-ff-uA1"/>
+                                    <constraint firstAttribute="height" constant="164" id="opL-lA-F5z"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n6x-Ob-KvX" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="klX-oc-7C6"/>
-                            <constraint firstItem="n6x-Ob-KvX" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="vwO-eG-gre"/>
+                            <constraint firstItem="hFA-Ql-MyF" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="4Ey-JL-kJw"/>
+                            <constraint firstItem="B1R-mb-iwW" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="4Iy-gM-Wwf"/>
+                            <constraint firstItem="hFA-Ql-MyF" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="XFx-eH-5eK"/>
+                            <constraint firstItem="B1R-mb-iwW" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="kpg-n2-eVf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoEllipseImageView" destination="hFA-Ql-MyF" id="COG-DT-eZb"/>
+                        <outlet property="logoImageView" destination="B1R-mb-iwW" id="6Jd-Fl-X4f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,8 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="Ellipse from Logo" width="57" height="57"/>
+        <image name="Logo without Ellipse" width="90" height="85"/>
     </resources>
 </document>
