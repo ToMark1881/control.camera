@@ -161,6 +161,8 @@
 		FAEEEF372902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */; };
 		FAEEEF382902A33B0019EE29 /* MainCameraWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */; };
 		FAEEEF392902A33B0019EE29 /* MainCameraWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */; };
+		FAEEEF3F2902A67C0019EE29 /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF3E2902A67C0019EE29 /* ShutterButton.swift */; };
+		FAEEEF402902A67C0019EE29 /* ShutterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF3E2902A67C0019EE29 /* ShutterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +266,7 @@
 		FAEEEF232902A33B0019EE29 /* MainCameraRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraRouterInput.swift; sourceTree = "<group>"; };
 		FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewOutput.swift; sourceTree = "<group>"; };
 		FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraWireframe.swift; sourceTree = "<group>"; };
+		FAEEEF3E2902A67C0019EE29 /* ShutterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +503,7 @@
 			children = (
 				7D57C48527F8A119007F3CC5 /* Alert Controller */,
 				7D57C48227F8A0E8007F3CC5 /* BounceButton.swift */,
+				FAEEEF3E2902A67C0019EE29 /* ShutterButton.swift */,
 				FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */,
 				7D57C48127F8A0E8007F3CC5 /* TapticEngineGenerator.swift */,
 			);
@@ -912,6 +916,7 @@
 				FA37A71D290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
 				7D57C45827F89DFB007F3CC5 /* Date+Extensions.swift in Sources */,
 				7D57C41827F89985007F3CC5 /* Logger.swift in Sources */,
+				FAEEEF3F2902A67C0019EE29 /* ShutterButton.swift in Sources */,
 				FA2F428028BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
 				FAEEEF362902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */,
 				FAEEEF2C2902A33B0019EE29 /* MainCameraPresenter.swift in Sources */,
@@ -995,6 +1000,7 @@
 				FA37A71E290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
 				7D92BEAE27F8A6240025398D /* Date+Extensions.swift in Sources */,
 				7D92BEAF27F8A6240025398D /* Logger.swift in Sources */,
+				FAEEEF402902A67C0019EE29 /* ShutterButton.swift in Sources */,
 				FA2F428128BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
 				FAEEEF372902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */,
 				FAEEEF2D2902A33B0019EE29 /* MainCameraPresenter.swift in Sources */,
