@@ -1191,6 +1191,7 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = control.camera;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1222,6 +1223,7 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = control.camera;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1328,6 +1330,7 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/StagingInfo.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = staging.camera;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1360,6 +1363,7 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/StagingInfo.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = staging.camera;
 				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
