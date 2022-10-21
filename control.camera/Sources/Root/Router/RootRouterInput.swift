@@ -10,4 +10,5 @@ import Foundation
 
 protocol RootRouterInputProtocol: AnyObject {
     func presentOnboarding(with moduleOutput: OnboardingModuleOutput)
+    func presentMainCamera()
 }

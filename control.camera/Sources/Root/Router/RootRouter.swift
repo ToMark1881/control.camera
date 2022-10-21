@@ -16,6 +16,7 @@ class RootRouter: BaseRouter {
     weak var view: BaseViewControllerProtocol!
     
     private lazy var onboardingWireframe = { OnboardingWireframe() }()
+    private lazy var mainCameraWireframe = { MainCameraWireframe() }()
     
 }
 
@@ -28,6 +29,8 @@ extension RootRouter: RootRouterInputProtocol {
                                       moduleOutput: moduleOutput)
     }
     
-    // MARK: - Dismiss
+    func presentMainCamera() {
+        mainCameraWireframe.presentIn(view)
+    }
     
 }

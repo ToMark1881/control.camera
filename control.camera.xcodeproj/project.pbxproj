@@ -139,6 +139,28 @@
 		FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */; };
 		FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
 		FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
+		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
+		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
+		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
+		FAEEEF272902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
+		FAEEEF282902A33B0019EE29 /* MainCameraModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */; };
+		FAEEEF292902A33B0019EE29 /* MainCameraModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */; };
+		FAEEEF2A2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1E2902A33B0019EE29 /* MainCameraRouterOutput.swift */; };
+		FAEEEF2B2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1E2902A33B0019EE29 /* MainCameraRouterOutput.swift */; };
+		FAEEEF2C2902A33B0019EE29 /* MainCameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1F2902A33B0019EE29 /* MainCameraPresenter.swift */; };
+		FAEEEF2D2902A33B0019EE29 /* MainCameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1F2902A33B0019EE29 /* MainCameraPresenter.swift */; };
+		FAEEEF2E2902A33B0019EE29 /* MainCameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF202902A33B0019EE29 /* MainCameraRouter.swift */; };
+		FAEEEF2F2902A33B0019EE29 /* MainCameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF202902A33B0019EE29 /* MainCameraRouter.swift */; };
+		FAEEEF302902A33B0019EE29 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */; };
+		FAEEEF312902A33B0019EE29 /* MainCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */; };
+		FAEEEF322902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF222902A33B0019EE29 /* MainCameraModuleInput.swift */; };
+		FAEEEF332902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF222902A33B0019EE29 /* MainCameraModuleInput.swift */; };
+		FAEEEF342902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF232902A33B0019EE29 /* MainCameraRouterInput.swift */; };
+		FAEEEF352902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF232902A33B0019EE29 /* MainCameraRouterInput.swift */; };
+		FAEEEF362902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */; };
+		FAEEEF372902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */; };
+		FAEEEF382902A33B0019EE29 /* MainCameraWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */; };
+		FAEEEF392902A33B0019EE29 /* MainCameraWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +253,17 @@
 		FA37A7262902637200B9F575 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCameraButton.swift; sourceTree = "<group>"; };
 		FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProps.swift; sourceTree = "<group>"; };
+		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
+		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
+		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
+		FAEEEF1E2902A33B0019EE29 /* MainCameraRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraRouterOutput.swift; sourceTree = "<group>"; };
+		FAEEEF1F2902A33B0019EE29 /* MainCameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraPresenter.swift; sourceTree = "<group>"; };
+		FAEEEF202902A33B0019EE29 /* MainCameraRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraRouter.swift; sourceTree = "<group>"; };
+		FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewController.swift; sourceTree = "<group>"; };
+		FAEEEF222902A33B0019EE29 /* MainCameraModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleInput.swift; sourceTree = "<group>"; };
+		FAEEEF232902A33B0019EE29 /* MainCameraRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraRouterInput.swift; sourceTree = "<group>"; };
+		FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewOutput.swift; sourceTree = "<group>"; };
+		FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				FA37A700290262A000B9F575 /* Onboarding */,
+				FAEEEF182902A31B0019EE29 /* Main Camera */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -591,6 +625,56 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		FAEEEF182902A31B0019EE29 /* Main Camera */ = {
+			isa = PBXGroup;
+			children = (
+				FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */,
+				FAEEEF3A2902A3440019EE29 /* View */,
+				FAEEEF3B2902A34B0019EE29 /* Presenter */,
+				FAEEEF3C2902A3530019EE29 /* Router */,
+				FAEEEF3D2902A3590019EE29 /* Wireframe */,
+			);
+			path = "Main Camera";
+			sourceTree = "<group>";
+		};
+		FAEEEF3A2902A3440019EE29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */,
+				FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */,
+				FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAEEEF3B2902A34B0019EE29 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */,
+				FAEEEF1F2902A33B0019EE29 /* MainCameraPresenter.swift */,
+				FAEEEF222902A33B0019EE29 /* MainCameraModuleInput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FAEEEF3C2902A3530019EE29 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FAEEEF1E2902A33B0019EE29 /* MainCameraRouterOutput.swift */,
+				FAEEEF202902A33B0019EE29 /* MainCameraRouter.swift */,
+				FAEEEF232902A33B0019EE29 /* MainCameraRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FAEEEF3D2902A3590019EE29 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				FAEEEF252902A33B0019EE29 /* MainCameraWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -721,6 +805,7 @@
 				FA37A6FA2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
 				FA37A6F42902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D57C41E27F89B96007F3CC5 /* Root.storyboard in Resources */,
+				FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */,
 				FA37A6FE2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
 				FA37A6F22902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				7D57C47827F8A088007F3CC5 /* ReloadContentView.xib in Resources */,
@@ -756,6 +841,7 @@
 				FA37A6FB2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
 				FA37A6F52902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */,
+				FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */,
 				FA37A6FF2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
 				FA37A6F32902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */,
@@ -772,6 +858,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */,
 				7D57C45727F89DFB007F3CC5 /* Sequence+Extensions.swift in Sources */,
 				7D57C48727F8A123007F3CC5 /* AlertController.swift in Sources */,
 				FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
@@ -781,6 +868,7 @@
 				FA37A71B290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
 				7D57C46227F89E67007F3CC5 /* ErrorsHandlerInterface.swift in Sources */,
 				FA2F427828BDC86700F6E6A7 /* RootRouterOutput.swift in Sources */,
+				FAEEEF382902A33B0019EE29 /* MainCameraWireframe.swift in Sources */,
 				FA2F428428BDC86700F6E6A7 /* RootViewOutput.swift in Sources */,
 				7D57C41027F898E3007F3CC5 /* main.swift in Sources */,
 				FA37A70F290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
@@ -793,6 +881,7 @@
 				FA37A711290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FA2F428628BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
 				7D57C47427F8A088007F3CC5 /* BaseStateViewController.swift in Sources */,
+				FAEEEF282902A33B0019EE29 /* MainCameraModuleOutput.swift in Sources */,
 				FA37A717290262AD00B9F575 /* OnboardingModuleInput.swift in Sources */,
 				7D57C43B27F89C72007F3CC5 /* BaseViewController.swift in Sources */,
 				7D57C47C27F8A088007F3CC5 /* StatesViewsHandler.swift in Sources */,
@@ -810,15 +899,22 @@
 				7D92BE8627F8A4D00025398D /* Constants.swift in Sources */,
 				FA2F428228BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				7D57C47B27F8A088007F3CC5 /* LoadingView.swift in Sources */,
+				FAEEEF2E2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
+				FAEEEF2A2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
 				FA37A70B290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
 				7D57C47927F8A088007F3CC5 /* StatesViewsDataSource.swift in Sources */,
+				FAEEEF302902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
+				FAEEEF322902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
 				7D57C43A27F89C72007F3CC5 /* BaseRouter.swift in Sources */,
+				FAEEEF342902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */,
 				FA37A71D290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
 				7D57C45827F89DFB007F3CC5 /* Date+Extensions.swift in Sources */,
 				7D57C41827F89985007F3CC5 /* Logger.swift in Sources */,
 				FA2F428028BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
+				FAEEEF362902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */,
+				FAEEEF2C2902A33B0019EE29 /* MainCameraPresenter.swift in Sources */,
 				7D57C3E027F898AB007F3CC5 /* AppDelegate.swift in Sources */,
 				7D57C45E27F89DFB007F3CC5 /* String+Extensions.swift in Sources */,
 				FA2F427428BDC86700F6E6A7 /* RootViewInput.swift in Sources */,
@@ -845,6 +941,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEEEF272902A33B0019EE29 /* MainCameraViewInput.swift in Sources */,
 				7D92BE8A27F8A6240025398D /* Sequence+Extensions.swift in Sources */,
 				7D92BE8B27F8A6240025398D /* AlertController.swift in Sources */,
 				FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
@@ -854,6 +951,7 @@
 				FA37A71C290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
 				7D92BE8F27F8A6240025398D /* ErrorsHandlerInterface.swift in Sources */,
 				FA2F427928BDC86700F6E6A7 /* RootRouterOutput.swift in Sources */,
+				FAEEEF392902A33B0019EE29 /* MainCameraWireframe.swift in Sources */,
 				FA2F428528BDC86700F6E6A7 /* RootViewOutput.swift in Sources */,
 				7D92BE9227F8A6240025398D /* main.swift in Sources */,
 				FA37A710290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
@@ -866,6 +964,7 @@
 				FA37A712290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FA2F428728BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
 				7D92BE9727F8A6240025398D /* BaseStateViewController.swift in Sources */,
+				FAEEEF292902A33B0019EE29 /* MainCameraModuleOutput.swift in Sources */,
 				FA37A718290262AD00B9F575 /* OnboardingModuleInput.swift in Sources */,
 				7D92BE9927F8A6240025398D /* BaseViewController.swift in Sources */,
 				7D92BE9C27F8A6240025398D /* StatesViewsHandler.swift in Sources */,
@@ -883,15 +982,22 @@
 				7D92BEA727F8A6240025398D /* Constants.swift in Sources */,
 				FA2F428328BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				7D92BEA827F8A6240025398D /* LoadingView.swift in Sources */,
+				FAEEEF2F2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
+				FAEEEF2B2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
 				FA37A70C290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
 				7D92BEAB27F8A6240025398D /* StatesViewsDataSource.swift in Sources */,
+				FAEEEF312902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
+				FAEEEF332902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
 				7D92BEAD27F8A6240025398D /* BaseRouter.swift in Sources */,
+				FAEEEF352902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */,
 				FA37A71E290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
 				7D92BEAE27F8A6240025398D /* Date+Extensions.swift in Sources */,
 				7D92BEAF27F8A6240025398D /* Logger.swift in Sources */,
 				FA2F428128BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
+				FAEEEF372902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */,
+				FAEEEF2D2902A33B0019EE29 /* MainCameraPresenter.swift in Sources */,
 				7D92BEB427F8A6240025398D /* AppDelegate.swift in Sources */,
 				7D92BEB527F8A6240025398D /* String+Extensions.swift in Sources */,
 				FA2F427528BDC86700F6E6A7 /* RootViewInput.swift in Sources */,

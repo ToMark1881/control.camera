@@ -40,7 +40,7 @@ extension RootPresenter: RootRouterOutputProtocol {
 extension RootPresenter: OnboardingModuleOutput {
     
     func didFinishOnboarding() {
-        
+        router.presentMainCamera()
     }
     
 }
