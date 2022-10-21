@@ -9,5 +9,7 @@
 import UIKit
 
 protocol MainCameraViewOutputProtocol: AnyObject {
+    func onViewDidLoad()
+    func didSetupCameraLayer()
     func didTapOnShutter()
 }

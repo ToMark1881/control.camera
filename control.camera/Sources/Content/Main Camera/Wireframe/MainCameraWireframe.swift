@@ -51,7 +51,6 @@ class MainCameraWireframe: BaseWireframe {
         presenter.camera = camera
         
         view.output = presenter
-        view.camera = camera
         router.output = presenter
         
         router.view = view

@@ -27,6 +27,14 @@ extension MainCameraPresenter: MainCameraModuleInput {
 // MARK: - View - Presenter
 extension MainCameraPresenter: MainCameraViewOutputProtocol {
     
+    func onViewDidLoad() {
+        camera.configure()
+    }
+    
+    func didSetupCameraLayer() {
+        camera.startSession()
+    }
+    
     func didTapOnShutter() {
         camera.capturePhoto()
     }

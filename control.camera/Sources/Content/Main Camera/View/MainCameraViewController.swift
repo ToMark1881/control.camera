@@ -12,14 +12,13 @@ class MainCameraViewController: BaseViewController {
     
     //MARK: - Injected
     var output: MainCameraViewOutputProtocol!
-    var camera: CameraConfiguration!
 
     @IBOutlet weak var shutterButton: ShutterButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        camera.configure()
+        output.onViewDidLoad()
     }
 
     @IBAction func didTapOnShutterButton(_ sender: Any) {
@@ -38,7 +37,7 @@ extension MainCameraViewController: CameraViewConfiguration {
         layer.frame = view.layer.frame        
         view.bringSubviewToFront(shutterButton)
         
-        camera.startSession()
+        output.didSetupCameraLayer()
         shutterButton.isEnabled = true
     }
     
