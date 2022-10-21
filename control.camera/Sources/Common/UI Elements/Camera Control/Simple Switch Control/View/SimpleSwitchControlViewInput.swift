@@ -1,0 +1,13 @@
+//  VIPER Template created by Vladyslav Vdovychenko
+//  
+//  SimpleSwitchControlViewInput.swift
+//  control.camera
+//
+//  Created by Vladyslav Vdovychenko on 21.10.2022.
+//
+
+import UIKit
+
+protocol SimpleSwitchControlViewInputProtocol: BaseViewControllerProtocol {
+    func update(with props: SimpleSwitchViewProps)
+}

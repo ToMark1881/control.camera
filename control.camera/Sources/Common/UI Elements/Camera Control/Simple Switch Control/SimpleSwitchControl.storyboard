@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TouchSansOne-Regular.ttf">
+            <string>TouchSansOne-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Simple Switch Control View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SimpleSwitchControlViewController" id="Y6W-OH-hqX" customClass="SimpleSwitchControlViewController" customModule="Staging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Simple Control Background" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
+                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOs-F3-8G1">
+                                <rect key="frame" x="4" y="28.666666666666671" width="92" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9rt-EC-jLY">
+                                <rect key="frame" x="4" y="52" width="92" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YOs-F3-8G1" secondAttribute="trailing" constant="4" id="BJu-L3-VFJ"/>
+                            <constraint firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
+                            <constraint firstItem="9rt-EC-jLY" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Lfo-BA-0V0"/>
+                            <constraint firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" constant="2" id="MWW-Jl-wK9"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NO1-Qb-0VV"/>
+                            <constraint firstAttribute="trailing" secondItem="9rt-EC-jLY" secondAttribute="trailing" constant="4" id="QhF-jd-2BJ"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="Ucy-vK-yGW"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9rt-EC-jLY" secondAttribute="bottom" constant="4" id="Xqu-pe-a5W"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="4" id="dUq-y0-a2s"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="fbR-pf-t2i"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="2" id="fgb-cC-x6e"/>
+                            <constraint firstItem="9rt-EC-jLY" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="n0J-4Q-98G"/>
+                            <constraint firstItem="9rt-EC-jLY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="2" id="vEN-Pf-Wvu"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2" id="zG9-Gh-UGO"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="100" height="100"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="pKB-Qa-OWC" id="7od-Sf-5Ew"/>
+                        <outlet property="switchNameLabel" destination="YOs-F3-8G1" id="pe3-DD-7U6"/>
+                        <outlet property="switchValueLabel" destination="9rt-EC-jLY" id="bN0-2v-KHr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-35.384615384615387" y="24.881516587677723"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Simple Control Background" width="114" height="114"/>
+    </resources>
+</document>
