@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>NSCameraUsageDescription</key>
+	<string>To take pictures with a new style</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>To save pictures</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TouchSansOne-Black.ttf</string>
+		<string>TouchSansOne-Bold.ttf</string>
+		<string>TouchSansOne-ExtraLight.ttf</string>
+		<string>TouchSansOne-Light.ttf</string>
+		<string>TouchSansOne-Regular.ttf</string>
+		<string>TouchSansOne-SemiBold.ttf</string>
+		<string>TouchSansOne-Thin.ttf</string>
+	</array>
+</dict>
 </plist>

@@ -15,11 +15,18 @@ class RootRouter: BaseRouter {
     weak var output: RootRouterOutputProtocol!
     weak var view: BaseViewControllerProtocol!
     
+    private lazy var onboardingWireframe = { OnboardingWireframe() }()
+    
 }
 
 extension RootRouter: RootRouterInputProtocol {
     
     // MARK: - Present
+    
+    func presentOnboarding(with moduleOutput: OnboardingModuleOutput) {
+        onboardingWireframe.presentIn(view,
+                                      moduleOutput: moduleOutput)
+    }
     
     // MARK: - Dismiss
     

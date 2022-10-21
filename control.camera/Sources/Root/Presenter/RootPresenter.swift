@@ -27,13 +27,20 @@ extension RootPresenter: RootModuleInput {
 extension RootPresenter: RootViewOutputProtocol {
     
     func didCompleteInitialisation() {
-        // TODO: open user flow
-        print(#function)
+        router.presentOnboarding(with: self)
     }
     
 }
 
 // MARK: - Router - Presenter
 extension RootPresenter: RootRouterOutputProtocol {
+    
+}
+
+extension RootPresenter: OnboardingModuleOutput {
+    
+    func didFinishOnboarding() {
+        
+    }
     
 }

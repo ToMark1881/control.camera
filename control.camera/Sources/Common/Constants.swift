@@ -63,4 +63,12 @@ struct ApplicationColors {
         }
     }
     
+    static func yellowColor() -> UIColor {
+        return UIColor(named: "control.yellow")!
+    }
+    
+    static func darkenedYellowColor() -> UIColor {
+        return UIColor(named: "control.darkenedYellow")!
+    }
+    
 }

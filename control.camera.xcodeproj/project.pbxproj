@@ -14,7 +14,6 @@
 		7D57C41827F89985007F3CC5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C41727F89985007F3CC5 /* Logger.swift */; };
 		7D57C41B27F89ADA007F3CC5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C41A27F89ADA007F3CC5 /* BaseObject.swift */; };
 		7D57C41E27F89B96007F3CC5 /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C41D27F89B96007F3CC5 /* Root.storyboard */; };
-		7D57C43027F89C23007F3CC5 /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C42F27F89C23007F3CC5 /* Content.storyboard */; };
 		7D57C43727F89C72007F3CC5 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C43227F89C72007F3CC5 /* BaseWireframe.swift */; };
 		7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C43427F89C72007F3CC5 /* BasePresenter.swift */; };
 		7D57C43A27F89C72007F3CC5 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C43527F89C72007F3CC5 /* BaseRouter.swift */; };
@@ -78,7 +77,6 @@
 		7D92BEBD27F8A6240025398D /* NothingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C46D27F8A088007F3CC5 /* NothingView.xib */; };
 		7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C41D27F89B96007F3CC5 /* Root.storyboard */; };
 		7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C46F27F8A088007F3CC5 /* ReloadContentView.xib */; };
-		7D92BEC127F8A6240025398D /* Content.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C42F27F89C23007F3CC5 /* Content.storyboard */; };
 		FA2F427428BDC86700F6E6A7 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F426A28BDC86700F6E6A7 /* RootViewInput.swift */; };
 		FA2F427528BDC86700F6E6A7 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F426A28BDC86700F6E6A7 /* RootViewInput.swift */; };
 		FA2F427628BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F426B28BDC86700F6E6A7 /* RootModuleOutput.swift */; };
@@ -99,6 +97,48 @@
 		FA2F428528BDC86700F6E6A7 /* RootViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F427228BDC86700F6E6A7 /* RootViewOutput.swift */; };
 		FA2F428628BDC86700F6E6A7 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F427328BDC86700F6E6A7 /* RootWireframe.swift */; };
 		FA2F428728BDC86700F6E6A7 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F427328BDC86700F6E6A7 /* RootWireframe.swift */; };
+		FA37A6F22902622500B9F575 /* TouchSansOne-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EB2902622500B9F575 /* TouchSansOne-Light.ttf */; };
+		FA37A6F32902622500B9F575 /* TouchSansOne-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EB2902622500B9F575 /* TouchSansOne-Light.ttf */; };
+		FA37A6F42902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EC2902622500B9F575 /* TouchSansOne-Thin.ttf */; };
+		FA37A6F52902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EC2902622500B9F575 /* TouchSansOne-Thin.ttf */; };
+		FA37A6F62902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6ED2902622500B9F575 /* TouchSansOne-Regular.ttf */; };
+		FA37A6F72902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6ED2902622500B9F575 /* TouchSansOne-Regular.ttf */; };
+		FA37A6F82902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EE2902622500B9F575 /* TouchSansOne-SemiBold.ttf */; };
+		FA37A6F92902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EE2902622500B9F575 /* TouchSansOne-SemiBold.ttf */; };
+		FA37A6FA2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EF2902622500B9F575 /* TouchSansOne-Bold.ttf */; };
+		FA37A6FB2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6EF2902622500B9F575 /* TouchSansOne-Bold.ttf */; };
+		FA37A6FC2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6F02902622500B9F575 /* TouchSansOne-Black.ttf */; };
+		FA37A6FD2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6F02902622500B9F575 /* TouchSansOne-Black.ttf */; };
+		FA37A6FE2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6F12902622500B9F575 /* TouchSansOne-ExtraLight.ttf */; };
+		FA37A6FF2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA37A6F12902622500B9F575 /* TouchSansOne-ExtraLight.ttf */; };
+		FA37A70B290262AD00B9F575 /* OnboardingViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A701290262AD00B9F575 /* OnboardingViewInput.swift */; };
+		FA37A70C290262AD00B9F575 /* OnboardingViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A701290262AD00B9F575 /* OnboardingViewInput.swift */; };
+		FA37A70D290262AD00B9F575 /* OnboardingModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A702290262AD00B9F575 /* OnboardingModuleOutput.swift */; };
+		FA37A70E290262AD00B9F575 /* OnboardingModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A702290262AD00B9F575 /* OnboardingModuleOutput.swift */; };
+		FA37A70F290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A703290262AD00B9F575 /* OnboardingRouterOutput.swift */; };
+		FA37A710290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A703290262AD00B9F575 /* OnboardingRouterOutput.swift */; };
+		FA37A711290262AD00B9F575 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A704290262AD00B9F575 /* OnboardingPresenter.swift */; };
+		FA37A712290262AD00B9F575 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A704290262AD00B9F575 /* OnboardingPresenter.swift */; };
+		FA37A713290262AD00B9F575 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A705290262AD00B9F575 /* OnboardingRouter.swift */; };
+		FA37A714290262AD00B9F575 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A705290262AD00B9F575 /* OnboardingRouter.swift */; };
+		FA37A715290262AD00B9F575 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A706290262AD00B9F575 /* OnboardingViewController.swift */; };
+		FA37A716290262AD00B9F575 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A706290262AD00B9F575 /* OnboardingViewController.swift */; };
+		FA37A717290262AD00B9F575 /* OnboardingModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A707290262AD00B9F575 /* OnboardingModuleInput.swift */; };
+		FA37A718290262AD00B9F575 /* OnboardingModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A707290262AD00B9F575 /* OnboardingModuleInput.swift */; };
+		FA37A719290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A708290262AD00B9F575 /* OnboardingRouterInput.swift */; };
+		FA37A71A290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A708290262AD00B9F575 /* OnboardingRouterInput.swift */; };
+		FA37A71B290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A709290262AD00B9F575 /* OnboardingViewOutput.swift */; };
+		FA37A71C290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A709290262AD00B9F575 /* OnboardingViewOutput.swift */; };
+		FA37A71D290262AD00B9F575 /* OnboardingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A70A290262AD00B9F575 /* OnboardingWireframe.swift */; };
+		FA37A71E290262AD00B9F575 /* OnboardingWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA37A70A290262AD00B9F575 /* OnboardingWireframe.swift */; };
+		FA37A724290262E800B9F575 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA37A723290262E800B9F575 /* Onboarding.storyboard */; };
+		FA37A725290262E800B9F575 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA37A723290262E800B9F575 /* Onboarding.storyboard */; };
+		FA37A7272902637200B9F575 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA37A7262902637200B9F575 /* Colors.xcassets */; };
+		FA37A7282902637200B9F575 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA37A7262902637200B9F575 /* Colors.xcassets */; };
+		FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */; };
+		FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */; };
+		FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
+		FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,7 +170,6 @@
 		7D57C41727F89985007F3CC5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		7D57C41A27F89ADA007F3CC5 /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		7D57C41D27F89B96007F3CC5 /* Root.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Root.storyboard; sourceTree = "<group>"; };
-		7D57C42F27F89C23007F3CC5 /* Content.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Content.storyboard; sourceTree = "<group>"; };
 		7D57C43227F89C72007F3CC5 /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
 		7D57C43427F89C72007F3CC5 /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		7D57C43527F89C72007F3CC5 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -171,6 +210,27 @@
 		FA2F427128BDC86700F6E6A7 /* RootRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterInput.swift; sourceTree = "<group>"; };
 		FA2F427228BDC86700F6E6A7 /* RootViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewOutput.swift; sourceTree = "<group>"; };
 		FA2F427328BDC86700F6E6A7 /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		FA37A6EB2902622500B9F575 /* TouchSansOne-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-Light.ttf"; sourceTree = "<group>"; };
+		FA37A6EC2902622500B9F575 /* TouchSansOne-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-Thin.ttf"; sourceTree = "<group>"; };
+		FA37A6ED2902622500B9F575 /* TouchSansOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-Regular.ttf"; sourceTree = "<group>"; };
+		FA37A6EE2902622500B9F575 /* TouchSansOne-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-SemiBold.ttf"; sourceTree = "<group>"; };
+		FA37A6EF2902622500B9F575 /* TouchSansOne-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-Bold.ttf"; sourceTree = "<group>"; };
+		FA37A6F02902622500B9F575 /* TouchSansOne-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-Black.ttf"; sourceTree = "<group>"; };
+		FA37A6F12902622500B9F575 /* TouchSansOne-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TouchSansOne-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FA37A701290262AD00B9F575 /* OnboardingViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewInput.swift; sourceTree = "<group>"; };
+		FA37A702290262AD00B9F575 /* OnboardingModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModuleOutput.swift; sourceTree = "<group>"; };
+		FA37A703290262AD00B9F575 /* OnboardingRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterOutput.swift; sourceTree = "<group>"; };
+		FA37A704290262AD00B9F575 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		FA37A705290262AD00B9F575 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		FA37A706290262AD00B9F575 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		FA37A707290262AD00B9F575 /* OnboardingModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModuleInput.swift; sourceTree = "<group>"; };
+		FA37A708290262AD00B9F575 /* OnboardingRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouterInput.swift; sourceTree = "<group>"; };
+		FA37A709290262AD00B9F575 /* OnboardingViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewOutput.swift; sourceTree = "<group>"; };
+		FA37A70A290262AD00B9F575 /* OnboardingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWireframe.swift; sourceTree = "<group>"; };
+		FA37A723290262E800B9F575 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		FA37A7262902637200B9F575 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCameraButton.swift; sourceTree = "<group>"; };
+		FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				7D57C3E827F898AD007F3CC5 /* Assets.xcassets */,
+				FA37A7262902637200B9F575 /* Colors.xcassets */,
+				FA37A6EA2902619D00B9F575 /* Fonts */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -283,7 +345,7 @@
 		7D57C41527F89958007F3CC5 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				7D57C42F27F89C23007F3CC5 /* Content.storyboard */,
+				FA37A700290262A000B9F575 /* Onboarding */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -404,6 +466,7 @@
 			children = (
 				7D57C48527F8A119007F3CC5 /* Alert Controller */,
 				7D57C48227F8A0E8007F3CC5 /* BounceButton.swift */,
+				FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */,
 				7D57C48127F8A0E8007F3CC5 /* TapticEngineGenerator.swift */,
 			);
 			path = "UI Elements";
@@ -453,6 +516,79 @@
 				FA2F427328BDC86700F6E6A7 /* RootWireframe.swift */,
 			);
 			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		FA37A6EA2902619D00B9F575 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA37A6F02902622500B9F575 /* TouchSansOne-Black.ttf */,
+				FA37A6EF2902622500B9F575 /* TouchSansOne-Bold.ttf */,
+				FA37A6F12902622500B9F575 /* TouchSansOne-ExtraLight.ttf */,
+				FA37A6EB2902622500B9F575 /* TouchSansOne-Light.ttf */,
+				FA37A6ED2902622500B9F575 /* TouchSansOne-Regular.ttf */,
+				FA37A6EE2902622500B9F575 /* TouchSansOne-SemiBold.ttf */,
+				FA37A6EC2902622500B9F575 /* TouchSansOne-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FA37A700290262A000B9F575 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FA37A723290262E800B9F575 /* Onboarding.storyboard */,
+				FA4D006D2902957100D1CC32 /* Entity */,
+				FA37A71F290262BC00B9F575 /* View */,
+				FA37A720290262C700B9F575 /* Presenter */,
+				FA37A721290262D200B9F575 /* Router */,
+				FA37A722290262D600B9F575 /* Wireframe */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		FA37A71F290262BC00B9F575 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA37A701290262AD00B9F575 /* OnboardingViewInput.swift */,
+				FA37A706290262AD00B9F575 /* OnboardingViewController.swift */,
+				FA37A709290262AD00B9F575 /* OnboardingViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA37A720290262C700B9F575 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FA37A702290262AD00B9F575 /* OnboardingModuleOutput.swift */,
+				FA37A704290262AD00B9F575 /* OnboardingPresenter.swift */,
+				FA37A707290262AD00B9F575 /* OnboardingModuleInput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FA37A721290262D200B9F575 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FA37A703290262AD00B9F575 /* OnboardingRouterOutput.swift */,
+				FA37A705290262AD00B9F575 /* OnboardingRouter.swift */,
+				FA37A708290262AD00B9F575 /* OnboardingRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FA37A722290262D600B9F575 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				FA37A70A290262AD00B9F575 /* OnboardingWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		FA4D006D2902957100D1CC32 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,10 +715,18 @@
 			files = (
 				7D57C3EC27F898AD007F3CC5 /* LaunchScreen.storyboard in Resources */,
 				7D57C3E927F898AD007F3CC5 /* Assets.xcassets in Resources */,
+				FA37A6FC2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */,
+				FA37A724290262E800B9F575 /* Onboarding.storyboard in Resources */,
 				7D57C47627F8A088007F3CC5 /* NothingView.xib in Resources */,
+				FA37A6FA2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
+				FA37A6F42902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D57C41E27F89B96007F3CC5 /* Root.storyboard in Resources */,
+				FA37A6FE2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
+				FA37A6F22902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				7D57C47827F8A088007F3CC5 /* ReloadContentView.xib in Resources */,
-				7D57C43027F89C23007F3CC5 /* Content.storyboard in Resources */,
+				FA37A6F62902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
+				FA37A6F82902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */,
+				FA37A7272902637200B9F575 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,10 +750,18 @@
 			files = (
 				7D92BEBB27F8A6240025398D /* LaunchScreen.storyboard in Resources */,
 				7D92BEBC27F8A6240025398D /* Assets.xcassets in Resources */,
+				FA37A6FD2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */,
+				FA37A725290262E800B9F575 /* Onboarding.storyboard in Resources */,
 				7D92BEBD27F8A6240025398D /* NothingView.xib in Resources */,
+				FA37A6FB2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
+				FA37A6F52902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */,
+				FA37A6FF2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
+				FA37A6F32902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */,
-				7D92BEC127F8A6240025398D /* Content.storyboard in Resources */,
+				FA37A6F72902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
+				FA37A6F92902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */,
+				FA37A7282902637200B9F575 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,36 +774,48 @@
 			files = (
 				7D57C45727F89DFB007F3CC5 /* Sequence+Extensions.swift in Sources */,
 				7D57C48727F8A123007F3CC5 /* AlertController.swift in Sources */,
+				FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
 				7D57C47527F8A088007F3CC5 /* NothingView.swift in Sources */,
 				7D57C45D27F89DFB007F3CC5 /* Array+Extensions.swift in Sources */,
 				FA2F427C28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
+				FA37A71B290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
 				7D57C46227F89E67007F3CC5 /* ErrorsHandlerInterface.swift in Sources */,
 				FA2F427828BDC86700F6E6A7 /* RootRouterOutput.swift in Sources */,
 				FA2F428428BDC86700F6E6A7 /* RootViewOutput.swift in Sources */,
 				7D57C41027F898E3007F3CC5 /* main.swift in Sources */,
+				FA37A70F290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
+				FA37A713290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
 				FA2F427E28BDC86700F6E6A7 /* RootViewController.swift in Sources */,
 				7D57C46327F89E67007F3CC5 /* ErrorsFactory.swift in Sources */,
 				7D57C45C27F89DFB007F3CC5 /* Bundle+Extensions.swift in Sources */,
 				FA2F427628BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */,
 				7D57C41B27F89ADA007F3CC5 /* BaseObject.swift in Sources */,
+				FA37A711290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FA2F428628BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
 				7D57C47427F8A088007F3CC5 /* BaseStateViewController.swift in Sources */,
+				FA37A717290262AD00B9F575 /* OnboardingModuleInput.swift in Sources */,
 				7D57C43B27F89C72007F3CC5 /* BaseViewController.swift in Sources */,
 				7D57C47C27F8A088007F3CC5 /* StatesViewsHandler.swift in Sources */,
 				7D57C48327F8A0E8007F3CC5 /* TapticEngineGenerator.swift in Sources */,
 				7D57C45927F89DFB007F3CC5 /* UITextField+Extensions.swift in Sources */,
 				7D57C47727F8A088007F3CC5 /* ErrorView.swift in Sources */,
+				FA37A70D290262AD00B9F575 /* OnboardingModuleOutput.swift in Sources */,
+				FA37A719290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */,
 				7D57C45B27F89DFB007F3CC5 /* UIView+Extensions.swift in Sources */,
 				7D57C47A27F8A088007F3CC5 /* ReloadContentView.swift in Sources */,
+				FA37A715290262AD00B9F575 /* OnboardingViewController.swift in Sources */,
 				FA2F427A28BDC86700F6E6A7 /* RootPresenter.swift in Sources */,
+				FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				7D57C44D27F89DDE007F3CC5 /* ParserHelper.swift in Sources */,
 				7D92BE8627F8A4D00025398D /* Constants.swift in Sources */,
 				FA2F428228BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				7D57C47B27F8A088007F3CC5 /* LoadingView.swift in Sources */,
+				FA37A70B290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
 				7D57C47927F8A088007F3CC5 /* StatesViewsDataSource.swift in Sources */,
 				7D57C43A27F89C72007F3CC5 /* BaseRouter.swift in Sources */,
+				FA37A71D290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
 				7D57C45827F89DFB007F3CC5 /* Date+Extensions.swift in Sources */,
 				7D57C41827F89985007F3CC5 /* Logger.swift in Sources */,
 				FA2F428028BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
@@ -683,36 +847,48 @@
 			files = (
 				7D92BE8A27F8A6240025398D /* Sequence+Extensions.swift in Sources */,
 				7D92BE8B27F8A6240025398D /* AlertController.swift in Sources */,
+				FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
 				7D92BE8C27F8A6240025398D /* NothingView.swift in Sources */,
 				7D92BE8D27F8A6240025398D /* Array+Extensions.swift in Sources */,
 				FA2F427D28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
+				FA37A71C290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
 				7D92BE8F27F8A6240025398D /* ErrorsHandlerInterface.swift in Sources */,
 				FA2F427928BDC86700F6E6A7 /* RootRouterOutput.swift in Sources */,
 				FA2F428528BDC86700F6E6A7 /* RootViewOutput.swift in Sources */,
 				7D92BE9227F8A6240025398D /* main.swift in Sources */,
+				FA37A710290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
+				FA37A714290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
 				FA2F427F28BDC86700F6E6A7 /* RootViewController.swift in Sources */,
 				7D92BE9327F8A6240025398D /* ErrorsFactory.swift in Sources */,
 				7D92BE9427F8A6240025398D /* Bundle+Extensions.swift in Sources */,
 				FA2F427728BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */,
 				7D92BE9527F8A6240025398D /* BaseObject.swift in Sources */,
+				FA37A712290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FA2F428728BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
 				7D92BE9727F8A6240025398D /* BaseStateViewController.swift in Sources */,
+				FA37A718290262AD00B9F575 /* OnboardingModuleInput.swift in Sources */,
 				7D92BE9927F8A6240025398D /* BaseViewController.swift in Sources */,
 				7D92BE9C27F8A6240025398D /* StatesViewsHandler.swift in Sources */,
 				7D92BE9F27F8A6240025398D /* TapticEngineGenerator.swift in Sources */,
 				7D92BEA127F8A6240025398D /* UITextField+Extensions.swift in Sources */,
 				7D92BEA227F8A6240025398D /* ErrorView.swift in Sources */,
+				FA37A70E290262AD00B9F575 /* OnboardingModuleOutput.swift in Sources */,
+				FA37A71A290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */,
 				7D92BEA327F8A6240025398D /* UIView+Extensions.swift in Sources */,
 				7D92BEA427F8A6240025398D /* ReloadContentView.swift in Sources */,
+				FA37A716290262AD00B9F575 /* OnboardingViewController.swift in Sources */,
 				FA2F427B28BDC86700F6E6A7 /* RootPresenter.swift in Sources */,
+				FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				7D92BEA627F8A6240025398D /* ParserHelper.swift in Sources */,
 				7D92BEA727F8A6240025398D /* Constants.swift in Sources */,
 				FA2F428328BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				7D92BEA827F8A6240025398D /* LoadingView.swift in Sources */,
+				FA37A70C290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
 				7D92BEAB27F8A6240025398D /* StatesViewsDataSource.swift in Sources */,
 				7D92BEAD27F8A6240025398D /* BaseRouter.swift in Sources */,
+				FA37A71E290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
 				7D92BEAE27F8A6240025398D /* Date+Extensions.swift in Sources */,
 				7D92BEAF27F8A6240025398D /* Logger.swift in Sources */,
 				FA2F428128BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
@@ -802,7 +978,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -857,7 +1033,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -877,18 +1053,19 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tomark.TempateApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = tomark.controlcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -907,18 +1084,19 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = tomark.TempateApplication;
+				PRODUCT_BUNDLE_IDENTIFIER = tomark.controlcamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1012,19 +1190,21 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/StagingInfo.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = tomark.TempateApplication.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = tomark.controlcamera.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1042,19 +1222,21 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/StagingInfo.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = tomark.TempateApplication.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = tomark.controlcamera.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
