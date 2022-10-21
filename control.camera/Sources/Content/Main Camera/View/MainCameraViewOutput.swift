@@ -9,5 +9,5 @@
 import UIKit
 
 protocol MainCameraViewOutputProtocol: AnyObject {
-            
+    func didTapOnShutter()
 }

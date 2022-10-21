@@ -44,15 +44,21 @@ class MainCameraWireframe: BaseWireframe {
         guard let view: MainCameraViewController = initializeController() else { return nil }
         let presenter = MainCameraPresenter()
         let router = MainCameraRouter()
+        let camera = CameraConfigurationImplementation()
         
         presenter.view = view
         presenter.router = router
+        presenter.camera = camera
         
         view.output = presenter
+        view.camera = camera
         router.output = presenter
         
         router.view = view
         presenter.moduleOutput = moduleOutput
+        
+        camera.output = presenter
+        camera.view = view
                 
         return view
     }

@@ -14,6 +14,7 @@ class MainCameraPresenter: BasePresenter {
     
     weak var view: MainCameraViewInputProtocol!
     var router: MainCameraRouterInputProtocol!
+    var camera: CameraConfiguration!
     weak var moduleOutput: MainCameraModuleOutput?
     
 }
@@ -26,9 +27,18 @@ extension MainCameraPresenter: MainCameraModuleInput {
 // MARK: - View - Presenter
 extension MainCameraPresenter: MainCameraViewOutputProtocol {
     
+    func didTapOnShutter() {
+        camera.capturePhoto()
+    }
+    
 }
 
 // MARK: - Router - Presenter
 extension MainCameraPresenter: MainCameraRouterOutputProtocol {
+    
+}
+
+// MARK: - Camera - Presenter
+extension MainCameraPresenter: CameraConfigurationOutput {
     
 }
