@@ -44,6 +44,20 @@ class SimpleSwitchControlWireframe: BaseWireframe {
         parent.present(navigationController, animated: true, completion: nil)
     }
     
+    func embeddedIn(_ parent: UIViewController?,
+                    view: UIView,
+                    moduleInput: inout SimpleSwitchControlModuleInput?,
+                    moduleOutput: SimpleSwitchControlModuleOutput? = nil) {
+        guard let viewController = self.createModule(moduleInput: &moduleInput,
+                                                     moduleOutput: moduleOutput),
+              let parent = parent else { return }
+        
+        parent.addChild(viewController)
+        viewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        view.addSubview(viewController.view)
+        viewController.didMove(toParent: parent)
+    }
+    
     func createModule(moduleInput: inout SimpleSwitchControlModuleInput?,
                       moduleOutput: SimpleSwitchControlModuleOutput?) -> SimpleSwitchControlViewController? {
         guard let view: SimpleSwitchControlViewController = initializeController() else { return nil }

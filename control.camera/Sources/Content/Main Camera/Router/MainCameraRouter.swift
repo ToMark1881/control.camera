@@ -15,12 +15,19 @@ class MainCameraRouter: BaseRouter {
     weak var output: MainCameraRouterOutputProtocol!
     weak var view: BaseViewControllerProtocol!
     
+    private lazy var simpleSwitchWireframe = { SimpleSwitchControlWireframe() }()
+    
 }
 
 extension MainCameraRouter: MainCameraRouterInputProtocol {
     
     // MARK: - Present
-    
+    func setupLightControl(for view: UIView,
+                           moduleInput: inout SimpleSwitchControlModuleInput?,
+                           moduleOutput: SimpleSwitchControlModuleOutput) {
+        simpleSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        moduleInput?.setupSwitch(for: .light, defaultValue: true)
+    }
     // MARK: - Dismiss
     
 }

@@ -6,8 +6,10 @@
 //  Created by Vladyslav Vdovychenko on 21.10.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol MainCameraRouterInputProtocol: AnyObject {
-        
+    func setupLightControl(for view: UIView,
+                           moduleInput: inout SimpleSwitchControlModuleInput?,
+                           moduleOutput: SimpleSwitchControlModuleOutput)
 }

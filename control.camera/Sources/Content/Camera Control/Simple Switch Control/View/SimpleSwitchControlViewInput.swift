@@ -10,4 +10,5 @@ import UIKit
 
 protocol SimpleSwitchControlViewInputProtocol: BaseViewControllerProtocol {
     func update(with props: SimpleSwitchViewProps)
+    func reactOnControlChange()
 }

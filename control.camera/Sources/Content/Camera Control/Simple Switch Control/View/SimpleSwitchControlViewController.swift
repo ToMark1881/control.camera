@@ -16,6 +16,7 @@ class SimpleSwitchControlViewController: BaseViewController {
     @IBOutlet weak var switchValueLabel: UILabel!
     @IBOutlet weak var switchNameLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var linesImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtoco
         switchValueLabel.text = props.currentValue
     }
     
+    func reactOnControlChange() {
+        TapticEngineGenerator.generateFeedback(.light)
+    }
+    
 }
 
 private extension SimpleSwitchControlViewController {
@@ -40,9 +45,20 @@ private extension SimpleSwitchControlViewController {
     func setupControllerForSimpleSwitch() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapOnSwitch))
         self.view.addGestureRecognizer(tap)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(didPanOnSwitch))
+        self.view.addGestureRecognizer(pan)
     }
     
     @objc func didTapOnSwitch(_ sender: UITapGestureRecognizer) {
+        guard sender.state == .ended else { return }
+        
+        output.didChangeSimpleSwitchValue()
+    }
+    
+    @objc func didPanOnSwitch(_ sender: UIPanGestureRecognizer) {
+        guard sender.state == .ended else { return }
+        
         output.didChangeSimpleSwitchValue()
     }
     

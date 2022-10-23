@@ -10,7 +10,7 @@ import UIKit
 class ShutterButton: BounceButton {
     
     override func shrinkAllowAnimation() {
-        TapticEngineGenerator.shared.generateFeedback(.light)
+        TapticEngineGenerator.generateFeedback(.light)
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -23,7 +23,7 @@ class ShutterButton: BounceButton {
     }
     
     override func restoreAllowAnimation() {
-        TapticEngineGenerator.shared.generateFeedback(.medium)
+        TapticEngineGenerator.generateFeedback(.medium)
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,

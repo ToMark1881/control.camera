@@ -13,6 +13,8 @@ protocol CameraConfiguration: AnyObject {
     func startSession()
     
     func capturePhoto()
+    
+    func getCameraSettings() -> CameraSettings
 }
 
 class CameraConfigurationImplementation: NSObject, CameraConfiguration {
@@ -83,11 +85,29 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         stillImageOutput.capturePhoto(with: photoSettings, delegate: self)
     }
     
+    func getCameraSettings() -> CameraSettings {
+        let minISO = currentDevice.activeFormat.minISO
+        let maxISO = currentDevice.activeFormat.maxISO
+        
+        let minExposure = currentDevice.activeFormat.minExposureDuration
+        let maxExposure = currentDevice.activeFormat.maxExposureDuration
+        
+        
+        let settings: CameraSettings = .init(minISO: minISO,
+                                             maxISO: maxISO,
+                                             minExposure: minExposure,
+                                             maxExposure: maxExposure)
+        
+        return settings
+    }
+    
 }
 
 extension CameraConfigurationImplementation: AVCapturePhotoCaptureDelegate {
     
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+    func photoOutput(_ output: AVCapturePhotoOutput,
+                     didFinishProcessingPhoto photo: AVCapturePhoto,
+                     error: Error?) {
         guard error == nil else {
             return
         }

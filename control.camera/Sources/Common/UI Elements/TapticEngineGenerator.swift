@@ -28,12 +28,8 @@ enum TapticEngineFeedbackType {
 }
 
 class TapticEngineGenerator {
-    
-    static let shared = TapticEngineGenerator()
-    
-    private init() {}
-    
-    func generateFeedback(_ style: TapticEngineFeedbackStyle) {
+            
+    class func generateFeedback(_ style: TapticEngineFeedbackStyle) {
         if #available(iOS 10.0, *) {
             var feedbackType = UIImpactFeedbackGenerator.FeedbackStyle.light
             
@@ -48,7 +44,7 @@ class TapticEngineGenerator {
         }
     }
     
-    func generateNotification(_ type: TapticEngineFeedbackType) {
+    class func generateNotification(_ type: TapticEngineFeedbackType) {
         if #available(iOS 10.0, *) {
             var notificationType = UINotificationFeedbackGenerator.FeedbackType.success
             

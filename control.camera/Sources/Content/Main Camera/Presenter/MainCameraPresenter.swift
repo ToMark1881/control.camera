@@ -17,6 +17,8 @@ class MainCameraPresenter: BasePresenter {
     var camera: CameraConfiguration!
     weak var moduleOutput: MainCameraModuleOutput?
     
+    weak var lightModuleInput: SimpleSwitchControlModuleInput?
+    
 }
 
 // MARK: - Module Input
@@ -29,6 +31,11 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
     
     func onViewDidLoad() {
         camera.configure()
+        router.setupLightControl(for: view.exampleView,
+                                 moduleInput: &lightModuleInput,
+                                 moduleOutput: self)
+        
+        camera.getCameraSettings().logSettings()
     }
     
     func didSetupCameraLayer() {
@@ -48,5 +55,13 @@ extension MainCameraPresenter: MainCameraRouterOutputProtocol {
 
 // MARK: - Camera - Presenter
 extension MainCameraPresenter: CameraConfigurationOutput {
+    
+}
+
+extension MainCameraPresenter: SimpleSwitchControlModuleOutput {
+    
+    func didChangeSwitch(for type: CameraControlType, value: Bool) {
+        print(type.title, value)
+    }
     
 }

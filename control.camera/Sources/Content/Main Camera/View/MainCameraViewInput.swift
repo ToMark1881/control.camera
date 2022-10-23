@@ -9,5 +9,5 @@
 import UIKit
 
 protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
-        
+    var exampleView: UIView! { get }
 }

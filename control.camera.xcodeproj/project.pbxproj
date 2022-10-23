@@ -165,6 +165,8 @@
 		FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */; };
 		FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
 		FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
+		FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EF31E29059E12009520C7 /* CameraSettings.swift */; };
+		FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EF31E29059E12009520C7 /* CameraSettings.swift */; };
 		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
@@ -300,6 +302,7 @@
 		FA37A7262902637200B9F575 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCameraButton.swift; sourceTree = "<group>"; };
 		FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProps.swift; sourceTree = "<group>"; };
+		FA7EF31E29059E12009520C7 /* CameraSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSettings.swift; sourceTree = "<group>"; };
 		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
@@ -431,6 +434,7 @@
 			children = (
 				FA37A700290262A000B9F575 /* Onboarding */,
 				FAEEEF182902A31B0019EE29 /* Main Camera */,
+				FA2644052902D28C00655F22 /* Camera Control */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -554,7 +558,6 @@
 				FAEEEF3E2902A67C0019EE29 /* ShutterButton.swift */,
 				FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */,
 				7D57C48127F8A0E8007F3CC5 /* TapticEngineGenerator.swift */,
-				FA2644052902D28C00655F22 /* Camera Control */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				FAEEEF422902AB360019EE29 /* CameraConfiguration.swift */,
 				FAEEEF452902AD310019EE29 /* CameraConfigurationOutput.swift */,
 				FAEEEF482902AD3D0019EE29 /* CameraViewConfiguration.swift */,
+				FA7EF31E29059E12009520C7 /* CameraSettings.swift */,
 			);
 			path = CameraConfiguration;
 			sourceTree = "<group>";
@@ -1050,6 +1054,7 @@
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
 				FA2644192902D3DF00655F22 /* SimpleSwitchControlModuleOutput.swift in Sources */,
 				FAEEEF462902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
+				FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
 				7D57C47927F8A088007F3CC5 /* StatesViewsDataSource.swift in Sources */,
 				FAEEEF302902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
@@ -1149,6 +1154,7 @@
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
 				FA26441A2902D3DF00655F22 /* SimpleSwitchControlModuleOutput.swift in Sources */,
 				FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
+				FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
 				7D92BEAB27F8A6240025398D /* StatesViewsDataSource.swift in Sources */,
 				FAEEEF312902A33B0019EE29 /* MainCameraViewController.swift in Sources */,

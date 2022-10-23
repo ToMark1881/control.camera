@@ -27,6 +27,7 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
     func setupSwitch(for type: CameraControlType, defaultValue: Bool) {
         switchType = type
         switchValue = defaultValue
+        reloadView()
     }
     
 }
@@ -34,13 +35,12 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
 // MARK: - View - Presenter
 extension SimpleSwitchControlPresenter: SimpleSwitchControlViewOutputProtocol {
     
-    func onViewDidLoad() {
-        reloadView()
-    }
+    func onViewDidLoad() { }
     
     func didChangeSimpleSwitchValue() {
         switchValue.toggle()
         reloadView()
+        view.reactOnControlChange()
         moduleOutput?.didChangeSwitch(for: switchType,
                                       value: switchValue)
     }

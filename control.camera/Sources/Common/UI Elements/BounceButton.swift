@@ -21,7 +21,7 @@ class BounceButton: UIButton {
     }
     
     @objc func shrinkAllowAnimation() {
-        TapticEngineGenerator.shared.generateFeedback(.light)
+        TapticEngineGenerator.generateFeedback(.light)
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: CGFloat(0.6),
@@ -76,7 +76,7 @@ class BounceButton: UIButton {
 
 class BigBounceButton: BounceButton {
     override func shrinkAllowAnimation() {
-        TapticEngineGenerator.shared.generateFeedback(.light)
+        TapticEngineGenerator.generateFeedback(.light)
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: CGFloat(0.6),

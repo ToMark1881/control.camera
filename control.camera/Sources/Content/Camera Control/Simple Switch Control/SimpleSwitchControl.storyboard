@@ -20,7 +20,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Simple Control Background" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Background (no lines)" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
+                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Interactive Lines" translatesAutoresizingMaskIntoConstraints="NO" id="KF7-9H-bB0">
                                 <rect key="frame" x="2" y="2" width="96" height="96"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOs-F3-8G1">
@@ -42,14 +45,18 @@
                             <constraint firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
                             <constraint firstItem="9rt-EC-jLY" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Lfo-BA-0V0"/>
                             <constraint firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" constant="2" id="MWW-Jl-wK9"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" id="MdK-Uh-sOK"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NO1-Qb-0VV"/>
                             <constraint firstAttribute="trailing" secondItem="9rt-EC-jLY" secondAttribute="trailing" constant="4" id="QhF-jd-2BJ"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="top" secondItem="pKB-Qa-OWC" secondAttribute="top" id="Rdu-ng-XHn"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="Ucy-vK-yGW"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9rt-EC-jLY" secondAttribute="bottom" constant="4" id="Xqu-pe-a5W"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="4" id="dUq-y0-a2s"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="fbR-pf-t2i"/>
                             <constraint firstItem="pKB-Qa-OWC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="2" id="fgb-cC-x6e"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="leading" secondItem="pKB-Qa-OWC" secondAttribute="leading" id="hdT-Uk-ofr"/>
                             <constraint firstItem="9rt-EC-jLY" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="n0J-4Q-98G"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" id="rkE-qs-N7q"/>
                             <constraint firstItem="9rt-EC-jLY" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="2" id="vEN-Pf-Wvu"/>
                             <constraint firstItem="pKB-Qa-OWC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2" id="zG9-Gh-UGO"/>
                         </constraints>
@@ -57,6 +64,7 @@
                     <size key="freeformSize" width="100" height="100"/>
                     <connections>
                         <outlet property="backgroundImage" destination="pKB-Qa-OWC" id="7od-Sf-5Ew"/>
+                        <outlet property="linesImageView" destination="KF7-9H-bB0" id="sxR-VH-ffg"/>
                         <outlet property="switchNameLabel" destination="YOs-F3-8G1" id="pe3-DD-7U6"/>
                         <outlet property="switchValueLabel" destination="9rt-EC-jLY" id="bN0-2v-KHr"/>
                     </connections>
@@ -67,6 +75,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Simple Control Background" width="114" height="114"/>
+        <image name="Control Background (no lines)" width="114" height="114"/>
+        <image name="Control Interactive Lines" width="114" height="114"/>
     </resources>
 </document>
