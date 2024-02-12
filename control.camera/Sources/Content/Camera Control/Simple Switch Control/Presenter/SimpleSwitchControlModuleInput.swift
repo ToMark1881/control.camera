@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SimpleSwitchControlModuleInput: BasePresenter {
-    func setupSwitch(for type: CameraControlType, defaultValue: Bool)
+    func setupSwitch(for control: CameraControl)
 }

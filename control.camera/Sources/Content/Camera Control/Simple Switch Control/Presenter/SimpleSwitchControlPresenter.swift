@@ -16,18 +16,29 @@ class SimpleSwitchControlPresenter: BasePresenter {
     var router: SimpleSwitchControlRouterInputProtocol!
     weak var moduleOutput: SimpleSwitchControlModuleOutput?
     
-    var switchType: CameraControlType!
-    var switchValue: Bool!
+    var switchControl: CameraControl!
     
+    private var controlValue: SimpleControlValue {
+        guard case let .simple(value) = switchControl.type else {
+            fatalError("Wrong CameraControlType")
+        }
+        
+        return value
+    }
 }
 
 // MARK: - Module Input
 extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
     
-    func setupSwitch(for type: CameraControlType, defaultValue: Bool) {
-        switchType = type
-        switchValue = defaultValue
+    func setupSwitch(for control: CameraControl) {
+        guard case .simple = control.type else {
+            fatalError("Wrong CameraControlType")
+        }
+        
+        switchControl = control
         reloadView()
+        
+        moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
 }
@@ -35,14 +46,13 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
 // MARK: - View - Presenter
 extension SimpleSwitchControlPresenter: SimpleSwitchControlViewOutputProtocol {
     
-    func onViewDidLoad() { }
+    func onViewDidLoad() {}
     
     func didChangeSimpleSwitchValue() {
-        switchValue.toggle()
+        switchControl.type = .simple(SimpleControlValue(isActive: !controlValue.isActive))
         reloadView()
         view.reactOnControlChange()
-        moduleOutput?.didChangeSwitch(for: switchType,
-                                      value: switchValue)
+        moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
 }
@@ -55,9 +65,9 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlRouterOutputProtocol 
 private extension SimpleSwitchControlPresenter {
     
     func reloadView() {
-        let currentValueDescription = switchValue ? "On" : "Off"
+        let currentValueDescription = controlValue.isActive ? "On" : "Off"
         
-        let props: SimpleSwitchViewProps = .init(title: switchType.title,
+        let props: SimpleSwitchViewProps = .init(title: switchControl.title,
                                                  currentValue: currentValueDescription)
         
         view?.update(with: props)

@@ -45,10 +45,14 @@ class MainCameraWireframe: BaseWireframe {
         let presenter = MainCameraPresenter()
         let router = MainCameraRouter()
         let camera = CameraConfigurationImplementation()
+        let applier = CameraSettingsApplierImplementation.default
+        
+        camera.applier = applier
         
         presenter.view = view
         presenter.router = router
         presenter.camera = camera
+        presenter.settingsApplier = applier
         
         view.output = presenter
         router.output = presenter

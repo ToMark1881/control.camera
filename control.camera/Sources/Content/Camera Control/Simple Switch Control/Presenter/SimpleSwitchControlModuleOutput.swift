@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SimpleSwitchControlModuleOutput: AnyObject {
-    func didChangeSwitch(for type: CameraControlType, value: Bool)
+    func didChangeSwitch(for control: CameraControl)
 }

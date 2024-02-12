@@ -9,18 +9,20 @@ import UIKit
 import AVFoundation
 
 protocol CameraConfiguration: AnyObject {
+    var settings: CameraSettings { get }
+    
     func configure()
     func startSession()
     
     func capturePhoto()
-    
-    func getCameraSettings() -> CameraSettings
 }
 
 class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     
     weak var view: CameraViewConfiguration!
     weak var output: CameraConfigurationOutput!
+    
+    var applier: CameraSettingsApplier!
     
     var captureSession: AVCaptureSession!
     
@@ -32,6 +34,24 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     var stillImage: UIImage?
     
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+    
+    var settings: CameraSettings {
+        let minISO = currentDevice.activeFormat.minISO
+        let maxISO = currentDevice.activeFormat.maxISO
+        
+        let minExposure = currentDevice.activeFormat.minExposureDuration
+        let maxExposure = currentDevice.activeFormat.maxExposureDuration
+        
+        let isFlashAvailable = currentDevice.isFlashAvailable
+        
+        let settings: CameraSettings = .init(minISO: minISO,
+                                             maxISO: maxISO,
+                                             minExposure: minExposure,
+                                             maxExposure: maxExposure,
+                                             isFlashAvailable: isFlashAvailable)
+        
+        return settings
+    }
     
     func configure() {
         // Preset the session for taking photo in full resolution
@@ -66,7 +86,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         
         // Provide a camera preview
         cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
         view.setupCameraLayer(cameraPreviewLayer!)
     }
     
@@ -79,26 +99,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     func capturePhoto() {
         let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         photoSettings.isHighResolutionPhotoEnabled = true
-        photoSettings.flashMode = .auto
+        photoSettings.flashMode = applier.flashControl.flashMode
         
         stillImageOutput.isHighResolutionCaptureEnabled = true
         stillImageOutput.capturePhoto(with: photoSettings, delegate: self)
-    }
-    
-    func getCameraSettings() -> CameraSettings {
-        let minISO = currentDevice.activeFormat.minISO
-        let maxISO = currentDevice.activeFormat.maxISO
-        
-        let minExposure = currentDevice.activeFormat.minExposureDuration
-        let maxExposure = currentDevice.activeFormat.maxExposureDuration
-        
-        
-        let settings: CameraSettings = .init(minISO: minISO,
-                                             maxISO: maxISO,
-                                             minExposure: minExposure,
-                                             maxExposure: maxExposure)
-        
-        return settings
     }
     
 }

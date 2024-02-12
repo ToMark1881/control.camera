@@ -22,12 +22,16 @@ class MainCameraRouter: BaseRouter {
 extension MainCameraRouter: MainCameraRouterInputProtocol {
     
     // MARK: - Present
-    func setupLightControl(for view: UIView,
+    func setupLightControl(controlValue: SimpleControlValue,
+                           for view: UIView,
                            moduleInput: inout SimpleSwitchControlModuleInput?,
                            moduleOutput: SimpleSwitchControlModuleOutput) {
         simpleSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        moduleInput?.setupSwitch(for: .light, defaultValue: true)
+        
+        let flashControl: CameraControl = FlashCameraControl()
+        moduleInput?.setupSwitch(for: flashControl)
     }
+    
     // MARK: - Dismiss
     
 }

@@ -9,7 +9,8 @@
 import UIKit
 
 protocol MainCameraRouterInputProtocol: AnyObject {
-    func setupLightControl(for view: UIView,
+    func setupLightControl(controlValue: SimpleControlValue,
+                           for view: UIView,
                            moduleInput: inout SimpleSwitchControlModuleInput?,
                            moduleOutput: SimpleSwitchControlModuleOutput)
 }
