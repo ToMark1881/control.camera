@@ -17,6 +17,7 @@ class MainCameraPresenter: BasePresenter {
     
     weak var moduleOutput: MainCameraModuleOutput?
     weak var lightModuleInput: SimpleSwitchControlModuleInput?
+    weak var formModuleInput: RangeSwitchControlModuleInput?
     
     var camera: CameraConfiguration!
     var settingsApplier: CameraSettingsApplier!
@@ -58,8 +59,8 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     
 }
 
-// MARK: - SimpleSwitchControlModuleOutput
-extension MainCameraPresenter: SimpleSwitchControlModuleOutput {
+// MARK: - SwitchControlModuleOutput
+extension MainCameraPresenter: SwitchControlModuleOutput {
     
     func didChangeSwitch(for control: CameraControl) {
         settingsApplier.apply(control)
@@ -71,6 +72,7 @@ private extension MainCameraPresenter {
     
     func setupControls() {
         setupLightControl()
+        setupFormControl()
     }
     
     func setupLightControl() {
@@ -78,12 +80,21 @@ private extension MainCameraPresenter {
             return
         }
         
-        let controlValue = SimpleControlValue(isActive: false)
+        let controlValue = FlashCameraControl()
         
         router.setupLightControl(controlValue: controlValue,
-                                 for: view.exampleView,
+                                 for: view.flashView,
                                  moduleInput: &lightModuleInput,
                                  moduleOutput: self)
+    }
+    
+    func setupFormControl() {
+        let controlValue = FormCameraControl()
+        
+        router.setupFormControl(controlValue: controlValue,
+                                for: view.formView,
+                                moduleInput: &formModuleInput,
+                                moduleOutput: self)
     }
     
 }

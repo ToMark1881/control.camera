@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TouchSansOne-Regular.ttf">
+            <string>TouchSansOne-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Range Switch Control View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RangeSwitchControlViewController" id="Y6W-OH-hqX" customClass="RangeSwitchControlViewController" customModule="Staging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Background (no lines)" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
+                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Interactive Lines" translatesAutoresizingMaskIntoConstraints="NO" id="KF7-9H-bB0">
+                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOs-F3-8G1">
+                                <rect key="frame" x="4" y="28" width="92" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="3me-nl-UQp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQO-31-WnR">
+                                <rect key="frame" x="4" y="48" width="92" height="48"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="gm6-cT-aVI"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="gbL-ae-GD4"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XVC-z5-mWB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mQO-31-WnR" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="B84-8s-zEE"/>
+                            <constraint firstAttribute="trailing" secondItem="YOs-F3-8G1" secondAttribute="trailing" constant="4" id="BJu-L3-VFJ"/>
+                            <constraint firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
+                            <constraint firstItem="XVC-z5-mWB" firstAttribute="trailing" secondItem="mQO-31-WnR" secondAttribute="trailing" constant="4" id="LbD-Yr-KXa"/>
+                            <constraint firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" constant="2" id="MWW-Jl-wK9"/>
+                            <constraint firstItem="mQO-31-WnR" firstAttribute="leading" secondItem="XVC-z5-mWB" secondAttribute="leading" constant="4" id="MXa-H9-G1A"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" id="MdK-Uh-sOK"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NO1-Qb-0VV"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="top" secondItem="pKB-Qa-OWC" secondAttribute="top" id="Rdu-ng-XHn"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="Ucy-vK-yGW"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="4" id="dUq-y0-a2s"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="fbR-pf-t2i"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="2" id="fgb-cC-x6e"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="leading" secondItem="pKB-Qa-OWC" secondAttribute="leading" id="hdT-Uk-ofr"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" id="rkE-qs-N7q"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mQO-31-WnR" secondAttribute="bottom" constant="4" id="w7p-Vu-P7R"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2" id="zG9-Gh-UGO"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="100" height="100"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="pKB-Qa-OWC" id="7od-Sf-5Ew"/>
+                        <outlet property="linesImageView" destination="KF7-9H-bB0" id="sxR-VH-ffg"/>
+                        <outlet property="pickerView" destination="mQO-31-WnR" id="ZVS-td-hGk"/>
+                        <outlet property="switchNameLabel" destination="YOs-F3-8G1" id="pe3-DD-7U6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-35.384615384615387" y="24.881516587677723"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Control Background (no lines)" width="114" height="114"/>
+        <image name="Control Interactive Lines" width="114" height="114"/>
+    </resources>
+</document>

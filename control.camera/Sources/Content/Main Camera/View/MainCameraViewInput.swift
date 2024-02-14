@@ -9,5 +9,6 @@
 import UIKit
 
 protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
-    var exampleView: UIView! { get }
+    var flashView: UIView! { get }
+    var formView: UIView! { get }
 }

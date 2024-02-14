@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,19 +31,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tff-8l-8Kx" userLabel="Controls Container">
                                 <rect key="frame" x="0.0" y="59" width="390" height="657"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-Nf-fnf">
-                                        <rect key="frame" x="131" y="264.66666666666669" width="128" height="128"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="anx-vG-1A7"/>
-                                            <constraint firstAttribute="width" constant="128" id="yTO-ER-RJi"/>
-                                        </constraints>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YHv-Ff-TJX">
+                                        <rect key="frame" x="61" y="264.66666666666669" width="268" height="128"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-yh-wFP">
+                                                <rect key="frame" x="0.0" y="0.0" width="268" height="128"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-Nf-fnf" userLabel="FlashView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="anx-vG-1A7"/>
+                                                            <constraint firstAttribute="width" constant="128" id="yTO-ER-RJi"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIb-cp-hi2" userLabel="FormView">
+                                                        <rect key="frame" x="140" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="lHu-lW-gZv"/>
+                                                            <constraint firstAttribute="width" constant="128" id="nPB-NQ-8li"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="xvw-Nf-fnf" firstAttribute="centerX" secondItem="tff-8l-8Kx" secondAttribute="centerX" id="LTq-ua-7GQ"/>
-                                    <constraint firstItem="xvw-Nf-fnf" firstAttribute="centerY" secondItem="tff-8l-8Kx" secondAttribute="centerY" id="mWD-Cm-f5y"/>
+                                    <constraint firstItem="YHv-Ff-TJX" firstAttribute="centerX" secondItem="tff-8l-8Kx" secondAttribute="centerX" id="4Cv-X0-PdE"/>
+                                    <constraint firstItem="YHv-Ff-TJX" firstAttribute="centerY" secondItem="tff-8l-8Kx" secondAttribute="centerY" id="kny-f6-q5I"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -60,7 +78,8 @@
                     </view>
                     <connections>
                         <outlet property="controlsContainerView" destination="tff-8l-8Kx" id="2yr-g9-Kh0"/>
-                        <outlet property="exampleView" destination="xvw-Nf-fnf" id="Ojy-HS-yKz"/>
+                        <outlet property="flashView" destination="xvw-Nf-fnf" id="wli-Xu-whn"/>
+                        <outlet property="formView" destination="pIb-cp-hi2" id="A3I-Ss-RrB"/>
                         <outlet property="shutterButton" destination="vGo-6J-k9l" id="1Sh-aJ-ODp"/>
                     </connections>
                 </viewController>

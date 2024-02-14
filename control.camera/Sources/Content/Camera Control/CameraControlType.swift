@@ -18,6 +18,19 @@ struct ArrayControlValue {
 struct RangeControlValue {
     let min: Int
     let max: Int
+    let step: Int
+    
+    let selected: Int?
+    
+    var range: [Int] {
+        var items = [Int]()
+        
+        for index in stride(from: min, to: max, by: step) {
+            items.append(index)
+        }
+        
+        return items
+    }
 }
 
 struct RangeWithDefaultValue {

@@ -13,7 +13,8 @@ class MainCameraViewController: BaseViewController {
     //MARK: - Injected
     var output: MainCameraViewOutputProtocol!
 
-    @IBOutlet weak var exampleView: UIView!
+    @IBOutlet weak var flashView: UIView!
+    @IBOutlet weak var formView: UIView!
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var shutterButton: ShutterButton!
     

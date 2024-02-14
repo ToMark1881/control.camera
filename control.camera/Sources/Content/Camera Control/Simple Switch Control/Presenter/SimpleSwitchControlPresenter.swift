@@ -14,7 +14,7 @@ class SimpleSwitchControlPresenter: BasePresenter {
     
     weak var view: SimpleSwitchControlViewInputProtocol!
     var router: SimpleSwitchControlRouterInputProtocol!
-    weak var moduleOutput: SimpleSwitchControlModuleOutput?
+    weak var moduleOutput: SwitchControlModuleOutput?
     
     var switchControl: CameraControl!
     
