@@ -20,7 +20,7 @@ class MainCameraPresenter: BasePresenter {
     weak var formModuleInput: RangeSwitchControlModuleInput?
     
     var camera: CameraConfiguration!
-    var settingsApplier: CameraSettingsApplier!
+    var settingsStorage: CameraSettingsStorage!
     
 }
 
@@ -63,7 +63,7 @@ extension MainCameraPresenter: CameraConfigurationOutput {
 extension MainCameraPresenter: SwitchControlModuleOutput {
     
     func didChangeSwitch(for control: CameraControl) {
-        settingsApplier.apply(control)
+        settingsStorage.store(control)
     }
     
 }

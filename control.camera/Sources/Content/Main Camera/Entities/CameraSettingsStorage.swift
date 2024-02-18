@@ -1,5 +1,5 @@
 //
-//  CameraSettingsApplier.swift
+//  CameraSettingsStorage.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 12.02.2024.
@@ -7,21 +7,21 @@
 
 import Foundation
 
-protocol CameraSettingsApplier {
+protocol CameraSettingsStorage {
     var flashControl: FlashCameraControl! { get }
     var formControl: FormCameraControl! { get }
     
-    func apply(_ control: CameraControl)
+    func store(_ control: CameraControl)
 }
 
-final class CameraSettingsApplierImplementation: CameraSettingsApplier {
+final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     
-    static let `default` = CameraSettingsApplierImplementation()
+    static let `default` = CameraSettingsStorageImplementation()
     
     var flashControl: FlashCameraControl!
     var formControl: FormCameraControl!
     
-    func apply(_ control: CameraControl) {
+    func store(_ control: CameraControl) {
         switch control {
         case is FlashCameraControl:
             flashControl = control as? FlashCameraControl

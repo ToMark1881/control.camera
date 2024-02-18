@@ -22,7 +22,8 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     weak var view: CameraViewConfiguration!
     weak var output: CameraConfigurationOutput!
     
-    var applier: CameraSettingsApplier!
+    var settingsStorage: CameraSettingsStorage!
+    var stepByStepApplier: CameraStepByStepApplier!
     
     var captureSession: AVCaptureSession!
     
@@ -31,7 +32,6 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     var currentDevice: AVCaptureDevice!
     
     var stillImageOutput: AVCapturePhotoOutput!
-    var stillImage: UIImage?
     
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     
@@ -99,7 +99,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     func capturePhoto() {
         let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         photoSettings.isHighResolutionPhotoEnabled = true
-        photoSettings.flashMode = applier.flashControl.flashMode
+        photoSettings.flashMode = settingsStorage.flashControl.flashMode
         
         stillImageOutput.isHighResolutionCaptureEnabled = true
         stillImageOutput.capturePhoto(with: photoSettings, delegate: self)
@@ -116,17 +116,6 @@ extension CameraConfigurationImplementation: AVCapturePhotoCaptureDelegate {
             return
         }
          
-        // Get the image from the photo buffer
-        guard let imageData = photo.fileDataRepresentation() else {
-            return
-        }
-         
-        stillImage = UIImage(data: imageData)
-        
-        guard let image = stillImage else {
-            return
-        }
-        
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        stepByStepApplier.processPhoto(for: output, didFinishProcessingPhoto: photo)
     }
 }
