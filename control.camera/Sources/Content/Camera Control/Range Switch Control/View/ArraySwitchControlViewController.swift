@@ -1,6 +1,6 @@
 //  VIPER Template created by Vladyslav Vdovychenko
 //  
-//  RangeSwitchControlViewController.swift
+//  ArraySwitchControlViewController.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 21.10.2022.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class RangeSwitchControlViewController: BaseViewController {
+class ArraySwitchControlViewController: BaseViewController {
     
     //MARK: - Injected
     
-    var output: RangeSwitchControlViewOutputProtocol!
+    var output: ArraySwitchControlViewOutputProtocol!
 
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var switchNameLabel: UILabel!
@@ -29,11 +29,11 @@ class RangeSwitchControlViewController: BaseViewController {
 
 }
 
-extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol {
+extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol {
     
-    func update(with props: RangeSwitchViewProps) {
+    func update(with props: ArraySwitchViewProps) {
         switchNameLabel.text = props.title
-        rangeData = props.range
+        rangeData = props.array
         pickerView.reloadAllComponents()
         
         pickerView.selectRow(props.selectedIndex, inComponent: 0, animated: false)
@@ -41,7 +41,7 @@ extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol 
     
 }
 
-extension RangeSwitchControlViewController: UIPickerViewDelegate {
+extension ArraySwitchControlViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         output.didSelect(index: row)
@@ -49,7 +49,7 @@ extension RangeSwitchControlViewController: UIPickerViewDelegate {
     
 }
 
-extension RangeSwitchControlViewController: UIPickerViewDataSource {
+extension ArraySwitchControlViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

@@ -1,6 +1,6 @@
 //  VIPER Template created by Vladyslav Vdovychenko
 //  
-//  RangeSwitchControlRouterInput.swift
+//  ArraySwitchControlRouterInput.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 21.10.2022.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol RangeSwitchControlRouterInputProtocol: AnyObject {
+protocol ArraySwitchControlRouterInputProtocol: AnyObject {
     
 }

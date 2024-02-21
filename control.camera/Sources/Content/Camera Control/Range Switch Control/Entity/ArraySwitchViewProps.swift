@@ -1,5 +1,5 @@
 //
-//  RangeSwitchViewProps.swift
+//  ArraySwitchViewProps.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 21.10.2022.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct RangeSwitchViewProps {
+struct ArraySwitchViewProps {
     let title: String
-    let range: [String]
+    let array: [String]
     let selectedIndex: Array<Int>.Index
 }

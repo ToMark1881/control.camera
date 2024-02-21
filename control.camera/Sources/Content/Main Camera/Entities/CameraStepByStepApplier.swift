@@ -67,23 +67,29 @@ private extension CameraStepByStepApplierImplementation {
         var targetHeight: CGFloat
         
         switch selectedAspectRatio {
+        case .sixteenByTen:
+            targetWidth = width * 10 / 16
+            targetHeight = width
         case .sixteenByNine:
-            targetWidth = width
-            targetHeight = width * 9 / 16
+            targetWidth = width * 9 / 16
+            targetHeight = width
         case .fourByThree:
-            targetWidth = width
-            targetHeight = width * 3 / 4
+            targetWidth = width * 3 / 4
+            targetHeight = width
         case .oneByOne:
             let minLength = min(width, height)
             targetWidth = minLength
             targetHeight = minLength
         }
         
-        let scaleFactor = image.scale
-        let croppedRect = CGRect(x: 0, y: (height - targetHeight) / 2, width: targetWidth, height: targetHeight)
-        if let croppedCGImage = image.cgImage?.cropping(to: croppedRect) {
-            let croppedImage = UIImage(cgImage: croppedCGImage, scale: scaleFactor, orientation: image.imageOrientation)
-            
+        let xOffset = (width - targetWidth) / 2
+        let yOffset = (height - targetHeight) / 2
+        
+        let cropRect = CGRect(x: xOffset,
+                              y: yOffset,
+                              width: targetWidth,
+                              height: targetHeight)
+        if let croppedImage = image.cropping(to: cropRect) {
             image = croppedImage
         }
     }

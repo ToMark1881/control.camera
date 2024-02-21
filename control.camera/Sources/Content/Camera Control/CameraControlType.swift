@@ -13,6 +13,8 @@ struct SimpleControlValue {
 
 struct ArrayControlValue {
     let array: [String]
+    
+    let selected: String?
 }
 
 struct RangeControlValue {

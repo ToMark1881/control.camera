@@ -1,6 +1,6 @@
 //  VIPER Template created by Vladyslav Vdovychenko
 //  
-//  RangeSwitchControlWireframe.swift
+//  ArraySwitchControlWireframe.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 21.10.2022.
@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class RangeSwitchControlWireframe: BaseWireframe {
+class ArraySwitchControlWireframe: BaseWireframe {
     
     override func storyboardName() -> String {
-        return "RangeSwitchControl"
+        return "ArraySwitchControl"
     }
     
     override func identifier() -> String {
-        return "RangeSwitchControlViewController"
+        return "ArraySwitchControlViewController"
     }
     
     func pushFrom(_ parent: UINavigationController?,
-                  moduleInput: inout RangeSwitchControlModuleInput?,
+                  moduleInput: inout ArraySwitchControlModuleInput?,
                   moduleOutput: SwitchControlModuleOutput? = nil) {
         guard let viewController = self.createModule(moduleInput: &moduleInput,
                                                      moduleOutput: moduleOutput),
@@ -31,7 +31,7 @@ class RangeSwitchControlWireframe: BaseWireframe {
     }
     
     func presentIn(_ parent: UIViewController?,
-                   moduleInput: inout RangeSwitchControlModuleInput?,
+                   moduleInput: inout ArraySwitchControlModuleInput?,
                    moduleOutput: SwitchControlModuleOutput? = nil) {
         guard let viewController = self.createModule(moduleInput: &moduleInput,
                                                      moduleOutput: moduleOutput),
@@ -46,7 +46,7 @@ class RangeSwitchControlWireframe: BaseWireframe {
     
     func embeddedIn(_ parent: UIViewController?,
                     view: UIView,
-                    moduleInput: inout RangeSwitchControlModuleInput?,
+                    moduleInput: inout ArraySwitchControlModuleInput?,
                     moduleOutput: SwitchControlModuleOutput? = nil) {
         guard let viewController = self.createModule(moduleInput: &moduleInput,
                                                      moduleOutput: moduleOutput),
@@ -58,11 +58,11 @@ class RangeSwitchControlWireframe: BaseWireframe {
         viewController.didMove(toParent: parent)
     }
     
-    func createModule(moduleInput: inout RangeSwitchControlModuleInput?,
-                      moduleOutput: SwitchControlModuleOutput?) -> RangeSwitchControlViewController? {
-        guard let view: RangeSwitchControlViewController = initializeController() else { return nil }
-        let presenter = RangeSwitchControlPresenter()
-        let router = RangeSwitchControlRouter()
+    func createModule(moduleInput: inout ArraySwitchControlModuleInput?,
+                      moduleOutput: SwitchControlModuleOutput?) -> ArraySwitchControlViewController? {
+        guard let view: ArraySwitchControlViewController = initializeController() else { return nil }
+        let presenter = ArraySwitchControlPresenter()
+        let router = ArraySwitchControlRouter()
         
         presenter.view = view
         presenter.router = router

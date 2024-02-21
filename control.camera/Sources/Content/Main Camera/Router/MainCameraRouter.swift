@@ -16,7 +16,7 @@ class MainCameraRouter: BaseRouter {
     weak var view: BaseViewControllerProtocol!
     
     private lazy var simpleSwitchWireframe = { SimpleSwitchControlWireframe() }()
-    private lazy var rangeSwitchWireframe = { RangeSwitchControlWireframe() }()
+    private lazy var rangeSwitchWireframe = { ArraySwitchControlWireframe() }()
     
 }
 
@@ -35,7 +35,7 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
     
     func setupFormControl(controlValue: CameraControl,
                           for view: UIView,
-                          moduleInput: inout RangeSwitchControlModuleInput?,
+                          moduleInput: inout ArraySwitchControlModuleInput?,
                           moduleOutput: SwitchControlModuleOutput) {
         rangeSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
         

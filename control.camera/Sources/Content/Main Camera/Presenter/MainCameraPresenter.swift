@@ -17,7 +17,7 @@ class MainCameraPresenter: BasePresenter {
     
     weak var moduleOutput: MainCameraModuleOutput?
     weak var lightModuleInput: SimpleSwitchControlModuleInput?
-    weak var formModuleInput: RangeSwitchControlModuleInput?
+    weak var formModuleInput: ArraySwitchControlModuleInput?
     
     var camera: CameraConfiguration!
     var settingsStorage: CameraSettingsStorage!
