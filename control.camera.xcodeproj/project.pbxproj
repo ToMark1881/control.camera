@@ -173,6 +173,8 @@
 		FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */; };
 		FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
 		FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
+		FA696F352B875249004F78BD /* CroppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA696F342B875248004F78BD /* CroppingService.swift */; };
+		FA696F362B875249004F78BD /* CroppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA696F342B875248004F78BD /* CroppingService.swift */; };
 		FA6F7AE22B7C010D00F7EFB0 /* ArraySwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */; };
 		FA6F7AE32B7C010D00F7EFB0 /* ArraySwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */; };
 		FA6F7AE62B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F7AD42B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift */; };
@@ -340,6 +342,7 @@
 		FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSettingsStorage.swift; sourceTree = "<group>"; };
 		FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCameraButton.swift; sourceTree = "<group>"; };
 		FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProps.swift; sourceTree = "<group>"; };
+		FA696F342B875248004F78BD /* CroppingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingService.swift; sourceTree = "<group>"; };
 		FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchViewProps.swift; sourceTree = "<group>"; };
 		FA6F7AD42B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchControlModuleInput.swift; sourceTree = "<group>"; };
 		FA6F7AD52B7C010D00F7EFB0 /* ArraySwitchControlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchControlPresenter.swift; sourceTree = "<group>"; };
@@ -803,6 +806,7 @@
 				FA7EF31E29059E12009520C7 /* CameraSettings.swift */,
 				FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */,
 				FA84DCF72B82B892006118EF /* CameraStepByStepApplier.swift */,
+				FA696F342B875248004F78BD /* CroppingService.swift */,
 				FAEEEF412902AB1C0019EE29 /* CameraConfiguration */,
 			);
 			path = Entities;
@@ -1189,6 +1193,7 @@
 				FA37A70B290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				FA48CC392B7AB9E200E19814 /* CameraSettingsStorage.swift in Sources */,
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
+				FA696F352B875249004F78BD /* CroppingService.swift in Sources */,
 				FA2644192902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAEEEF462902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */,
@@ -1305,6 +1310,7 @@
 				FA37A70C290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				FA48CC3A2B7AB9E200E19814 /* CameraSettingsStorage.swift in Sources */,
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
+				FA696F362B875249004F78BD /* CroppingService.swift in Sources */,
 				FA26441A2902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */,

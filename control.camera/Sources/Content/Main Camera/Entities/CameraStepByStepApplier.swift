@@ -19,6 +19,7 @@ class CameraStepByStepApplierImplementation: CameraStepByStepApplier {
     // MARK: - Injected
     
     var settingsStorage: CameraSettingsStorage!
+    var croppingService: CroppingService!
     
     // MARK: - Private
     
@@ -58,35 +59,7 @@ private extension CameraStepByStepApplierImplementation {
     
     func applyForm(for image: inout UIImage) {
         let selectedAspectRatio = settingsStorage.formControl.aspectRatio
-        
-        let width = image.size.width
-        let height = image.size.height
-        
-        var targetWidth: CGFloat
-        var targetHeight: CGFloat
-        
-        let aspectRatio = selectedAspectRatio.aspectRatio
-        
-        if width / height > aspectRatio {
-            // Ширина зображення більше, ніж потрібне співвідношення сторін
-            targetWidth = height * aspectRatio
-            targetHeight = height
-        } else if height / width > aspectRatio {
-            // Висота зображення більше, ніж потрібне співвідношення сторін або рівна
-            targetWidth = width
-            targetHeight = width / aspectRatio
-        } else {
-            targetWidth = width
-            targetHeight = height
-        }
-        
-        let xOffset = (width - targetWidth) / 2
-        let yOffset = (height - targetHeight) / 2
-        
-        let cropRect = CGRect(x: xOffset,
-                              y: yOffset,
-                              width: targetWidth,
-                              height: targetHeight)
+        let cropRect = croppingService.crop(size: image.size, for: selectedAspectRatio.aspectRatio)
         if let croppedImage = image.cropping(to: cropRect) {
             image = croppedImage
         }

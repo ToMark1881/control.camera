@@ -47,8 +47,10 @@ class MainCameraWireframe: BaseWireframe {
         let camera = CameraConfigurationImplementation()
         let storage = CameraSettingsStorageImplementation.default
         let stepByStepApplier = CameraStepByStepApplierImplementation()
+        let croppingService = CroppingServiceImplementation()
         
         stepByStepApplier.settingsStorage = storage
+        stepByStepApplier.croppingService = croppingService
         
         camera.settingsStorage = storage
         camera.stepByStepApplier = stepByStepApplier
