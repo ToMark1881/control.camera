@@ -57,7 +57,6 @@ private extension CameraStepByStepApplierImplementation {
     }
     
     func applyForm(for image: inout UIImage) {
-        // cropping: https://www.advancedswift.com/crop-image/
         let selectedAspectRatio = settingsStorage.formControl.aspectRatio
         
         let width = image.size.width
@@ -66,20 +65,19 @@ private extension CameraStepByStepApplierImplementation {
         var targetWidth: CGFloat
         var targetHeight: CGFloat
         
-        switch selectedAspectRatio {
-        case .sixteenByTen:
-            targetWidth = width * 10 / 16
-            targetHeight = width
-        case .sixteenByNine:
-            targetWidth = width * 9 / 16
-            targetHeight = width
-        case .fourByThree:
-            targetWidth = width * 3 / 4
-            targetHeight = width
-        case .oneByOne:
-            let minLength = min(width, height)
-            targetWidth = minLength
-            targetHeight = minLength
+        let aspectRatio = selectedAspectRatio.aspectRatio
+        
+        if width / height > aspectRatio {
+            // Ширина зображення більше, ніж потрібне співвідношення сторін
+            targetWidth = height * aspectRatio
+            targetHeight = height
+        } else if height / width > aspectRatio {
+            // Висота зображення більше, ніж потрібне співвідношення сторін або рівна
+            targetWidth = width
+            targetHeight = width / aspectRatio
+        } else {
+            targetWidth = width
+            targetHeight = height
         }
         
         let xOffset = (width - targetWidth) / 2
@@ -118,7 +116,8 @@ private extension CameraStepByStepApplierImplementation {
                 completion = nil
             }
         }
-        func addCompletion(completion:WriteImageToFileResponderCompletion) {
+        
+        func addCompletion(completion: WriteImageToFileResponderCompletion) {
             self.completion = completion
         }
     }

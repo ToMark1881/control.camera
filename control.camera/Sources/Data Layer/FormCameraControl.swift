@@ -10,28 +10,41 @@ import Foundation
 class FormCameraControl: CameraControl {
     
     enum PhotoAspectRatio: String {
-        case fourByThree = "4:3"
+        case threeByFour = "3:4"
         case oneByOne = "1:1"
-        case sixteenByNine = "16:9"
-        case sixteenByTen = "16:10"
+        case nineBySixteen = "9:16"
+        case tenBySixteen = "10:16"
+        
+        var aspectRatio: CGFloat {
+            switch self {
+            case .threeByFour:
+                return 3/4
+            case .oneByOne:
+                return 1
+            case .nineBySixteen:
+                return 9/16
+            case .tenBySixteen:
+                return 10/16
+            }
+        }
     }
     
     var title: String {
         return "Form"
     }
     
-    var type: CameraControlType = .array(ArrayControlValue(array: [PhotoAspectRatio.fourByThree.rawValue,
+    var type: CameraControlType = .array(ArrayControlValue(array: [PhotoAspectRatio.threeByFour.rawValue,
                                                                    PhotoAspectRatio.oneByOne.rawValue,
-                                                                   PhotoAspectRatio.sixteenByNine.rawValue,
-                                                                   PhotoAspectRatio.sixteenByTen.rawValue],
+                                                                   PhotoAspectRatio.nineBySixteen.rawValue,
+                                                                   PhotoAspectRatio.tenBySixteen.rawValue],
                                                            selected: nil))
     
     var aspectRatio: PhotoAspectRatio {
         guard let value = controlValue.selected else {
-            return .fourByThree
+            return .threeByFour
         }
         
-        let selectedAspectRatio = PhotoAspectRatio(rawValue: value) ?? .fourByThree
+        let selectedAspectRatio = PhotoAspectRatio(rawValue: value) ?? .threeByFour
         
         return selectedAspectRatio
     }
