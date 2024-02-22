@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,6 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpM-d6-CY3" userLabel="Camera Container Container">
+                                <rect key="frame" x="0.0" y="47" width="390" height="657"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cn-YM-vwS" userLabel="Camera Container">
+                                        <rect key="frame" x="10.333333333333343" y="0.0" width="369.33333333333326" height="657"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6cn-YM-vwS" secondAttribute="height" multiplier="9:16" id="gdt-Bn-Zcb"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstItem="6cn-YM-vwS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PpM-d6-CY3" secondAttribute="leading" id="A4s-fr-gcn"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6cn-YM-vwS" secondAttribute="trailing" id="IKj-gu-H3x"/>
+                                    <constraint firstItem="6cn-YM-vwS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="PpM-d6-CY3" secondAttribute="top" id="fTI-Lu-e78"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6cn-YM-vwS" secondAttribute="bottom" id="pea-Ha-UmP"/>
+                                    <constraint firstItem="6cn-YM-vwS" firstAttribute="centerY" secondItem="PpM-d6-CY3" secondAttribute="centerY" id="q6B-2g-VLo"/>
+                                    <constraint firstItem="6cn-YM-vwS" firstAttribute="width" secondItem="PpM-d6-CY3" secondAttribute="width" priority="250" id="suZ-m8-JZ8"/>
+                                    <constraint firstItem="6cn-YM-vwS" firstAttribute="centerX" secondItem="PpM-d6-CY3" secondAttribute="centerX" id="sv6-sl-ohb"/>
+                                    <constraint firstItem="6cn-YM-vwS" firstAttribute="height" secondItem="PpM-d6-CY3" secondAttribute="height" priority="250" id="u3W-AA-gU6"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGo-6J-k9l" customClass="ShutterButton" customModule="Staging" customModuleProvider="target">
                                 <rect key="frame" x="166" y="728" width="58" height="58"/>
                                 <constraints>
@@ -68,15 +97,22 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PpM-d6-CY3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="43b-VV-j2s"/>
                             <constraint firstItem="tff-8l-8Kx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="12" id="8bT-Wj-eB8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PpM-d6-CY3" secondAttribute="trailing" id="J5E-rr-QO2"/>
+                            <constraint firstItem="vGo-6J-k9l" firstAttribute="top" secondItem="PpM-d6-CY3" secondAttribute="bottom" constant="24" id="TZF-4o-uRQ"/>
                             <constraint firstItem="vGo-6J-k9l" firstAttribute="top" secondItem="tff-8l-8Kx" secondAttribute="bottom" constant="12" id="hpE-FK-6Xr"/>
                             <constraint firstItem="vGo-6J-k9l" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jpu-4Q-6kb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vGo-6J-k9l" secondAttribute="bottom" constant="24" id="jrF-Wd-Gab"/>
+                            <constraint firstItem="PpM-d6-CY3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kRK-aA-1MJ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tff-8l-8Kx" secondAttribute="trailing" id="mMk-qM-xby"/>
                             <constraint firstItem="tff-8l-8Kx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sUo-ra-vW9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraContainerAspectRatioConstraint" destination="gdt-Bn-Zcb" id="phD-UM-f8n"/>
+                        <outlet property="cameraContainerContainer" destination="PpM-d6-CY3" id="0yR-Pk-3qx"/>
+                        <outlet property="cameraContainerView" destination="6cn-YM-vwS" id="MUJ-j9-mei"/>
                         <outlet property="controlsContainerView" destination="tff-8l-8Kx" id="2yr-g9-Kh0"/>
                         <outlet property="flashView" destination="xvw-Nf-fnf" id="wli-Xu-whn"/>
                         <outlet property="formView" destination="pIb-cp-hi2" id="A3I-Ss-RrB"/>
@@ -90,5 +126,11 @@
     </scenes>
     <resources>
         <image name="Shutter Image" width="58" height="58"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

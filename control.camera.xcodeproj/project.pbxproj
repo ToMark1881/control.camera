@@ -201,8 +201,12 @@
 		FA6F7AFE2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F7AFC2B7C088300F7EFB0 /* FormCameraControl.swift */; };
 		FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EF31E29059E12009520C7 /* CameraSettings.swift */; };
 		FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EF31E29059E12009520C7 /* CameraSettings.swift */; };
-		FA84DCF82B82B892006118EF /* CameraStepByStepApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84DCF72B82B892006118EF /* CameraStepByStepApplier.swift */; };
-		FA84DCF92B82B892006118EF /* CameraStepByStepApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84DCF72B82B892006118EF /* CameraStepByStepApplier.swift */; };
+		FA84DCF82B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */; };
+		FA84DCF92B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */; };
+		FAAE31CC2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */; };
+		FAAE31CD2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */; };
+		FAAE31D22B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
+		FAAE31D32B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
 		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
@@ -356,7 +360,9 @@
 		FA6F7AE12B7C010D00F7EFB0 /* ArraySwitchControlRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchControlRouter.swift; sourceTree = "<group>"; };
 		FA6F7AFC2B7C088300F7EFB0 /* FormCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCameraControl.swift; sourceTree = "<group>"; };
 		FA7EF31E29059E12009520C7 /* CameraSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSettings.swift; sourceTree = "<group>"; };
-		FA84DCF72B82B892006118EF /* CameraStepByStepApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStepByStepApplier.swift; sourceTree = "<group>"; };
+		FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStepByStepPostApplier.swift; sourceTree = "<group>"; };
+		FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveApplier.swift; sourceTree = "<group>"; };
+		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
@@ -555,6 +561,7 @@
 				7D57C45327F89DFB007F3CC5 /* UIView+Extensions.swift */,
 				FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */,
 				FA236DEB2B8691EC0035B653 /* CoreGraphics+Multiplying.swift */,
+				FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -805,8 +812,7 @@
 			children = (
 				FA7EF31E29059E12009520C7 /* CameraSettings.swift */,
 				FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */,
-				FA84DCF72B82B892006118EF /* CameraStepByStepApplier.swift */,
-				FA696F342B875248004F78BD /* CroppingService.swift */,
+				FAAE31CE2B87562500E47CBB /* Appliers */,
 				FAEEEF412902AB1C0019EE29 /* CameraConfiguration */,
 			);
 			path = Entities;
@@ -876,6 +882,24 @@
 				FA6F7AE12B7C010D00F7EFB0 /* ArraySwitchControlRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		FAAE31CE2B87562500E47CBB /* Appliers */ = {
+			isa = PBXGroup;
+			children = (
+				FAAE31D02B87563000E47CBB /* Services */,
+				FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */,
+				FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */,
+			);
+			path = Appliers;
+			sourceTree = "<group>";
+		};
+		FAAE31D02B87563000E47CBB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FA696F342B875248004F78BD /* CroppingService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FAEEEF182902A31B0019EE29 /* Main Camera */ = {
@@ -1138,6 +1162,7 @@
 				FA37A71B290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
 				FA26441F2902D3DF00655F22 /* SimpleSwitchControlRouter.swift in Sources */,
 				7D57C46227F89E67007F3CC5 /* ErrorsHandlerInterface.swift in Sources */,
+				FAAE31D22B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				FA6F7AE22B7C010D00F7EFB0 /* ArraySwitchViewProps.swift in Sources */,
 				FA2F427828BDC86700F6E6A7 /* RootRouterOutput.swift in Sources */,
 				FA2644212902D3DF00655F22 /* SimpleSwitchControlViewController.swift in Sources */,
@@ -1198,8 +1223,9 @@
 				FAEEEF462902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
+				FAAE31CC2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */,
 				7D57C47927F8A088007F3CC5 /* StatesViewsDataSource.swift in Sources */,
-				FA84DCF82B82B892006118EF /* CameraStepByStepApplier.swift in Sources */,
+				FA84DCF82B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */,
 				FAEEEF302902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
 				FA2644272902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
 				FAEEEF322902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
@@ -1255,6 +1281,7 @@
 				FA37A71C290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
 				FA2644202902D3DF00655F22 /* SimpleSwitchControlRouter.swift in Sources */,
 				7D92BE8F27F8A6240025398D /* ErrorsHandlerInterface.swift in Sources */,
+				FAAE31D32B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */,
 				FA6F7AE32B7C010D00F7EFB0 /* ArraySwitchViewProps.swift in Sources */,
 				FA2F427928BDC86700F6E6A7 /* RootRouterOutput.swift in Sources */,
 				FA2644222902D3DF00655F22 /* SimpleSwitchControlViewController.swift in Sources */,
@@ -1315,8 +1342,9 @@
 				FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
+				FAAE31CD2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */,
 				7D92BEAB27F8A6240025398D /* StatesViewsDataSource.swift in Sources */,
-				FA84DCF92B82B892006118EF /* CameraStepByStepApplier.swift in Sources */,
+				FA84DCF92B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */,
 				FAEEEF312902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
 				FA2644282902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
 				FAEEEF332902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,

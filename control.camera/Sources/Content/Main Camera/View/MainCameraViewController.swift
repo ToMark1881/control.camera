@@ -10,13 +10,18 @@ import UIKit
 
 class MainCameraViewController: BaseViewController {
     
-    //MARK: - Injected
+    // MARK: - Injected
+    
     var output: MainCameraViewOutputProtocol!
 
+    @IBOutlet weak var cameraContainerContainer: UIView!
+    @IBOutlet weak var cameraContainerView: UIView!
     @IBOutlet weak var flashView: UIView!
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var shutterButton: ShutterButton!
+    
+    @IBOutlet weak var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +41,8 @@ extension MainCameraViewController: MainCameraViewInputProtocol {
 extension MainCameraViewController: CameraViewConfiguration {
     
     func setupCameraLayer(_ layer: CALayer) {
-        view.layer.addSublayer(layer)
-        layer.frame = view.layer.frame        
+        cameraContainerView.layer.addSublayer(layer)
+        layer.frame = cameraContainerView.layer.frame
         view.bringSubviewToFront(shutterButton)
         view.bringSubviewToFront(controlsContainerView)
         

@@ -1,5 +1,5 @@
 //
-//  CameraStepByStepApplier.swift
+//  CameraStepByStepPostApplier.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 19.02.2024.
@@ -9,12 +9,12 @@ import Foundation
 import AVFoundation
 import UIKit
 
-protocol CameraStepByStepApplier {
+protocol CameraStepByStepPostApplier {
     func processPhoto(for output: AVCapturePhotoOutput,
                       didFinishProcessingPhoto photo: AVCapturePhoto)
 }
 
-class CameraStepByStepApplierImplementation: CameraStepByStepApplier {
+class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     // MARK: - Injected
     
@@ -45,7 +45,7 @@ class CameraStepByStepApplierImplementation: CameraStepByStepApplier {
     
 }
 
-private extension CameraStepByStepApplierImplementation {
+private extension CameraStepByStepPostApplierImplementation {
     
     func getImage(_ photo: AVCapturePhoto) -> UIImage {
         // Get the image from the photo buffer

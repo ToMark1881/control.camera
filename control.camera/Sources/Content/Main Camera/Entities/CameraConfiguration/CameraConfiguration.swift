@@ -23,7 +23,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     weak var output: CameraConfigurationOutput!
     
     var settingsStorage: CameraSettingsStorage!
-    var stepByStepApplier: CameraStepByStepApplier!
+    var stepByStepApplier: CameraStepByStepPostApplier!
     
     var captureSession: AVCaptureSession!
     
@@ -86,7 +86,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         
         // Provide a camera preview
         cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
+        cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         view.setupCameraLayer(cameraPreviewLayer!)
     }
     

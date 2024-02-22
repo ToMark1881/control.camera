@@ -46,8 +46,11 @@ class MainCameraWireframe: BaseWireframe {
         let router = MainCameraRouter()
         let camera = CameraConfigurationImplementation()
         let storage = CameraSettingsStorageImplementation.default
-        let stepByStepApplier = CameraStepByStepApplierImplementation()
+        let stepByStepApplier = CameraStepByStepPostApplierImplementation()
         let croppingService = CroppingServiceImplementation()
+        let liveApplier = CameraLiveApplierImplementation()
+        
+        liveApplier.view = view
         
         stepByStepApplier.settingsStorage = storage
         stepByStepApplier.croppingService = croppingService
@@ -59,6 +62,7 @@ class MainCameraWireframe: BaseWireframe {
         presenter.router = router
         presenter.camera = camera
         presenter.settingsStorage = storage
+        presenter.liveApplier = liveApplier
         
         view.output = presenter
         router.output = presenter

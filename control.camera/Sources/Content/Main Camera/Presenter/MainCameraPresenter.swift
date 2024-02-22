@@ -20,6 +20,7 @@ class MainCameraPresenter: BasePresenter {
     weak var formModuleInput: ArraySwitchControlModuleInput?
     
     var camera: CameraConfiguration!
+    var liveApplier: CameraLiveApplier!
     var settingsStorage: CameraSettingsStorage!
     
 }
@@ -64,6 +65,8 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
     
     func didChangeSwitch(for control: CameraControl) {
         settingsStorage.store(control)
+        
+        liveApplier.applyControlIfNeeded(control)
     }
     
 }

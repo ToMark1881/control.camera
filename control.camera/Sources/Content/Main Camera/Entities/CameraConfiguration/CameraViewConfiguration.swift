@@ -7,6 +7,10 @@
 
 import UIKit
 
-protocol CameraViewConfiguration: AnyObject {
+protocol CameraViewConfiguration where Self: BaseViewControllerProtocol {
+    
+    var cameraContainerView: UIView! { get set }
+    var cameraContainerAspectRatioConstraint: NSLayoutConstraint! { get set }
+    
     func setupCameraLayer(_ layer: CALayer)
 }
