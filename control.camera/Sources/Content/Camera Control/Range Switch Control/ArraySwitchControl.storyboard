@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQO-31-WnR">
-                                <rect key="frame" x="4" y="48" width="92" height="48"/>
+                                <rect key="frame" x="4" y="28" width="92" height="68"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="gm6-cT-aVI"/>
@@ -47,7 +48,7 @@
                         <viewLayoutGuide key="safeArea" id="XVC-z5-mWB"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mQO-31-WnR" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="B84-8s-zEE"/>
+                            <constraint firstItem="mQO-31-WnR" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="12" id="B84-8s-zEE"/>
                             <constraint firstAttribute="trailing" secondItem="YOs-F3-8G1" secondAttribute="trailing" constant="4" id="BJu-L3-VFJ"/>
                             <constraint firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
                             <constraint firstItem="XVC-z5-mWB" firstAttribute="trailing" secondItem="mQO-31-WnR" secondAttribute="trailing" constant="4" id="LbD-Yr-KXa"/>

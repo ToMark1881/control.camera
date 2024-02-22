@@ -39,7 +39,7 @@ private extension CameraLiveApplierImplementation {
         view.cameraContainerView.addConstraint(updatedFormConstraint)
         view.cameraContainerAspectRatioConstraint = updatedFormConstraint
         
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: 0.3) {
             self.view.view.layoutIfNeeded()
         }
     }

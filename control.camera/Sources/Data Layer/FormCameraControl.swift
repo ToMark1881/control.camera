@@ -34,9 +34,9 @@ class FormCameraControl: CameraControl {
     }
     
     var type: CameraControlType = .array(ArrayControlValue(array: [PhotoAspectRatio.threeByFour.rawValue,
-                                                                   PhotoAspectRatio.oneByOne.rawValue,
                                                                    PhotoAspectRatio.tenBySixteen.rawValue,
-                                                                   PhotoAspectRatio.nineBySixteen.rawValue],
+                                                                   PhotoAspectRatio.nineBySixteen.rawValue,
+                                                                   PhotoAspectRatio.oneByOne.rawValue],
                                                            selected: nil))
     
     var aspectRatio: PhotoAspectRatio {

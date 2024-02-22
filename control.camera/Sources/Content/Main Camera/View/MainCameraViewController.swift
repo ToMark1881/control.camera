@@ -8,6 +8,31 @@
 
 import UIKit
 
+class CameraContainerView: UIView {
+    
+    var cameraLayer: CALayer!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        // If the view is animating apply the animation to the sublayer
+        CATransaction.begin()
+        if let animation = layer.animation(forKey: "position") {
+            CATransaction.setAnimationDuration(animation.duration)
+            CATransaction.setAnimationTimingFunction(animation.timingFunction)
+        } else {
+            CATransaction.disableActions()
+        }
+        
+        if cameraLayer.superlayer == layer {
+            cameraLayer.frame = bounds
+        }
+        
+        CATransaction.commit()
+    }
+    
+}
+
 class MainCameraViewController: BaseViewController {
     
     // MARK: - Injected
@@ -15,7 +40,7 @@ class MainCameraViewController: BaseViewController {
     var output: MainCameraViewOutputProtocol!
 
     @IBOutlet weak var cameraContainerContainer: UIView!
-    @IBOutlet weak var cameraContainerView: UIView!
+    @IBOutlet weak var cameraContainerView: CameraContainerView!
     @IBOutlet weak var flashView: UIView!
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var controlsContainerView: UIView!
@@ -42,7 +67,9 @@ extension MainCameraViewController: CameraViewConfiguration {
     
     func setupCameraLayer(_ layer: CALayer) {
         cameraContainerView.layer.addSublayer(layer)
+        cameraContainerView.cameraLayer = layer
         layer.frame = cameraContainerView.layer.frame
+        
         view.bringSubviewToFront(shutterButton)
         view.bringSubviewToFront(controlsContainerView)
         

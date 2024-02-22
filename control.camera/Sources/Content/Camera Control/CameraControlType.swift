@@ -63,30 +63,3 @@ enum CameraControlType: Equatable {
         lhs.id == rhs.id
     }
 }
-
-enum CameraControlasd {
-    
-    
-    
-//    case simpleSwitch // on, off
-//    case array // 0, 3, 5, 10, 20
-//    case range // 0-100
-//    case rangeWithDefault // auto, 0-100
-    case light
-    case delayTime
-    case exposure
-    case ISO
-    
-    var title: String {
-        switch self {
-        case .light:
-            return "Light"
-        case .delayTime:
-            return ""
-        case .exposure:
-            return "Exposure"
-        case .ISO:
-            return "ISO"
-        }
-    }
-}
