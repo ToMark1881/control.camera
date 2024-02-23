@@ -18,6 +18,7 @@ class MainCameraPresenter: BasePresenter {
     weak var moduleOutput: MainCameraModuleOutput?
     weak var lightModuleInput: SimpleSwitchControlModuleInput?
     weak var formModuleInput: ArraySwitchControlModuleInput?
+    weak var deviceModuleInput: ArraySwitchControlModuleInput?
     
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
@@ -76,6 +77,7 @@ private extension MainCameraPresenter {
     func setupControls() {
         setupLightControl()
         setupFormControl()
+        setupDeviceControl()
     }
     
     func setupLightControl() {
@@ -98,6 +100,16 @@ private extension MainCameraPresenter {
                                 for: view.formView,
                                 moduleInput: &formModuleInput,
                                 moduleOutput: self)
+    }
+    
+    func setupDeviceControl() {
+        let availableDevices = camera.availableDevices
+        let controlValue = VideoDeviceCameraControl(for: availableDevices)
+                
+        router.setupDeviceControl(controlValue: controlValue,
+                                  for: view.deviceView,
+                                  moduleInput: &deviceModuleInput,
+                                  moduleOutput: self)
     }
     
 }

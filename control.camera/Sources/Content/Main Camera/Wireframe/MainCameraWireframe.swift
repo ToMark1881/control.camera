@@ -51,6 +51,7 @@ class MainCameraWireframe: BaseWireframe {
         let liveApplier = CameraLiveApplierImplementation()
         
         liveApplier.view = view
+        liveApplier.camera = camera
         
         stepByStepApplier.settingsStorage = storage
         stepByStepApplier.croppingService = croppingService

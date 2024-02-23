@@ -173,6 +173,10 @@
 		FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */; };
 		FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
 		FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
+		FA56FF342B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */; };
+		FA56FF352B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */; };
+		FA56FF372B88E3A600CC1080 /* CameraContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */; };
+		FA56FF382B88E3A600CC1080 /* CameraContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */; };
 		FA696F352B875249004F78BD /* CroppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA696F342B875248004F78BD /* CroppingService.swift */; };
 		FA696F362B875249004F78BD /* CroppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA696F342B875248004F78BD /* CroppingService.swift */; };
 		FA6F7AE22B7C010D00F7EFB0 /* ArraySwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */; };
@@ -346,6 +350,8 @@
 		FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSettingsStorage.swift; sourceTree = "<group>"; };
 		FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCameraButton.swift; sourceTree = "<group>"; };
 		FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProps.swift; sourceTree = "<group>"; };
+		FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDeviceCameraControl.swift; sourceTree = "<group>"; };
+		FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraContainerView.swift; sourceTree = "<group>"; };
 		FA696F342B875248004F78BD /* CroppingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingService.swift; sourceTree = "<group>"; };
 		FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchViewProps.swift; sourceTree = "<group>"; };
 		FA6F7AD42B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchControlModuleInput.swift; sourceTree = "<group>"; };
@@ -513,6 +519,7 @@
 				FA48CC322B7AB44800E19814 /* CameraControl.swift */,
 				FA48CC352B7AB4AE00E19814 /* FlashCameraControl.swift */,
 				FA6F7AFC2B7C088300F7EFB0 /* FormCameraControl.swift */,
+				FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -921,6 +928,7 @@
 				FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */,
 				FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */,
 				FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */,
+				FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1208,10 +1216,12 @@
 				FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				7D57C44D27F89DDE007F3CC5 /* ParserHelper.swift in Sources */,
 				FA6F7AFA2B7C010D00F7EFB0 /* ArraySwitchControlRouter.swift in Sources */,
+				FA56FF342B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */,
 				7D92BE8627F8A4D00025398D /* Constants.swift in Sources */,
 				FA2F428228BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				FA6F7AF22B7C010D00F7EFB0 /* ArraySwitchControlViewOutputProtocol.swift in Sources */,
 				7D57C47B27F8A088007F3CC5 /* LoadingView.swift in Sources */,
+				FA56FF372B88E3A600CC1080 /* CameraContainerView.swift in Sources */,
 				FAEEEF2E2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
 				FAEEEF2A2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
 				FA2644292902D3DF00655F22 /* SimpleSwitchControlWireframe.swift in Sources */,
@@ -1327,10 +1337,12 @@
 				FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				7D92BEA627F8A6240025398D /* ParserHelper.swift in Sources */,
 				FA6F7AFB2B7C010D00F7EFB0 /* ArraySwitchControlRouter.swift in Sources */,
+				FA56FF352B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */,
 				7D92BEA727F8A6240025398D /* Constants.swift in Sources */,
 				FA2F428328BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				FA6F7AF32B7C010D00F7EFB0 /* ArraySwitchControlViewOutputProtocol.swift in Sources */,
 				7D92BEA827F8A6240025398D /* LoadingView.swift in Sources */,
+				FA56FF382B88E3A600CC1080 /* CameraContainerView.swift in Sources */,
 				FAEEEF2F2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
 				FAEEEF2B2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
 				FA26442A2902D3DF00655F22 /* SimpleSwitchControlWireframe.swift in Sources */,
@@ -1448,7 +1460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1503,7 +1515,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1531,7 +1543,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1567,7 +1579,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1678,7 +1690,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1711,7 +1723,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Root;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

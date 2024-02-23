@@ -11,4 +11,5 @@ import UIKit
 protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
     var flashView: UIView! { get }
     var formView: UIView! { get }
+    var deviceView: UIView! { get }
 }

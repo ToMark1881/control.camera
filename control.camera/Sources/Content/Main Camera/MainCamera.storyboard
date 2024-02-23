@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController storyboardIdentifier="MainCameraViewController" id="Y6W-OH-hqX" customClass="MainCameraViewController" customModule="Staging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpM-d6-CY3" userLabel="Camera Container Container">
-                                <rect key="frame" x="0.0" y="47" width="390" height="657"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="712"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cn-YM-vwS" userLabel="Camera Container" customClass="CameraContainerView" customModule="Staging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="133.66666666666663" width="390" height="390"/>
+                                        <rect key="frame" x="0.0" y="149" width="414" height="414"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6cn-YM-vwS" secondAttribute="height" multiplier="1:1" id="gdt-Bn-Zcb"/>
@@ -45,7 +45,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGo-6J-k9l" customClass="ShutterButton" customModule="Staging" customModuleProvider="target">
-                                <rect key="frame" x="166" y="728" width="58" height="58"/>
+                                <rect key="frame" x="178" y="780" width="58" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="m6h-jV-78a"/>
                                     <constraint firstAttribute="width" constant="58" id="pZ3-Gd-Mvt"/>
@@ -57,13 +57,13 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tff-8l-8Kx" userLabel="Controls Container">
-                                <rect key="frame" x="0.0" y="59" width="390" height="657"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="712"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YHv-Ff-TJX">
-                                        <rect key="frame" x="61" y="264.66666666666669" width="268" height="128"/>
+                                        <rect key="frame" x="3" y="292" width="408" height="128"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-yh-wFP">
-                                                <rect key="frame" x="0.0" y="0.0" width="268" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="408" height="128"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-Nf-fnf" userLabel="FlashView">
                                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -79,6 +79,14 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="128" id="lHu-lW-gZv"/>
                                                             <constraint firstAttribute="width" constant="128" id="nPB-NQ-8li"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3C-XG-4x0" userLabel="DeviceView">
+                                                        <rect key="frame" x="280" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="128" id="ZWP-Oj-XJV"/>
+                                                            <constraint firstAttribute="height" constant="128" id="awU-bd-kyi"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -113,6 +121,7 @@
                         <outlet property="cameraContainerContainer" destination="PpM-d6-CY3" id="0yR-Pk-3qx"/>
                         <outlet property="cameraContainerView" destination="6cn-YM-vwS" id="MUJ-j9-mei"/>
                         <outlet property="controlsContainerView" destination="tff-8l-8Kx" id="2yr-g9-Kh0"/>
+                        <outlet property="deviceView" destination="k3C-XG-4x0" id="Y1H-AY-1s1"/>
                         <outlet property="flashView" destination="xvw-Nf-fnf" id="wli-Xu-whn"/>
                         <outlet property="formView" destination="pIb-cp-hi2" id="A3I-Ss-RrB"/>
                         <outlet property="shutterButton" destination="vGo-6J-k9l" id="1Sh-aJ-ODp"/>

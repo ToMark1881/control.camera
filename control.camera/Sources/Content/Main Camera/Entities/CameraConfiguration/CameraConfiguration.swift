@@ -10,9 +10,11 @@ import AVFoundation
 
 protocol CameraConfiguration: AnyObject {
     var settings: CameraSettings { get }
+    var availableDevices: [AvailableVideoDevice] { get }
     
     func configure()
     func startSession()
+    func changeDevice(_ device: AvailableVideoDevice.DeviceType)
     
     func capturePhoto()
 }
@@ -26,9 +28,11 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     var stepByStepApplier: CameraStepByStepPostApplier!
     
     var captureSession: AVCaptureSession!
-    
-    var backFacingCamera: AVCaptureDevice?
+    var wideCamera: AVCaptureDevice?
+    var telephotoCamera: AVCaptureDevice?
+    var ultraWideCamera: AVCaptureDevice?
     var frontFacingCamera: AVCaptureDevice?
+    
     var currentDevice: AVCaptureDevice!
     
     var stillImageOutput: AVCapturePhotoOutput!
@@ -53,32 +57,69 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         return settings
     }
     
+    var availableDevices: [AvailableVideoDevice] {
+        var devices = [AvailableVideoDevice]()
+        
+        if let wide = wideCamera {
+            devices.append(AvailableVideoDevice(type: .wide, captureDevice: wide.deviceType))
+        }
+        
+        if let telephoto = telephotoCamera {
+            devices.append(AvailableVideoDevice(type: .telephoto, captureDevice: telephoto.deviceType))
+        }
+        
+        if let ultraWide = ultraWideCamera {
+            devices.append(AvailableVideoDevice(type: .ultraWide, captureDevice: ultraWide.deviceType))
+        }
+        
+        if let front = frontFacingCamera {
+            devices.append(AvailableVideoDevice(type: .front, captureDevice: front.deviceType))
+        }
+        
+        return devices
+    }
+    
     func configure() {
         // Preset the session for taking photo in full resolution
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
         
         // Get the front and back-facing camera for taking photos
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera],
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera,
+                                                                                    .builtInTelephotoCamera,
+                                                                                    .builtInUltraWideCamera,
+                                                                                    .builtInDualCamera],
                                                                       mediaType: AVMediaType.video,
                                                                       position: .unspecified)
         
         for device in deviceDiscoverySession.devices {
-            if device.position == .back {
-                backFacingCamera = device
-            } else if device.position == .front {
+            if device.position == .front {
                 frontFacingCamera = device
+                continue
+            }
+            
+            switch device.deviceType {
+            case .builtInWideAngleCamera:
+                wideCamera = device
+            case .builtInTelephotoCamera:
+                telephotoCamera = device
+            case .builtInUltraWideCamera:
+                ultraWideCamera = device
+            default:
+                break
             }
         }
         
-        currentDevice = backFacingCamera
+        currentDevice = wideCamera
+        
+
+        
+        // Configure the session with the output for capturing still images
+        stillImageOutput = AVCapturePhotoOutput()
         
         guard let captureDeviceInput = try? AVCaptureDeviceInput(device: currentDevice) else {
             return
         }
-        
-        // Configure the session with the output for capturing still images
-        stillImageOutput = AVCapturePhotoOutput()
         
         // Configure the session with the input and the output devices
         captureSession.addInput(captureDeviceInput)
@@ -94,6 +135,30 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession.startRunning()
         }
+    }
+    
+    func changeDevice(_ device: AvailableVideoDevice.DeviceType) {
+        var tempDevice: AVCaptureDevice?
+        
+        switch device {
+        case .wide:
+            tempDevice = wideCamera
+        case .telephoto:
+            tempDevice = telephotoCamera
+        case .ultraWide:
+            tempDevice = ultraWideCamera
+        case .front:
+            tempDevice = frontFacingCamera
+        }
+        
+        guard let device = tempDevice,
+              let captureDeviceInput = try? AVCaptureDeviceInput(device: device) else {
+            return
+        }
+        
+        captureSession.inputs.forEach({ captureSession.removeInput($0) })
+        captureSession.addInput(captureDeviceInput)
+        currentDevice = device
     }
     
     func capturePhoto() {

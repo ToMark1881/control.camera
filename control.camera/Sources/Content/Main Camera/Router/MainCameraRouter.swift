@@ -42,6 +42,15 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
         moduleInput?.setupSwitch(for: controlValue)
     }
     
+    func setupDeviceControl(controlValue: CameraControl,
+                            for view: UIView,
+                            moduleInput: inout ArraySwitchControlModuleInput?,
+                            moduleOutput: SwitchControlModuleOutput) {
+        rangeSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        
+        moduleInput?.setupSwitch(for: controlValue)
+    }
+    
     // MARK: - Dismiss
     
 }

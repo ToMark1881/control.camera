@@ -14,11 +14,14 @@ protocol CameraLiveApplier {
 class CameraLiveApplierImplementation: CameraLiveApplier {
     
     weak var view: CameraViewConfiguration!
+    weak var camera: CameraConfiguration!
     
     func applyControlIfNeeded(_ control: CameraControl) {
         switch control {
         case is FormCameraControl:
             applyFormControl(control as? FormCameraControl)
+        case is VideoDeviceCameraControl:
+            applyDeviceControl(control as? VideoDeviceCameraControl)
         default:
             break
         }
@@ -42,6 +45,14 @@ private extension CameraLiveApplierImplementation {
         UIView.animate(withDuration: 0.3) {
             self.view.view.layoutIfNeeded()
         }
+    }
+    
+    func applyDeviceControl(_ control: VideoDeviceCameraControl?) {
+        guard let selectedDevice = control?.selectedDevice else {
+            return
+        }
+        
+        camera.changeDevice(selectedDevice.type)
     }
     
 }
