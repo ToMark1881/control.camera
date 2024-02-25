@@ -16,7 +16,8 @@ class MainCameraRouter: BaseRouter {
     weak var view: BaseViewControllerProtocol!
     
     private lazy var simpleSwitchWireframe = { SimpleSwitchControlWireframe() }()
-    private lazy var rangeSwitchWireframe = { ArraySwitchControlWireframe() }()
+    private lazy var arraySwitchWireframe = { ArraySwitchControlWireframe() }()
+    private lazy var rangeSwitchWireframe = { RangeSwitchControlWireframe() }()
     
 }
 
@@ -37,7 +38,7 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
                           for view: UIView,
                           moduleInput: inout ArraySwitchControlModuleInput?,
                           moduleOutput: SwitchControlModuleOutput) {
-        rangeSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        arraySwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
         
         moduleInput?.setupSwitch(for: controlValue)
     }
@@ -46,6 +47,15 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
                             for view: UIView,
                             moduleInput: inout ArraySwitchControlModuleInput?,
                             moduleOutput: SwitchControlModuleOutput) {
+        arraySwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        
+        moduleInput?.setupSwitch(for: controlValue)
+    }
+    
+    func setupZoomControl(controlValue: CameraControl,
+                          for view: UIView,
+                          moduleInput: inout RangeSwitchControlModuleInput?,
+                          moduleOutput: SwitchControlModuleOutput) {
         rangeSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
         
         moduleInput?.setupSwitch(for: controlValue)

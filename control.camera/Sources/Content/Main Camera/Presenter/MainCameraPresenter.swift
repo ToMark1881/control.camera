@@ -19,6 +19,7 @@ class MainCameraPresenter: BasePresenter {
     weak var lightModuleInput: SimpleSwitchControlModuleInput?
     weak var formModuleInput: ArraySwitchControlModuleInput?
     weak var deviceModuleInput: ArraySwitchControlModuleInput?
+    weak var zoomModuleInput: RangeSwitchControlModuleInput?
     
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
@@ -78,6 +79,7 @@ private extension MainCameraPresenter {
         setupLightControl()
         setupFormControl()
         setupDeviceControl()
+        setupZoomControl()
     }
     
     func setupLightControl() {
@@ -110,6 +112,18 @@ private extension MainCameraPresenter {
                                   for: view.deviceView,
                                   moduleInput: &deviceModuleInput,
                                   moduleOutput: self)
+    }
+    
+    func setupZoomControl() {
+        let controlValue = ZoomCameraControl(min: camera.settings.minZoom,
+                                             max: camera.settings.maxZoom,
+                                             step: 5,
+                                             selected: camera.settings.minZoom)
+        
+        router.setupZoomControl(controlValue: controlValue,
+                                for: view.zoomView,
+                                moduleInput: &zoomModuleInput,
+                                moduleOutput: self)
     }
     
 }

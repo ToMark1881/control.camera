@@ -16,6 +16,9 @@ struct CameraSettings {
     let minExposure: CMTime
     let maxExposure: CMTime
     
+    let minZoom: CGFloat
+    let maxZoom: CGFloat
+    
     let isFlashAvailable: Bool
     
     func logSettings() { dump(self) }

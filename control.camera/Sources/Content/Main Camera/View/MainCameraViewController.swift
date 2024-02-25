@@ -16,9 +16,13 @@ class MainCameraViewController: BaseViewController {
 
     @IBOutlet weak var cameraContainerContainer: UIView!
     @IBOutlet weak var cameraContainerView: CameraContainerView!
+    
     @IBOutlet weak var flashView: UIView!
     @IBOutlet weak var formView: UIView!
     @IBOutlet weak var deviceView: UIView!
+    
+    @IBOutlet weak var zoomView: UIView!
+    
     @IBOutlet weak var controlsContainerView: UIView!
     @IBOutlet weak var shutterButton: ShutterButton!
     

@@ -18,14 +18,14 @@ struct ArrayControlValue {
 }
 
 struct RangeControlValue {
-    let min: Int
-    let max: Int
-    let step: Int
+    let min: CGFloat
+    let max: CGFloat
+    let step: CGFloat
     
-    let selected: Int?
+    let selected: CGFloat?
     
-    var range: [Int] {
-        var items = [Int]()
+    var range: [CGFloat] {
+        var items = [CGFloat]()
         
         for index in stride(from: min, to: max, by: step) {
             items.append(index)

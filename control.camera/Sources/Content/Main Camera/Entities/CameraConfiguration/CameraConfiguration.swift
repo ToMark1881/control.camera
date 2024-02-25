@@ -48,10 +48,15 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         
         let isFlashAvailable = currentDevice.isFlashAvailable
         
+        let minZoom = currentDevice.minAvailableVideoZoomFactor
+        let maxZoom = currentDevice.maxAvailableVideoZoomFactor
+        
         let settings: CameraSettings = .init(minISO: minISO,
                                              maxISO: maxISO,
                                              minExposure: minExposure,
                                              maxExposure: maxExposure,
+                                             minZoom: minZoom,
+                                             maxZoom: maxZoom,
                                              isFlashAvailable: isFlashAvailable)
         
         return settings
@@ -149,6 +154,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
             tempDevice = ultraWideCamera
         case .front:
             tempDevice = frontFacingCamera
+        }
+        
+        if tempDevice == currentDevice {
+            return
         }
         
         guard let device = tempDevice,

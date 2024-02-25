@@ -23,4 +23,9 @@ protocol MainCameraRouterInputProtocol: AnyObject {
                             for view: UIView,
                             moduleInput: inout ArraySwitchControlModuleInput?,
                             moduleOutput: SwitchControlModuleOutput)
+    
+    func setupZoomControl(controlValue: CameraControl,
+                          for view: UIView,
+                          moduleInput: inout RangeSwitchControlModuleInput?,
+                          moduleOutput: SwitchControlModuleOutput)
 }

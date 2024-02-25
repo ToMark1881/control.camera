@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="712"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YHv-Ff-TJX">
-                                        <rect key="frame" x="3" y="292" width="408" height="128"/>
+                                        <rect key="frame" x="3" y="222" width="408" height="268"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-yh-wFP">
                                                 <rect key="frame" x="0.0" y="0.0" width="408" height="128"/>
@@ -87,6 +87,35 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="128" id="ZWP-Oj-XJV"/>
                                                             <constraint firstAttribute="height" constant="128" id="awU-bd-kyi"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BmR-HM-dzf">
+                                                <rect key="frame" x="0.0" y="140" width="408" height="128"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUe-os-kZo" userLabel="ZoomView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="5aS-W8-1r1"/>
+                                                            <constraint firstAttribute="width" constant="128" id="jc8-9y-gul"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4lv-Lp-jbO" userLabel="FormView">
+                                                        <rect key="frame" x="140" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="128" id="O15-S3-Ixg"/>
+                                                            <constraint firstAttribute="height" constant="128" id="ROx-Oq-oed"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCN-4l-pGQ" userLabel="DeviceView">
+                                                        <rect key="frame" x="280" y="0.0" width="128" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="efd-px-FdQ"/>
+                                                            <constraint firstAttribute="width" constant="128" id="zbJ-XS-g52"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -125,6 +154,7 @@
                         <outlet property="flashView" destination="xvw-Nf-fnf" id="wli-Xu-whn"/>
                         <outlet property="formView" destination="pIb-cp-hi2" id="A3I-Ss-RrB"/>
                         <outlet property="shutterButton" destination="vGo-6J-k9l" id="1Sh-aJ-ODp"/>
+                        <outlet property="zoomView" destination="jUe-os-kZo" id="ut8-aj-Kke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
