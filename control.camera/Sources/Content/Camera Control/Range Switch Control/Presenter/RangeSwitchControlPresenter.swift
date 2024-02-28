@@ -49,12 +49,33 @@ extension RangeSwitchControlPresenter: RangeSwitchControlViewOutputProtocol {
     func onViewDidLoad() {}
     
     func didSelect(index: Range<Int>.Index) {
-//        let selectedValue = controlValue.array[index]
-//        let arrayControlValue = RangeControlValue(array: controlValue.array,
-//                                                  selected: selectedValue)
-//        
-//        switchControl.type = .array(arrayControlValue)
-//        moduleOutput?.didChangeSwitch(for: switchControl)
+        guard !switchControl.isLightControl else {
+            return
+        }
+        
+        let selectedValue = controlValue.range[index]
+        let arrayControlValue = RangeControlValue(min: controlValue.min,
+                                                  max: controlValue.max,
+                                                  step: controlValue.step,
+                                                  selected: selectedValue)
+        
+        switchControl.type = .range(arrayControlValue)
+        moduleOutput?.didChangeSwitch(for: switchControl)
+    }
+    
+    func willSelect(index: Range<Int>.Index) {
+        guard switchControl.isLightControl else {
+            return
+        }
+        
+        let selectedValue = controlValue.range[index]
+        let arrayControlValue = RangeControlValue(min: controlValue.min,
+                                                  max: controlValue.max,
+                                                  step: controlValue.step,
+                                                  selected: selectedValue)
+        
+        switchControl.type = .range(arrayControlValue)
+        moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
 }
@@ -67,8 +88,12 @@ extension RangeSwitchControlPresenter: RangeSwitchControlRouterOutputProtocol {
 private extension RangeSwitchControlPresenter {
     
     func reloadView() {
-        let selectedIndex = controlValue.range.firstIndex(where: { $0 == controlValue.selected }) ?? 0
-        let arrayOfStrings = controlValue.range.map({ Double($0).description })
+        let selectedIndex = controlValue.range.firstIndex(where: { $0 == controlValue.selected }) ?? 0        
+        let arrayOfStrings = controlValue.range.map { value in
+            let rounded = Double(value).rounded(toPlaces: 2).description
+            
+            return rounded
+        }
         
         let props: RangeSwitchViewProps = .init(title: switchControl.title,
                                                 array: arrayOfStrings,

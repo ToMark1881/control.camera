@@ -11,4 +11,5 @@ import UIKit
 protocol RangeSwitchControlViewOutputProtocol: AnyObject {
     func onViewDidLoad()
     func didSelect(index: Range<Int>.Index)
+    func willSelect(index: Range<Int>.Index)
 }

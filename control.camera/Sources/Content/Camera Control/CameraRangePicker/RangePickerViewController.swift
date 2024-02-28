@@ -9,6 +9,7 @@ import UIKit
 
 protocol RangePickerDelegate: AnyObject {
     func rangePickerView(_ rangePicker: RangePickerViewController, didSelectRow row: Int)
+    func rangePickerView(_ rangePicker: RangePickerViewController, willSelectRow row: Int)
 }
 
 protocol RangePickerDataSource: AnyObject {
@@ -18,7 +19,7 @@ protocol RangePickerDataSource: AnyObject {
 }
 
 class RangePickerViewController: BaseViewController {
-
+    
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet var panGestureRecognizer: UIPanGestureRecognizer!
     
@@ -32,7 +33,7 @@ class RangePickerViewController: BaseViewController {
                 let value = dataSource.rangePickerView(self, titleForRow: selectedRow)
                 valueLabel.text = value
                 
-                delegate?.rangePickerView(self, didSelectRow: selectedRow)
+                delegate?.rangePickerView(self, willSelectRow: selectedRow)
             }
         }
     }
@@ -53,6 +54,10 @@ class RangePickerViewController: BaseViewController {
         valueLabel?.text = value
     }
     
+    func selectRow(at index: Range<Int>.Index) {
+        selectedRow = index
+    }
+    
 }
 
 private extension RangePickerViewController {
@@ -63,11 +68,15 @@ private extension RangePickerViewController {
         
         switch sender.state {
         case .began:
-            self.initialCenter = piece.center
-            self.initialRow = selectedRow
+            initialCenter = piece.center
+            initialRow = selectedRow
             
-        case .changed, .ended:
+        case .changed:
             handlePanMovement(for: translation)
+            
+        case .ended:
+            handlePanMovement(for: translation)
+            delegate?.rangePickerView(self, didSelectRow: selectedRow)
         default:
             break
         }

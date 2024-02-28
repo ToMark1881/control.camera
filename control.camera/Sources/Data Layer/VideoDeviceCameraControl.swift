@@ -14,6 +14,10 @@ class VideoDeviceCameraControl: CameraControl {
         return "Device"
     }
     
+    var isLightControl: Bool {
+        return false
+    }
+    
     var type: CameraControlType
     var availableDevices: [AvailableVideoDevice]
     

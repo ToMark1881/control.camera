@@ -49,13 +49,29 @@ extension ArraySwitchControlPresenter: ArraySwitchControlViewOutputProtocol {
     func onViewDidLoad() {}
     
     func didSelect(index: Array<Int>.Index) {
+        guard !switchControl.isLightControl else {
+            return
+        }
+        
         let selectedValue = controlValue.array[index]
         let arrayControlValue = ArrayControlValue(array: controlValue.array,
                                                   selected: selectedValue)
         
         switchControl.type = .array(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
-        print(controlValue)
+    }
+    
+    func willSelect(index: Array<Int>.Index) {
+        guard switchControl.isLightControl else {
+            return
+        }
+        
+        let selectedValue = controlValue.array[index]
+        let arrayControlValue = ArrayControlValue(array: controlValue.array,
+                                                  selected: selectedValue)
+        
+        switchControl.type = .array(arrayControlValue)
+        moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
 }

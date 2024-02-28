@@ -10,4 +10,5 @@ import Foundation
 protocol CameraControl {
     var title: String { get }
     var type: CameraControlType { get set }
+    var isLightControl: Bool { get } 
 }

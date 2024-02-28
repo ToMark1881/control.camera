@@ -60,6 +60,10 @@ extension MainCameraPresenter: MainCameraRouterOutputProtocol {
 // MARK: - Camera - Presenter
 extension MainCameraPresenter: CameraConfigurationOutput {
     
+    func didChangeInputDevice() {
+        resetZoomControl()
+    }
+    
 }
 
 // MARK: - SwitchControlModuleOutput
@@ -75,6 +79,7 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
 
 private extension MainCameraPresenter {
     
+    // MARK: - Main controls function
     func setupControls() {
         setupLightControl()
         setupFormControl()
@@ -82,6 +87,7 @@ private extension MainCameraPresenter {
         setupZoomControl()
     }
     
+    // MARK: - Light control
     func setupLightControl() {
         guard camera.settings.isFlashAvailable else {
             return
@@ -95,6 +101,7 @@ private extension MainCameraPresenter {
                                  moduleOutput: self)
     }
     
+    // MARK: - Form control
     func setupFormControl() {
         let controlValue = FormCameraControl()
         
@@ -104,6 +111,7 @@ private extension MainCameraPresenter {
                                 moduleOutput: self)
     }
     
+    // MARK: - Device control
     func setupDeviceControl() {
         let availableDevices = camera.availableDevices
         let controlValue = VideoDeviceCameraControl(for: availableDevices)
@@ -114,16 +122,30 @@ private extension MainCameraPresenter {
                                   moduleOutput: self)
     }
     
+    // MARK: - Zoom control
     func setupZoomControl() {
+        let maxZoom = min(10.0, camera.settings.maxZoom)
+        
         let controlValue = ZoomCameraControl(min: camera.settings.minZoom,
-                                             max: camera.settings.maxZoom,
-                                             step: 5,
+                                             max: maxZoom,
+                                             step: 0.1,
                                              selected: camera.settings.minZoom)
         
         router.setupZoomControl(controlValue: controlValue,
                                 for: view.zoomView,
                                 moduleInput: &zoomModuleInput,
                                 moduleOutput: self)
+    }
+    
+    func resetZoomControl() {
+        let maxZoom = min(10.0, camera.settings.maxZoom)
+        
+        let controlValue = ZoomCameraControl(min: camera.settings.minZoom,
+                                             max: maxZoom,
+                                             step: 0.1,
+                                             selected: camera.settings.minZoom)
+        
+        zoomModuleInput?.setupSwitch(for: controlValue)
     }
     
 }

@@ -19,7 +19,6 @@ class RangeSwitchControlViewController: BaseViewController {
     var output: RangeSwitchControlViewOutputProtocol!
     
 
-    @IBOutlet weak var rangePickerContainerView: UIView!
     @IBOutlet weak var switchNameLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
@@ -52,7 +51,9 @@ extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol 
     func update(with props: RangeSwitchViewProps) {
         switchNameLabel.text = props.title
         rangeData = props.array
+        
         rangePickerView?.reloadData()
+        rangePickerView?.selectRow(at: props.selectedIndex)
     }
     
 }
@@ -76,7 +77,11 @@ extension RangeSwitchControlViewController: RangePickerDataSource {
 extension RangeSwitchControlViewController: RangePickerDelegate {
     
     func rangePickerView(_ rangePicker: RangePickerViewController, didSelectRow row: Int) {
-        
+        output.didSelect(index: row)
+    }
+    
+    func rangePickerView(_ rangePicker: RangePickerViewController, willSelectRow row: Int) {
+        output.willSelect(index: row)
     }
     
 }

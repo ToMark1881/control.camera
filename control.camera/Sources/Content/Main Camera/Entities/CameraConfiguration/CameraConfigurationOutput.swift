@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CameraConfigurationOutput: AnyObject {
-    
+    func didChangeInputDevice()
 }

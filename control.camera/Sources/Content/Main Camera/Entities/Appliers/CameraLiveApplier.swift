@@ -22,6 +22,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyFormControl(control as? FormCameraControl)
         case is VideoDeviceCameraControl:
             applyDeviceControl(control as? VideoDeviceCameraControl)
+        case is ZoomCameraControl:
+            applyZoomDevice(control as? ZoomCameraControl)
         default:
             break
         }
@@ -53,6 +55,14 @@ private extension CameraLiveApplierImplementation {
         }
         
         camera.changeDevice(selectedDevice.type)
+    }
+    
+    func applyZoomDevice(_ control: ZoomCameraControl?) {
+        guard let selectedValue = control?.controlValue.selected else {
+            return
+        }
+        
+        camera.setZoomFactor(selectedValue)
     }
     
 }

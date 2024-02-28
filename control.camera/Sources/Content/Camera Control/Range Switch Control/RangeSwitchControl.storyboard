@@ -69,7 +69,6 @@
                     <connections>
                         <outlet property="backgroundImage" destination="pKB-Qa-OWC" id="7od-Sf-5Ew"/>
                         <outlet property="linesImageView" destination="KF7-9H-bB0" id="sxR-VH-ffg"/>
-                        <outlet property="rangePickerContainerView" destination="Xtf-rH-6gD" id="cGd-3m-9lH"/>
                         <outlet property="switchNameLabel" destination="YOs-F3-8G1" id="pe3-DD-7U6"/>
                     </connections>
                 </viewController>

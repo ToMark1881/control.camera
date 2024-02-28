@@ -33,6 +33,10 @@ class FormCameraControl: CameraControl {
         return "Form"
     }
     
+    var isLightControl: Bool {
+        return true
+    }
+    
     var type: CameraControlType = .array(ArrayControlValue(array: [PhotoAspectRatio.threeByFour.rawValue,
                                                                    PhotoAspectRatio.tenBySixteen.rawValue,
                                                                    PhotoAspectRatio.nineBySixteen.rawValue,

@@ -10,21 +10,37 @@ import UIKit
 
 class ArraySwitchControlViewController: BaseViewController {
     
+    private enum Constants {
+        static let segueIdentifier = "RangePickerViewSegue"
+    }
+    
     //MARK: - Injected
     
     var output: ArraySwitchControlViewOutputProtocol!
 
-    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var switchNameLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
+    private var rangePickerView: RangePickerViewController?
     var rangeData: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         output.onViewDidLoad()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.segueIdentifier,
+           let controller = segue.destination as? RangePickerViewController {
+            rangePickerView = controller
+            
+            rangePickerView?.delegate = self
+            rangePickerView?.dataSource = self
+        }
+        
+        super.prepare(for: segue, sender: sender)
     }
 
 }
@@ -34,9 +50,36 @@ extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol 
     func update(with props: ArraySwitchViewProps) {
         switchNameLabel.text = props.title
         rangeData = props.array
-        pickerView.reloadAllComponents()
-        
-        pickerView.selectRow(props.selectedIndex, inComponent: 0, animated: false)
+        rangePickerView?.reloadData()
+        rangePickerView?.selectRow(at: props.selectedIndex)
+    }
+    
+}
+
+extension ArraySwitchControlViewController: RangePickerDataSource {
+    
+    func rangePickerView(numbersOfRowsForRangePicker rangePicker: RangePickerViewController) -> Int {
+        return rangeData.count
+    }
+    
+    func rangePickerView(_ rangePicker: RangePickerViewController, titleForRow row: Int) -> String? {
+        return rangeData[safe: row]
+    }
+    
+    func rangePickerView(_ rangePicker: RangePickerViewController, heightForRow row: Int) -> CGFloat {
+        return 100.0
+    }
+    
+}
+
+extension ArraySwitchControlViewController: RangePickerDelegate {
+    
+    func rangePickerView(_ rangePicker: RangePickerViewController, didSelectRow row: Int) {
+        output.didSelect(index: row)
+    }
+    
+    func rangePickerView(_ rangePicker: RangePickerViewController, willSelectRow row: Int) {
+        output.willSelect(index: row)
     }
     
 }
@@ -45,34 +88,6 @@ extension ArraySwitchControlViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         output.didSelect(index: row)
-    }
-    
-}
-
-extension ArraySwitchControlViewController: UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return rangeData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        if #available(iOS 14.0, *) { pickerView.subviews[1].backgroundColor = .clear }
-
-        let modeLabel = UILabel()
-        modeLabel.font = UIFont(name: "Touch Sans One Regular", size: 16.0)
-        modeLabel.textColor = .white
-        modeLabel.text = rangeData[row]
-        modeLabel.textAlignment = .center
-        
-        return modeLabel
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return (pickerView.frame.height * 2) / 3
     }
     
 }

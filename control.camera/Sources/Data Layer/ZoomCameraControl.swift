@@ -13,6 +13,10 @@ class ZoomCameraControl: CameraControl {
         return "Zoom"
     }
     
+    var isLightControl: Bool {
+        return true
+    }
+    
     var type: CameraControlType
     
     init(min: CGFloat, max: CGFloat, step: CGFloat, selected: CGFloat?) {

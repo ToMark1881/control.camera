@@ -15,6 +15,7 @@ protocol CameraConfiguration: AnyObject {
     func configure()
     func startSession()
     func changeDevice(_ device: AvailableVideoDevice.DeviceType)
+    func setZoomFactor(_ zoomFactor: CGFloat)
     
     func capturePhoto()
 }
@@ -168,6 +169,18 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         captureSession.inputs.forEach({ captureSession.removeInput($0) })
         captureSession.addInput(captureDeviceInput)
         currentDevice = device
+        
+        output.didChangeInputDevice()
+    }
+    
+    func setZoomFactor(_ zoomFactor: CGFloat) {
+        do {
+            try currentDevice.lockForConfiguration()
+            currentDevice.videoZoomFactor = zoomFactor
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
     }
     
     func capturePhoto() {
