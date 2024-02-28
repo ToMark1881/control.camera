@@ -4,6 +4,8 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>To take pictures with a new style</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>To save pictures</string>
 	<key>UIAppFonts</key>
