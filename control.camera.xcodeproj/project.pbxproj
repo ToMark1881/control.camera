@@ -75,6 +75,28 @@
 		7D92BEBD27F8A6240025398D /* NothingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C46D27F8A088007F3CC5 /* NothingView.xib */; };
 		7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C41D27F89B96007F3CC5 /* Root.storyboard */; };
 		7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C46F27F8A088007F3CC5 /* ReloadContentView.xib */; };
+		FA0307842B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */; };
+		FA0307852B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */; };
+		FA0307862B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307772B9072C200AC9B27 /* ActionSwitchControlPresenter.swift */; };
+		FA0307872B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307772B9072C200AC9B27 /* ActionSwitchControlPresenter.swift */; };
+		FA0307882B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307782B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift */; };
+		FA0307892B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307782B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift */; };
+		FA03078A2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0307792B9072C200AC9B27 /* ActionSwitchControl.storyboard */; };
+		FA03078B2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0307792B9072C200AC9B27 /* ActionSwitchControl.storyboard */; };
+		FA03078C2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077B2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift */; };
+		FA03078D2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077B2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift */; };
+		FA03078E2B9072C200AC9B27 /* ActionSwitchControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077D2B9072C200AC9B27 /* ActionSwitchControlViewController.swift */; };
+		FA03078F2B9072C200AC9B27 /* ActionSwitchControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077D2B9072C200AC9B27 /* ActionSwitchControlViewController.swift */; };
+		FA0307902B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077E2B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift */; };
+		FA0307912B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077E2B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift */; };
+		FA0307922B9072C200AC9B27 /* ActionSwitchControlViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077F2B9072C200AC9B27 /* ActionSwitchControlViewInput.swift */; };
+		FA0307932B9072C200AC9B27 /* ActionSwitchControlViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA03077F2B9072C200AC9B27 /* ActionSwitchControlViewInput.swift */; };
+		FA0307942B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307812B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift */; };
+		FA0307952B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307812B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift */; };
+		FA0307962B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */; };
+		FA0307972B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */; };
+		FA0307982B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */; };
+		FA0307992B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */; };
 		FA236DE92B8691B60035B653 /* UIImage+Cropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */; };
 		FA236DEA2B8691B60035B653 /* UIImage+Cropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */; };
 		FA236DEC2B8691EC0035B653 /* CoreGraphics+Multiplying.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA236DEB2B8691EC0035B653 /* CoreGraphics+Multiplying.swift */; };
@@ -335,6 +357,17 @@
 		7D92BE8527F8A4D00025398D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D92BEC627F8A6240025398D /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D92BEC827F8AAB50025398D /* StagingInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StagingInfo.plist; sourceTree = "<group>"; };
+		FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchViewProps.swift; sourceTree = "<group>"; };
+		FA0307772B9072C200AC9B27 /* ActionSwitchControlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlPresenter.swift; sourceTree = "<group>"; };
+		FA0307782B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlModuleInput.swift; sourceTree = "<group>"; };
+		FA0307792B9072C200AC9B27 /* ActionSwitchControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ActionSwitchControl.storyboard; sourceTree = "<group>"; };
+		FA03077B2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlWireframe.swift; sourceTree = "<group>"; };
+		FA03077D2B9072C200AC9B27 /* ActionSwitchControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlViewController.swift; sourceTree = "<group>"; };
+		FA03077E2B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlViewOutput.swift; sourceTree = "<group>"; };
+		FA03077F2B9072C200AC9B27 /* ActionSwitchControlViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlViewInput.swift; sourceTree = "<group>"; };
+		FA0307812B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouterOutput.swift; sourceTree = "<group>"; };
+		FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouterInput.swift; sourceTree = "<group>"; };
+		FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouter.swift; sourceTree = "<group>"; };
 		FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropping.swift"; sourceTree = "<group>"; };
 		FA236DEB2B8691EC0035B653 /* CoreGraphics+Multiplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Multiplying.swift"; sourceTree = "<group>"; };
 		FA2491642B906A4C008CCACD /* ShowUICameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUICameraControl.swift; sourceTree = "<group>"; };
@@ -697,12 +730,71 @@
 			path = "Alert Controller";
 			sourceTree = "<group>";
 		};
+		FA0307732B9072C200AC9B27 /* Action Switch Control */ = {
+			isa = PBXGroup;
+			children = (
+				FA0307792B9072C200AC9B27 /* ActionSwitchControl.storyboard */,
+				FA0307742B9072C200AC9B27 /* Entity */,
+				FA0307762B9072C200AC9B27 /* Presenter */,
+				FA03077A2B9072C200AC9B27 /* Wireframe */,
+				FA03077C2B9072C200AC9B27 /* View */,
+				FA0307802B9072C200AC9B27 /* Router */,
+			);
+			path = "Action Switch Control";
+			sourceTree = "<group>";
+		};
+		FA0307742B9072C200AC9B27 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FA0307762B9072C200AC9B27 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FA0307772B9072C200AC9B27 /* ActionSwitchControlPresenter.swift */,
+				FA0307782B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FA03077A2B9072C200AC9B27 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				FA03077B2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		FA03077C2B9072C200AC9B27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA03077D2B9072C200AC9B27 /* ActionSwitchControlViewController.swift */,
+				FA03077E2B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift */,
+				FA03077F2B9072C200AC9B27 /* ActionSwitchControlViewInput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA0307802B9072C200AC9B27 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FA0307812B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift */,
+				FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */,
+				FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		FA2644052902D28C00655F22 /* Camera Control */ = {
 			isa = PBXGroup;
 			children = (
 				FA2644062902D29B00655F22 /* CameraControlType.swift */,
 				FA26440E2902D3DF00655F22 /* SwitchControlModuleOutput.swift */,
 				FAAB72482B8BC4660042851F /* CameraRangePicker */,
+				FA0307732B9072C200AC9B27 /* Action Switch Control */,
 				FA2644092902D39C00655F22 /* Simple Switch Control */,
 				FAAB72792B8BC81A0042851F /* Range Switch Control */,
 				FA6F7ACF2B7C010D00F7EFB0 /* Array Switch Control */,
@@ -1231,6 +1323,7 @@
 				FA37A6F22902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				7D57C47827F8A088007F3CC5 /* ReloadContentView.xib in Resources */,
 				FA37A6F62902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
+				FA03078A2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */,
 				FA37A6F82902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */,
 				FAAB72742B8BC4D50042851F /* RangePickerView.storyboard in Resources */,
 				FA37A7272902637200B9F575 /* Colors.xcassets in Resources */,
@@ -1271,6 +1364,7 @@
 				FA37A6F32902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */,
 				FA37A6F72902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
+				FA03078B2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */,
 				FA37A6F92902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */,
 				FAAB72752B8BC4D50042851F /* RangePickerView.storyboard in Resources */,
 				FA37A7282902637200B9F575 /* Colors.xcassets in Resources */,
@@ -1287,6 +1381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6F7AEC2B7C010D00F7EFB0 /* ArraySwitchControlWireframe.swift in Sources */,
+				FA0307922B9072C200AC9B27 /* ActionSwitchControlViewInput.swift in Sources */,
 				FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */,
 				7D57C45727F89DFB007F3CC5 /* Sequence+Extensions.swift in Sources */,
 				7D57C48727F8A123007F3CC5 /* AlertController.swift in Sources */,
@@ -1320,6 +1415,7 @@
 				FA2F427628BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */,
 				FAAB72772B8BC4F50042851F /* RangePickerViewController.swift in Sources */,
 				FAAB728A2B8BC81A0042851F /* RangeSwitchViewProps.swift in Sources */,
+				FA03078E2B9072C200AC9B27 /* ActionSwitchControlViewController.swift in Sources */,
 				FA6F7AF82B7C010D00F7EFB0 /* ArraySwitchControlRouterOutputProtocol.swift in Sources */,
 				FAAB72982B8BC81A0042851F /* RangeSwitchControlViewInputProtocol.swift in Sources */,
 				FA6F7AFD2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */,
@@ -1335,7 +1431,9 @@
 				7D57C45927F89DFB007F3CC5 /* UITextField+Extensions.swift in Sources */,
 				FA26441D2902D3DF00655F22 /* SimpleSwitchControlPresenter.swift in Sources */,
 				FA6F7AE82B7C010D00F7EFB0 /* ArraySwitchControlPresenter.swift in Sources */,
+				FA0307862B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */,
 				FAEEEF492902AD3D0019EE29 /* CameraViewConfiguration.swift in Sources */,
+				FA03078C2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift in Sources */,
 				FAAB729C2B8BC81A0042851F /* RangeSwitchControlRouter.swift in Sources */,
 				FA6F7AF02B7C010D00F7EFB0 /* ArraySwitchControlViewController.swift in Sources */,
 				FA2491682B906C9E008CCACD /* LibraryCameraControl.swift in Sources */,
@@ -1351,9 +1449,12 @@
 				FA2F427A28BDC86700F6E6A7 /* RootPresenter.swift in Sources */,
 				FA26441B2902D3DF00655F22 /* SimpleSwitchControlRouterOutput.swift in Sources */,
 				FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
+				FA0307842B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
+				FA0307982B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */,
 				7D57C44D27F89DDE007F3CC5 /* ParserHelper.swift in Sources */,
 				FA6F7AFA2B7C010D00F7EFB0 /* ArraySwitchControlRouter.swift in Sources */,
 				FA56FF342B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */,
+				FA0307882B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift in Sources */,
 				7D92BE8627F8A4D00025398D /* Constants.swift in Sources */,
 				FA2F428228BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				FA6F7AF22B7C010D00F7EFB0 /* ArraySwitchControlViewOutputProtocol.swift in Sources */,
@@ -1365,10 +1466,12 @@
 				FA37A70B290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				FA48CC392B7AB9E200E19814 /* CameraSettingsStorage.swift in Sources */,
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
+				FA0307962B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */,
 				FA696F352B875249004F78BD /* CroppingService.swift in Sources */,
 				FA2644192902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAEEEF462902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */,
+				FA0307942B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift in Sources */,
 				FAA73B5C2B8BCD7700E30604 /* ZoomCameraControl.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
 				FAAE31CC2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */,
@@ -1400,6 +1503,7 @@
 				7D57C45E27F89DFB007F3CC5 /* String+Extensions.swift in Sources */,
 				FA2F427428BDC86700F6E6A7 /* RootViewInput.swift in Sources */,
 				7D57C45A27F89DFB007F3CC5 /* UINavigationController+Extensions.swift in Sources */,
+				FA0307902B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift in Sources */,
 				7D57C43727F89C72007F3CC5 /* BaseWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1423,6 +1527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA6F7AED2B7C010D00F7EFB0 /* ArraySwitchControlWireframe.swift in Sources */,
+				FA0307932B9072C200AC9B27 /* ActionSwitchControlViewInput.swift in Sources */,
 				FAEEEF272902A33B0019EE29 /* MainCameraViewInput.swift in Sources */,
 				7D92BE8A27F8A6240025398D /* Sequence+Extensions.swift in Sources */,
 				7D92BE8B27F8A6240025398D /* AlertController.swift in Sources */,
@@ -1456,6 +1561,7 @@
 				FA2F427728BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */,
 				FAAB72782B8BC4F50042851F /* RangePickerViewController.swift in Sources */,
 				FAAB728B2B8BC81A0042851F /* RangeSwitchViewProps.swift in Sources */,
+				FA03078F2B9072C200AC9B27 /* ActionSwitchControlViewController.swift in Sources */,
 				FA6F7AF92B7C010D00F7EFB0 /* ArraySwitchControlRouterOutputProtocol.swift in Sources */,
 				FAAB72992B8BC81A0042851F /* RangeSwitchControlViewInputProtocol.swift in Sources */,
 				FA6F7AFE2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */,
@@ -1471,7 +1577,9 @@
 				7D92BEA127F8A6240025398D /* UITextField+Extensions.swift in Sources */,
 				FA26441E2902D3DF00655F22 /* SimpleSwitchControlPresenter.swift in Sources */,
 				FA6F7AE92B7C010D00F7EFB0 /* ArraySwitchControlPresenter.swift in Sources */,
+				FA0307872B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */,
 				FAEEEF4A2902AD3D0019EE29 /* CameraViewConfiguration.swift in Sources */,
+				FA03078D2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift in Sources */,
 				FAAB729D2B8BC81A0042851F /* RangeSwitchControlRouter.swift in Sources */,
 				FA6F7AF12B7C010D00F7EFB0 /* ArraySwitchControlViewController.swift in Sources */,
 				FA2491692B906C9E008CCACD /* LibraryCameraControl.swift in Sources */,
@@ -1487,9 +1595,12 @@
 				FA2F427B28BDC86700F6E6A7 /* RootPresenter.swift in Sources */,
 				FA26441C2902D3DF00655F22 /* SimpleSwitchControlRouterOutput.swift in Sources */,
 				FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
+				FA0307852B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
+				FA0307992B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */,
 				7D92BEA627F8A6240025398D /* ParserHelper.swift in Sources */,
 				FA6F7AFB2B7C010D00F7EFB0 /* ArraySwitchControlRouter.swift in Sources */,
 				FA56FF352B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */,
+				FA0307892B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift in Sources */,
 				7D92BEA727F8A6240025398D /* Constants.swift in Sources */,
 				FA2F428328BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				FA6F7AF32B7C010D00F7EFB0 /* ArraySwitchControlViewOutputProtocol.swift in Sources */,
@@ -1501,10 +1612,12 @@
 				FA37A70C290262AD00B9F575 /* OnboardingViewInput.swift in Sources */,
 				FA48CC3A2B7AB9E200E19814 /* CameraSettingsStorage.swift in Sources */,
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
+				FA0307972B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */,
 				FA696F362B875249004F78BD /* CroppingService.swift in Sources */,
 				FA26441A2902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */,
+				FA0307952B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift in Sources */,
 				FAA73B5D2B8BCD7700E30604 /* ZoomCameraControl.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
 				FAAE31CD2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */,
@@ -1536,6 +1649,7 @@
 				7D92BEB527F8A6240025398D /* String+Extensions.swift in Sources */,
 				FA2F427528BDC86700F6E6A7 /* RootViewInput.swift in Sources */,
 				7D92BEB627F8A6240025398D /* UINavigationController+Extensions.swift in Sources */,
+				FA0307912B9072C200AC9B27 /* ActionSwitchControlViewOutput.swift in Sources */,
 				7D92BEB727F8A6240025398D /* BaseWireframe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1689,7 +1803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
@@ -1725,7 +1839,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";

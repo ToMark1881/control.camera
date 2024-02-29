@@ -21,6 +21,7 @@ class MainCameraPresenter: BasePresenter {
     weak var deviceModuleInput: ArraySwitchControlModuleInput?
     weak var zoomModuleInput: RangeSwitchControlModuleInput?
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
+    weak var libraryModuleInput: ActionSwitchControlModuleInput?
     
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
@@ -168,6 +169,11 @@ private extension MainCameraPresenter {
         }
         
         let controlValue = LibraryCameraControl(action: action)
+        
+        router.setupLibraryControl(controlValue: controlValue,
+                                   for: view.libraryView,
+                                   moduleInput: &libraryModuleInput,
+                                   moduleOutput: self)
     }
     
     func openLibrary() {
