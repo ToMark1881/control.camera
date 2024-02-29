@@ -20,6 +20,7 @@ class MainCameraPresenter: BasePresenter {
     weak var formModuleInput: ArraySwitchControlModuleInput?
     weak var deviceModuleInput: ArraySwitchControlModuleInput?
     weak var zoomModuleInput: RangeSwitchControlModuleInput?
+    weak var focusModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     
@@ -87,6 +88,7 @@ private extension MainCameraPresenter {
         setupFormControl()
         setupDeviceControl()
         setupZoomControl()
+        setupFocusControl()
         setupUIControl()
         setupLibraryControl()
     }
@@ -150,6 +152,21 @@ private extension MainCameraPresenter {
                                              selected: camera.settings.minZoom)
         
         zoomModuleInput?.setupSwitch(for: controlValue)
+    }
+    
+    func setupFocusControl() {
+        guard camera.settings.isLockedFocusSupported else {
+            return
+        }
+        
+        let controlValue = FocusCameraControl(min: camera.settings.minLensPosition,
+                                              max: camera.settings.maxLensPosition,
+                                              focus: .auto)
+        
+        router.setupFocusControl(controlValue: controlValue,
+                                 for: view.focusView,
+                                 moduleInput: &focusModuleInput,
+                                 moduleOutput: self)
     }
     
     // MARK: - UI control

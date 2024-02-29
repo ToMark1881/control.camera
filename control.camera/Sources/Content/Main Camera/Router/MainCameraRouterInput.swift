@@ -29,6 +29,11 @@ protocol MainCameraRouterInputProtocol: AnyObject {
                           moduleInput: inout RangeSwitchControlModuleInput?,
                           moduleOutput: SwitchControlModuleOutput)
     
+    func setupFocusControl(controlValue: CameraControl,
+                           for view: UIView,
+                           moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
+                           moduleOutput: SwitchControlModuleOutput)
+    
     func setupUIControl(controlValue: CameraControl,
                         for view: UIView,
                         moduleInput: inout SimpleSwitchControlModuleInput?,

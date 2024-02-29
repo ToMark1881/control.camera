@@ -26,6 +26,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyZoomControl(control as? ZoomCameraControl)
         case is ShowUICameraControl:
             applyUIControl(control as? ShowUICameraControl)
+        case is FocusCameraControl:
+            applyFocusControl(control as? FocusCameraControl)
         default:
             break
         }
@@ -73,6 +75,20 @@ private extension CameraLiveApplierImplementation {
         }
         
         view.showControlContainer(isActive)
+    }
+    
+    func applyFocusControl(_ control: FocusCameraControl?) {
+        guard let control = control else {
+            return
+        }
+        
+        switch control.focusType {
+        case .auto:
+            camera.setAutoFocus()
+            
+        case .locked(let lensPosition):
+            camera.setLockedFocus(with: lensPosition)
+        }
     }
     
 }

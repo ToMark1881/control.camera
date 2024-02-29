@@ -19,6 +19,7 @@ class MainCameraRouter: BaseRouter {
     private lazy var arraySwitchWireframe = { ArraySwitchControlWireframe() }()
     private lazy var rangeSwitchWireframe = { RangeSwitchControlWireframe() }()
     private lazy var actionSwitchWireframe = { ActionSwitchControlWireframe() }()
+    private lazy var rangeWithDefaultWireframe = { RangeWithDefaultSwitchControlWireframe() }()
     
 }
 
@@ -61,6 +62,15 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
         
         moduleInput?.setupSwitch(for: controlValue)
     }
+    
+    func setupFocusControl(controlValue: CameraControl,
+                           for view: UIView,
+                           moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
+                           moduleOutput: SwitchControlModuleOutput) {
+        rangeWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+         
+         moduleInput?.setupSwitch(for: controlValue)
+     }
     
     func setupUIControl(controlValue: CameraControl,
                         for view: UIView,

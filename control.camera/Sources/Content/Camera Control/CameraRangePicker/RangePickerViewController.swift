@@ -58,6 +58,10 @@ class RangePickerViewController: BaseViewController {
         selectedRow = index
     }
     
+    func setValueHidden(_ isHidden: Bool) {
+        valueLabel.isHidden = isHidden
+    }
+    
 }
 
 private extension RangePickerViewController {

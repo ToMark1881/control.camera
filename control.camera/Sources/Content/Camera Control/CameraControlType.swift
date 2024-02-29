@@ -39,7 +39,7 @@ struct RangeControlValue {
     }
 }
 
-struct RangeWithDefaultValue {
+struct RangeWithDefaultControlValue {
     let defaultValue: String
     let range: RangeControlValue
     
@@ -52,7 +52,7 @@ enum CameraControlType: Equatable {
     case simple(_ value: SimpleControlValue)
     case array(_ array: ArrayControlValue)
     case range(_ range: RangeControlValue)
-    case rangeWithDefault(_ range: RangeWithDefaultValue)
+    case rangeWithDefault(_ range: RangeWithDefaultControlValue)
     case action(_ action: ActionControlValue)
     
     private var id: Int {

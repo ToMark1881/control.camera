@@ -269,6 +269,28 @@
 		FAAE31D32B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
 		FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
 		FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
+		FABD87B72B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */; };
+		FABD87B82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */; };
+		FABD87B92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */; };
+		FABD87BA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */; };
+		FABD87BB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift */; };
+		FABD87BC2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift */; };
+		FABD87BD2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AD2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift */; };
+		FABD87BE2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AD2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift */; };
+		FABD87BF2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AF2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift */; };
+		FABD87C02B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AF2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift */; };
+		FABD87C12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B02B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift */; };
+		FABD87C22B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B02B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift */; };
+		FABD87C32B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift */; };
+		FABD87C42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift */; };
+		FABD87C52B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABD87B22B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard */; };
+		FABD87C62B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABD87B22B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard */; };
+		FABD87C72B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift */; };
+		FABD87C82B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift */; };
+		FABD87C92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B52B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift */; };
+		FABD87CA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B52B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift */; };
+		FABD87CB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */; };
+		FABD87CC2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */; };
 		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
@@ -456,6 +478,17 @@
 		FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveApplier.swift; sourceTree = "<group>"; };
 		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCameraControl.swift; sourceTree = "<group>"; };
+		FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchViewProps.swift; sourceTree = "<group>"; };
+		FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlModuleInput.swift; sourceTree = "<group>"; };
+		FABD87AB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlPresenter.swift; sourceTree = "<group>"; };
+		FABD87AD2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlWireframe.swift; sourceTree = "<group>"; };
+		FABD87AF2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlViewInputProtocol.swift; sourceTree = "<group>"; };
+		FABD87B02B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlViewOutputProtocol.swift; sourceTree = "<group>"; };
+		FABD87B12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlViewController.swift; sourceTree = "<group>"; };
+		FABD87B22B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RangeWithDefaultSwitchControl.storyboard; sourceTree = "<group>"; };
+		FABD87B42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlRouterInputProtocol.swift; sourceTree = "<group>"; };
+		FABD87B52B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlRouterOutputProtocol.swift; sourceTree = "<group>"; };
+		FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlRouter.swift; sourceTree = "<group>"; };
 		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
@@ -801,6 +834,7 @@
 				FA0307732B9072C200AC9B27 /* Action Switch Control */,
 				FA2644092902D39C00655F22 /* Simple Switch Control */,
 				FAAB72792B8BC81A0042851F /* Range Switch Control */,
+				FABD87A62B9118AB00CBFA49 /* Range with Default Switch Control */,
 				FA6F7ACF2B7C010D00F7EFB0 /* Array Switch Control */,
 			);
 			path = "Camera Control";
@@ -1129,6 +1163,64 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		FABD87A62B9118AB00CBFA49 /* Range with Default Switch Control */ = {
+			isa = PBXGroup;
+			children = (
+				FABD87B22B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard */,
+				FABD87A72B9118AB00CBFA49 /* Entity */,
+				FABD87A92B9118AB00CBFA49 /* Presenter */,
+				FABD87AC2B9118AB00CBFA49 /* Wireframe */,
+				FABD87AE2B9118AB00CBFA49 /* View */,
+				FABD87B32B9118AB00CBFA49 /* Router */,
+			);
+			path = "Range with Default Switch Control";
+			sourceTree = "<group>";
+		};
+		FABD87A72B9118AB00CBFA49 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FABD87A92B9118AB00CBFA49 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */,
+				FABD87AB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FABD87AC2B9118AB00CBFA49 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				FABD87AD2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		FABD87AE2B9118AB00CBFA49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FABD87AF2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift */,
+				FABD87B02B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift */,
+				FABD87B12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FABD87B32B9118AB00CBFA49 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FABD87B42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift */,
+				FABD87B52B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift */,
+				FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		FAEEEF182902A31B0019EE29 /* Main Camera */ = {
 			isa = PBXGroup;
 			children = (
@@ -1325,6 +1417,7 @@
 				FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */,
 				FA37A6FE2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
 				FA37A6F22902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
+				FABD87C52B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard in Resources */,
 				7D57C47827F8A088007F3CC5 /* ReloadContentView.xib in Resources */,
 				FA37A6F62902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
 				FA03078A2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */,
@@ -1366,6 +1459,7 @@
 				FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */,
 				FA37A6FF2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
 				FA37A6F32902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
+				FABD87C62B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard in Resources */,
 				7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */,
 				FA37A6F72902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
 				FA03078B2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */,
@@ -1388,6 +1482,7 @@
 				FA0307922B9072C200AC9B27 /* ActionSwitchControlViewInput.swift in Sources */,
 				FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */,
 				7D57C45727F89DFB007F3CC5 /* Sequence+Extensions.swift in Sources */,
+				FABD87B72B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */,
 				7D57C48727F8A123007F3CC5 /* AlertController.swift in Sources */,
 				FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
 				7D57C47527F8A088007F3CC5 /* NothingView.swift in Sources */,
@@ -1412,9 +1507,11 @@
 				7D57C41027F898E3007F3CC5 /* main.swift in Sources */,
 				FA37A70F290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
 				FA37A713290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
+				FABD87C32B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */,
 				FA2644072902D29B00655F22 /* CameraControlType.swift in Sources */,
 				FA2F427E28BDC86700F6E6A7 /* RootViewController.swift in Sources */,
 				FA2644252902D3DF00655F22 /* SimpleSwitchControlRouterInput.swift in Sources */,
+				FABD87B92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */,
 				7D57C46327F89E67007F3CC5 /* ErrorsFactory.swift in Sources */,
 				7D57C45C27F89DFB007F3CC5 /* Bundle+Extensions.swift in Sources */,
 				FA2F427628BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */,
@@ -1436,6 +1533,7 @@
 				7D57C45927F89DFB007F3CC5 /* UITextField+Extensions.swift in Sources */,
 				FA26441D2902D3DF00655F22 /* SimpleSwitchControlPresenter.swift in Sources */,
 				FA6F7AE82B7C010D00F7EFB0 /* ArraySwitchControlPresenter.swift in Sources */,
+				FABD87C72B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift in Sources */,
 				FA0307862B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */,
 				FAEEEF492902AD3D0019EE29 /* CameraViewConfiguration.swift in Sources */,
 				FA03078C2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift in Sources */,
@@ -1453,7 +1551,9 @@
 				FA48CC332B7AB44800E19814 /* CameraControl.swift in Sources */,
 				FA2F427A28BDC86700F6E6A7 /* RootPresenter.swift in Sources */,
 				FA26441B2902D3DF00655F22 /* SimpleSwitchControlRouterOutput.swift in Sources */,
+				FABD87C12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
 				FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
+				FABD87C92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
 				FA0307842B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
 				FA0307982B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */,
 				7D57C44D27F89DDE007F3CC5 /* ParserHelper.swift in Sources */,
@@ -1464,6 +1564,7 @@
 				FA2F428228BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				FA6F7AF22B7C010D00F7EFB0 /* ArraySwitchControlViewOutputProtocol.swift in Sources */,
 				7D57C47B27F8A088007F3CC5 /* LoadingView.swift in Sources */,
+				FABD87CB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */,
 				FA56FF372B88E3A600CC1080 /* CameraContainerView.swift in Sources */,
 				FAEEEF2E2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
 				FAEEEF2A2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
@@ -1480,9 +1581,11 @@
 				FAA73B5C2B8BCD7700E30604 /* ZoomCameraControl.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
 				FAAE31CC2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */,
+				FABD87BD2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift in Sources */,
 				7D57C47927F8A088007F3CC5 /* StatesViewsDataSource.swift in Sources */,
 				FA84DCF82B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */,
 				FAAB72962B8BC81A0042851F /* RangeSwitchControlViewOutputProtocol.swift in Sources */,
+				FABD87BF2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift in Sources */,
 				FAEEEF302902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
 				FAAB729A2B8BC81A0042851F /* RangeSwitchControlRouterInputProtocol.swift in Sources */,
 				FA2644272902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
@@ -1495,6 +1598,7 @@
 				FA2644172902D3DF00655F22 /* SimpleSwitchControlViewInput.swift in Sources */,
 				7D57C41827F89985007F3CC5 /* Logger.swift in Sources */,
 				FAEEEF3F2902A67C0019EE29 /* ShutterButton.swift in Sources */,
+				FABD87BB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift in Sources */,
 				FA2F428028BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
 				FA236DEC2B8691EC0035B653 /* CoreGraphics+Multiplying.swift in Sources */,
 				FA48CC362B7AB4AE00E19814 /* FlashCameraControl.swift in Sources */,
@@ -1535,6 +1639,7 @@
 				FA0307932B9072C200AC9B27 /* ActionSwitchControlViewInput.swift in Sources */,
 				FAEEEF272902A33B0019EE29 /* MainCameraViewInput.swift in Sources */,
 				7D92BE8A27F8A6240025398D /* Sequence+Extensions.swift in Sources */,
+				FABD87B82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */,
 				7D92BE8B27F8A6240025398D /* AlertController.swift in Sources */,
 				FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
 				7D92BE8C27F8A6240025398D /* NothingView.swift in Sources */,
@@ -1559,9 +1664,11 @@
 				7D92BE9227F8A6240025398D /* main.swift in Sources */,
 				FA37A710290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
 				FA37A714290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
+				FABD87C42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */,
 				FA2644082902D29B00655F22 /* CameraControlType.swift in Sources */,
 				FA2F427F28BDC86700F6E6A7 /* RootViewController.swift in Sources */,
 				FA2644262902D3DF00655F22 /* SimpleSwitchControlRouterInput.swift in Sources */,
+				FABD87BA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */,
 				7D92BE9327F8A6240025398D /* ErrorsFactory.swift in Sources */,
 				7D92BE9427F8A6240025398D /* Bundle+Extensions.swift in Sources */,
 				FA2F427728BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */,
@@ -1583,6 +1690,7 @@
 				7D92BEA127F8A6240025398D /* UITextField+Extensions.swift in Sources */,
 				FA26441E2902D3DF00655F22 /* SimpleSwitchControlPresenter.swift in Sources */,
 				FA6F7AE92B7C010D00F7EFB0 /* ArraySwitchControlPresenter.swift in Sources */,
+				FABD87C82B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift in Sources */,
 				FA0307872B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */,
 				FAEEEF4A2902AD3D0019EE29 /* CameraViewConfiguration.swift in Sources */,
 				FA03078D2B9072C200AC9B27 /* ActionSwitchControlWireframe.swift in Sources */,
@@ -1600,7 +1708,9 @@
 				FA48CC342B7AB44800E19814 /* CameraControl.swift in Sources */,
 				FA2F427B28BDC86700F6E6A7 /* RootPresenter.swift in Sources */,
 				FA26441C2902D3DF00655F22 /* SimpleSwitchControlRouterOutput.swift in Sources */,
+				FABD87C22B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
 				FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
+				FABD87CA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
 				FA0307852B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
 				FA0307992B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */,
 				7D92BEA627F8A6240025398D /* ParserHelper.swift in Sources */,
@@ -1611,6 +1721,7 @@
 				FA2F428328BDC86700F6E6A7 /* RootRouterInput.swift in Sources */,
 				FA6F7AF32B7C010D00F7EFB0 /* ArraySwitchControlViewOutputProtocol.swift in Sources */,
 				7D92BEA827F8A6240025398D /* LoadingView.swift in Sources */,
+				FABD87CC2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */,
 				FA56FF382B88E3A600CC1080 /* CameraContainerView.swift in Sources */,
 				FAEEEF2F2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
 				FAEEEF2B2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
@@ -1627,9 +1738,11 @@
 				FAA73B5D2B8BCD7700E30604 /* ZoomCameraControl.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
 				FAAE31CD2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */,
+				FABD87BE2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlWireframe.swift in Sources */,
 				7D92BEAB27F8A6240025398D /* StatesViewsDataSource.swift in Sources */,
 				FA84DCF92B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */,
 				FAAB72972B8BC81A0042851F /* RangeSwitchControlViewOutputProtocol.swift in Sources */,
+				FABD87C02B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewInputProtocol.swift in Sources */,
 				FAEEEF312902A33B0019EE29 /* MainCameraViewController.swift in Sources */,
 				FAAB729B2B8BC81A0042851F /* RangeSwitchControlRouterInputProtocol.swift in Sources */,
 				FA2644282902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
@@ -1642,6 +1755,7 @@
 				FA2644182902D3DF00655F22 /* SimpleSwitchControlViewInput.swift in Sources */,
 				7D92BEAF27F8A6240025398D /* Logger.swift in Sources */,
 				FAEEEF402902A67C0019EE29 /* ShutterButton.swift in Sources */,
+				FABD87BC2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift in Sources */,
 				FA2F428128BDC86700F6E6A7 /* RootModuleInput.swift in Sources */,
 				FA236DED2B8691EC0035B653 /* CoreGraphics+Multiplying.swift in Sources */,
 				FA48CC372B7AB4AE00E19814 /* FlashCameraControl.swift in Sources */,

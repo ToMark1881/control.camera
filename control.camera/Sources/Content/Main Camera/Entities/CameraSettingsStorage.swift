@@ -12,6 +12,7 @@ protocol CameraSettingsStorage {
     var formControl: FormCameraControl! { get }
     var deviceControl: VideoDeviceCameraControl! { get }
     var zoomControl: ZoomCameraControl! { get }
+    var focusControl: FocusCameraControl! { get }
     
     func store(_ control: CameraControl)
 }
@@ -24,6 +25,7 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var formControl: FormCameraControl!
     var deviceControl: VideoDeviceCameraControl!
     var zoomControl: ZoomCameraControl!
+    var focusControl: FocusCameraControl!
     
     func store(_ control: CameraControl) {
         switch control {
@@ -35,6 +37,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
             deviceControl = control as? VideoDeviceCameraControl
         case is ZoomCameraControl:
             zoomControl = control as? ZoomCameraControl
+        case is FocusCameraControl:
+            focusControl = control as? FocusCameraControl
         default:
             break
         }

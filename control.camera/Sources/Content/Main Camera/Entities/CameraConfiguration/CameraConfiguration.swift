@@ -16,6 +16,8 @@ protocol CameraConfiguration: AnyObject {
     func startSession()
     func changeDevice(_ device: AvailableVideoDevice.DeviceType)
     func setZoomFactor(_ zoomFactor: CGFloat)
+    func setAutoFocus()
+    func setLockedFocus(with lensPosition: CGFloat)
     
     func capturePhoto()
 }
@@ -187,6 +189,26 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         do {
             try currentDevice.lockForConfiguration()
             currentDevice.videoZoomFactor = zoomFactor
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setAutoFocus() {
+        do {
+            try currentDevice.lockForConfiguration()
+            currentDevice.focusMode = .autoFocus
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setLockedFocus(with lensPosition: CGFloat) {
+        do {
+            try currentDevice.lockForConfiguration()
+            currentDevice.setFocusModeLocked(lensPosition: Float(lensPosition))
             currentDevice.unlockForConfiguration()
         } catch let error {
             print(error)
