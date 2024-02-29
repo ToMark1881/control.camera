@@ -22,9 +22,14 @@ class MainCameraViewController: BaseViewController {
     @IBOutlet weak var deviceView: UIView!
     
     @IBOutlet weak var zoomView: UIView!
+    @IBOutlet weak var focusView: UIView!
+    @IBOutlet weak var exposureView: UIView!
     
     @IBOutlet weak var controlsContainerView: UIView!
+    
     @IBOutlet weak var shutterButton: ShutterButton!
+    @IBOutlet weak var libraryView: UIView!
+    @IBOutlet weak var showUIView: UIView!
     
     @IBOutlet weak var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
     
@@ -55,6 +60,12 @@ extension MainCameraViewController: CameraViewConfiguration {
         
         output.didSetupCameraLayer()
         shutterButton.isEnabled = true
+    }
+    
+    func showControlContainer(_ isActive: Bool) {
+        UIView.animate(withDuration: 0.25) {
+            self.controlsContainerView.isHidden = !isActive
+        }
     }
     
 }

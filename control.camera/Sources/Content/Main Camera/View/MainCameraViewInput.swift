@@ -14,4 +14,7 @@ protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
     var deviceView: UIView! { get }
     
     var zoomView: UIView! { get }
+    
+    var libraryView: UIView! { get }
+    var showUIView: UIView! { get }
 }

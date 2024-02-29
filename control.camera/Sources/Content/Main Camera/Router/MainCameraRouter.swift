@@ -61,6 +61,15 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
         moduleInput?.setupSwitch(for: controlValue)
     }
     
+    func setupUIControl(controlValue: CameraControl,
+                        for view: UIView,
+                        moduleInput: inout SimpleSwitchControlModuleInput?,
+                        moduleOutput: SwitchControlModuleOutput) {
+        simpleSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        
+        moduleInput?.setupSwitch(for: controlValue)
+    }
+    
     // MARK: - Dismiss
     
 }

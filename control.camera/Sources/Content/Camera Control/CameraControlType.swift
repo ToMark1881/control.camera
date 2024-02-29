@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct ActionControlValue {
+    let action: (() -> Void)
+}
+
 struct SimpleControlValue {
     let isActive: Bool
 }
@@ -45,6 +49,7 @@ enum CameraControlType: Equatable {
     case array(_ array: ArrayControlValue)
     case range(_ range: RangeControlValue)
     case rangeWithDefault(_ range: RangeWithDefaultValue)
+    case action(_ action: ActionControlValue)
     
     private var id: Int {
         switch self {
@@ -56,6 +61,8 @@ enum CameraControlType: Equatable {
             return 2
         case .rangeWithDefault:
             return 3
+        case .action:
+            return 4
         }
     }
     

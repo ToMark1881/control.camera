@@ -20,6 +20,7 @@ class MainCameraPresenter: BasePresenter {
     weak var formModuleInput: ArraySwitchControlModuleInput?
     weak var deviceModuleInput: ArraySwitchControlModuleInput?
     weak var zoomModuleInput: RangeSwitchControlModuleInput?
+    weak var uiModuleInput: SimpleSwitchControlModuleInput?
     
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
@@ -85,6 +86,8 @@ private extension MainCameraPresenter {
         setupFormControl()
         setupDeviceControl()
         setupZoomControl()
+        setupUIControl()
+        setupLibraryControl()
     }
     
     // MARK: - Light control
@@ -146,6 +149,29 @@ private extension MainCameraPresenter {
                                              selected: camera.settings.minZoom)
         
         zoomModuleInput?.setupSwitch(for: controlValue)
+    }
+    
+    // MARK: - UI control
+    func setupUIControl() {
+        let controlValue = ShowUICameraControl()
+        
+        router.setupUIControl(controlValue: controlValue,
+                              for: view.showUIView,
+                              moduleInput: &uiModuleInput,
+                              moduleOutput: self)
+    }
+    
+    // MARK: - Library control
+    func setupLibraryControl() {
+        let action: (() -> Void) = { [weak self] in
+            self?.openLibrary()
+        }
+        
+        let controlValue = LibraryCameraControl(action: action)
+    }
+    
+    func openLibrary() {
+        print(#function)
     }
     
 }

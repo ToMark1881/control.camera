@@ -23,7 +23,9 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
         case is VideoDeviceCameraControl:
             applyDeviceControl(control as? VideoDeviceCameraControl)
         case is ZoomCameraControl:
-            applyZoomDevice(control as? ZoomCameraControl)
+            applyZoomControl(control as? ZoomCameraControl)
+        case is ShowUICameraControl:
+            applyUIControl(control as? ShowUICameraControl)
         default:
             break
         }
@@ -57,12 +59,20 @@ private extension CameraLiveApplierImplementation {
         camera.changeDevice(selectedDevice.type)
     }
     
-    func applyZoomDevice(_ control: ZoomCameraControl?) {
+    func applyZoomControl(_ control: ZoomCameraControl?) {
         guard let selectedValue = control?.controlValue.selected else {
             return
         }
         
         camera.setZoomFactor(selectedValue)
+    }
+    
+    func applyUIControl(_ control: ShowUICameraControl?) {
+        guard let isActive = control?.controlValue.isActive else {
+            return
+        }
+        
+        view.showControlContainer(isActive)
     }
     
 }

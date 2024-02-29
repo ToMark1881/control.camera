@@ -13,4 +13,5 @@ protocol CameraViewConfiguration where Self: BaseViewControllerProtocol {
     var cameraContainerAspectRatioConstraint: NSLayoutConstraint! { get set }
     
     func setupCameraLayer(_ layer: CALayer)
+    func showControlContainer(_ isActive: Bool)
 }
