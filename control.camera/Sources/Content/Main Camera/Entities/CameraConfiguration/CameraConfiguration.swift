@@ -52,12 +52,22 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         let minZoom = currentDevice.minAvailableVideoZoomFactor
         let maxZoom = currentDevice.maxAvailableVideoZoomFactor
         
+        let isLockedFocusSupported = currentDevice.isFocusModeSupported(.locked)
+        let isAutoFocusSupported = currentDevice.isFocusModeSupported(.autoFocus)
+        
+        let minLensPosition: CGFloat = 0.0
+        let maxLensPosition: CGFloat = 1.0
+        
         let settings: CameraSettings = .init(minISO: minISO,
                                              maxISO: maxISO,
                                              minExposure: minExposure,
                                              maxExposure: maxExposure,
                                              minZoom: minZoom,
                                              maxZoom: maxZoom,
+                                             isLockedFocusSupported: isLockedFocusSupported,
+                                             isAutoFocusSupported: isAutoFocusSupported,
+                                             minLensPosition: minLensPosition,
+                                             maxLensPosition: maxLensPosition,
                                              isFlashAvailable: isFlashAvailable)
         
         return settings

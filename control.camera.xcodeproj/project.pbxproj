@@ -267,6 +267,8 @@
 		FAAE31CD2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */; };
 		FAAE31D22B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
 		FAAE31D32B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
+		FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
+		FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
 		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
@@ -453,6 +455,7 @@
 		FAAB72892B8BC81A0042851F /* RangeSwitchControlRouterOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSwitchControlRouterOutputProtocol.swift; sourceTree = "<group>"; };
 		FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveApplier.swift; sourceTree = "<group>"; };
 		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
+		FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCameraControl.swift; sourceTree = "<group>"; };
 		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
@@ -607,6 +610,7 @@
 				FAA73B5B2B8BCD7700E30604 /* ZoomCameraControl.swift */,
 				FA2491642B906A4C008CCACD /* ShowUICameraControl.swift */,
 				FA2491672B906C9E008CCACD /* LibraryCameraControl.swift */,
+				FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -1389,6 +1393,7 @@
 				7D57C47527F8A088007F3CC5 /* NothingView.swift in Sources */,
 				FA2644342902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
 				7D57C45D27F89DFB007F3CC5 /* Array+Extensions.swift in Sources */,
+				FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */,
 				FA2F427C28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
 				FA2491652B906A4C008CCACD /* ShowUICameraControl.swift in Sources */,
 				FA37A71B290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,
@@ -1535,6 +1540,7 @@
 				7D92BE8C27F8A6240025398D /* NothingView.swift in Sources */,
 				FA2644352902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
 				7D92BE8D27F8A6240025398D /* Array+Extensions.swift in Sources */,
+				FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */,
 				FA2F427D28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
 				FA2491662B906A4C008CCACD /* ShowUICameraControl.swift in Sources */,
 				FA37A71C290262AD00B9F575 /* OnboardingViewOutput.swift in Sources */,

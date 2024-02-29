@@ -19,6 +19,12 @@ struct CameraSettings {
     let minZoom: CGFloat
     let maxZoom: CGFloat
     
+    let isLockedFocusSupported: Bool
+    let isAutoFocusSupported: Bool
+    
+    let minLensPosition: CGFloat
+    let maxLensPosition: CGFloat
+    
     let isFlashAvailable: Bool
     
     func logSettings() { dump(self) }

@@ -42,6 +42,10 @@ struct RangeControlValue {
 struct RangeWithDefaultValue {
     let defaultValue: String
     let range: RangeControlValue
+    
+    var isDefaultSelected: Bool {
+        range.selected == nil
+    }
 }
 
 enum CameraControlType: Equatable {
