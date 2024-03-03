@@ -10,4 +10,5 @@ import UIKit
 
 protocol RangeSwitchControlViewInputProtocol: BaseViewControllerProtocol {
     func update(with props: RangeSwitchViewProps)
+    func setEnabled(_ isEnabled: Bool)
 }

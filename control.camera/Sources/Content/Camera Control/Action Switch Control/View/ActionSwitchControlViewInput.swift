@@ -11,4 +11,5 @@ import UIKit
 protocol ActionSwitchControlViewInputProtocol: BaseViewControllerProtocol {
     func update(with props: ActionSwitchViewProps)
     func reactOnControlChange()
+    func setEnabled(_ isEnabled: Bool)
 }

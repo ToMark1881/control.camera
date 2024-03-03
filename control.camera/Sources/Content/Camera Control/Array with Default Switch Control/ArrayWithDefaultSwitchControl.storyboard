@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TouchSansOne-Regular.ttf">
+            <string>TouchSansOne-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Array With Default Switch Control View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ArrayWithDefaultSwitchControlViewController" id="Y6W-OH-hqX" customClass="ArrayWithDefaultSwitchControlViewController" customModule="Staging" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Background (no lines)" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
+                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Interactive Lines" translatesAutoresizingMaskIntoConstraints="NO" id="KF7-9H-bB0">
+                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOs-F3-8G1">
+                                <rect key="frame" x="4" y="28" width="92" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="3me-nl-UQp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtf-rH-6gD">
+                                <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                <connections>
+                                    <segue destination="2J2-iF-rBg" kind="embed" identifier="RangePickerViewSegue" id="uWh-wZ-0qP"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUt-DK-2A6">
+                                <rect key="frame" x="4" y="52" width="92" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="dX0-w1-dob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XVC-z5-mWB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xtf-rH-6gD" firstAttribute="leading" secondItem="XVC-z5-mWB" secondAttribute="leading" constant="8" id="233-j0-OM2"/>
+                            <constraint firstAttribute="bottom" secondItem="Xtf-rH-6gD" secondAttribute="bottom" constant="8" id="2fL-IQ-XAv"/>
+                            <constraint firstAttribute="trailing" secondItem="YOs-F3-8G1" secondAttribute="trailing" constant="4" id="BJu-L3-VFJ"/>
+                            <constraint firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
+                            <constraint firstItem="Xtf-rH-6gD" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="8" id="LfO-Ab-HlK"/>
+                            <constraint firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" constant="2" id="MWW-Jl-wK9"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" id="MdK-Uh-sOK"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NO1-Qb-0VV"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="top" secondItem="pKB-Qa-OWC" secondAttribute="top" id="Rdu-ng-XHn"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="trailing" secondItem="VUt-DK-2A6" secondAttribute="trailing" id="Ta0-Cb-VOv"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="Ucy-vK-yGW"/>
+                            <constraint firstItem="VUt-DK-2A6" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="2" id="cMG-i2-8e2"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="4" id="dUq-y0-a2s"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="fbR-pf-t2i"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="2" id="fgb-cC-x6e"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="leading" secondItem="pKB-Qa-OWC" secondAttribute="leading" id="hdT-Uk-ofr"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="VUt-DK-2A6" secondAttribute="leading" id="k4z-sJ-LJ1"/>
+                            <constraint firstItem="KF7-9H-bB0" firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" id="rkE-qs-N7q"/>
+                            <constraint firstItem="XVC-z5-mWB" firstAttribute="trailing" secondItem="Xtf-rH-6gD" secondAttribute="trailing" constant="8" id="xKa-2M-aD7"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2" id="zG9-Gh-UGO"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="100" height="100"/>
+                    <connections>
+                        <outlet property="backgroundImage" destination="pKB-Qa-OWC" id="7od-Sf-5Ew"/>
+                        <outlet property="linesImageView" destination="KF7-9H-bB0" id="sxR-VH-ffg"/>
+                        <outlet property="rangePickerViewContainer" destination="Xtf-rH-6gD" id="2Yr-xD-X3K"/>
+                        <outlet property="switchDefaultValueLabel" destination="VUt-DK-2A6" id="d7l-jl-84z"/>
+                        <outlet property="switchNameLabel" destination="YOs-F3-8G1" id="pe3-DD-7U6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-35.384615384615387" y="24.881516587677723"/>
+        </scene>
+        <!--RangePickerViewController-->
+        <scene sceneID="VYG-57-Qaq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RangePickerView" referencedIdentifier="RangePickerViewController" id="2J2-iF-rBg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CtD-Fn-9LO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="25"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Control Background (no lines)" width="114" height="114"/>
+        <image name="Control Interactive Lines" width="114" height="114"/>
+    </resources>
+</document>

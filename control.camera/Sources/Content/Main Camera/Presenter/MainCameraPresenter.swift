@@ -21,6 +21,7 @@ class MainCameraPresenter: BasePresenter {
     weak var deviceModuleInput: ArraySwitchControlModuleInput?
     weak var zoomModuleInput: RangeSwitchControlModuleInput?
     weak var focusModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     
@@ -65,6 +66,7 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     
     func didChangeInputDevice() {
         resetZoomControl()
+        resetFocusControl()
     }
     
 }
@@ -144,6 +146,11 @@ private extension MainCameraPresenter {
     }
     
     func resetZoomControl() {
+        guard camera.settings.isLockedFocusSupported else {
+            zoomModuleInput?.setEnabled(false)
+            return
+        }
+        
         let maxZoom = min(10.0, camera.settings.maxZoom)
         
         let controlValue = ZoomCameraControl(min: camera.settings.minZoom,
@@ -152,8 +159,10 @@ private extension MainCameraPresenter {
                                              selected: camera.settings.minZoom)
         
         zoomModuleInput?.setupSwitch(for: controlValue)
+        zoomModuleInput?.setEnabled(true)
     }
     
+    // MARK: - Focus
     func setupFocusControl() {
         guard camera.settings.isLockedFocusSupported else {
             return
@@ -167,6 +176,36 @@ private extension MainCameraPresenter {
                                  for: view.focusView,
                                  moduleInput: &focusModuleInput,
                                  moduleOutput: self)
+    }
+    
+    func resetFocusControl() {
+        guard camera.settings.isLockedFocusSupported else {
+            focusModuleInput?.setEnabled(false)
+            return
+        }
+        
+        let controlValue = FocusCameraControl(min: camera.settings.minLensPosition,
+                                              max: camera.settings.maxLensPosition,
+                                              focus: .auto)
+        
+        focusModuleInput?.setEnabled(true)
+        focusModuleInput?.setupSwitch(for: controlValue)
+    }
+    
+    // MARK: - Exposure
+    func setupExposureControl() {
+        guard camera.settings.isCustomExposureSupported else {
+            return
+        }
+        
+        let controlValue = ExposureCameraControl(min: camera.settings.minExposure,
+                                                 max: camera.settings.maxExposure,
+                                                 exposure: .auto)
+        
+        router.setupExposureControl(controlValue: controlValue,
+                                    for: view.exposureView,
+                                    moduleInput: &exposureModuleInput,
+                                    moduleOutput: self)
     }
     
     // MARK: - UI control

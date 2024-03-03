@@ -39,6 +39,10 @@ extension ActionSwitchControlPresenter: ActionSwitchControlModuleInput {
         reloadView()
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        view.setEnabled(isEnabled)
+    }
+    
 }
 
 // MARK: - View - Presenter

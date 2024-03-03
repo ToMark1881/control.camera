@@ -11,4 +11,5 @@ struct ArraySwitchViewProps {
     let title: String
     let array: [String]
     let selectedIndex: Array<Int>.Index
+    let elementHeight: CGFloat?
 }

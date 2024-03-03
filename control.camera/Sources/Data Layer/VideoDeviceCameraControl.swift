@@ -18,6 +18,10 @@ class VideoDeviceCameraControl: CameraControl {
         return false
     }
     
+    var elementHeight: CGFloat? {
+        return 100.0
+    }
+    
     var type: CameraControlType
     var availableDevices: [AvailableVideoDevice]
     

@@ -38,6 +38,12 @@ extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtoco
         TapticEngineGenerator.generateFeedback(.light)
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        switchValueLabel.textColor = isEnabled ? .white : .gray
+        switchNameLabel.textColor = isEnabled ? .white : .gray
+        view.isUserInteractionEnabled = isEnabled
+    }
+    
 }
 
 private extension SimpleSwitchControlViewController {

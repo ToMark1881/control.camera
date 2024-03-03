@@ -34,6 +34,11 @@ protocol MainCameraRouterInputProtocol: AnyObject {
                            moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
                            moduleOutput: SwitchControlModuleOutput)
     
+    func setupExposureControl(controlValue: CameraControl,
+                              for view: UIView,
+                              moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
+                              moduleOutput: SwitchControlModuleOutput)
+    
     func setupUIControl(controlValue: CameraControl,
                         for view: UIView,
                         moduleInput: inout SimpleSwitchControlModuleInput?,

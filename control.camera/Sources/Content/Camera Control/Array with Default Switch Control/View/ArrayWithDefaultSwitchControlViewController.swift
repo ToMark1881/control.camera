@@ -1,6 +1,6 @@
 //  VIPER Template created by Vladyslav Vdovychenko
 //  
-//  RangeSwitchControlViewController.swift
+//  ArrayWithDefaultSwitchControlViewController.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 21.10.2022.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RangeSwitchControlViewController: BaseViewController {
+class ArrayWithDefaultSwitchControlViewController: BaseViewController {
     
     private enum Constants {
         static let segueIdentifier = "RangePickerViewSegue"
@@ -16,21 +16,24 @@ class RangeSwitchControlViewController: BaseViewController {
     
     //MARK: - Injected
     
-    var output: RangeSwitchControlViewOutputProtocol!
+    var output: ArrayWithDefaultSwitchControlViewOutputProtocol!
     
 
+    @IBOutlet weak var rangePickerViewContainer: UIView!
     @IBOutlet weak var switchNameLabel: UILabel!
+    @IBOutlet weak var switchDefaultValueLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
     private var rangeData: [String] = [String]()
-    private var rangePickerView: RangePickerViewController?
     private var elementHeight: CGFloat?
+    private var rangePickerView: RangePickerViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         output.onViewDidLoad()
+        setupDoubleTapGesture()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,29 +47,52 @@ class RangeSwitchControlViewController: BaseViewController {
         
         super.prepare(for: segue, sender: sender)
     }
+    
+    func setupDoubleTapGesture() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(onDoubleTap))
+        doubleTap.numberOfTapsRequired = 2
+        
+        view.addGestureRecognizer(doubleTap)
+    }
+    
+    @objc
+    func onDoubleTap() {
+        output.onDoubleTap()
+    }
 
 }
 
-extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol {
+extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchControlViewInputProtocol {
     
-    func update(with props: RangeSwitchViewProps) {
+    func update(with props: ArrayWithDefaultSwitchViewProps) {
         switchNameLabel.text = props.title
         rangeData = props.array
         elementHeight = props.elementHeight
         
         rangePickerView?.reloadData()
-        rangePickerView?.selectRow(at: props.selectedIndex)
+        rangePickerView?.setValueHidden(props.isDefaultValuePresented)
+        switchDefaultValueLabel.isHidden = !props.isDefaultValuePresented
+        switchDefaultValueLabel.text = props.defaultValue
+        
+        if let index = props.selectedIndex {
+            rangePickerView?.selectRow(at: index)
+        }
+    }
+    
+    func reactOnControlChange() {
+        TapticEngineGenerator.generateFeedback(.light)
     }
     
     func setEnabled(_ isEnabled: Bool) {
         switchNameLabel.textColor = isEnabled ? .white : .gray
+        switchDefaultValueLabel.textColor = isEnabled ? .white : .gray
         rangePickerView?.setEnabled(isEnabled)
         view.isUserInteractionEnabled = isEnabled
     }
     
 }
 
-extension RangeSwitchControlViewController: RangePickerDataSource {
+extension ArrayWithDefaultSwitchControlViewController: RangePickerDataSource {
     
     func rangePickerView(numbersOfRowsForRangePicker rangePicker: RangePickerViewController) -> Int {
         return rangeData.count
@@ -82,13 +108,15 @@ extension RangeSwitchControlViewController: RangePickerDataSource {
     
 }
 
-extension RangeSwitchControlViewController: RangePickerDelegate {
+extension ArrayWithDefaultSwitchControlViewController: RangePickerDelegate {
     
     func rangePickerView(_ rangePicker: RangePickerViewController, didSelectRow row: Int) {
         output.didSelect(index: row)
     }
     
     func rangePickerView(_ rangePicker: RangePickerViewController, willSelectRow row: Int) {
+        rangePicker.setValueHidden(false)
+        switchDefaultValueLabel.isHidden = true
         output.willSelect(index: row)
     }
     

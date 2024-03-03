@@ -11,4 +11,5 @@ import UIKit
 protocol SimpleSwitchControlViewInputProtocol: BaseViewControllerProtocol {
     func update(with props: SimpleSwitchViewProps)
     func reactOnControlChange()
+    func setEnabled(_ isEnabled: Bool)
 }

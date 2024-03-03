@@ -8,6 +8,5 @@
 
 import Foundation
 
-protocol ArraySwitchControlModuleInput: BasePresenter {
-    func setupSwitch(for control: CameraControl)
+protocol ArraySwitchControlModuleInput: BasePresenter, SwitchControlModuleInput {
 }

@@ -11,4 +11,5 @@ struct RangeSwitchViewProps {
     let title: String
     let array: [String]
     let selectedIndex: Range<Int>.Index
+    let elementHeight: CGFloat?
 }

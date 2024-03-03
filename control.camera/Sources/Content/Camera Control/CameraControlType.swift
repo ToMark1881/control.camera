@@ -21,6 +21,15 @@ struct ArrayControlValue {
     let selected: String?
 }
 
+struct ArrayWithDefaultControlValue {
+    let defaultValue: String
+    let array: ArrayControlValue
+    
+    var isDefaultSelected: Bool {
+        array.selected == nil
+    }
+}
+
 struct RangeControlValue {
     let min: CGFloat
     let max: CGFloat
@@ -51,6 +60,7 @@ struct RangeWithDefaultControlValue {
 enum CameraControlType: Equatable {
     case simple(_ value: SimpleControlValue)
     case array(_ array: ArrayControlValue)
+    case arrayWithDefault(_ array: ArrayWithDefaultControlValue)
     case range(_ range: RangeControlValue)
     case rangeWithDefault(_ range: RangeWithDefaultControlValue)
     case action(_ action: ActionControlValue)
@@ -67,6 +77,8 @@ enum CameraControlType: Equatable {
             return 3
         case .action:
             return 4
+        case .arrayWithDefault:
+            return 5
         }
     }
     

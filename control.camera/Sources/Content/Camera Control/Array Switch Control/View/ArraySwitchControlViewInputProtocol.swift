@@ -10,4 +10,5 @@ import UIKit
 
 protocol ArraySwitchControlViewInputProtocol: BaseViewControllerProtocol {
     func update(with props: ArraySwitchViewProps)
+    func setEnabled(_ isEnabled: Bool)
 }

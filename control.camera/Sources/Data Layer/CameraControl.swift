@@ -11,4 +11,11 @@ protocol CameraControl {
     var title: String { get }
     var type: CameraControlType { get set }
     var isLightControl: Bool { get } 
+    var elementHeight: CGFloat? { get }
+}
+
+extension CameraControl {
+    var elementHeight: CGFloat? {
+        return nil
+    }
 }

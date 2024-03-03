@@ -32,6 +32,10 @@ class FocusCameraControl: CameraControl {
         return true
     }
     
+    var elementHeight: CGFloat? {
+        return 6.0
+    }
+    
     var focusType: FocusType
     
     init(min: CGFloat, max: CGFloat, focus: FocusType) {

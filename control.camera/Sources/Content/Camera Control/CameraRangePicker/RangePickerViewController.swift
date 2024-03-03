@@ -62,6 +62,11 @@ class RangePickerViewController: BaseViewController {
         valueLabel.isHidden = isHidden
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        valueLabel.textColor = isEnabled ? .white : .gray
+        view.isUserInteractionEnabled = isEnabled
+    }
+    
 }
 
 private extension RangePickerViewController {
@@ -91,7 +96,7 @@ private extension RangePickerViewController {
         let minRow = 0
         let maxRow = dataSource.rangePickerView(numbersOfRowsForRangePicker: self) - 1
         
-        let difference = initialCenter.y - point.y
+        let difference = -(initialCenter.y - point.y)
         let differenceDividedByStep = difference / step
         let row = Int(differenceDividedByStep.rounded(.toNearestOrAwayFromZero)) + initialRow
         

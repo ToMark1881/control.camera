@@ -37,6 +37,10 @@ class FormCameraControl: CameraControl {
         return true
     }
     
+    var elementHeight: CGFloat? {
+        return 100.0
+    }
+    
     var type: CameraControlType = .array(ArrayControlValue(array: [PhotoAspectRatio.threeByFour.rawValue,
                                                                    PhotoAspectRatio.tenBySixteen.rawValue,
                                                                    PhotoAspectRatio.nineBySixteen.rawValue,

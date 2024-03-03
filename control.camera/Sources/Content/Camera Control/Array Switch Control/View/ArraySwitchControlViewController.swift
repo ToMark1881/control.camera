@@ -23,7 +23,8 @@ class ArraySwitchControlViewController: BaseViewController {
     @IBOutlet weak var linesImageView: UIImageView!
     
     private var rangePickerView: RangePickerViewController?
-    var rangeData: [String] = [String]()
+    private var rangeData: [String] = [String]()
+    private var elementHeight: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +51,16 @@ extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol 
     func update(with props: ArraySwitchViewProps) {
         switchNameLabel.text = props.title
         rangeData = props.array
+        elementHeight = props.elementHeight
+        
         rangePickerView?.reloadData()
         rangePickerView?.selectRow(at: props.selectedIndex)
+    }
+    
+    func setEnabled(_ isEnabled: Bool) {
+        switchNameLabel.textColor = isEnabled ? .white : .gray
+        rangePickerView?.setEnabled(isEnabled)
+        view.isUserInteractionEnabled = isEnabled
     }
     
 }
@@ -67,7 +76,7 @@ extension ArraySwitchControlViewController: RangePickerDataSource {
     }
     
     func rangePickerView(_ rangePicker: RangePickerViewController, heightForRow row: Int) -> CGFloat {
-        return 100.0
+        return elementHeight ?? 10.0
     }
     
 }

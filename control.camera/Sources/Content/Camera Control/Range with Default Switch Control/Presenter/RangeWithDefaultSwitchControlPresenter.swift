@@ -41,6 +41,10 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlM
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        view.setEnabled(isEnabled)
+    }
+    
 }
 
 // MARK: - View - Presenter
@@ -118,6 +122,7 @@ private extension RangeWithDefaultSwitchControlPresenter {
         let props: RangeWithDefaultSwitchViewProps = .init(title: switchControl.title,
                                                            array: arrayOfStrings,
                                                            selectedIndex: selectedIndex,
+                                                           elementHeight: switchControl.elementHeight,
                                                            isDefaultValuePresented: controlValue.isDefaultSelected,
                                                            defaultValue: controlValue.defaultValue)
         view?.update(with: props)

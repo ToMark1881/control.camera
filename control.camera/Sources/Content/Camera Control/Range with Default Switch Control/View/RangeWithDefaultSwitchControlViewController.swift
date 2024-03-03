@@ -26,6 +26,7 @@ class RangeWithDefaultSwitchControlViewController: BaseViewController {
     @IBOutlet weak var linesImageView: UIImageView!
     
     private var rangeData: [String] = [String]()
+    private var elementHeight: CGFloat?
     private var rangePickerView: RangePickerViewController?
     
     override func viewDidLoad() {
@@ -66,6 +67,7 @@ extension RangeWithDefaultSwitchControlViewController: RangeWithDefaultSwitchCon
     func update(with props: RangeWithDefaultSwitchViewProps) {
         switchNameLabel.text = props.title
         rangeData = props.array
+        elementHeight = props.elementHeight
         
         rangePickerView?.reloadData()
         rangePickerView?.setValueHidden(props.isDefaultValuePresented)
@@ -81,6 +83,13 @@ extension RangeWithDefaultSwitchControlViewController: RangeWithDefaultSwitchCon
         TapticEngineGenerator.generateFeedback(.light)
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        switchNameLabel.textColor = isEnabled ? .white : .gray
+        switchDefaultValueLabel.textColor = isEnabled ? .white : .gray
+        rangePickerView?.setEnabled(isEnabled)
+        view.isUserInteractionEnabled = isEnabled
+    }
+    
 }
 
 extension RangeWithDefaultSwitchControlViewController: RangePickerDataSource {
@@ -94,7 +103,7 @@ extension RangeWithDefaultSwitchControlViewController: RangePickerDataSource {
     }
     
     func rangePickerView(_ rangePicker: RangePickerViewController, heightForRow row: Int) -> CGFloat {
-        return 20.0
+        return elementHeight ?? 10.0
     }
     
 }

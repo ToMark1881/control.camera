@@ -41,6 +41,10 @@ extension ArraySwitchControlPresenter: ArraySwitchControlModuleInput {
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        view.setEnabled(isEnabled)
+    }
+    
 }
 
 // MARK: - View - Presenter
@@ -89,7 +93,8 @@ private extension ArraySwitchControlPresenter {
         
         let props: ArraySwitchViewProps = .init(title: switchControl.title,
                                                 array: arrayOfStrings,
-                                                selectedIndex: selectedIndex)
+                                                selectedIndex: selectedIndex,
+                                                elementHeight: switchControl.elementHeight)
         
         view?.update(with: props)
     }

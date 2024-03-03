@@ -17,6 +17,10 @@ class ZoomCameraControl: CameraControl {
         return true
     }
     
+    var elementHeight: CGFloat? {
+        return 20.0
+    }
+    
     var type: CameraControlType
     
     init(min: CGFloat, max: CGFloat, step: CGFloat, selected: CGFloat?) {

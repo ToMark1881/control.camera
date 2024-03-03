@@ -41,6 +41,10 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
+    func setEnabled(_ isEnabled: Bool) {
+        view.setEnabled(isEnabled)
+    }
+    
 }
 
 // MARK: - View - Presenter

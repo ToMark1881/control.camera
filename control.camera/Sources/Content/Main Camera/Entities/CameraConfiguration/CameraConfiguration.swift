@@ -16,8 +16,12 @@ protocol CameraConfiguration: AnyObject {
     func startSession()
     func changeDevice(_ device: AvailableVideoDevice.DeviceType)
     func setZoomFactor(_ zoomFactor: CGFloat)
+    
     func setAutoFocus()
     func setLockedFocus(with lensPosition: CGFloat)
+    
+    func setAutoExposure()
+    func setCustomExposure(_ duration: CMTime)
     
     func capturePhoto()
 }
@@ -60,8 +64,13 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         let minLensPosition: CGFloat = 0.0
         let maxLensPosition: CGFloat = 1.0
         
+        let isAutoExposureSupported = currentDevice.isExposureModeSupported(.autoExpose)
+        let isCustomExposureSupported = currentDevice.isExposureModeSupported(.custom)
+                        
         let settings: CameraSettings = .init(minISO: minISO,
                                              maxISO: maxISO,
+                                             isAutoExposureSupported: isAutoExposureSupported,
+                                             isCustomExposureSupported: isCustomExposureSupported,
                                              minExposure: minExposure,
                                              maxExposure: maxExposure,
                                              minZoom: minZoom,
@@ -209,6 +218,27 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         do {
             try currentDevice.lockForConfiguration()
             currentDevice.setFocusModeLocked(lensPosition: Float(lensPosition))
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setAutoExposure() {
+        do {
+            try currentDevice.lockForConfiguration()
+            currentDevice.exposureMode = .autoExpose
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setCustomExposure(_ duration: CMTime) {
+        do {
+            try currentDevice.lockForConfiguration()
+            let currentISO = AVCaptureDevice.currentISO
+            currentDevice.setExposureModeCustom(duration: duration, iso: currentISO)
             currentDevice.unlockForConfiguration()
         } catch let error {
             print(error)
