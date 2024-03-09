@@ -91,6 +91,7 @@ private extension MainCameraPresenter {
         setupDeviceControl()
         setupZoomControl()
         setupFocusControl()
+        setupExposureControl()
         setupUIControl()
         setupLibraryControl()
     }

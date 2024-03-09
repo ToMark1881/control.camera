@@ -269,8 +269,6 @@
 		FAAE31D32B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
 		FABBB17E2B94DCF7002336C2 /* ExposureCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */; };
 		FABBB17F2B94DCF7002336C2 /* ExposureCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */; };
-		FABBB1812B94E2DC002336C2 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBB1802B94E2DC002336C2 /* CGFloat+Extension.swift */; };
-		FABBB1822B94E2DC002336C2 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBB1802B94E2DC002336C2 /* CGFloat+Extension.swift */; };
 		FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
 		FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
 		FABD87B72B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */; };
@@ -506,7 +504,6 @@
 		FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveApplier.swift; sourceTree = "<group>"; };
 		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureCameraControl.swift; sourceTree = "<group>"; };
-		FABBB1802B94E2DC002336C2 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCameraControl.swift; sourceTree = "<group>"; };
 		FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchViewProps.swift; sourceTree = "<group>"; };
 		FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlModuleInput.swift; sourceTree = "<group>"; };
@@ -737,7 +734,6 @@
 				FA236DEB2B8691EC0035B653 /* CoreGraphics+Multiplying.swift */,
 				FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */,
 				FA4F81012B8F85F70026AA55 /* Double+Extension.swift */,
-				FABBB1802B94E2DC002336C2 /* CGFloat+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1659,7 +1655,6 @@
 				FA6F7AE62B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift in Sources */,
 				FA37A719290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */,
 				7D57C45B27F89DFB007F3CC5 /* UIView+Extensions.swift in Sources */,
-				FABBB1812B94E2DC002336C2 /* CGFloat+Extension.swift in Sources */,
 				7D57C47A27F8A088007F3CC5 /* ReloadContentView.swift in Sources */,
 				FA37A715290262AD00B9F575 /* OnboardingViewController.swift in Sources */,
 				FA48CC332B7AB44800E19814 /* CameraControl.swift in Sources */,
@@ -1829,7 +1824,6 @@
 				FA6F7AE72B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift in Sources */,
 				FA37A71A290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */,
 				7D92BEA327F8A6240025398D /* UIView+Extensions.swift in Sources */,
-				FABBB1822B94E2DC002336C2 /* CGFloat+Extension.swift in Sources */,
 				7D92BEA427F8A6240025398D /* ReloadContentView.swift in Sources */,
 				FA37A716290262AD00B9F575 /* OnboardingViewController.swift in Sources */,
 				FA48CC342B7AB44800E19814 /* CameraControl.swift in Sources */,
@@ -2055,7 +2049,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
@@ -2091,7 +2085,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";

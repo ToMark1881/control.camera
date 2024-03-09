@@ -21,11 +21,17 @@ class ExposureCameraControl: CameraControl {
     
     var type: CameraControlType {
         didSet {
-            //            if let selected = controlValue.array.selected {
-            //                exposureType = .locked(duration: selected)
-            //            } else {
-            //                exposureType = .auto
-            //            }
+            if let selected = controlValue.array.selected {
+                let numbers = selected.components(separatedBy: "/") // should be 2 numbers
+                if numbers.count != 2 { return }
+                let numerator = CMTimeValue(Int(numbers.first!)!)
+                let denominator = CMTimeScale(Int(numbers.last!)!)
+                
+                let time = CMTime(value: numerator, timescale: denominator)
+                exposureType = .locked(duration: time)
+            } else {
+                exposureType = .auto
+            }
         }
     }
     
@@ -34,7 +40,7 @@ class ExposureCameraControl: CameraControl {
     }
     
     var elementHeight: CGFloat? {
-        return 6.0
+        return 20.0
     }
     
     var exposureType: ExposureType
@@ -46,12 +52,20 @@ class ExposureCameraControl: CameraControl {
             currentExposureDuration = duration
         }
         
-        //        let range = RangeControlValue(min: min, max: max, step: 0.01, selected: lensPosition)
-        //        self.type = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Auto", range: range))
-        self.type = .arrayWithDefault(ArrayWithDefaultControlValue(defaultValue: "Auto",
-                                                                   array: ArrayControlValue(array: ["1, 1000"],
-                                                                                            selected: nil)))
         self.exposureType = exposure
+        
+        let array = ExposureCameraControl.timescaleArray.map { value in
+            return "1/\(value.description)"
+        }
+        
+        var selectedExposureDuration: String?
+        if let currentExposureDuration {
+            selectedExposureDuration = "\(Int(currentExposureDuration.seconds))/\(Int(currentExposureDuration.timescale))"
+        }
+        
+        let arrayControlValue = ArrayControlValue(array: array, selected: selectedExposureDuration)
+        self.type = .arrayWithDefault(ArrayWithDefaultControlValue(defaultValue: "Auto",
+                                                                   array: arrayControlValue))
     }
     
 }
@@ -66,7 +80,7 @@ extension ExposureCameraControl {
         return value
     }
     
-    var timescaleArray: [Int] {
+    static var timescaleArray: [Int] {
         [
             10_000,
             8_000,
@@ -76,7 +90,7 @@ extension ExposureCameraControl {
             3_200,
             2_500,
             2_000,
-            1+600,
+            1_600,
             1_250,
             1_000,
             800,

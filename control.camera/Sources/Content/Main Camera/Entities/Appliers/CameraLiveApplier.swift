@@ -28,6 +28,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyUIControl(control as? ShowUICameraControl)
         case is FocusCameraControl:
             applyFocusControl(control as? FocusCameraControl)
+        case is ExposureCameraControl:
+            applyExposureControl(control as? ExposureCameraControl)
         default:
             break
         }
@@ -88,6 +90,19 @@ private extension CameraLiveApplierImplementation {
             
         case .locked(let lensPosition):
             camera.setLockedFocus(with: lensPosition)
+        }
+    }
+    
+    func applyExposureControl(_ control: ExposureCameraControl?) {
+        guard let control = control else {
+            return
+        }
+        
+        switch control.exposureType {
+        case .auto:
+            camera.setAutoExposure()
+        case .locked(let duration):
+            camera.setCustomExposure(duration)
         }
     }
     
