@@ -26,6 +26,8 @@ class RangePickerViewController: BaseViewController {
     private var initialCenter = CGPoint(x: 0, y: 0)
     private var initialRow: Int = 0
     
+    private var preselectedRow: Int?
+    
     private var selectedRow: Int = 0 {
         didSet(oldValue) {
             if oldValue != selectedRow {
@@ -54,6 +56,10 @@ class RangePickerViewController: BaseViewController {
         valueLabel?.text = value
     }
     
+    func preselectRow(at index: Range<Int>.Index) {
+        preselectedRow = index
+    }
+    
     func selectRow(at index: Range<Int>.Index) {
         selectedRow = index
     }
@@ -78,7 +84,8 @@ private extension RangePickerViewController {
         switch sender.state {
         case .began:
             initialCenter = piece.center
-            initialRow = selectedRow
+            initialRow = preselectedRow ?? selectedRow
+            preselectedRow = nil
             
         case .changed:
             handlePanMovement(for: translation)

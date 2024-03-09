@@ -36,6 +36,10 @@ class FocusCameraControl: CameraControl {
         return 6.0
     }
     
+    var defaultIndex: Range<Int>.Index? {
+        return controlValue.range.range.firstIndex(where: { $0 == 0.5 })
+    }
+    
     var focusType: FocusType
     
     init(min: CGFloat, max: CGFloat, focus: FocusType) {

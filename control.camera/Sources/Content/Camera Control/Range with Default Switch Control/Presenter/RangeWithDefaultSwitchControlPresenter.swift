@@ -35,6 +35,21 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlM
             fatalError("Wrong CameraControlType")
         }
         
+        if let preselectedIndex = control.defaultIndex {
+            view.preselect(index: preselectedIndex)
+        }
+        
+        switchControl = control
+        reloadView()
+        
+        moduleOutput?.didChangeSwitch(for: switchControl)
+    }
+    
+    func updateSwitch(for control: CameraControl) {
+        guard case .rangeWithDefault = control.type else {
+            fatalError("Wrong CameraControlType")
+        }
+        
         switchControl = control
         reloadView()
         

@@ -10,12 +10,21 @@ import Foundation
 protocol CameraControl {
     var title: String { get }
     var type: CameraControlType { get set }
-    var isLightControl: Bool { get } 
+    /// If isLightControl = true than control will be applied on willSelect(index). Property used for controls with RangePickerView
+    var isLightControl: Bool { get }
+    /// Row height for RangeSpinner
     var elementHeight: CGFloat? { get }
+    /// RangePicker default (pre-selected) index. Used for Array/Range switch controls with default value
+    var defaultIndex: Range<Int>.Index? { get }
 }
 
 extension CameraControl {
     var elementHeight: CGFloat? {
         return nil
     }
+    
+    var defaultIndex: Range<Int>.Index? {
+        return nil
+    }
+    
 }

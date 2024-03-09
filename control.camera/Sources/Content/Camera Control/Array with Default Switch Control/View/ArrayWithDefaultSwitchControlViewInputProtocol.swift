@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ArrayWithDefaultSwitchControlViewInputProtocol: BaseViewControllerProtocol {
+    func preselect(index: Range<Int>.Index)
     func update(with props: ArrayWithDefaultSwitchViewProps)
     func reactOnControlChange()
     func setEnabled(_ isEnabled: Bool)

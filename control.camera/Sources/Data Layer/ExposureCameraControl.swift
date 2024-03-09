@@ -40,7 +40,11 @@ class ExposureCameraControl: CameraControl {
     }
     
     var elementHeight: CGFloat? {
-        return 20.0
+        return 25.0
+    }
+    
+    var defaultIndex: Range<Int>.Index? {
+        return ExposureCameraControl.timescaleArray.firstIndex(where: { $0 == 200 })
     }
     
     var exposureType: ExposureType

@@ -40,9 +40,9 @@ struct RangeControlValue {
     var range: [CGFloat] {
         var items = [CGFloat]()
         
-        for index in stride(from: min, to: max, by: step) {
+        for index in stride(from: min, to: max + step, by: step) {
             items.append(index)
-        }
+        }        
         
         return items
     }

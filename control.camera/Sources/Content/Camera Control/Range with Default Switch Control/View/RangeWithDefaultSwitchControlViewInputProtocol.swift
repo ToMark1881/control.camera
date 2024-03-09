@@ -12,4 +12,5 @@ protocol RangeWithDefaultSwitchControlViewInputProtocol: BaseViewControllerProto
     func update(with props: RangeWithDefaultSwitchViewProps)
     func reactOnControlChange()
     func setEnabled(_ isEnabled: Bool)
+    func preselect(index: Range<Int>.Index)
 }

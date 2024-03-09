@@ -90,6 +90,10 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func preselect(index: Range<Int>.Index) {
+        rangePickerView?.preselectRow(at: index)
+    }
+    
 }
 
 extension ArrayWithDefaultSwitchControlViewController: RangePickerDataSource {

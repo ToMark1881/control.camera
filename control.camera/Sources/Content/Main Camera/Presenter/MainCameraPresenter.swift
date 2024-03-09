@@ -159,7 +159,7 @@ private extension MainCameraPresenter {
                                              step: 0.1,
                                              selected: camera.settings.minZoom)
         
-        zoomModuleInput?.setupSwitch(for: controlValue)
+        zoomModuleInput?.updateSwitch(for: controlValue)
         zoomModuleInput?.setEnabled(true)
     }
     
@@ -190,7 +190,7 @@ private extension MainCameraPresenter {
                                               focus: .auto)
         
         focusModuleInput?.setEnabled(true)
-        focusModuleInput?.setupSwitch(for: controlValue)
+        focusModuleInput?.updateSwitch(for: controlValue)
     }
     
     // MARK: - Exposure
