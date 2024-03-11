@@ -295,6 +295,10 @@
 		FABD87CA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B52B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift */; };
 		FABD87CB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */; };
 		FABD87CC2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */; };
+		FADB28982B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */; };
+		FADB28992B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */; };
+		FADB289B2B9F360800465C86 /* WhiteBalanceCalculatingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */; };
+		FADB289C2B9F360800465C86 /* WhiteBalanceCalculatingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */; };
 		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
@@ -519,6 +523,8 @@
 		FABD87B42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterInputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlRouterInputProtocol.swift; sourceTree = "<group>"; };
 		FABD87B52B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlRouterOutputProtocol.swift; sourceTree = "<group>"; };
 		FABD87B62B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlRouter.swift; sourceTree = "<group>"; };
+		FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBalanceCameraControl.swift; sourceTree = "<group>"; };
+		FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBalanceCalculatingService.swift; sourceTree = "<group>"; };
 		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
@@ -688,6 +694,7 @@
 				FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */,
 				FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */,
 				FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */,
+				FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -1205,6 +1212,7 @@
 			isa = PBXGroup;
 			children = (
 				FA696F342B875248004F78BD /* CroppingService.swift */,
+				FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1693,6 +1701,7 @@
 				FA2644192902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAEEEF462902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF31F29059E12009520C7 /* CameraSettings.swift in Sources */,
+				FADB289B2B9F360800465C86 /* WhiteBalanceCalculatingService.swift in Sources */,
 				FA0307942B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift in Sources */,
 				FAA73B5C2B8BCD7700E30604 /* ZoomCameraControl.swift in Sources */,
 				7D57C43927F89C72007F3CC5 /* BasePresenter.swift in Sources */,
@@ -1707,6 +1716,7 @@
 				FAAB729A2B8BC81A0042851F /* RangeSwitchControlRouterInputProtocol.swift in Sources */,
 				FA2644272902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
 				FAEEEF322902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
+				FADB28982B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */,
 				7D57C43A27F89C72007F3CC5 /* BaseRouter.swift in Sources */,
 				FAEEEF342902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */,
 				FA37A71D290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,
@@ -1863,6 +1873,7 @@
 				FA26441A2902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
 				FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */,
+				FADB289C2B9F360800465C86 /* WhiteBalanceCalculatingService.swift in Sources */,
 				FA0307952B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift in Sources */,
 				FAA73B5D2B8BCD7700E30604 /* ZoomCameraControl.swift in Sources */,
 				7D92BEAA27F8A6240025398D /* BasePresenter.swift in Sources */,
@@ -1877,6 +1888,7 @@
 				FAAB729B2B8BC81A0042851F /* RangeSwitchControlRouterInputProtocol.swift in Sources */,
 				FA2644282902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
 				FAEEEF332902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
+				FADB28992B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */,
 				7D92BEAD27F8A6240025398D /* BaseRouter.swift in Sources */,
 				FAEEEF352902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */,
 				FA37A71E290262AD00B9F575 /* OnboardingWireframe.swift in Sources */,

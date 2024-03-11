@@ -23,7 +23,8 @@ class MainCameraPresenter: BasePresenter {
     weak var focusModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
-    weak var whiteBalanceModuleInput: ArrayWithDefaultSwitchControlModuleInput?
+    weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     
@@ -71,6 +72,7 @@ extension MainCameraPresenter: CameraConfigurationOutput {
         resetFocusControl()
         resetISOControl()
         resetExposureControl()
+        resetWhiteBalanceControl()
     }
     
     func didSetAutoISO() {
@@ -268,7 +270,28 @@ private extension MainCameraPresenter {
     
     // MARK: - White balance
     func setupWhiteBalanceControl() {
+        guard camera.settings.isLockedWhiteBalanceSupported else {
+            return
+        }
         
+        let controlValue = WhiteBalanceCameraControl(type: .auto)
+        
+        router.setupWhiteBalanceControl(controlValue: controlValue,
+                                        for: view.whiteBalanceView,
+                                        moduleInput: &whiteBalanceModuleInput,
+                                        moduleOutput: self)
+    }
+    
+    func resetWhiteBalanceControl() {
+        guard camera.settings.isLockedWhiteBalanceSupported else {
+            whiteBalanceModuleInput?.setEnabled(false)
+            return
+        }
+        
+        let controlValue = WhiteBalanceCameraControl(type: .auto)
+        
+        whiteBalanceModuleInput?.setEnabled(true)
+        whiteBalanceModuleInput?.updateSwitch(for: controlValue)
     }
     
     // MARK: - UI control

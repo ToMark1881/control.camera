@@ -32,6 +32,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyExposureControl(control as? ExposureCameraControl)
         case is ISOCameraControl:
             applyISOControl(control as? ISOCameraControl)
+        case is WhiteBalanceCameraControl:
+            applyWhiteBalanceControl(control as? WhiteBalanceCameraControl)
         default:
             break
         }
@@ -118,6 +120,19 @@ private extension CameraLiveApplierImplementation {
             camera.setAutoISO()
         case .locked(let iso):
             camera.setCustomISO(iso)
+        }
+    }
+    
+    func applyWhiteBalanceControl(_ control: WhiteBalanceCameraControl?) {
+        guard let control = control else {
+            return
+        }
+        
+        switch control.whiteBalanceType {
+        case .auto:
+            camera.setAutoWhiteBalance()
+        case .locked(let kelvinTemp):
+            camera.setCustomWhiteBalance(kelvinTemp)
         }
     }
     

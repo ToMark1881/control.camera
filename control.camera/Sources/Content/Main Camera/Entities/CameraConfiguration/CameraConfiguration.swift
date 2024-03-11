@@ -26,6 +26,9 @@ protocol CameraConfiguration: AnyObject {
     func setAutoISO()
     func setCustomISO(_ iso: Float)
     
+    func setAutoWhiteBalance()
+    func setCustomWhiteBalance(_ kelvinTemp: Int)
+    
     func capturePhoto()
 }
 
@@ -35,6 +38,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     weak var output: CameraConfigurationOutput!
     
     var settingsStorage: CameraSettingsStorage!
+    var whiteBalanceService: WhiteBalanceCalculatingService!
     var stepByStepApplier: CameraStepByStepPostApplier!
     
     var captureSession: AVCaptureSession!
@@ -69,6 +73,11 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         
         let isAutoExposureSupported = currentDevice.isExposureModeSupported(.autoExpose)
         let isCustomExposureSupported = currentDevice.isExposureModeSupported(.custom)
+        
+        let isLockedWhiteBalanceSupported = currentDevice.isWhiteBalanceModeSupported(.locked)
+        let maxWhiteBalanceGain = currentDevice.maxWhiteBalanceGain
+        
+        print(currentDevice.deviceWhiteBalanceGains)
                         
         let settings: CameraSettings = .init(minISO: minISO,
                                              maxISO: maxISO,
@@ -82,6 +91,8 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
                                              isAutoFocusSupported: isAutoFocusSupported,
                                              minLensPosition: minLensPosition,
                                              maxLensPosition: maxLensPosition,
+                                             maxWhiteBalanceGain: maxWhiteBalanceGain,
+                                             isLockedWhiteBalanceSupported: isLockedWhiteBalanceSupported,
                                              isFlashAvailable: isFlashAvailable)
         
         return settings
@@ -273,6 +284,35 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
             try currentDevice.lockForConfiguration()
             let currentDuration = AVCaptureDevice.currentExposureDuration
             currentDevice.setExposureModeCustom(duration: currentDuration, iso: iso)
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setAutoWhiteBalance() {
+        do {
+            try currentDevice.lockForConfiguration()
+            
+            if currentDevice.isWhiteBalanceModeSupported(.autoWhiteBalance) {
+                currentDevice.whiteBalanceMode = .autoWhiteBalance
+            } else {
+                currentDevice.whiteBalanceMode = .continuousAutoWhiteBalance
+            }
+            
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setCustomWhiteBalance(_ kelvinTemp: Int) {
+        do {
+            try currentDevice.lockForConfiguration()
+            let gains = whiteBalanceService.calculateGains(for: kelvinTemp)
+            currentDevice.setWhiteBalanceModeLocked(with: .init(redGain: gains.redGain,
+                                                                greenGain: gains.greenGain,
+                                                                blueGain: gains.blueGain))
             currentDevice.unlockForConfiguration()
         } catch let error {
             print(error)

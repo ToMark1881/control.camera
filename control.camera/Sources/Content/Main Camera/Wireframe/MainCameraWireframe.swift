@@ -49,6 +49,7 @@ class MainCameraWireframe: BaseWireframe {
         let stepByStepApplier = CameraStepByStepPostApplierImplementation()
         let croppingService = CroppingServiceImplementation()
         let liveApplier = CameraLiveApplierImplementation()
+        let whiteBalanceService = WhiteBalanceCalculatingServiceImplementation()
         
         liveApplier.view = view
         liveApplier.camera = camera
@@ -73,6 +74,7 @@ class MainCameraWireframe: BaseWireframe {
         
         camera.output = presenter
         camera.view = view
+        camera.whiteBalanceService = whiteBalanceService
                 
         return view
     }

@@ -33,6 +33,10 @@ struct CameraSettings {
     let minLensPosition: CGFloat
     let maxLensPosition: CGFloat
     
+    // MARK: - White balance
+    let maxWhiteBalanceGain: Float
+    let isLockedWhiteBalanceSupported: Bool
+    
     // MARK: - Flash
     let isFlashAvailable: Bool
     

@@ -93,9 +93,9 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
     
     func setupWhiteBalanceControl(controlValue: CameraControl,
                                   for view: UIView,
-                                  moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
+                                  moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
                                   moduleOutput: SwitchControlModuleOutput) {
-        arrayWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        rangeWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
         
         moduleInput?.setupSwitch(for: controlValue)
     }
