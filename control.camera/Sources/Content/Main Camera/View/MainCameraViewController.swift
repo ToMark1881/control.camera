@@ -25,6 +25,10 @@ class MainCameraViewController: BaseViewController {
     @IBOutlet weak var focusView: UIView!
     @IBOutlet weak var exposureView: UIView!
     
+    @IBOutlet weak var isoView: UIView!
+    @IBOutlet weak var whiteBalanceView: UIView!
+    
+    
     @IBOutlet weak var controlsContainerView: UIView!
     
     @IBOutlet weak var shutterButton: ShutterButton!

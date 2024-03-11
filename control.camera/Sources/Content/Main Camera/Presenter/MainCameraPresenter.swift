@@ -22,6 +22,8 @@ class MainCameraPresenter: BasePresenter {
     weak var zoomModuleInput: RangeSwitchControlModuleInput?
     weak var focusModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
+    weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
+    weak var whiteBalanceModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     
@@ -67,6 +69,16 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     func didChangeInputDevice() {
         resetZoomControl()
         resetFocusControl()
+        resetISOControl()
+        resetExposureControl()
+    }
+    
+    func didSetAutoISO() {
+        resetExposureControl()
+    }
+    
+    func didSetAutoExposure() {
+        resetISOControl()
     }
     
 }
@@ -92,6 +104,8 @@ private extension MainCameraPresenter {
         setupZoomControl()
         setupFocusControl()
         setupExposureControl()
+        setupISOControl()
+        setupWhiteBalanceControl()
         setupUIControl()
         setupLibraryControl()
     }
@@ -207,6 +221,54 @@ private extension MainCameraPresenter {
                                     for: view.exposureView,
                                     moduleInput: &exposureModuleInput,
                                     moduleOutput: self)
+    }
+    
+    func resetExposureControl() {
+        guard camera.settings.isCustomExposureSupported else {
+            exposureModuleInput?.setEnabled(false)
+            return
+        }
+        
+        let controlValue = ExposureCameraControl(min: camera.settings.minExposure,
+                                                 max: camera.settings.maxExposure,
+                                                 exposure: .auto)
+        
+        exposureModuleInput?.setEnabled(true)
+        exposureModuleInput?.updateSwitch(for: controlValue)
+    }
+    
+    // MARK: - ISO
+    func setupISOControl() {
+        guard camera.settings.isCustomExposureSupported else {
+            return
+        }
+        
+        let controlValue = ISOCameraControl(min: camera.settings.minISO,
+                                            max: camera.settings.maxISO,
+                                            iso: .auto)
+        
+        router.setupISOControl(controlValue: controlValue,
+                               for: view.isoView,
+                               moduleInput: &isoModuleInput,
+                               moduleOutput: self)
+    }
+    
+    func resetISOControl() {
+        guard camera.settings.isCustomExposureSupported else {
+            isoModuleInput?.setEnabled(false)
+            return
+        }
+        
+        let controlValue = ISOCameraControl(min: camera.settings.minISO,
+                                            max: camera.settings.maxISO,
+                                            iso: .auto)
+        isoModuleInput?.setEnabled(true)
+        isoModuleInput?.updateSwitch(for: controlValue)
+    }
+    
+    // MARK: - White balance
+    func setupWhiteBalanceControl() {
+        
     }
     
     // MARK: - UI control

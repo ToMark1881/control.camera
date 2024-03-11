@@ -82,6 +82,24 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
         moduleInput?.setupSwitch(for: controlValue)
     }
     
+    func setupISOControl(controlValue: CameraControl,
+                         for view: UIView,
+                         moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
+                         moduleOutput: SwitchControlModuleOutput) {
+        arrayWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        
+        moduleInput?.setupSwitch(for: controlValue)
+    }
+    
+    func setupWhiteBalanceControl(controlValue: CameraControl,
+                                  for view: UIView,
+                                  moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
+                                  moduleOutput: SwitchControlModuleOutput) {
+        arrayWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+        
+        moduleInput?.setupSwitch(for: controlValue)
+    }
+    
     func setupUIControl(controlValue: CameraControl,
                         for view: UIView,
                         moduleInput: inout SimpleSwitchControlModuleInput?,

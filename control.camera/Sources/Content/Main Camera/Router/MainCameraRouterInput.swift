@@ -39,6 +39,16 @@ protocol MainCameraRouterInputProtocol: AnyObject {
                               moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
                               moduleOutput: SwitchControlModuleOutput)
     
+    func setupISOControl(controlValue: CameraControl,
+                         for view: UIView,
+                         moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
+                         moduleOutput: SwitchControlModuleOutput)
+    
+    func setupWhiteBalanceControl(controlValue: CameraControl,
+                                  for view: UIView,
+                                  moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
+                                  moduleOutput: SwitchControlModuleOutput)
+    
     func setupUIControl(controlValue: CameraControl,
                         for view: UIView,
                         moduleInput: inout SimpleSwitchControlModuleInput?,

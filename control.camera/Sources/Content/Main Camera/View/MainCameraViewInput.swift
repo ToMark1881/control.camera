@@ -17,6 +17,9 @@ protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
     var focusView: UIView! { get }
     var exposureView: UIView! { get }
     
+    var isoView: UIView! { get }
+    var whiteBalanceView: UIView! { get }
+    
     var libraryView: UIView! { get }
     var showUIView: UIView! { get }
 }

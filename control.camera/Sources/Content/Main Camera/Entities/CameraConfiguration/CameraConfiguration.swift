@@ -23,6 +23,9 @@ protocol CameraConfiguration: AnyObject {
     func setAutoExposure()
     func setCustomExposure(_ duration: CMTime)
     
+    func setAutoISO()
+    func setCustomISO(_ iso: Float)
+    
     func capturePhoto()
 }
 
@@ -229,6 +232,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
             try currentDevice.lockForConfiguration()
             currentDevice.exposureMode = .autoExpose
             currentDevice.unlockForConfiguration()
+            output.didSetAutoExposure()
         } catch let error {
             print(error)
         }
@@ -239,6 +243,28 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
             try currentDevice.lockForConfiguration()
             let currentISO = AVCaptureDevice.currentISO
             currentDevice.setExposureModeCustom(duration: duration, iso: currentISO)
+            currentDevice.unlockForConfiguration()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setAutoISO() {
+        do {
+            try currentDevice.lockForConfiguration()
+            currentDevice.exposureMode = .autoExpose
+            currentDevice.unlockForConfiguration()
+            output.didSetAutoISO()
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    func setCustomISO(_ iso: Float) {
+        do {
+            try currentDevice.lockForConfiguration()
+            let currentDuration = AVCaptureDevice.currentExposureDuration
+            currentDevice.setExposureModeCustom(duration: currentDuration, iso: iso)
             currentDevice.unlockForConfiguration()
         } catch let error {
             print(error)

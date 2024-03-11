@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="56" width="414" height="702"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YHv-Ff-TJX" userLabel="Main Stack View">
-                                        <rect key="frame" x="6" y="219" width="402" height="264"/>
+                                        <rect key="frame" x="6" y="150" width="402" height="402"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-yh-wFP" userLabel="1 Row Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="402" height="126"/>
@@ -98,6 +98,32 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="WCN-4l-pGQ" secondAttribute="height" multiplier="1:1" id="vpY-yA-cqK"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="u3r-hR-w1u" userLabel="3 Row Stack View">
+                                                <rect key="frame" x="0.0" y="276" width="402" height="126"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewb-Dm-BlH" userLabel="ISOView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Ewb-Dm-BlH" secondAttribute="height" multiplier="1:1" id="Qlg-We-640"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xz-oG-sxw" userLabel="WhiteBalanceView">
+                                                        <rect key="frame" x="138" y="0.0" width="126" height="126"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="3Xz-oG-sxw" secondAttribute="height" multiplier="1:1" id="c4i-C5-Kjr"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4Z-VP-ZxW">
+                                                        <rect key="frame" x="276" y="0.0" width="126" height="126"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="P4Z-VP-ZxW" secondAttribute="height" multiplier="1:1" id="3cx-uO-Klg"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -192,9 +218,11 @@
                         <outlet property="flashView" destination="xvw-Nf-fnf" id="wli-Xu-whn"/>
                         <outlet property="focusView" destination="4lv-Lp-jbO" id="tfK-tT-6hx"/>
                         <outlet property="formView" destination="pIb-cp-hi2" id="A3I-Ss-RrB"/>
+                        <outlet property="isoView" destination="Ewb-Dm-BlH" id="fQQ-qz-Sit"/>
                         <outlet property="libraryView" destination="kN8-qP-m34" id="u4O-IL-Un1"/>
                         <outlet property="showUIView" destination="QbD-hT-JAX" id="gTT-LT-z1H"/>
                         <outlet property="shutterButton" destination="vGo-6J-k9l" id="1Sh-aJ-ODp"/>
+                        <outlet property="whiteBalanceView" destination="3Xz-oG-sxw" id="36E-BF-V8B"/>
                         <outlet property="zoomView" destination="jUe-os-kZo" id="ut8-aj-Kke"/>
                     </connections>
                 </viewController>

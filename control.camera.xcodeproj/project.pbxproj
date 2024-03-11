@@ -75,6 +75,8 @@
 		7D92BEBD27F8A6240025398D /* NothingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C46D27F8A088007F3CC5 /* NothingView.xib */; };
 		7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C41D27F89B96007F3CC5 /* Root.storyboard */; };
 		7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D57C46F27F8A088007F3CC5 /* ReloadContentView.xib */; };
+		FA014EF82B9EF0E300DB928F /* ISOCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */; };
+		FA014EF92B9EF0E300DB928F /* ISOCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */; };
 		FA0307842B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */; };
 		FA0307852B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */; };
 		FA0307862B9072C200AC9B27 /* ActionSwitchControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307772B9072C200AC9B27 /* ActionSwitchControlPresenter.swift */; };
@@ -407,6 +409,7 @@
 		7D92BE8527F8A4D00025398D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D92BEC627F8A6240025398D /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D92BEC827F8AAB50025398D /* StagingInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StagingInfo.plist; sourceTree = "<group>"; };
+		FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISOCameraControl.swift; sourceTree = "<group>"; };
 		FA0307752B9072C200AC9B27 /* ActionSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchViewProps.swift; sourceTree = "<group>"; };
 		FA0307772B9072C200AC9B27 /* ActionSwitchControlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlPresenter.swift; sourceTree = "<group>"; };
 		FA0307782B9072C200AC9B27 /* ActionSwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlModuleInput.swift; sourceTree = "<group>"; };
@@ -684,6 +687,7 @@
 				FA2491672B906C9E008CCACD /* LibraryCameraControl.swift */,
 				FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */,
 				FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */,
+				FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = "<group>";
@@ -1610,6 +1614,7 @@
 				7D57C41027F898E3007F3CC5 /* main.swift in Sources */,
 				FA37A70F290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
 				FAFEE5942B95056500898388 /* ArrayWithDefaultSwitchControlViewInputProtocol.swift in Sources */,
+				FA014EF82B9EF0E300DB928F /* ISOCameraControl.swift in Sources */,
 				FA37A713290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
 				FABD87C32B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */,
 				FAFEE5922B95056500898388 /* ArrayWithDefaultSwitchControlWireframe.swift in Sources */,
@@ -1779,6 +1784,7 @@
 				7D92BE9227F8A6240025398D /* main.swift in Sources */,
 				FA37A710290262AD00B9F575 /* OnboardingRouterOutput.swift in Sources */,
 				FAFEE5952B95056500898388 /* ArrayWithDefaultSwitchControlViewInputProtocol.swift in Sources */,
+				FA014EF92B9EF0E300DB928F /* ISOCameraControl.swift in Sources */,
 				FA37A714290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
 				FABD87C42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */,
 				FAFEE5932B95056500898388 /* ArrayWithDefaultSwitchControlWireframe.swift in Sources */,
