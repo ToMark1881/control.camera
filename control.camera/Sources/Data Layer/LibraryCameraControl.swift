@@ -13,7 +13,7 @@ class LibraryCameraControl: CameraControl {
         return "Open Library"
     }
     
-    var type: CameraControlType
+    var type: CameraControlType!
     
     var isLightControl: Bool {
         return true

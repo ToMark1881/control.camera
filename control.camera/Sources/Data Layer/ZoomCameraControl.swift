@@ -21,7 +21,7 @@ class ZoomCameraControl: CameraControl {
         return 20.0
     }
     
-    var type: CameraControlType
+    var type: CameraControlType!
     
     init(min: CGFloat, max: CGFloat, step: CGFloat, selected: CGFloat?) {
         let rangeControlValue = RangeControlValue(min: min, max: max, step: step, selected: selected)

@@ -30,6 +30,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyFocusControl(control as? FocusCameraControl)
         case is ExposureCameraControl:
             applyExposureControl(control as? ExposureCameraControl)
+        case is ISOCameraControl:
+            applyISOControl(control as? ISOCameraControl)
         default:
             break
         }
@@ -103,6 +105,19 @@ private extension CameraLiveApplierImplementation {
             camera.setAutoExposure()
         case .locked(let duration):
             camera.setCustomExposure(duration)
+        }
+    }
+    
+    func applyISOControl(_ control: ISOCameraControl?) {
+        guard let control = control else {
+            return
+        }
+        
+        switch control.isoType {
+        case .auto:
+            camera.setAutoISO()
+        case .locked(let iso):
+            camera.setCustomISO(iso)
         }
     }
     

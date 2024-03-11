@@ -228,6 +228,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     }
     
     func setAutoExposure() {
+        guard currentDevice.exposureMode != .autoExpose else {
+            return
+        }
+        
         do {
             try currentDevice.lockForConfiguration()
             currentDevice.exposureMode = .autoExpose
@@ -250,6 +254,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     }
     
     func setAutoISO() {
+        guard currentDevice.exposureMode != .autoExpose else {
+            return
+        }
+        
         do {
             try currentDevice.lockForConfiguration()
             currentDevice.exposureMode = .autoExpose

@@ -18,7 +18,7 @@ class FlashCameraControl: CameraControl {
         return true
     }
     
-    var type: CameraControlType = .simple(SimpleControlValue(isActive: false))
+    var type: CameraControlType! = .simple(SimpleControlValue(isActive: false))
     
     var flashMode: AVCaptureDevice.FlashMode {
         return controlValue.isActive ? .on : .off

@@ -22,7 +22,7 @@ class VideoDeviceCameraControl: CameraControl {
         return 100.0
     }
     
-    var type: CameraControlType
+    var type: CameraControlType!
     var availableDevices: [AvailableVideoDevice]
     
     var selectedDevice: AvailableVideoDevice? {

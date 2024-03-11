@@ -19,7 +19,7 @@ class ExposureCameraControl: CameraControl {
         return "Exposure"
     }
     
-    var type: CameraControlType {
+    var type: CameraControlType! {
         didSet {
             if let selected = controlValue.array.selected {
                 let numbers = selected.components(separatedBy: "/") // should be 2 numbers
@@ -44,10 +44,12 @@ class ExposureCameraControl: CameraControl {
     }
     
     var defaultIndex: Range<Int>.Index? {
-        return ExposureCameraControl.timescaleArray.firstIndex(where: { $0 == 200 })
+        return exposureArray.firstIndex(where: { $0 == 200 })
     }
     
     var exposureType: ExposureType
+    var min: CMTime
+    var max: CMTime
     
     init(min: CMTime, max: CMTime, exposure: ExposureType) {
         var currentExposureDuration: CMTime?
@@ -57,8 +59,10 @@ class ExposureCameraControl: CameraControl {
         }
         
         self.exposureType = exposure
+        self.min = min
+        self.max = max
         
-        let array = ExposureCameraControl.timescaleArray.map { value in
+        let array = exposureArray.map { value in
             return "1/\(value.description)"
         }
         
@@ -84,7 +88,7 @@ extension ExposureCameraControl {
         return value
     }
     
-    static var timescaleArray: [Int] {
+    var exposureArray: [Int] {
         [
             10_000,
             8_000,

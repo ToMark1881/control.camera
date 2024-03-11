@@ -18,7 +18,7 @@ class FocusCameraControl: CameraControl {
         return "Focus"
     }
     
-    var type: CameraControlType {
+    var type: CameraControlType! {
         didSet {
             if let selected = controlValue.range.selected {
                 focusType = .locked(lensPosition: selected)
