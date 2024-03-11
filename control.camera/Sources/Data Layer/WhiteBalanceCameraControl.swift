@@ -33,6 +33,14 @@ class WhiteBalanceCameraControl: CameraControl {
         return true
     }
     
+    var elementHeight: CGFloat? {
+        return 25.0
+    }
+    
+    var defaultIndex: Range<Int>.Index? {
+        return controlValue.range.range.firstIndex(where: { $0 == 5800 })
+    }
+    
     var whiteBalanceType: WhiteBalanceType
     
     init(type: WhiteBalanceType) {

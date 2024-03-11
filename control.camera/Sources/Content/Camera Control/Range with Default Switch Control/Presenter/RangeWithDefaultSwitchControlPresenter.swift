@@ -128,11 +128,22 @@ private extension RangeWithDefaultSwitchControlPresenter {
     
     func reloadView() {
         let selectedIndex = controlValue.range.range.firstIndex(where: { $0 == controlValue.range.selected })
-        let arrayOfStrings = controlValue.range.range.map { value in
-            let rounded = Double(value).rounded(toPlaces: 2).description
-            
-            return rounded
+        let arrayOfStrings: [String]
+        
+        if controlValue.range.step > 1 {
+            arrayOfStrings =  controlValue.range.range.map { value in
+                let rounded = Int(value).description
+                
+                return rounded
+            }
+        } else {
+            arrayOfStrings =  controlValue.range.range.map { value in
+                let rounded = Double(value).rounded(toPlaces: 2).description
+                
+                return rounded
+            }
         }
+        
         
         let props: RangeWithDefaultSwitchViewProps = .init(title: switchControl.title,
                                                            array: arrayOfStrings,

@@ -76,9 +76,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         
         let isLockedWhiteBalanceSupported = currentDevice.isWhiteBalanceModeSupported(.locked)
         let maxWhiteBalanceGain = currentDevice.maxWhiteBalanceGain
-        
-        print(currentDevice.deviceWhiteBalanceGains)
-                        
+                                
         let settings: CameraSettings = .init(minISO: minISO,
                                              maxISO: maxISO,
                                              isAutoExposureSupported: isAutoExposureSupported,
@@ -309,10 +307,13 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     func setCustomWhiteBalance(_ kelvinTemp: Int) {
         do {
             try currentDevice.lockForConfiguration()
-            let gains = whiteBalanceService.calculateGains(for: kelvinTemp)
-            currentDevice.setWhiteBalanceModeLocked(with: .init(redGain: gains.redGain,
-                                                                greenGain: gains.greenGain,
-                                                                blueGain: gains.blueGain))
+            
+            let currentDeviceGains = currentDevice.deviceWhiteBalanceGains
+            let temperatureAndTint = currentDevice.temperatureAndTintValues(for: currentDeviceGains)
+            let gains = currentDevice.deviceWhiteBalanceGains(for: .init(temperature: Float(kelvinTemp), tint: temperatureAndTint.tint))
+            let normalizedGains = whiteBalanceService.normalize(gains: gains, for: currentDevice)
+            
+            currentDevice.setWhiteBalanceModeLocked(with: normalizedGains)
             currentDevice.unlockForConfiguration()
         } catch let error {
             print(error)
