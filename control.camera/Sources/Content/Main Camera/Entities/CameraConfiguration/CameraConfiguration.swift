@@ -334,6 +334,21 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
 extension CameraConfigurationImplementation: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput,
+                     willBeginCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput,
+                     willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput,
+                     didCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput,
                      didFinishProcessingPhoto photo: AVCapturePhoto,
                      error: Error?) {
         guard error == nil else {
@@ -341,5 +356,11 @@ extension CameraConfigurationImplementation: AVCapturePhotoCaptureDelegate {
         }
          
         stepByStepApplier.processPhoto(for: output, didFinishProcessingPhoto: photo)
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput,
+                     didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings,
+                     error: Error?) {
+        
     }
 }
