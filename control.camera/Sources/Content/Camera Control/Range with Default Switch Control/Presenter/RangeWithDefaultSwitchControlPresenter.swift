@@ -19,8 +19,8 @@ class RangeWithDefaultSwitchControlPresenter: BasePresenter {
     var switchControl: CameraControl!
     
     private var controlValue: RangeWithDefaultControlValue {
-        guard case let .rangeWithDefault(value) = switchControl.type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .rangeWithDefault(value) = switchControl.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value
@@ -31,8 +31,8 @@ class RangeWithDefaultSwitchControlPresenter: BasePresenter {
 extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlModuleInput {
     
     func setupSwitch(for control: CameraControl) {
-        guard case .rangeWithDefault = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .rangeWithDefault = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         if let preselectedIndex = control.defaultIndex {
@@ -46,8 +46,8 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlM
     }
     
     func updateSwitch(for control: CameraControl) {
-        guard case .rangeWithDefault = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .rangeWithDefault = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         switchControl = control
@@ -74,7 +74,7 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlV
                                                   selected: nil)
         let rangeWithDefaultValue = RangeWithDefaultControlValue(defaultValue: controlValue.defaultValue,
                                                                  range: rangeControlValue)
-        switchControl.type = .rangeWithDefault(rangeWithDefaultValue)
+        switchControl.valueType = .rangeWithDefault(rangeWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
         reloadView()
         view.reactOnControlChange()
@@ -94,7 +94,7 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlV
         let rangeWithDefaultValue = RangeWithDefaultControlValue(defaultValue: controlValue.defaultValue,
                                                                  range: rangeControlValue)
         
-        switchControl.type = .rangeWithDefault(rangeWithDefaultValue)
+        switchControl.valueType = .rangeWithDefault(rangeWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
@@ -113,7 +113,7 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlV
         let rangeWithDefaultValue = RangeWithDefaultControlValue(defaultValue: controlValue.defaultValue,
                                                                  range: rangeControlValue)
         
-        switchControl.type = .rangeWithDefault(rangeWithDefaultValue)
+        switchControl.valueType = .rangeWithDefault(rangeWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     

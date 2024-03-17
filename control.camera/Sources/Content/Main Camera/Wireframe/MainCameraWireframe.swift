@@ -50,6 +50,8 @@ class MainCameraWireframe: BaseWireframe {
         let croppingService = CroppingServiceImplementation()
         let liveApplier = CameraLiveApplierImplementation()
         let whiteBalanceService = WhiteBalanceCalculatingServiceImplementation()
+        let builder = MainCameraModulesBuilderImplementation()
+        let dataSource = CollectionViewDataSource()
         
         liveApplier.view = view
         liveApplier.camera = camera
@@ -65,8 +67,13 @@ class MainCameraWireframe: BaseWireframe {
         presenter.camera = camera
         presenter.settingsStorage = storage
         presenter.liveApplier = liveApplier
+        presenter.moduleBuilder = builder
+        
+        builder.router = router
         
         view.output = presenter
+        view.dataSource = dataSource
+        
         router.output = presenter
         
         router.view = view

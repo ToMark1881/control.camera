@@ -41,7 +41,7 @@ class FormCameraControl: CameraControl {
         return 100.0
     }
     
-    var type: CameraControlType! = .array(ArrayControlValue(array: [PhotoAspectRatio.threeByFour.rawValue,
+    var valueType: CameraControlValueType! = .array(ArrayControlValue(array: [PhotoAspectRatio.threeByFour.rawValue,
                                                                    PhotoAspectRatio.tenBySixteen.rawValue,
                                                                    PhotoAspectRatio.nineBySixteen.rawValue,
                                                                    PhotoAspectRatio.oneByOne.rawValue],
@@ -61,8 +61,8 @@ class FormCameraControl: CameraControl {
 private extension FormCameraControl {
     
     var controlValue: ArrayControlValue {
-        guard case let .array(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .array(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

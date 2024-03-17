@@ -19,7 +19,7 @@ class ISOCameraControl: CameraControl {
         return "ISO"
     }
     
-    var type: CameraControlType! {
+    var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.array.selected,
             let value = Float(selected) {
@@ -65,7 +65,7 @@ class ISOCameraControl: CameraControl {
         let array: [String] = availableISOArray.map({ Int($0).description })
         let arrayControlValue = ArrayControlValue(array: array, selected: currentISOString)
         
-        self.type = .arrayWithDefault(ArrayWithDefaultControlValue(defaultValue: "Auto",
+        self.valueType = .arrayWithDefault(ArrayWithDefaultControlValue(defaultValue: "Auto",
                                                                    array: arrayControlValue))
     }
     
@@ -78,8 +78,8 @@ extension ISOCameraControl {
     }
     
     var controlValue: ArrayWithDefaultControlValue {
-        guard case let .arrayWithDefault(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .arrayWithDefault(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

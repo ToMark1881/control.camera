@@ -22,7 +22,7 @@ class VideoDeviceCameraControl: CameraControl {
         return 100.0
     }
     
-    var type: CameraControlType!
+    var valueType: CameraControlValueType!
     var availableDevices: [AvailableVideoDevice]
     
     var selectedDevice: AvailableVideoDevice? {
@@ -38,12 +38,12 @@ class VideoDeviceCameraControl: CameraControl {
                                       selected: availableDevices.first?.type.title)
         
         self.availableDevices = availableDevices
-        self.type = .array(array)
+        self.valueType = .array(array)
     }
     
     var controlValue: ArrayControlValue {
-        guard case let .array(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .array(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

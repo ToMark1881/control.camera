@@ -19,8 +19,8 @@ class SimpleSwitchControlPresenter: BasePresenter {
     var switchControl: CameraControl!
     
     private var controlValue: SimpleControlValue {
-        guard case let .simple(value) = switchControl.type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .simple(value) = switchControl.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value
@@ -31,8 +31,8 @@ class SimpleSwitchControlPresenter: BasePresenter {
 extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
     
     func setupSwitch(for control: CameraControl) {
-        guard case .simple = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .simple = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         switchControl = control
@@ -53,7 +53,7 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlViewOutputProtocol {
     func onViewDidLoad() {}
     
     func didChangeSimpleSwitchValue() {
-        switchControl.type = .simple(SimpleControlValue(isActive: !controlValue.isActive))
+        switchControl.valueType = .simple(SimpleControlValue(isActive: !controlValue.isActive))
         reloadView()
         view.reactOnControlChange()
         moduleOutput?.didChangeSwitch(for: switchControl)

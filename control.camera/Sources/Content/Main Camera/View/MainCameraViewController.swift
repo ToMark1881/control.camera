@@ -13,6 +13,7 @@ class MainCameraViewController: BaseViewController {
     // MARK: - Injected
     
     var output: MainCameraViewOutputProtocol!
+    var dataSource: CollectionViewDataSource!
 
     @IBOutlet weak var cameraContainerContainer: UIView!
     @IBOutlet weak var cameraContainerView: CameraContainerView!

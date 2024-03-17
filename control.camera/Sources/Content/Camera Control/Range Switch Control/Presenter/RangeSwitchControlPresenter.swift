@@ -19,8 +19,8 @@ class RangeSwitchControlPresenter: BasePresenter {
     var switchControl: CameraControl!
     
     private var controlValue: RangeControlValue {
-        guard case let .range(value) = switchControl.type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .range(value) = switchControl.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value
@@ -31,8 +31,8 @@ class RangeSwitchControlPresenter: BasePresenter {
 extension RangeSwitchControlPresenter: RangeSwitchControlModuleInput {
     
     func setupSwitch(for control: CameraControl) {
-        guard case .range = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .range = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         switchControl = control
@@ -63,7 +63,7 @@ extension RangeSwitchControlPresenter: RangeSwitchControlViewOutputProtocol {
                                                   step: controlValue.step,
                                                   selected: selectedValue)
         
-        switchControl.type = .range(arrayControlValue)
+        switchControl.valueType = .range(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
@@ -78,7 +78,7 @@ extension RangeSwitchControlPresenter: RangeSwitchControlViewOutputProtocol {
                                                   step: controlValue.step,
                                                   selected: selectedValue)
         
-        switchControl.type = .range(arrayControlValue)
+        switchControl.valueType = .range(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     

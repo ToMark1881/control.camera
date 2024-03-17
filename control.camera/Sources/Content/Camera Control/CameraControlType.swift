@@ -57,7 +57,7 @@ struct RangeWithDefaultControlValue {
     }
 }
 
-enum CameraControlType: Equatable {
+enum CameraControlValueType: Equatable {
     case simple(_ value: SimpleControlValue)
     case array(_ array: ArrayControlValue)
     case arrayWithDefault(_ array: ArrayWithDefaultControlValue)
@@ -82,7 +82,7 @@ enum CameraControlType: Equatable {
         }
     }
     
-    static func == (lhs: CameraControlType, rhs: CameraControlType) -> Bool {
+    static func == (lhs: CameraControlValueType, rhs: CameraControlValueType) -> Bool {
         lhs.id == rhs.id
     }
 }

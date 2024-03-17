@@ -18,6 +18,29 @@ extension UIView {
     }
 }
 
+// MARK: - Nib
+
+extension UIView {
+    static var nib: UINib {
+        let bundle = Bundle(for: self as AnyClass)
+        let nib = UINib(nibName: String(describing: self), bundle: bundle)
+        return nib
+    }
+    
+    static func loadFromNib() -> Self {
+        return _loadFromNib()
+    }
+    
+    // MARK: - Private
+    
+    fileprivate static func _loadFromNib<T: UIView>() -> T {
+        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? T else {
+            fatalError("The nib \(nib) expected its root view to be of type \(self)")
+        }
+        return view
+    }
+}
+
 extension UIView {
     class func fromNib<T: UIView>() -> T {
         return Bundle(for: T.self).loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as? T ?? T()

@@ -28,6 +28,7 @@ class MainCameraPresenter: BasePresenter {
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     
+    var moduleBuilder: MainCameraModulesBuilder!
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
     var settingsStorage: CameraSettingsStorage!

@@ -18,7 +18,7 @@ class FocusCameraControl: CameraControl {
         return "Focus"
     }
     
-    var type: CameraControlType! {
+    var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.range.selected {
                 focusType = .locked(lensPosition: selected)
@@ -50,7 +50,7 @@ class FocusCameraControl: CameraControl {
         }
         
         let range = RangeControlValue(min: min, max: max, step: 0.01, selected: lensPosition)
-        self.type = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Auto", range: range))
+        self.valueType = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Auto", range: range))
         self.focusType = focus
     }
     
@@ -59,8 +59,8 @@ class FocusCameraControl: CameraControl {
 extension FocusCameraControl {
     
     var controlValue: RangeWithDefaultControlValue {
-        guard case let .rangeWithDefault(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .rangeWithDefault(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

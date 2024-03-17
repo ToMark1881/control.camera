@@ -19,8 +19,8 @@ class ArrayWithDefaultSwitchControlPresenter: BasePresenter {
     var switchControl: CameraControl!
     
     private var controlValue: ArrayWithDefaultControlValue {
-        guard case let .arrayWithDefault(value) = switchControl.type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .arrayWithDefault(value) = switchControl.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value
@@ -31,8 +31,8 @@ class ArrayWithDefaultSwitchControlPresenter: BasePresenter {
 extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlModuleInput {
     
     func setupSwitch(for control: CameraControl) {
-        guard case .arrayWithDefault = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .arrayWithDefault = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         if let preselectedIndex = control.defaultIndex {
@@ -46,8 +46,8 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlM
     }
     
     func updateSwitch(for control: CameraControl) {
-        guard case .arrayWithDefault = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .arrayWithDefault = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         switchControl = control
@@ -71,7 +71,7 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlV
         let rangeControlValue = ArrayControlValue(array: controlValue.array.array, selected: nil)
         let arrayWithDefaultValue = ArrayWithDefaultControlValue(defaultValue: controlValue.defaultValue,
                                                                  array: rangeControlValue)
-        switchControl.type = .arrayWithDefault(arrayWithDefaultValue)
+        switchControl.valueType = .arrayWithDefault(arrayWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
         reloadView()
         view.reactOnControlChange()
@@ -89,7 +89,7 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlV
         let arrayWithDefaultValue = ArrayWithDefaultControlValue(defaultValue: controlValue.defaultValue,
                                                                  array: arrayControlValue)
         
-        switchControl.type = .arrayWithDefault(arrayWithDefaultValue)
+        switchControl.valueType = .arrayWithDefault(arrayWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
@@ -106,7 +106,7 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlV
         let arrayWithDefaultValue = ArrayWithDefaultControlValue(defaultValue: controlValue.defaultValue,
                                                                  array: arrayControlValue)
         
-        switchControl.type = .arrayWithDefault(arrayWithDefaultValue)
+        switchControl.valueType = .arrayWithDefault(arrayWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     

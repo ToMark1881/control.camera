@@ -21,11 +21,11 @@ class ZoomCameraControl: CameraControl {
         return 20.0
     }
     
-    var type: CameraControlType!
+    var valueType: CameraControlValueType!
     
     init(min: CGFloat, max: CGFloat, step: CGFloat, selected: CGFloat?) {
         let rangeControlValue = RangeControlValue(min: min, max: max, step: step, selected: selected)
-        self.type = .range(rangeControlValue)
+        self.valueType = .range(rangeControlValue)
     }
     
 }
@@ -33,8 +33,8 @@ class ZoomCameraControl: CameraControl {
 extension ZoomCameraControl {
     
     var controlValue: RangeControlValue {
-        guard case let .range(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .range(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

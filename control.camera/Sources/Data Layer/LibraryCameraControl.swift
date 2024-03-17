@@ -13,14 +13,14 @@ class LibraryCameraControl: CameraControl {
         return "Open Library"
     }
     
-    var type: CameraControlType!
+    var valueType: CameraControlValueType!
     
     var isLightControl: Bool {
         return true
     }
     
     init(action: @escaping (() -> Void)) {
-        self.type = .action(ActionControlValue(action: action))
+        self.valueType = .action(ActionControlValue(action: action))
     }
     
 }

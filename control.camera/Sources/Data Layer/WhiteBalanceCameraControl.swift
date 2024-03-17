@@ -18,7 +18,7 @@ class WhiteBalanceCameraControl: CameraControl {
         return "White Balance"
     }
     
-    var type: CameraControlType! {
+    var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.range.selected {
                 let value = Int(selected)
@@ -54,7 +54,7 @@ class WhiteBalanceCameraControl: CameraControl {
         
         let rangeControlValue = RangeControlValue(min: 2_000, max: 10_000, step: 200, selected: currentWhiteBalance)
         
-        self.type = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Auto",
+        self.valueType = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Auto",
                                                                    range: rangeControlValue))
     }
     
@@ -64,8 +64,8 @@ class WhiteBalanceCameraControl: CameraControl {
 extension WhiteBalanceCameraControl {
     
     var controlValue: RangeWithDefaultControlValue {
-        guard case let .rangeWithDefault(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .rangeWithDefault(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

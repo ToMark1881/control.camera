@@ -19,7 +19,7 @@ class ExposureCameraControl: CameraControl {
         return "Exposure"
     }
     
-    var type: CameraControlType! {
+    var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.array.selected {
                 let numbers = selected.components(separatedBy: "/") // should be 2 numbers
@@ -72,7 +72,7 @@ class ExposureCameraControl: CameraControl {
         }
         
         let arrayControlValue = ArrayControlValue(array: array, selected: selectedExposureDuration)
-        self.type = .arrayWithDefault(ArrayWithDefaultControlValue(defaultValue: "Auto",
+        self.valueType = .arrayWithDefault(ArrayWithDefaultControlValue(defaultValue: "Auto",
                                                                    array: arrayControlValue))
     }
     
@@ -81,8 +81,8 @@ class ExposureCameraControl: CameraControl {
 extension ExposureCameraControl {
     
     var controlValue: ArrayWithDefaultControlValue {
-        guard case let .arrayWithDefault(value) = type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .arrayWithDefault(value) = valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value

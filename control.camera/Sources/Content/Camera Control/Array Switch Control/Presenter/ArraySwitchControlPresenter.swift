@@ -19,8 +19,8 @@ class ArraySwitchControlPresenter: BasePresenter {
     var switchControl: CameraControl!
     
     private var controlValue: ArrayControlValue {
-        guard case let .array(value) = switchControl.type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .array(value) = switchControl.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return value
@@ -31,8 +31,8 @@ class ArraySwitchControlPresenter: BasePresenter {
 extension ArraySwitchControlPresenter: ArraySwitchControlModuleInput {
     
     func setupSwitch(for control: CameraControl) {
-        guard case .array = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .array = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         switchControl = control
@@ -61,7 +61,7 @@ extension ArraySwitchControlPresenter: ArraySwitchControlViewOutputProtocol {
         let arrayControlValue = ArrayControlValue(array: controlValue.array,
                                                   selected: selectedValue)
         
-        switchControl.type = .array(arrayControlValue)
+        switchControl.valueType = .array(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     
@@ -74,7 +74,7 @@ extension ArraySwitchControlPresenter: ArraySwitchControlViewOutputProtocol {
         let arrayControlValue = ArrayControlValue(array: controlValue.array,
                                                   selected: selectedValue)
         
-        switchControl.type = .array(arrayControlValue)
+        switchControl.valueType = .array(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
     }
     

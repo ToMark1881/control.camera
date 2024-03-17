@@ -19,8 +19,8 @@ class ActionSwitchControlPresenter: BasePresenter {
     var switchControl: CameraControl!
     
     private var controlValue: ActionControlValue {
-        guard case let .action(action) = switchControl.type else {
-            fatalError("Wrong CameraControlType")
+        guard case let .action(action) = switchControl.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         return action
@@ -31,8 +31,8 @@ class ActionSwitchControlPresenter: BasePresenter {
 extension ActionSwitchControlPresenter: ActionSwitchControlModuleInput {
     
     func setupSwitch(for control: CameraControl) {
-        guard case .action = control.type else {
-            fatalError("Wrong CameraControlType")
+        guard case .action = control.valueType else {
+            fatalError("Wrong CameraControlValueType")
         }
         
         switchControl = control
