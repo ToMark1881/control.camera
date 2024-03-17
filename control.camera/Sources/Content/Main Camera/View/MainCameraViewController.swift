@@ -17,24 +17,8 @@ class MainCameraViewController: BaseViewController {
 
     @IBOutlet weak var cameraContainerContainer: UIView!
     @IBOutlet weak var cameraContainerView: CameraContainerView!
-    
-    @IBOutlet weak var flashView: UIView!
-    @IBOutlet weak var formView: UIView!
-    @IBOutlet weak var deviceView: UIView!
-    
-    @IBOutlet weak var zoomView: UIView!
-    @IBOutlet weak var focusView: UIView!
-    @IBOutlet weak var exposureView: UIView!
-    
-    @IBOutlet weak var isoView: UIView!
-    @IBOutlet weak var whiteBalanceView: UIView!
-    
-    
-    @IBOutlet weak var controlsContainerView: UIView!
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var shutterButton: ShutterButton!
-    @IBOutlet weak var libraryView: UIView!
-    @IBOutlet weak var showUIView: UIView!
     
     @IBOutlet weak var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
     
@@ -42,15 +26,43 @@ class MainCameraViewController: BaseViewController {
         super.viewDidLoad()
         
         output.onViewDidLoad()
+        setupUI()
     }
 
     @IBAction func didTapOnShutterButton(_ sender: Any) {
         output.didTapOnShutter()
     }
+    
+    func setupUI() {
+        collectionView.dataSource = dataSource
+        collectionView.delegate = self
+        
+        ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
+    }
+}
+
+extension MainCameraViewController: UICollectionViewDelegate { }
+
+extension MainCameraViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = collectionView.frame.size.width / 3.0
+        
+        return .init(width: size, height: size)
+    }
+    
 }
 
 extension MainCameraViewController: MainCameraViewInputProtocol {
 
+    func setup(with sections: [CollectionSectionModel]) {
+        dataSource.update(with: sections)
+        
+        collectionView.reloadData()
+    }
+    
 }
 
 extension MainCameraViewController: CameraViewConfiguration {
@@ -61,7 +73,6 @@ extension MainCameraViewController: CameraViewConfiguration {
         layer.frame = cameraContainerView.layer.frame
         
         view.bringSubviewToFront(shutterButton)
-        view.bringSubviewToFront(controlsContainerView)
         
         output.didSetupCameraLayer()
         shutterButton.isEnabled = true
@@ -69,7 +80,7 @@ extension MainCameraViewController: CameraViewConfiguration {
     
     func showControlContainer(_ isActive: Bool) {
         UIView.animate(withDuration: 0.25) {
-            self.controlsContainerView.isHidden = !isActive
+            
         }
     }
     

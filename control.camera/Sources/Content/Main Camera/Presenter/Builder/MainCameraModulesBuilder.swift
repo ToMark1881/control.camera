@@ -60,73 +60,83 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
 private extension MainCameraModulesBuilderImplementation {
     
     func buildFlashSection() -> CollectionCellViewModel {
-        router.setupLightControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupLightControl(for: embeddingView,
                                  moduleInput: &parent.lightModuleInput,
                                  moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildFormSection() -> CollectionCellViewModel {
-        router.setupFormControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupFormControl(for: embeddingView,
                                 moduleInput: &parent.formModuleInput,
                                 moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildDeviceSection() -> CollectionCellViewModel {
-        router.setupDeviceControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupDeviceControl(for: embeddingView,
                                   moduleInput: &parent.deviceModuleInput,
                                   moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildZoomSection() -> CollectionCellViewModel {
-        router.setupZoomControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupZoomControl(for: embeddingView,
                                 moduleInput: &parent.zoomModuleInput,
                                 moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildUISection() -> CollectionCellViewModel {
-        router.setupUIControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupUIControl(for: embeddingView,
                               moduleInput: &parent.uiModuleInput,
                               moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildLibrarySection() -> CollectionCellViewModel {
-        router.setupLibraryControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupLibraryControl(for: embeddingView,
                                    moduleInput: &parent.libraryModuleInput,
                                    moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildFocusSection() -> CollectionCellViewModel {
-        router.setupFocusControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupFocusControl(for: embeddingView,
                                  moduleInput: &parent.focusModuleInput,
                                  moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildExposureSection() -> CollectionCellViewModel {
-        router.setupExposureControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupExposureControl(for: embeddingView,
                                     moduleInput: &parent.exposureModuleInput,
                                     moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildISOSection() -> CollectionCellViewModel {
-        router.setupISOControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupISOControl(for: embeddingView,
                                moduleInput: &parent.isoModuleInput,
                                moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildWhiteBalanceSection() -> CollectionCellViewModel {
-        router.setupWhiteBalanceControl(for: UIView(),
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupWhiteBalanceControl(for: embeddingView,
                                         moduleInput: &parent.whiteBalanceModuleInput,
                                         moduleOutput: parent)
-        return BaseCollectionCellViewModel()
+       return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
 }

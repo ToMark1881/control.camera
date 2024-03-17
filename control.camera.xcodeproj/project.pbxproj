@@ -355,6 +355,12 @@
 		FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF452902AD310019EE29 /* CameraConfigurationOutput.swift */; };
 		FAEEEF492902AD3D0019EE29 /* CameraViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF482902AD3D0019EE29 /* CameraViewConfiguration.swift */; };
 		FAEEEF4A2902AD3D0019EE29 /* CameraViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF482902AD3D0019EE29 /* CameraViewConfiguration.swift */; };
+		FAFE39E12BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFE39E02BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib */; };
+		FAFE39E22BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE39DF2BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift */; };
+		FAFE39E32BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE39DF2BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift */; };
+		FAFE39E42BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFE39E02BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib */; };
+		FAFE39E72BA764A000DAB5A2 /* ControlContainerCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE39E62BA764A000DAB5A2 /* ControlContainerCellViewModel.swift */; };
+		FAFE39E82BA764A000DAB5A2 /* ControlContainerCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE39E62BA764A000DAB5A2 /* ControlContainerCellViewModel.swift */; };
 		FAFEE58C2B95056500898388 /* ArrayWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE57D2B95056500898388 /* ArrayWithDefaultSwitchViewProps.swift */; };
 		FAFEE58D2B95056500898388 /* ArrayWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE57D2B95056500898388 /* ArrayWithDefaultSwitchViewProps.swift */; };
 		FAFEE58E2B95056500898388 /* ArrayWithDefaultSwitchControlPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFEE57F2B95056500898388 /* ArrayWithDefaultSwitchControlPresenter.swift */; };
@@ -579,6 +585,9 @@
 		FAEEEF422902AB360019EE29 /* CameraConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfiguration.swift; sourceTree = "<group>"; };
 		FAEEEF452902AD310019EE29 /* CameraConfigurationOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfigurationOutput.swift; sourceTree = "<group>"; };
 		FAEEEF482902AD3D0019EE29 /* CameraViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewConfiguration.swift; sourceTree = "<group>"; };
+		FAFE39DF2BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlContainerCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAFE39E02BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControlContainerCollectionViewCell.xib; sourceTree = "<group>"; };
+		FAFE39E62BA764A000DAB5A2 /* ControlContainerCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlContainerCellViewModel.swift; sourceTree = "<group>"; };
 		FAFEE57D2B95056500898388 /* ArrayWithDefaultSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayWithDefaultSwitchViewProps.swift; sourceTree = "<group>"; };
 		FAFEE57F2B95056500898388 /* ArrayWithDefaultSwitchControlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayWithDefaultSwitchControlPresenter.swift; sourceTree = "<group>"; };
 		FAFEE5802B95056500898388 /* ArrayWithDefaultSwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayWithDefaultSwitchControlModuleInput.swift; sourceTree = "<group>"; };
@@ -1098,6 +1107,7 @@
 		FA48CC3B2B7ABCD300E19814 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				FAFE39E52BA7649300DAB5A2 /* ViewModel */,
 				FA7EF31E29059E12009520C7 /* CameraSettings.swift */,
 				FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */,
 				FAAE31CE2B87562500E47CBB /* Appliers */,
@@ -1378,6 +1388,7 @@
 				FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */,
 				FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */,
 				FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */,
+				FAFE39DE2BA763EF00DAB5A2 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1419,6 +1430,23 @@
 				FAEEEF482902AD3D0019EE29 /* CameraViewConfiguration.swift */,
 			);
 			path = CameraConfiguration;
+			sourceTree = "<group>";
+		};
+		FAFE39DE2BA763EF00DAB5A2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAFE39DF2BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift */,
+				FAFE39E02BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FAFE39E52BA7649300DAB5A2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAFE39E62BA764A000DAB5A2 /* ControlContainerCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FAFEE57B2B95056500898388 /* Array with Default Switch Control */ = {
@@ -1617,6 +1645,7 @@
 				7D57C47827F8A088007F3CC5 /* ReloadContentView.xib in Resources */,
 				FA37A6F62902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
 				FA03078A2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */,
+				FAFE39E12BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib in Resources */,
 				FAFEE59A2B95056500898388 /* ArrayWithDefaultSwitchControl.storyboard in Resources */,
 				FA37A6F82902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */,
 				FAAB72742B8BC4D50042851F /* RangePickerView.storyboard in Resources */,
@@ -1660,6 +1689,7 @@
 				7D92BEBF27F8A6240025398D /* ReloadContentView.xib in Resources */,
 				FA37A6F72902622500B9F575 /* TouchSansOne-Regular.ttf in Resources */,
 				FA03078B2B9072C200AC9B27 /* ActionSwitchControl.storyboard in Resources */,
+				FAFE39E42BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib in Resources */,
 				FAFEE59B2B95056500898388 /* ArrayWithDefaultSwitchControl.storyboard in Resources */,
 				FA37A6F92902622500B9F575 /* TouchSansOne-SemiBold.ttf in Resources */,
 				FAAB72752B8BC4D50042851F /* RangePickerView.storyboard in Resources */,
@@ -1772,6 +1802,7 @@
 				FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				FABD87C92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
 				FA0307842B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
+				FAFE39E72BA764A000DAB5A2 /* ControlContainerCellViewModel.swift in Sources */,
 				FA0307982B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */,
 				7D57C44D27F89DDE007F3CC5 /* ParserHelper.swift in Sources */,
 				FAD89ABE2BA6DA5100F19558 /* BaseCellViewModel.swift in Sources */,
@@ -1813,6 +1844,7 @@
 				FAAB729A2B8BC81A0042851F /* RangeSwitchControlRouterInputProtocol.swift in Sources */,
 				FA2644272902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
 				FAEEEF322902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
+				FAFE39E22BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift in Sources */,
 				FADB28982B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */,
 				7D57C43A27F89C72007F3CC5 /* BaseRouter.swift in Sources */,
 				FAEEEF342902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */,
@@ -1957,6 +1989,7 @@
 				FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				FABD87CA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
 				FA0307852B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
+				FAFE39E82BA764A000DAB5A2 /* ControlContainerCellViewModel.swift in Sources */,
 				FA0307992B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */,
 				7D92BEA627F8A6240025398D /* ParserHelper.swift in Sources */,
 				FAD89ABF2BA6DA5100F19558 /* BaseCellViewModel.swift in Sources */,
@@ -1998,6 +2031,7 @@
 				FAAB729B2B8BC81A0042851F /* RangeSwitchControlRouterInputProtocol.swift in Sources */,
 				FA2644282902D3DF00655F22 /* SimpleSwitchControlViewOutput.swift in Sources */,
 				FAEEEF332902A33B0019EE29 /* MainCameraModuleInput.swift in Sources */,
+				FAFE39E32BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift in Sources */,
 				FADB28992B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */,
 				7D92BEAD27F8A6240025398D /* BaseRouter.swift in Sources */,
 				FAEEEF352902A33B0019EE29 /* MainCameraRouterInput.swift in Sources */,

@@ -13,6 +13,6 @@ class BaseCollectionCellViewModel<T: UICollectionViewCell>: BaseCellViewModel<T>
     }
     
     func setup(on cell: CellType) {
-        
+        cell.contentView.backgroundColor = .darkGray
     }
 }

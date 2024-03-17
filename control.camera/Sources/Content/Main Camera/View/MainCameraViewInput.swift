@@ -8,18 +8,6 @@
 
 import UIKit
 
-protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
-    var flashView: UIView! { get }
-    var formView: UIView! { get }
-    var deviceView: UIView! { get }
-    
-    var zoomView: UIView! { get }
-    var focusView: UIView! { get }
-    var exposureView: UIView! { get }
-    
-    var isoView: UIView! { get }
-    var whiteBalanceView: UIView! { get }
-    
-    var libraryView: UIView! { get }
-    var showUIView: UIView! { get }
+protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {    
+    func setup(with sections: [CollectionSectionModel])
 }

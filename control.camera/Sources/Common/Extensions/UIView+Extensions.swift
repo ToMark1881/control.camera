@@ -18,6 +18,102 @@ extension UIView {
     }
 }
 
+// MARK: - Layout
+
+extension UIView {
+    func pinViewToEdgesOfSuperview(leftOffset: CGFloat = 0, rightOffset: CGFloat = 0, topOffset: CGFloat = 0, bottomOffset: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        guard let superView = superview else {
+            return
+        }
+        
+        superView.addConstraints([
+            leftAnchor.constraint(equalTo: superView.leftAnchor, constant: leftOffset),
+            superView.rightAnchor.constraint(equalTo: rightAnchor, constant: rightOffset),
+            topAnchor.constraint(equalTo: superView.topAnchor, constant: topOffset),
+            superView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: bottomOffset)
+        ])
+    }
+    
+    func pinViewToCenterOfSuperview(offsetX: CGFloat = 0.0, offsetY: CGFloat = 0.0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        superview!.addConstraints([
+            centerXAnchor.constraint(equalTo: superview!.centerXAnchor, constant: offsetX),
+            centerYAnchor.constraint(equalTo: superview!.centerYAnchor, constant: offsetY)
+        ])
+    }
+    
+    func pinViewWidthAndHeight(width: CGFloat, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        superview!.addConstraints([
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
+        ])
+    }
+    
+    func pinViewWidth(_ width: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        superview?.addConstraints([widthAnchor.constraint(equalToConstant: width)])
+    }
+    
+    func pinViewHeight(_ height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        superview?.addConstraints([heightAnchor.constraint(equalToConstant: height)])
+    }
+    
+    @discardableResult
+    func pinViewToBottomOfSuperview(height: CGFloat) -> (bottomConstarint: NSLayoutConstraint, heightConstarint: NSLayoutConstraint) {
+        translatesAutoresizingMaskIntoConstraints = false
+        let bottomConstraint = superview!.bottomAnchor.constraint(equalTo: bottomAnchor)
+        let heightConstarint = heightAnchor.constraint(equalToConstant: height)
+        superview!.addConstraints([
+            heightConstarint,
+            superview!.leftAnchor.constraint(equalTo: leftAnchor),
+            superview!.rightAnchor.constraint(equalTo: rightAnchor),
+            bottomConstraint
+        ])
+        return (bottomConstraint, heightConstarint)
+    }
+    
+    func pinViewToTopOfSuperview(height: CGFloat, topOffset: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        superview!.addConstraints([
+            heightAnchor.constraint(equalToConstant: height),
+            topAnchor.constraint(equalTo: superview!.topAnchor, constant: topOffset),
+            leftAnchor.constraint(equalTo: superview!.leftAnchor),
+            rightAnchor.constraint(equalTo: superview!.rightAnchor)
+        ])
+    }
+    
+    func pinViewToBottom() {
+        translatesAutoresizingMaskIntoConstraints = false
+        leftAnchor.constraint(equalTo: superview!.leftAnchor).isActive = true
+        rightAnchor.constraint(equalTo: superview!.rightAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: superview!.bottomAnchor).isActive = true
+    }
+    
+    func setViewToEdgesOfSuperview(leftOffset: CGFloat = 0, rightOffset: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        superview!.addConstraints([
+            superview!.leftAnchor.constraint(equalTo: leftAnchor, constant: leftOffset),
+            superview!.rightAnchor.constraint(equalTo: rightAnchor, constant: rightOffset)
+        ])
+    }
+    
+    func fittingCompressedHeightView() -> UIView {
+        setNeedsLayout()
+        layoutIfNeeded()
+        
+        let height = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        var frame = frame
+        frame.size.height = height
+        self.frame = frame
+        
+        return self
+    }
+}
+
 // MARK: - Nib
 
 extension UIView {
