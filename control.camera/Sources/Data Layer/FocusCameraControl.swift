@@ -18,6 +18,10 @@ class FocusCameraControl: CameraControl {
         return "Focus"
     }
     
+    var controlType: ControlType {
+        return .focus
+    }
+    
     var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.range.selected {

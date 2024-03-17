@@ -18,6 +18,10 @@ class WhiteBalanceCameraControl: CameraControl {
         return "White Balance"
     }
     
+    var controlType: ControlType {
+        return .whiteBalance
+    }
+    
     var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.range.selected {

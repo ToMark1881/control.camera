@@ -19,6 +19,10 @@ class ExposureCameraControl: CameraControl {
         return "Exposure"
     }
     
+    var controlType: ControlType {
+        return .exposure
+    }
+    
     var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.array.selected {

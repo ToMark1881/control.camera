@@ -19,6 +19,10 @@ class ISOCameraControl: CameraControl {
         return "ISO"
     }
     
+    var controlType: ControlType {
+        return .iso
+    }
+    
     var valueType: CameraControlValueType! {
         didSet {
             if let selected = controlValue.array.selected,

@@ -13,6 +13,10 @@ class ShowUICameraControl: CameraControl {
         return "UI"
     }
     
+    var controlType: ControlType {
+        return .ui
+    }
+    
     var valueType: CameraControlValueType! = .simple(SimpleControlValue(isActive: true))
     
     var isLightControl: Bool {

@@ -14,6 +14,10 @@ class VideoDeviceCameraControl: CameraControl {
         return "Device"
     }
     
+    var controlType: ControlType {
+        return .device
+    }
+    
     var isLightControl: Bool {
         return false
     }

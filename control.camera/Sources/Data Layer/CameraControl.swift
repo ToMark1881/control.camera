@@ -9,6 +9,7 @@ import Foundation
 
 protocol CameraControl {
     var title: String { get }
+    var controlType: ControlType { get }
     var valueType: CameraControlValueType! { get set }
     /// If isLightControl = true than control will be applied on willSelect(index). Property used for controls with RangePickerView
     var isLightControl: Bool { get }

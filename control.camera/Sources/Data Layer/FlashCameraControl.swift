@@ -10,6 +10,10 @@ import AVFoundation
 
 class FlashCameraControl: CameraControl {
     
+    var controlType: ControlType {
+        return .flash
+    }
+    
     var title: String {
         return "Light"
     }

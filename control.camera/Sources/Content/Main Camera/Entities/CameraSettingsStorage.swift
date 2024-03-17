@@ -17,6 +17,8 @@ protocol CameraSettingsStorage {
     var isoControl: ISOCameraControl! { get }
     var whiteBalanceControl: WhiteBalanceCameraControl! { get }
     
+    var orderedControls: [ControlType] { get }
+    
     func store(_ control: CameraControl)
 }
 
@@ -32,6 +34,10 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var exposureControl: ExposureCameraControl!
     var isoControl: ISOCameraControl!
     var whiteBalanceControl: WhiteBalanceCameraControl!
+    
+    var orderedControls: [ControlType] {
+        return ControlType.allCases
+    }
     
     func store(_ control: CameraControl) {
         switch control {

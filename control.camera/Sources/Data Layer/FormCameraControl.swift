@@ -29,6 +29,10 @@ class FormCameraControl: CameraControl {
         }
     }
     
+    var controlType: ControlType {
+        return .form
+    }
+    
     var title: String {
         return "Form"
     }

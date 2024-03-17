@@ -13,6 +13,10 @@ class ZoomCameraControl: CameraControl {
         return "Zoom"
     }
     
+    var controlType: ControlType {
+        return .zoom
+    }
+    
     var isLightControl: Bool {
         return true
     }

@@ -13,6 +13,10 @@ class LibraryCameraControl: CameraControl {
         return "Open Library"
     }
     
+    var controlType: ControlType {
+        return .library
+    }
+    
     var valueType: CameraControlValueType!
     
     var isLightControl: Bool {
