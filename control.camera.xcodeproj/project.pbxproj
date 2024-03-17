@@ -191,6 +191,8 @@
 		FA37A725290262E800B9F575 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA37A723290262E800B9F575 /* Onboarding.storyboard */; };
 		FA37A7272902637200B9F575 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA37A7262902637200B9F575 /* Colors.xcassets */; };
 		FA37A7282902637200B9F575 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA37A7262902637200B9F575 /* Colors.xcassets */; };
+		FA3C0B4E2BA7200A00679CBC /* MainCameraParentDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0B4D2BA7200A00679CBC /* MainCameraParentDisplayable.swift */; };
+		FA3C0B4F2BA7200A00679CBC /* MainCameraParentDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C0B4D2BA7200A00679CBC /* MainCameraParentDisplayable.swift */; };
 		FA48CC332B7AB44800E19814 /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48CC322B7AB44800E19814 /* CameraControl.swift */; };
 		FA48CC342B7AB44800E19814 /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48CC322B7AB44800E19814 /* CameraControl.swift */; };
 		FA48CC362B7AB4AE00E19814 /* FlashCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA48CC352B7AB4AE00E19814 /* FlashCameraControl.swift */; };
@@ -495,6 +497,7 @@
 		FA37A70A290262AD00B9F575 /* OnboardingWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWireframe.swift; sourceTree = "<group>"; };
 		FA37A723290262E800B9F575 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		FA37A7262902637200B9F575 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FA3C0B4D2BA7200A00679CBC /* MainCameraParentDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraParentDisplayable.swift; sourceTree = "<group>"; };
 		FA48CC322B7AB44800E19814 /* CameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControl.swift; sourceTree = "<group>"; };
 		FA48CC352B7AB4AE00E19814 /* FlashCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCameraControl.swift; sourceTree = "<group>"; };
 		FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSettingsStorage.swift; sourceTree = "<group>"; };
@@ -1350,6 +1353,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD89ACB2BA6DB4F00F19558 /* MainCameraModulesBuilder.swift */,
+				FA3C0B4D2BA7200A00679CBC /* MainCameraParentDisplayable.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -1706,6 +1710,7 @@
 				FA014EF82B9EF0E300DB928F /* ISOCameraControl.swift in Sources */,
 				FA37A713290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
 				FABD87C32B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */,
+				FA3C0B4E2BA7200A00679CBC /* MainCameraParentDisplayable.swift in Sources */,
 				FAFEE5922B95056500898388 /* ArrayWithDefaultSwitchControlWireframe.swift in Sources */,
 				FAFEE5982B95056500898388 /* ArrayWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
 				FAD89AAB2BA6D9E300F19558 /* CollectionViewDataSource.swift in Sources */,
@@ -1890,6 +1895,7 @@
 				FA014EF92B9EF0E300DB928F /* ISOCameraControl.swift in Sources */,
 				FA37A714290262AD00B9F575 /* OnboardingRouter.swift in Sources */,
 				FABD87C42B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewController.swift in Sources */,
+				FA3C0B4F2BA7200A00679CBC /* MainCameraParentDisplayable.swift in Sources */,
 				FAFEE5932B95056500898388 /* ArrayWithDefaultSwitchControlWireframe.swift in Sources */,
 				FAFEE5992B95056500898388 /* ArrayWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
 				FAD89AAC2BA6D9E300F19558 /* CollectionViewDataSource.swift in Sources */,

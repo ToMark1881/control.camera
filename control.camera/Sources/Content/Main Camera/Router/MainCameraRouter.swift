@@ -27,95 +27,64 @@ class MainCameraRouter: BaseRouter {
 extension MainCameraRouter: MainCameraRouterInputProtocol {
     
     // MARK: - Present
-    func setupLightControl(controlValue: CameraControl,
-                           for view: UIView,
+    func setupLightControl(for view: UIView,
                            moduleInput: inout SimpleSwitchControlModuleInput?,
                            moduleOutput: SwitchControlModuleOutput) {
         simpleSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
-        
     }
     
-    func setupFormControl(controlValue: CameraControl,
-                          for view: UIView,
+    func setupFormControl(for view: UIView,
                           moduleInput: inout ArraySwitchControlModuleInput?,
                           moduleOutput: SwitchControlModuleOutput) {
         arraySwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupDeviceControl(controlValue: CameraControl,
-                            for view: UIView,
+    func setupDeviceControl(for view: UIView,
                             moduleInput: inout ArraySwitchControlModuleInput?,
                             moduleOutput: SwitchControlModuleOutput) {
         arraySwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupZoomControl(controlValue: CameraControl,
-                          for view: UIView,
+    func setupZoomControl(for view: UIView,
                           moduleInput: inout RangeSwitchControlModuleInput?,
                           moduleOutput: SwitchControlModuleOutput) {
         rangeSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupFocusControl(controlValue: CameraControl,
-                           for view: UIView,
+    func setupFocusControl(for view: UIView,
                            moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
                            moduleOutput: SwitchControlModuleOutput) {
         rangeWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupExposureControl(controlValue: CameraControl,
-                              for view: UIView,
+    func setupExposureControl(for view: UIView,
                               moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
                               moduleOutput: SwitchControlModuleOutput) {
         arrayWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupISOControl(controlValue: CameraControl,
-                         for view: UIView,
+    func setupISOControl(for view: UIView,
                          moduleInput: inout ArrayWithDefaultSwitchControlModuleInput?,
                          moduleOutput: SwitchControlModuleOutput) {
         arrayWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupWhiteBalanceControl(controlValue: CameraControl,
-                                  for view: UIView,
+    func setupWhiteBalanceControl(for view: UIView,
                                   moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
                                   moduleOutput: SwitchControlModuleOutput) {
         rangeWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupUIControl(controlValue: CameraControl,
-                        for view: UIView,
+    func setupUIControl(for view: UIView,
                         moduleInput: inout SimpleSwitchControlModuleInput?,
                         moduleOutput: SwitchControlModuleOutput) {
         simpleSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
-    func setupLibraryControl(controlValue: CameraControl,
-                             for view: UIView,
+    func setupLibraryControl(for view: UIView,
                              moduleInput: inout ActionSwitchControlModuleInput?,
                              moduleOutput: SwitchControlModuleOutput) {
         actionSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
-        
-        moduleInput?.setupSwitch(for: controlValue)
     }
     
     // MARK: - Dismiss

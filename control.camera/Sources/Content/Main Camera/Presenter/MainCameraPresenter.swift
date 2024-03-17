@@ -35,6 +35,11 @@ class MainCameraPresenter: BasePresenter {
     
 }
 
+// MARK: - MainCameraParentDisplayable
+extension MainCameraPresenter: MainCameraParentDisplayable {
+    
+}
+
 // MARK: - Module Input
 extension MainCameraPresenter: MainCameraModuleInput {
     
@@ -121,20 +126,20 @@ private extension MainCameraPresenter {
         
         let controlValue = FlashCameraControl()
         
-        router.setupLightControl(controlValue: controlValue,
-                                 for: view.flashView,
+        router.setupLightControl(for: view.flashView,
                                  moduleInput: &lightModuleInput,
                                  moduleOutput: self)
+        lightModuleInput?.setupSwitch(for: controlValue)
     }
     
     // MARK: - Form control
     func setupFormControl() {
         let controlValue = FormCameraControl()
         
-        router.setupFormControl(controlValue: controlValue,
-                                for: view.formView,
+        router.setupFormControl(for: view.formView,
                                 moduleInput: &formModuleInput,
                                 moduleOutput: self)
+        formModuleInput?.setupSwitch(for: controlValue)
     }
     
     // MARK: - Device control
@@ -142,10 +147,10 @@ private extension MainCameraPresenter {
         let availableDevices = camera.availableDevices
         let controlValue = VideoDeviceCameraControl(for: availableDevices)
                 
-        router.setupDeviceControl(controlValue: controlValue,
-                                  for: view.deviceView,
+        router.setupDeviceControl(for: view.deviceView,
                                   moduleInput: &deviceModuleInput,
                                   moduleOutput: self)
+        deviceModuleInput?.setupSwitch(for: controlValue)
     }
     
     // MARK: - Zoom control
@@ -157,10 +162,10 @@ private extension MainCameraPresenter {
                                              step: 0.1,
                                              selected: camera.settings.minZoom)
         
-        router.setupZoomControl(controlValue: controlValue,
-                                for: view.zoomView,
+        router.setupZoomControl(for: view.zoomView,
                                 moduleInput: &zoomModuleInput,
                                 moduleOutput: self)
+        zoomModuleInput?.setupSwitch(for: controlValue)
     }
     
     func resetZoomControl() {
@@ -190,10 +195,10 @@ private extension MainCameraPresenter {
                                               max: camera.settings.maxLensPosition,
                                               focus: .auto)
         
-        router.setupFocusControl(controlValue: controlValue,
-                                 for: view.focusView,
+        router.setupFocusControl(for: view.focusView,
                                  moduleInput: &focusModuleInput,
                                  moduleOutput: self)
+        focusModuleInput?.setupSwitch(for: controlValue)
     }
     
     func resetFocusControl() {
@@ -220,10 +225,10 @@ private extension MainCameraPresenter {
                                                  max: camera.settings.maxExposure,
                                                  exposure: .auto)
         
-        router.setupExposureControl(controlValue: controlValue,
-                                    for: view.exposureView,
+        router.setupExposureControl(for: view.exposureView,
                                     moduleInput: &exposureModuleInput,
                                     moduleOutput: self)
+        exposureModuleInput?.setupSwitch(for: controlValue)
     }
     
     func resetExposureControl() {
@@ -250,10 +255,10 @@ private extension MainCameraPresenter {
                                             max: camera.settings.maxISO,
                                             iso: .auto)
         
-        router.setupISOControl(controlValue: controlValue,
-                               for: view.isoView,
+        router.setupISOControl(for: view.isoView,
                                moduleInput: &isoModuleInput,
                                moduleOutput: self)
+        isoModuleInput?.setupSwitch(for: controlValue)
     }
     
     func resetISOControl() {
@@ -277,10 +282,11 @@ private extension MainCameraPresenter {
         
         let controlValue = WhiteBalanceCameraControl(type: .auto)
         
-        router.setupWhiteBalanceControl(controlValue: controlValue,
-                                        for: view.whiteBalanceView,
+        router.setupWhiteBalanceControl(for: view.whiteBalanceView,
                                         moduleInput: &whiteBalanceModuleInput,
                                         moduleOutput: self)
+        
+        whiteBalanceModuleInput?.setupSwitch(for: controlValue)
     }
     
     func resetWhiteBalanceControl() {
@@ -299,10 +305,11 @@ private extension MainCameraPresenter {
     func setupUIControl() {
         let controlValue = ShowUICameraControl()
         
-        router.setupUIControl(controlValue: controlValue,
-                              for: view.showUIView,
+        router.setupUIControl(for: view.showUIView,
                               moduleInput: &uiModuleInput,
                               moduleOutput: self)
+        
+        uiModuleInput?.setupSwitch(for: controlValue)
     }
     
     // MARK: - Library control
@@ -313,10 +320,10 @@ private extension MainCameraPresenter {
         
         let controlValue = LibraryCameraControl(action: action)
         
-        router.setupLibraryControl(controlValue: controlValue,
-                                   for: view.libraryView,
+        router.setupLibraryControl(for: view.libraryView,
                                    moduleInput: &libraryModuleInput,
                                    moduleOutput: self)
+        libraryModuleInput?.setupSwitch(for: controlValue)
     }
     
     func openLibrary() {

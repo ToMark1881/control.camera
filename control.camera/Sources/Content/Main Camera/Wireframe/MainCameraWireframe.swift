@@ -70,6 +70,7 @@ class MainCameraWireframe: BaseWireframe {
         presenter.moduleBuilder = builder
         
         builder.router = router
+        builder.parent = presenter
         
         view.output = presenter
         view.dataSource = dataSource
