@@ -44,18 +44,6 @@
                                     <constraint firstItem="6cn-YM-vwS" firstAttribute="height" secondItem="PpM-d6-CY3" secondAttribute="height" priority="250" id="u3W-AA-gU6"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGo-6J-k9l" customClass="ShutterButton" customModule="Staging" customModuleProvider="target">
-                                <rect key="frame" x="178" y="770" width="58" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="58" id="m6h-jV-78a"/>
-                                    <constraint firstAttribute="width" constant="58" id="pZ3-Gd-Mvt"/>
-                                </constraints>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="Shutter Image"/>
-                                <connections>
-                                    <action selector="didTapOnShutterButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ccM-gf-Y8z"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OIJ-un-1Pw">
                                 <rect key="frame" x="10" y="44" width="394" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,14 +59,12 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vGo-6J-k9l" secondAttribute="bottom" constant="34" id="2hR-m4-X0I"/>
                             <constraint firstItem="PpM-d6-CY3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="43b-VV-j2s"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PpM-d6-CY3" secondAttribute="trailing" id="J5E-rr-QO2"/>
                             <constraint firstItem="OIJ-un-1Pw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="UUF-gP-BYe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PpM-d6-CY3" secondAttribute="bottom" id="cw8-Ue-bHy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OIJ-un-1Pw" secondAttribute="bottom" id="dk1-9V-EHw"/>
                             <constraint firstItem="OIJ-un-1Pw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fya-BU-iw2"/>
-                            <constraint firstItem="vGo-6J-k9l" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jpu-4Q-6kb"/>
                             <constraint firstItem="PpM-d6-CY3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kRK-aA-1MJ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OIJ-un-1Pw" secondAttribute="trailing" constant="10" id="zVM-v4-6ae"/>
                         </constraints>
@@ -88,7 +74,6 @@
                         <outlet property="cameraContainerContainer" destination="PpM-d6-CY3" id="0yR-Pk-3qx"/>
                         <outlet property="cameraContainerView" destination="6cn-YM-vwS" id="MUJ-j9-mei"/>
                         <outlet property="collectionView" destination="OIJ-un-1Pw" id="Znb-0T-TvH"/>
-                        <outlet property="shutterButton" destination="vGo-6J-k9l" id="1Sh-aJ-ODp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -96,7 +81,4 @@
             <point key="canvasLocation" x="96" y="19"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Shutter Image" width="58" height="58"/>
-    </resources>
 </document>

@@ -25,25 +25,29 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
             
             switch controlType {
             case .flash:
-                viewModel = buildFlashSection()
+                viewModel = buildFlashViewModel()
             case .form:
-                viewModel = buildFormSection()
+                viewModel = buildFormViewModel()
             case .device:
-                viewModel = buildDeviceSection()
+                viewModel = buildDeviceViewModel()
             case .zoom:
-                viewModel = buildZoomSection()
+                viewModel = buildZoomViewModel()
             case .ui:
-                viewModel = buildUISection()
+                viewModel = buildUIViewModel()
             case .library:
-                viewModel = buildLibrarySection()
+                viewModel = buildLibraryViewModel()
             case .focus:
-                viewModel = buildFocusSection()
+                viewModel = buildFocusViewModel()
             case .exposure:
-                viewModel = buildExposureSection()
+                viewModel = buildExposureViewModel()
             case .iso:
-                viewModel = buildISOSection()
+                viewModel = buildISOViewModel()
             case .whiteBalance:
-                viewModel = buildWhiteBalanceSection()
+                viewModel = buildWhiteBalanceViewModel()
+            case .shutter:
+                viewModel = buildShutterButtonViewModel()
+            case .empty:
+                viewModel = buildEmptyViewModel()
             }
             
             viewModels.append(viewModel)
@@ -59,7 +63,7 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
 
 private extension MainCameraModulesBuilderImplementation {
     
-    func buildFlashSection() -> CollectionCellViewModel {
+    func buildFlashViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupLightControl(for: embeddingView,
                                  moduleInput: &parent.lightModuleInput,
@@ -67,7 +71,7 @@ private extension MainCameraModulesBuilderImplementation {
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildFormSection() -> CollectionCellViewModel {
+    func buildFormViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupFormControl(for: embeddingView,
                                 moduleInput: &parent.formModuleInput,
@@ -75,7 +79,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildDeviceSection() -> CollectionCellViewModel {
+    func buildDeviceViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupDeviceControl(for: embeddingView,
                                   moduleInput: &parent.deviceModuleInput,
@@ -83,7 +87,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildZoomSection() -> CollectionCellViewModel {
+    func buildZoomViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupZoomControl(for: embeddingView,
                                 moduleInput: &parent.zoomModuleInput,
@@ -91,7 +95,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildUISection() -> CollectionCellViewModel {
+    func buildUIViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupUIControl(for: embeddingView,
                               moduleInput: &parent.uiModuleInput,
@@ -99,7 +103,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildLibrarySection() -> CollectionCellViewModel {
+    func buildLibraryViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupLibraryControl(for: embeddingView,
                                    moduleInput: &parent.libraryModuleInput,
@@ -107,7 +111,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildFocusSection() -> CollectionCellViewModel {
+    func buildFocusViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupFocusControl(for: embeddingView,
                                  moduleInput: &parent.focusModuleInput,
@@ -115,7 +119,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildExposureSection() -> CollectionCellViewModel {
+    func buildExposureViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupExposureControl(for: embeddingView,
                                     moduleInput: &parent.exposureModuleInput,
@@ -123,7 +127,7 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildISOSection() -> CollectionCellViewModel {
+    func buildISOViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupISOControl(for: embeddingView,
                                moduleInput: &parent.isoModuleInput,
@@ -131,12 +135,20 @@ private extension MainCameraModulesBuilderImplementation {
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildWhiteBalanceSection() -> CollectionCellViewModel {
+    func buildWhiteBalanceViewModel() -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupWhiteBalanceControl(for: embeddingView,
                                         moduleInput: &parent.whiteBalanceModuleInput,
                                         moduleOutput: parent)
        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+    
+    func buildShutterButtonViewModel() -> CollectionCellViewModel {
+        return ShutterButtonCellViewModel(action: parent.shutterButtonAction)
+    }
+    
+    func buildEmptyViewModel() -> CollectionCellViewModel {
+        return ControlContainerCellViewModel(embeddedView: UIView())
     }
     
 }

@@ -36,7 +36,12 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var whiteBalanceControl: WhiteBalanceCameraControl!
     
     var orderedControls: [ControlType] {
-        return ControlType.allCases
+        return [.flash, .empty, .form,
+                .empty, .empty, .device,
+                .zoom, .empty, .focus,
+                .exposure, .iso, .whiteBalance,
+                .empty, .shutter, .empty
+        ]
     }
     
     func store(_ control: CameraControl) {

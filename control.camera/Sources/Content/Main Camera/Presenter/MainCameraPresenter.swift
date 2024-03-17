@@ -33,6 +33,10 @@ class MainCameraPresenter: BasePresenter {
     var liveApplier: CameraLiveApplier!
     var settingsStorage: CameraSettingsStorage!
     
+    lazy var shutterButtonAction: (() -> Void) = {
+        self.camera.capturePhoto()
+    }
+    
 }
 
 // MARK: - MainCameraParentDisplayable
@@ -57,10 +61,6 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
     
     func didSetupCameraLayer() {
         camera.startSession()
-    }
-    
-    func didTapOnShutter() {
-        camera.capturePhoto()
     }
     
 }

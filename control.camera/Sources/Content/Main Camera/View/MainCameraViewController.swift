@@ -18,7 +18,6 @@ class MainCameraViewController: BaseViewController {
     @IBOutlet weak var cameraContainerContainer: UIView!
     @IBOutlet weak var cameraContainerView: CameraContainerView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var shutterButton: ShutterButton!
     
     @IBOutlet weak var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
     
@@ -28,16 +27,13 @@ class MainCameraViewController: BaseViewController {
         output.onViewDidLoad()
         setupUI()
     }
-
-    @IBAction func didTapOnShutterButton(_ sender: Any) {
-        output.didTapOnShutter()
-    }
     
     func setupUI() {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         
         ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
+        ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
     }
 }
 
@@ -72,10 +68,7 @@ extension MainCameraViewController: CameraViewConfiguration {
         cameraContainerView.cameraLayer = layer
         layer.frame = cameraContainerView.layer.frame
         
-        view.bringSubviewToFront(shutterButton)
-        
         output.didSetupCameraLayer()
-        shutterButton.isEnabled = true
     }
     
     func showControlContainer(_ isActive: Bool) {

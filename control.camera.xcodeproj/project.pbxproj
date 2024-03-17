@@ -133,6 +133,12 @@
 		FA2644312902D40C00655F22 /* SimpleSwitchControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA26442F2902D40C00655F22 /* SimpleSwitchControl.storyboard */; };
 		FA2644342902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2644332902DC7C00655F22 /* SimpleSwitchViewProps.swift */; };
 		FA2644352902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2644332902DC7C00655F22 /* SimpleSwitchViewProps.swift */; };
+		FA289AA52BA79E9800511567 /* ShutterButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA289AA32BA79E9800511567 /* ShutterButtonCollectionViewCell.swift */; };
+		FA289AA62BA79E9800511567 /* ShutterButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA289AA42BA79E9800511567 /* ShutterButtonCollectionViewCell.xib */; };
+		FA289AA72BA79E9800511567 /* ShutterButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA289AA32BA79E9800511567 /* ShutterButtonCollectionViewCell.swift */; };
+		FA289AA82BA79E9800511567 /* ShutterButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA289AA42BA79E9800511567 /* ShutterButtonCollectionViewCell.xib */; };
+		FA289AAA2BA79F1200511567 /* ShutterButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA289AA92BA79F1200511567 /* ShutterButtonCellViewModel.swift */; };
+		FA289AAB2BA79F1200511567 /* ShutterButtonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA289AA92BA79F1200511567 /* ShutterButtonCellViewModel.swift */; };
 		FA2F427428BDC86700F6E6A7 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F426A28BDC86700F6E6A7 /* RootViewInput.swift */; };
 		FA2F427528BDC86700F6E6A7 /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F426A28BDC86700F6E6A7 /* RootViewInput.swift */; };
 		FA2F427628BDC86700F6E6A7 /* RootModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2F426B28BDC86700F6E6A7 /* RootModuleOutput.swift */; };
@@ -474,6 +480,9 @@
 		FA2644162902D3DF00655F22 /* SimpleSwitchControlWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSwitchControlWireframe.swift; sourceTree = "<group>"; };
 		FA26442F2902D40C00655F22 /* SimpleSwitchControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SimpleSwitchControl.storyboard; sourceTree = "<group>"; };
 		FA2644332902DC7C00655F22 /* SimpleSwitchViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSwitchViewProps.swift; sourceTree = "<group>"; };
+		FA289AA32BA79E9800511567 /* ShutterButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA289AA42BA79E9800511567 /* ShutterButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShutterButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		FA289AA92BA79F1200511567 /* ShutterButtonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterButtonCellViewModel.swift; sourceTree = "<group>"; };
 		FA2F426A28BDC86700F6E6A7 /* RootViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInput.swift; sourceTree = "<group>"; };
 		FA2F426B28BDC86700F6E6A7 /* RootModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleOutput.swift; sourceTree = "<group>"; };
 		FA2F426C28BDC86700F6E6A7 /* RootRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterOutput.swift; sourceTree = "<group>"; };
@@ -1001,6 +1010,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		FA289AA22BA79E8700511567 /* Shutter Button Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FA289AA32BA79E9800511567 /* ShutterButtonCollectionViewCell.swift */,
+				FA289AA42BA79E9800511567 /* ShutterButtonCollectionViewCell.xib */,
+			);
+			path = "Shutter Button Cell";
+			sourceTree = "<group>";
+		};
 		FA2F428828BDC88500F6E6A7 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1388,7 +1406,8 @@
 				FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */,
 				FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */,
 				FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */,
-				FAFE39DE2BA763EF00DAB5A2 /* Cell */,
+				FA289AA22BA79E8700511567 /* Shutter Button Cell */,
+				FAFE39DE2BA763EF00DAB5A2 /* Control Container Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1432,19 +1451,20 @@
 			path = CameraConfiguration;
 			sourceTree = "<group>";
 		};
-		FAFE39DE2BA763EF00DAB5A2 /* Cell */ = {
+		FAFE39DE2BA763EF00DAB5A2 /* Control Container Cell */ = {
 			isa = PBXGroup;
 			children = (
 				FAFE39DF2BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.swift */,
 				FAFE39E02BA7641B00DAB5A2 /* ControlContainerCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = "Control Container Cell";
 			sourceTree = "<group>";
 		};
 		FAFE39E52BA7649300DAB5A2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				FAFE39E62BA764A000DAB5A2 /* ControlContainerCellViewModel.swift */,
+				FA289AA92BA79F1200511567 /* ShutterButtonCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1635,6 +1655,7 @@
 				FA37A6FC2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */,
 				FA37A724290262E800B9F575 /* Onboarding.storyboard in Resources */,
 				7D57C47627F8A088007F3CC5 /* NothingView.xib in Resources */,
+				FA289AA62BA79E9800511567 /* ShutterButtonCollectionViewCell.xib in Resources */,
 				FA37A6FA2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
 				FA37A6F42902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D57C41E27F89B96007F3CC5 /* Root.storyboard in Resources */,
@@ -1679,6 +1700,7 @@
 				FA37A6FD2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */,
 				FA37A725290262E800B9F575 /* Onboarding.storyboard in Resources */,
 				7D92BEBD27F8A6240025398D /* NothingView.xib in Resources */,
+				FA289AA82BA79E9800511567 /* ShutterButtonCollectionViewCell.xib in Resources */,
 				FA37A6FB2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
 				FA37A6F52902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */,
@@ -1758,6 +1780,7 @@
 				FA6F7AF82B7C010D00F7EFB0 /* ArraySwitchControlRouterOutputProtocol.swift in Sources */,
 				FAAB72982B8BC81A0042851F /* RangeSwitchControlViewInputProtocol.swift in Sources */,
 				FA6F7AFD2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */,
+				FA289AA52BA79E9800511567 /* ShutterButtonCollectionViewCell.swift in Sources */,
 				FA37A711290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FAEEEF432902AB360019EE29 /* CameraConfiguration.swift in Sources */,
 				FA2F428628BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
@@ -1789,6 +1812,7 @@
 				FA37A719290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */,
 				7D57C45B27F89DFB007F3CC5 /* UIView+Extensions.swift in Sources */,
 				7D57C47A27F8A088007F3CC5 /* ReloadContentView.swift in Sources */,
+				FA289AAA2BA79F1200511567 /* ShutterButtonCellViewModel.swift in Sources */,
 				FA37A715290262AD00B9F575 /* OnboardingViewController.swift in Sources */,
 				FA48CC332B7AB44800E19814 /* CameraControl.swift in Sources */,
 				FAD89AC62BA6DA5100F19558 /* CollectionCellViewModel.swift in Sources */,
@@ -1945,6 +1969,7 @@
 				FA6F7AF92B7C010D00F7EFB0 /* ArraySwitchControlRouterOutputProtocol.swift in Sources */,
 				FAAB72992B8BC81A0042851F /* RangeSwitchControlViewInputProtocol.swift in Sources */,
 				FA6F7AFE2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */,
+				FA289AA72BA79E9800511567 /* ShutterButtonCollectionViewCell.swift in Sources */,
 				FA37A712290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FAEEEF442902AB360019EE29 /* CameraConfiguration.swift in Sources */,
 				FA2F428728BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
@@ -1976,6 +2001,7 @@
 				FA37A71A290262AD00B9F575 /* OnboardingRouterInput.swift in Sources */,
 				7D92BEA327F8A6240025398D /* UIView+Extensions.swift in Sources */,
 				7D92BEA427F8A6240025398D /* ReloadContentView.swift in Sources */,
+				FA289AAB2BA79F1200511567 /* ShutterButtonCellViewModel.swift in Sources */,
 				FA37A716290262AD00B9F575 /* OnboardingViewController.swift in Sources */,
 				FA48CC342B7AB44800E19814 /* CameraControl.swift in Sources */,
 				FAD89AC72BA6DA5100F19558 /* CollectionCellViewModel.swift in Sources */,

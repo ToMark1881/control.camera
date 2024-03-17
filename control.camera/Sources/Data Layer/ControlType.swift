@@ -18,4 +18,6 @@ enum ControlType: CaseIterable {
     case exposure
     case iso
     case whiteBalance
+    case shutter
+    case empty
 }
