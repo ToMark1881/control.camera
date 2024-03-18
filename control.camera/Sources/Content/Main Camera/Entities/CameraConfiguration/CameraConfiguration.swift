@@ -71,7 +71,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         let minLensPosition: CGFloat = 0.0
         let maxLensPosition: CGFloat = 1.0
         
-        let isAutoExposureSupported = currentDevice.isExposureModeSupported(.autoExpose)
+        let isAutoExposureSupported = currentDevice.isExposureModeSupported(.continuousAutoExposure)
         let isCustomExposureSupported = currentDevice.isExposureModeSupported(.custom)
         
         let isLockedWhiteBalanceSupported = currentDevice.isWhiteBalanceModeSupported(.locked)
@@ -237,13 +237,13 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     }
     
     func setAutoExposure() {
-        guard currentDevice.exposureMode != .autoExpose else {
+        guard currentDevice.exposureMode != .continuousAutoExposure else {
             return
         }
         
         do {
             try currentDevice.lockForConfiguration()
-            currentDevice.exposureMode = .autoExpose
+            currentDevice.exposureMode = .continuousAutoExposure
             currentDevice.unlockForConfiguration()
             output.didSetAutoExposure()
         } catch let error {
@@ -263,13 +263,13 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     }
     
     func setAutoISO() {
-        guard currentDevice.exposureMode != .autoExpose else {
+        guard currentDevice.exposureMode != .continuousAutoExposure else {
             return
         }
         
         do {
             try currentDevice.lockForConfiguration()
-            currentDevice.exposureMode = .autoExpose
+            currentDevice.exposureMode = .continuousAutoExposure
             currentDevice.unlockForConfiguration()
             output.didSetAutoISO()
         } catch let error {

@@ -41,13 +41,13 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
                 .empty,     .empty,     .device,        .zoom,      .empty,     .shutter,
                 .exposure,  .iso,       .whiteBalance,  .empty,     .focus,     .empty,
                 
-                .library,   .library,   .library,       .library,   .library,   .library,
-                .library,   .library,   .library,       .library,   .library,   .library,
-                .library,   .library,   .library,       .library,   .library,   .library,
+                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
+                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
+                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
                 
-                .library,   .library,   .library,       .library,   .library,   .library,
-                .library,   .library,   .library,       .library,   .library,   .library,
-                .library,   .library,   .library,       .library,   .library,   .library,
+                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
+                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
+                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
         ]
     }
     
