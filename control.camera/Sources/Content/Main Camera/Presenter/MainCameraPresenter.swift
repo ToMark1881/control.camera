@@ -27,6 +27,7 @@ class MainCameraPresenter: BasePresenter {
     
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
+    weak var shutterButtonInput: ShutterButtonCellInput?
     
     var moduleBuilder: MainCameraModulesBuilder!
     var camera: CameraConfiguration!
@@ -87,6 +88,16 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     
     func didSetAutoExposure() {
         resetISOControl()
+    }
+    
+    func willCapture() {
+        view.setPhotoBorder(active: true)
+        shutterButtonInput?.setShutterButton(enabled: false)
+    }
+    
+    func didCapture() {
+        view.setPhotoBorder(active: false)
+        shutterButtonInput?.setShutterButton(enabled: true)
     }
     
 }

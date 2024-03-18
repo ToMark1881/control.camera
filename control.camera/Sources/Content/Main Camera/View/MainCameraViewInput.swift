@@ -10,4 +10,6 @@ import UIKit
 
 protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {    
     func setup(with sections: [CollectionSectionModel])
+    
+    func setPhotoBorder(active: Bool)
 }

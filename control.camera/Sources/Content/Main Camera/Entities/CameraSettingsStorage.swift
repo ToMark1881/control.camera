@@ -36,11 +36,17 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var whiteBalanceControl: WhiteBalanceCameraControl!
     
     var orderedControls: [ControlType] {
-        return [.flash, .empty, .form,
-                .empty, .empty, .device,
-                .zoom, .empty, .focus,
-                .exposure, .iso, .whiteBalance,
-                .empty, .shutter, .empty
+        return [.flash,     .empty,     .empty,         .empty,     .form,      .empty,
+                .empty,     .empty,     .device,        .zoom,      .empty,     .shutter,
+                .exposure,  .iso,       .whiteBalance,  .empty,     .focus,     .empty,
+                
+                .library,   .library,   .library,       .library,   .library,   .library,
+                .library,   .library,   .library,       .library,   .library,   .library,
+                .library,   .library,   .library,       .library,   .library,   .library,
+                
+                .library,   .library,   .library,       .library,   .library,   .library,
+                .library,   .library,   .library,       .library,   .library,   .library,
+                .library,   .library,   .library,       .library,   .library,   .library,
         ]
     }
     

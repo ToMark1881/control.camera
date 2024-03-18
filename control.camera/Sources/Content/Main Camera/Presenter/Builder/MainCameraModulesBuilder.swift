@@ -144,7 +144,10 @@ private extension MainCameraModulesBuilderImplementation {
     }
     
     func buildShutterButtonViewModel() -> CollectionCellViewModel {
-        return ShutterButtonCellViewModel(action: parent.shutterButtonAction)
+        let viewModel = ShutterButtonCellViewModel(action: parent.shutterButtonAction)
+        parent.shutterButtonInput = viewModel
+        
+        return viewModel
     }
     
     func buildEmptyViewModel() -> CollectionCellViewModel {

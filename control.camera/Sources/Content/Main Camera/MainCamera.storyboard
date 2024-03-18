@@ -29,6 +29,12 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
@@ -44,10 +50,13 @@
                                     <constraint firstItem="6cn-YM-vwS" firstAttribute="height" secondItem="PpM-d6-CY3" secondAttribute="height" priority="250" id="u3W-AA-gU6"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OIJ-un-1Pw">
-                                <rect key="frame" x="10" y="44" width="394" height="818"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ENZ-ye-Muy">
+                                <rect key="frame" x="149.33333333333334" y="836" width="115.66666666666666" height="26"/>
+                            </pageControl>
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OIJ-un-1Pw">
+                                <rect key="frame" x="0.0" y="44" width="414" height="786"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="Xzm-uk-Yra">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Xzm-uk-Yra" customClass="AlignedCollectionViewFlowLayout" customModule="Staging" customModuleProvider="target">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -60,13 +69,15 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PpM-d6-CY3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="43b-VV-j2s"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ENZ-ye-Muy" secondAttribute="bottom" id="75x-Gm-UqI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PpM-d6-CY3" secondAttribute="trailing" id="J5E-rr-QO2"/>
-                            <constraint firstItem="OIJ-un-1Pw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="UUF-gP-BYe"/>
+                            <constraint firstItem="OIJ-un-1Pw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UUF-gP-BYe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PpM-d6-CY3" secondAttribute="bottom" id="cw8-Ue-bHy"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="OIJ-un-1Pw" secondAttribute="bottom" id="dk1-9V-EHw"/>
                             <constraint firstItem="OIJ-un-1Pw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fya-BU-iw2"/>
+                            <constraint firstItem="ENZ-ye-Muy" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iY4-iV-cam"/>
                             <constraint firstItem="PpM-d6-CY3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kRK-aA-1MJ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OIJ-un-1Pw" secondAttribute="trailing" constant="10" id="zVM-v4-6ae"/>
+                            <constraint firstItem="ENZ-ye-Muy" firstAttribute="top" secondItem="OIJ-un-1Pw" secondAttribute="bottom" constant="6" id="mZ8-o8-jkx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="OIJ-un-1Pw" secondAttribute="trailing" id="zVM-v4-6ae"/>
                         </constraints>
                     </view>
                     <connections>
@@ -74,11 +85,12 @@
                         <outlet property="cameraContainerContainer" destination="PpM-d6-CY3" id="0yR-Pk-3qx"/>
                         <outlet property="cameraContainerView" destination="6cn-YM-vwS" id="MUJ-j9-mei"/>
                         <outlet property="collectionView" destination="OIJ-un-1Pw" id="Znb-0T-TvH"/>
+                        <outlet property="pageControl" destination="ENZ-ye-Muy" id="ohd-6J-TvI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="19"/>
+            <point key="canvasLocation" x="95.652173913043484" y="18.75"/>
         </scene>
     </scenes>
 </document>

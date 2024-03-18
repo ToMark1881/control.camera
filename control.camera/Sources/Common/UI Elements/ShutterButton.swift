@@ -18,7 +18,7 @@ class ShutterButton: BounceButton {
                        initialSpringVelocity: CGFloat(25.0),
                        options: [.curveEaseOut, .allowUserInteraction],
                        animations: {
-                        self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            self.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         })
     }
     
@@ -43,7 +43,7 @@ class ShutterButton: BounceButton {
                            initialSpringVelocity: CGFloat(15.0),
                            options: [.curveEaseOut],
                            animations: {
-                            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                self.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
             }, completion: { _ in self.isCurrentOutside = false})
         }
     }

@@ -211,6 +211,8 @@
 		FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */; };
 		FA4F81022B8F85F70026AA55 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F81012B8F85F70026AA55 /* Double+Extension.swift */; };
 		FA4F81032B8F85F70026AA55 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F81012B8F85F70026AA55 /* Double+Extension.swift */; };
+		FA5576462BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5576452BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift */; };
+		FA5576472BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5576452BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift */; };
 		FA56FF342B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */; };
 		FA56FF352B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */; };
 		FA56FF372B88E3A600CC1080 /* CameraContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */; };
@@ -519,6 +521,7 @@
 		FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCameraButton.swift; sourceTree = "<group>"; };
 		FA4D006E2902957A00D1CC32 /* OnboardingViewProps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewProps.swift; sourceTree = "<group>"; };
 		FA4F81012B8F85F70026AA55 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		FA5576452BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDeviceCameraControl.swift; sourceTree = "<group>"; };
 		FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraContainerView.swift; sourceTree = "<group>"; };
 		FA696F342B875248004F78BD /* CroppingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingService.swift; sourceTree = "<group>"; };
@@ -865,6 +868,7 @@
 				FAEEEF3E2902A67C0019EE29 /* ShutterButton.swift */,
 				FA4D006A29028EFF00D1CC32 /* ControlCameraButton.swift */,
 				7D57C48127F8A0E8007F3CC5 /* TapticEngineGenerator.swift */,
+				FA5576452BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift */,
 			);
 			path = "UI Elements";
 			sourceTree = "<group>";
@@ -1781,6 +1785,7 @@
 				FAAB72982B8BC81A0042851F /* RangeSwitchControlViewInputProtocol.swift in Sources */,
 				FA6F7AFD2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */,
 				FA289AA52BA79E9800511567 /* ShutterButtonCollectionViewCell.swift in Sources */,
+				FA5576462BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				FA37A711290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FAEEEF432902AB360019EE29 /* CameraConfiguration.swift in Sources */,
 				FA2F428628BDC86700F6E6A7 /* RootWireframe.swift in Sources */,
@@ -1970,6 +1975,7 @@
 				FAAB72992B8BC81A0042851F /* RangeSwitchControlViewInputProtocol.swift in Sources */,
 				FA6F7AFE2B7C088300F7EFB0 /* FormCameraControl.swift in Sources */,
 				FA289AA72BA79E9800511567 /* ShutterButtonCollectionViewCell.swift in Sources */,
+				FA5576472BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				FA37A712290262AD00B9F575 /* OnboardingPresenter.swift in Sources */,
 				FAEEEF442902AB360019EE29 /* CameraConfiguration.swift in Sources */,
 				FA2F428728BDC86700F6E6A7 /* RootWireframe.swift in Sources */,

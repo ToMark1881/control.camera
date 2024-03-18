@@ -12,4 +12,7 @@ protocol CameraConfigurationOutput: AnyObject {
     
     func didSetAutoISO()
     func didSetAutoExposure()
+    
+    func willCapture()
+    func didCapture()
 }

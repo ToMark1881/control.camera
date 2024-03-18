@@ -15,6 +15,7 @@ class MainCameraViewController: BaseViewController {
     var output: MainCameraViewOutputProtocol!
     var dataSource: CollectionViewDataSource!
 
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var cameraContainerContainer: UIView!
     @IBOutlet weak var cameraContainerView: CameraContainerView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,21 +33,35 @@ class MainCameraViewController: BaseViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         
+        let alignedFlowLayout = collectionView?.collectionViewLayout as? AlignedCollectionViewFlowLayout
+        alignedFlowLayout?.horizontalAlignment = .justified
+        
         ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
         ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
     }
 }
 
-extension MainCameraViewController: UICollectionViewDelegate { }
+extension MainCameraViewController: UICollectionViewDelegate { 
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 2
+
+        pageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
+    }
+    
+}
 
 extension MainCameraViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = collectionView.frame.size.width / 3.0
+        let sizeByWidth = collectionView.frame.size.width / 3.0
+        let sizeByHeight = collectionView.frame.size.height / 6.0
         
-        return .init(width: size, height: size)
+        return .init(width: sizeByWidth, height: sizeByHeight)
     }
     
 }
@@ -57,6 +72,10 @@ extension MainCameraViewController: MainCameraViewInputProtocol {
         dataSource.update(with: sections)
         
         collectionView.reloadData()
+    }
+    
+    func setPhotoBorder(active: Bool) {
+        cameraContainerView.borderWidth = active ? 1.0 : 0.0
     }
     
 }

@@ -340,12 +340,12 @@ extension CameraConfigurationImplementation: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput,
                      willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-        
+        self.output.willCapture()
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput,
                      didCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-        
+        self.output.didCapture()
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput,
