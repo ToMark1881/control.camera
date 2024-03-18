@@ -324,6 +324,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         photoSettings.isHighResolutionPhotoEnabled = true
         photoSettings.flashMode = settingsStorage.flashControl.flashMode
+        photoSettings.photoQualityPrioritization = .speed
         
         stillImageOutput.isHighResolutionCaptureEnabled = true
         stillImageOutput.capturePhoto(with: photoSettings, delegate: self)
