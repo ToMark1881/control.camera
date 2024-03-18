@@ -18,6 +18,7 @@ protocol CameraSettingsStorage {
     var whiteBalanceControl: WhiteBalanceCameraControl! { get }
     
     var orderedControls: [ControlType] { get }
+    var maxControlCount: Int { get }
     
     func store(_ control: CameraControl)
 }
@@ -48,6 +49,10 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
                 .library,   .library,   .library,       .library,   .library,   .library,
                 .library,   .library,   .library,       .library,   .library,   .library,
         ]
+    }
+    
+    var maxControlCount: Int {
+        return 3 * 6 * 3
     }
     
     func store(_ control: CameraControl) {

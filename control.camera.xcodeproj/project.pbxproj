@@ -2249,6 +2249,7 @@
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = control.camera;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "To save pictures";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -2285,6 +2286,7 @@
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = control.camera;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "To save pictures";
 				INFOPLIST_KEY_NSCameraUsageDescription = "To take pictures with a new style";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To save pictures";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
