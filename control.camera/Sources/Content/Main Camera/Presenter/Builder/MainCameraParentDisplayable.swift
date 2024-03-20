@@ -19,6 +19,7 @@ protocol MainCameraParentDisplayable: AnyObject {
     var uiModuleInput: SimpleSwitchControlModuleInput? { get set }
     var libraryModuleInput: ActionSwitchControlModuleInput? { get set }
     var shutterButtonInput: ShutterButtonCellInput? { get set }
+    var arrangeModuleInput: ActionSwitchControlModuleInput? { get set }
     
     var shutterButtonAction: (() -> Void) { get set }
 }

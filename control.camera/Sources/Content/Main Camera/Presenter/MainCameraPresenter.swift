@@ -24,6 +24,7 @@ class MainCameraPresenter: BasePresenter {
     weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
@@ -130,6 +131,7 @@ private extension MainCameraPresenter {
         setupWhiteBalanceControl()
         setupUIControl()
         setupLibraryControl()
+        setupArrangeControl()
     }
     
     // MARK: - Light control
@@ -305,8 +307,27 @@ private extension MainCameraPresenter {
         libraryModuleInput?.setupSwitch(for: controlValue)
     }
     
+    // MARK: - Arrange control
+    func setupArrangeControl() {
+        let action: (() -> Void) = { [weak self] in
+            // self?.openLibrary()
+        }
+        
+        let controlValue = ArrangeCameraControl(action: action)
+        
+        arrangeModuleInput?.setupSwitch(for: controlValue)
+    }
+    
     func openLibrary() {
         print(#function)
+    }
+    
+    func startArrangeState() {
+        
+    }
+    
+    func endArrangeState() {
+        
     }
     
 }

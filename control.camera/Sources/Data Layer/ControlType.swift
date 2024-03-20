@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ControlType: CaseIterable {
+enum ControlType: String, CaseIterable, Codable {
     case flash
     case form
     case device
@@ -19,5 +19,13 @@ enum ControlType: CaseIterable {
     case iso
     case whiteBalance
     case shutter
+    case arrange
     case empty
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        
+        let rawString = try container.decode(String.self)
+        self = ControlType(rawValue: rawString) ?? .empty
+    }
 }

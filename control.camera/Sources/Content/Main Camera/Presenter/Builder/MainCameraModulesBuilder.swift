@@ -46,6 +46,8 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildWhiteBalanceViewModel()
             case .shutter:
                 viewModel = buildShutterButtonViewModel()
+            case .arrange:
+                viewModel = buildArrangeViewModel()
             case .empty:
                 viewModel = buildEmptyViewModel()
             }
@@ -148,6 +150,15 @@ private extension MainCameraModulesBuilderImplementation {
         parent.shutterButtonInput = viewModel
         
         return viewModel
+    }
+    
+    func buildArrangeViewModel() -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupArrangeControl(for: embeddingView,
+                                   moduleInput: &parent.arrangeModuleInput,
+                                   moduleOutput: parent)
+        
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
     func buildEmptyViewModel() -> CollectionCellViewModel {

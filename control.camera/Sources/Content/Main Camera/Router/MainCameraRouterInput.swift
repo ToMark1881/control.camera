@@ -48,4 +48,8 @@ protocol MainCameraRouterInputProtocol: AnyObject {
     func setupLibraryControl(for view: UIView,
                              moduleInput: inout ActionSwitchControlModuleInput?,
                              moduleOutput: SwitchControlModuleOutput)
+    
+    func setupArrangeControl(for view: UIView,
+                             moduleInput: inout ActionSwitchControlModuleInput?,
+                             moduleOutput: SwitchControlModuleOutput)
 }

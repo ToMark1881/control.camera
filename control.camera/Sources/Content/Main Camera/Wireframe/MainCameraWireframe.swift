@@ -52,6 +52,7 @@ class MainCameraWireframe: BaseWireframe {
         let whiteBalanceService = WhiteBalanceCalculatingServiceImplementation()
         let builder = MainCameraModulesBuilderImplementation()
         let dataSource = CollectionViewDataSource()
+        let arrangeService = ControlArrangeServiceImplementation()
         
         liveApplier.view = view
         liveApplier.camera = camera
@@ -61,6 +62,8 @@ class MainCameraWireframe: BaseWireframe {
         
         camera.settingsStorage = storage
         camera.stepByStepApplier = stepByStepApplier
+        
+        storage.arrangeService = arrangeService
         
         presenter.view = view
         presenter.router = router

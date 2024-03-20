@@ -36,19 +36,10 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var isoControl: ISOCameraControl!
     var whiteBalanceControl: WhiteBalanceCameraControl!
     
+    var arrangeService: ControlArrangeService!
+    
     var orderedControls: [ControlType] {
-        return [.flash,     .empty,     .empty,         .empty,     .form,      .empty,
-                .empty,     .empty,     .device,        .zoom,      .empty,     .shutter,
-                .exposure,  .iso,       .whiteBalance,  .empty,     .focus,     .empty,
-                
-                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
-                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
-                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
-                
-                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
-                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
-                .empty,     .empty,     .empty,         .empty,     .empty,     .empty,
-        ]
+        arrangeService.controlArrangement
     }
     
     var maxControlCount: Int {
