@@ -14,4 +14,5 @@ protocol CameraViewConfiguration where Self: BaseViewControllerProtocol {
     
     func setupCameraLayer(_ layer: CALayer)
     func showControlContainer(_ isActive: Bool)
+    func setCameraLayer(hidden: Bool)
 }

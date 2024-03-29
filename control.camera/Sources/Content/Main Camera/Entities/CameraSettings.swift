@@ -41,4 +41,20 @@ struct CameraSettings {
     let isFlashAvailable: Bool
     
     func logSettings() { dump(self) }
+    
+    static var simulatorSettings = CameraSettings(minISO: 40,
+                                                  maxISO: 12_000,
+                                                  isAutoExposureSupported: true,
+                                                  isCustomExposureSupported: true,
+                                                  minExposure: CMTime(value: 1, timescale: 10000),
+                                                  maxExposure: CMTime(value: 1, timescale: 1),
+                                                  minZoom: 1.0,
+                                                  maxZoom: 10.0,
+                                                  isLockedFocusSupported: true,
+                                                  isAutoFocusSupported: true,
+                                                  minLensPosition: 0.0,
+                                                  maxLensPosition: 1.0,
+                                                  maxWhiteBalanceGain: 1_000,
+                                                  isLockedWhiteBalanceSupported: true,
+                                                  isFlashAvailable: true)
 }

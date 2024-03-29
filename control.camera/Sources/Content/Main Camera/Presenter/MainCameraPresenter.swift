@@ -126,9 +126,11 @@ extension MainCameraPresenter: CameraConfigurationOutput {
 extension MainCameraPresenter: SwitchControlModuleOutput {
     
     func didChangeSwitch(for control: CameraControl) {
+        #if !targetEnvironment(simulator)
         settingsStorage.store(control)
         
         liveApplier.applyControlIfNeeded(control)
+        #endif
     }
     
     func onArrangeButtonTap(on index: Int) {

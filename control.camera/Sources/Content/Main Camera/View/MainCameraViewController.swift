@@ -90,6 +90,10 @@ extension MainCameraViewController: CameraViewConfiguration {
         output.didSetupCameraLayer()
     }
     
+    func setCameraLayer(hidden: Bool) {
+        cameraContainerView.isHidden = hidden
+    }
+    
     func showControlContainer(_ isActive: Bool) {
         UIView.animate(withDuration: 0.25) {
             

@@ -56,6 +56,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     
     var settings: CameraSettings {
+        #if targetEnvironment(simulator)
+        return CameraSettings.simulatorSettings
+        #endif
+        
         let minISO = currentDevice.activeFormat.minISO
         let maxISO = currentDevice.activeFormat.maxISO
         
@@ -121,6 +125,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     }
     
     func configure() {
+        #if !targetEnvironment(simulator)
         // Preset the session for taking photo in full resolution
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
@@ -153,7 +158,6 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         
         currentDevice = wideCamera
         
-
         
         // Configure the session with the output for capturing still images
         stillImageOutput = AVCapturePhotoOutput()
@@ -170,18 +174,25 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         cameraPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         view.setupCameraLayer(cameraPreviewLayer!)
+        #endif
     }
     
     func startSession() {
+        self.view.setCameraLayer(hidden: false)
+        #if !targetEnvironment(simulator)
         DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession.startRunning()
         }
+        #endif
     }
     
     func pauseSession() {
+        self.view.setCameraLayer(hidden: true)
+        #if !targetEnvironment(simulator)
         DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession.stopRunning()
         }
+        #endif
     }
     
     func changeDevice(_ device: AvailableVideoDevice.DeviceType) {

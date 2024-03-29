@@ -14,6 +14,8 @@ class CameraContainerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        #if !targetEnvironment(simulator)
+        
         // If the view is animating apply the animation to the sublayer
         CATransaction.begin()
         if let animation = layer.animation(forKey: "position") {
@@ -28,6 +30,7 @@ class CameraContainerView: UIView {
         }
         
         CATransaction.commit()
+        #endif
     }
     
 }
