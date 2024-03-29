@@ -20,36 +20,37 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
         var sections = [CollectionSectionModel]()
         var viewModels = [CollectionCellViewModel]()
         
-        for controlType in orderedControls {
+        for index in orderedControls.indices {
+            let controlType = orderedControls[index]
             var viewModel: CollectionCellViewModel
             
             switch controlType {
             case .flash:
-                viewModel = buildFlashViewModel()
+                viewModel = buildFlashViewModel(for: index)
             case .form:
-                viewModel = buildFormViewModel()
+                viewModel = buildFormViewModel(for: index)
             case .device:
-                viewModel = buildDeviceViewModel()
+                viewModel = buildDeviceViewModel(for: index)
             case .zoom:
-                viewModel = buildZoomViewModel()
+                viewModel = buildZoomViewModel(for: index)
             case .ui:
-                viewModel = buildUIViewModel()
+                viewModel = buildUIViewModel(for: index)
             case .library:
-                viewModel = buildLibraryViewModel()
+                viewModel = buildLibraryViewModel(for: index)
             case .focus:
-                viewModel = buildFocusViewModel()
+                viewModel = buildFocusViewModel(for: index)
             case .exposure:
-                viewModel = buildExposureViewModel()
+                viewModel = buildExposureViewModel(for: index)
             case .iso:
-                viewModel = buildISOViewModel()
+                viewModel = buildISOViewModel(for: index)
             case .whiteBalance:
-                viewModel = buildWhiteBalanceViewModel()
+                viewModel = buildWhiteBalanceViewModel(for: index)
             case .shutter:
-                viewModel = buildShutterButtonViewModel()
+                viewModel = buildShutterButtonViewModel(for: index)
             case .arrange:
-                viewModel = buildArrangeViewModel()
+                viewModel = buildArrangeViewModel(for: index)
             case .empty:
-                viewModel = buildEmptyViewModel()
+                viewModel = buildEmptyViewModel(for: index)
             }
             
             viewModels.append(viewModel)
@@ -65,103 +66,124 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
 
 private extension MainCameraModulesBuilderImplementation {
     
-    func buildFlashViewModel() -> CollectionCellViewModel {
+    func buildFlashViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupLightControl(for: embeddingView,
                                  moduleInput: &parent.lightModuleInput,
                                  moduleOutput: parent)
+        parent.lightModuleInput?.setControl(index: index)
+        
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildFormViewModel() -> CollectionCellViewModel {
+    func buildFormViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupFormControl(for: embeddingView,
                                 moduleInput: &parent.formModuleInput,
                                 moduleOutput: parent)
+        parent.formModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildDeviceViewModel() -> CollectionCellViewModel {
+    func buildDeviceViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupDeviceControl(for: embeddingView,
                                   moduleInput: &parent.deviceModuleInput,
                                   moduleOutput: parent)
+        parent.deviceModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildZoomViewModel() -> CollectionCellViewModel {
+    func buildZoomViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupZoomControl(for: embeddingView,
                                 moduleInput: &parent.zoomModuleInput,
                                 moduleOutput: parent)
+        parent.zoomModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildUIViewModel() -> CollectionCellViewModel {
+    func buildUIViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupUIControl(for: embeddingView,
                               moduleInput: &parent.uiModuleInput,
                               moduleOutput: parent)
+        parent.uiModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildLibraryViewModel() -> CollectionCellViewModel {
+    func buildLibraryViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupLibraryControl(for: embeddingView,
                                    moduleInput: &parent.libraryModuleInput,
                                    moduleOutput: parent)
+        parent.libraryModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildFocusViewModel() -> CollectionCellViewModel {
+    func buildFocusViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupFocusControl(for: embeddingView,
                                  moduleInput: &parent.focusModuleInput,
                                  moduleOutput: parent)
+        parent.focusModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildExposureViewModel() -> CollectionCellViewModel {
+    func buildExposureViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupExposureControl(for: embeddingView,
                                     moduleInput: &parent.exposureModuleInput,
                                     moduleOutput: parent)
+        parent.exposureModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildISOViewModel() -> CollectionCellViewModel {
+    func buildISOViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupISOControl(for: embeddingView,
                                moduleInput: &parent.isoModuleInput,
                                moduleOutput: parent)
+        parent.isoModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildWhiteBalanceViewModel() -> CollectionCellViewModel {
+    func buildWhiteBalanceViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupWhiteBalanceControl(for: embeddingView,
                                         moduleInput: &parent.whiteBalanceModuleInput,
                                         moduleOutput: parent)
+        parent.whiteBalanceModuleInput?.setControl(index: index)
+        
        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildShutterButtonViewModel() -> CollectionCellViewModel {
+    func buildShutterButtonViewModel(for index: Int) -> CollectionCellViewModel {
         let viewModel = ShutterButtonCellViewModel(action: parent.shutterButtonAction)
         parent.shutterButtonInput = viewModel
         
         return viewModel
     }
     
-    func buildArrangeViewModel() -> CollectionCellViewModel {
+    func buildArrangeViewModel(for index: Int) -> CollectionCellViewModel {
         let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
         router.setupArrangeControl(for: embeddingView,
                                    moduleInput: &parent.arrangeModuleInput,
                                    moduleOutput: parent)
+        parent.arrangeModuleInput?.setControl(index: index)
         
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
-    func buildEmptyViewModel() -> CollectionCellViewModel {
+    func buildEmptyViewModel(for index: Int) -> CollectionCellViewModel {
         return ControlContainerCellViewModel(embeddedView: UIView())
     }
     

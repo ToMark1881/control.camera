@@ -10,6 +10,7 @@ import UIKit
 class EmptyControl: UIViewController, SwitchControlModuleInput {
     
     var imageView: UIImageView?
+    var controlIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,10 @@ class EmptyControl: UIViewController, SwitchControlModuleInput {
     
     func setArrangeModeActive(_ isActive: Bool) {
         imageView?.isHidden = !isActive
+    }
+    
+    func setControl(index: Int) {
+        controlIndex = index
     }
 
 }

@@ -25,10 +25,16 @@ class ArraySwitchControlPresenter: BasePresenter {
         
         return value
     }
+    
+    private var controlIndex: Int!
 }
 
 // MARK: - Module Input
 extension ArraySwitchControlPresenter: ArraySwitchControlModuleInput {
+    
+    func setControl(index: Int) {
+        controlIndex = index
+    }
     
     func setArrangeModeActive(_ isActive: Bool) {
         view.setArrangeModeActive(isActive)
@@ -83,7 +89,7 @@ extension ArraySwitchControlPresenter: ArraySwitchControlViewOutputProtocol {
     }
     
     func onArrangeButtonTap() {
-        moduleOutput?.onArrangeButtonTap()
+        moduleOutput?.onArrangeButtonTap(on: controlIndex)
     }
     
 }

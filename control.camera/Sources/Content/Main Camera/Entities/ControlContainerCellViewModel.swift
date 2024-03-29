@@ -20,7 +20,10 @@ class ControlContainerCellViewModel: BaseCollectionCellViewModel<ControlContaine
         
         cell.contentView.backgroundColor = .clear
         cell.contentView.addSubview(embeddedView)
-        embeddedView.pinViewToEdgesOfSuperview(leftOffset: 4, rightOffset: 4, topOffset: 2, bottomOffset: 2)
+        embeddedView.pinViewToEdgesOfSuperview(leftOffset: 4,
+                                               rightOffset: 4,
+                                               topOffset: 2,
+                                               bottomOffset: 2)
     }
     
 }

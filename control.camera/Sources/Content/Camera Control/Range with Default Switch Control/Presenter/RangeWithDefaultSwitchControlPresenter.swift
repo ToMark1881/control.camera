@@ -25,10 +25,16 @@ class RangeWithDefaultSwitchControlPresenter: BasePresenter {
         
         return value
     }
+    
+    private var controlIndex: Int!
 }
 
 // MARK: - Module Input
 extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlModuleInput {
+    
+    func setControl(index: Int) {
+        controlIndex = index
+    }
     
     func setArrangeModeActive(_ isActive: Bool) {
         view.setArrangeModeActive(isActive)
@@ -122,7 +128,7 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlV
     }
     
     func onArrangeButtonTap() {
-        moduleOutput?.onArrangeButtonTap()
+        moduleOutput?.onArrangeButtonTap(on: controlIndex)
     }
     
 }

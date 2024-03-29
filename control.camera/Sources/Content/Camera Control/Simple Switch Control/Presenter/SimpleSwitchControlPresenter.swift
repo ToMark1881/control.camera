@@ -25,10 +25,16 @@ class SimpleSwitchControlPresenter: BasePresenter {
         
         return value
     }
+    
+    private var controlIndex: Int!
 }
 
 // MARK: - Module Input
 extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
+    
+    func setControl(index: Int) {
+        controlIndex = index
+    }
     
     func setArrangeModeActive(_ isActive: Bool) {
         view.setArrangeModeActive(isActive)
@@ -64,7 +70,7 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlViewOutputProtocol {
     }
     
     func onArrangeButtonTap() {
-        moduleOutput?.onArrangeButtonTap()
+        moduleOutput?.onArrangeButtonTap(on: controlIndex)
     }
     
 }

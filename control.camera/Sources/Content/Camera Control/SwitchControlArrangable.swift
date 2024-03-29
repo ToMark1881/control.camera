@@ -18,8 +18,6 @@ extension SwitchControlArrangable {
     
     func setArrangeModeActive(_ isActive: Bool) {
         arrangeButton?.isHidden = !isActive
-        
-        view.layoutIfNeeded()
     }
     
 }

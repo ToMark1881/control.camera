@@ -129,8 +129,8 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
         liveApplier.applyControlIfNeeded(control)
     }
     
-    func onArrangeButtonTap() {
-        print(#function)
+    func onArrangeButtonTap(on index: Int) {
+        print(#function, index, settingsStorage.orderedControls[index].rawValue)
     }
     
 }
