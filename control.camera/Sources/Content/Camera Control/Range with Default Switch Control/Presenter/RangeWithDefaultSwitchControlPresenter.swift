@@ -40,7 +40,7 @@ extension RangeWithDefaultSwitchControlPresenter: RangeWithDefaultSwitchControlM
         view.setArrangeModeActive(isActive)
         
         if switchControl.shouldBeBlockedDuringArrangement {
-            view.setArrangable(disabled: isActive)
+            view.setArrangeable(disabled: isActive)
         }
     }
     

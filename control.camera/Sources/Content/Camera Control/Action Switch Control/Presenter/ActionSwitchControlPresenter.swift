@@ -40,7 +40,9 @@ extension ActionSwitchControlPresenter: ActionSwitchControlModuleInput {
         view.setArrangeModeActive(isActive)
         
         if switchControl.shouldBeBlockedDuringArrangement {
-            view.setArrangable(disabled: isActive)
+            view.setArrangeable(disabled: isActive)
+        } else {
+            view.changeAppearanceDuringArrangement(isActive)
         }
     }
     

@@ -22,7 +22,7 @@ class ArraySwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
-    // MARK: - SwitchControlArrangable
+    // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
     
     private var rangePickerView: RangePickerViewController?
@@ -69,7 +69,7 @@ extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol 
         view.isUserInteractionEnabled = isEnabled
     }
     
-    func setArrangable(disabled: Bool) {        
+    func setArrangeable(disabled: Bool) {        
         rangePickerView?.view.isUserInteractionEnabled = !disabled
     }
     

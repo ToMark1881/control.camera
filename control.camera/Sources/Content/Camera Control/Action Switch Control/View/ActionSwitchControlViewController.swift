@@ -18,7 +18,7 @@ class ActionSwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
-    // MARK: - SwitchControlArrangable
+    // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
     
     override func viewDidLoad() {
@@ -51,12 +51,17 @@ extension ActionSwitchControlViewController: ActionSwitchControlViewInputProtoco
         view.isUserInteractionEnabled = isEnabled
     }
     
-    func setArrangable(disabled: Bool) {
+    func setArrangeable(disabled: Bool) {
         if disabled {
             view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })
         } else {
             setupControllerForActionSwitch()
         }
+    }
+    
+    func changeAppearanceDuringArrangement(_ isActive: Bool) {
+        switchNameLabel.textColor = isActive ? ApplicationColors.orangeColor() : ApplicationColors.textLabelColor()
+        switchValueLabel.textColor = isActive ? ApplicationColors.orangeColor() : ApplicationColors.textLabelColor()
     }
     
 }

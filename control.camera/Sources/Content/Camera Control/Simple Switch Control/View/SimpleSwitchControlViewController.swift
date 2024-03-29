@@ -18,7 +18,7 @@ class SimpleSwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
-    // MARK: - SwitchControlArrangable
+    // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
     
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtoco
         view.isUserInteractionEnabled = isEnabled
     }
     
-    func setArrangable(disabled: Bool) {
+    func setArrangeable(disabled: Bool) {
         if disabled {
             view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })
         } else {

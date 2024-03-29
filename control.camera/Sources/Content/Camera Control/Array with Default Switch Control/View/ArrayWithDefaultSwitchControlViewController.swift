@@ -24,7 +24,7 @@ class ArrayWithDefaultSwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
-    // MARK: - SwitchControlArrangable
+    // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
     
     private var rangeData: [String] = [String]()
@@ -100,7 +100,7 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         rangePickerView?.preselectRow(at: index)
     }
     
-    func setArrangable(disabled: Bool) {
+    func setArrangeable(disabled: Bool) {
         if disabled {
             view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })
         } else {

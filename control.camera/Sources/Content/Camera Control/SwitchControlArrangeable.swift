@@ -1,5 +1,5 @@
 //
-//  SwitchControlArrangable.swift
+//  SwitchControlArrangeable.swift
 //  control.camera
 //
 //  Created by Vladyslav Vdovychenko on 26.03.2024.
@@ -7,18 +7,21 @@
 
 import UIKit
 
-protocol SwitchControlArrangable where Self: UIViewController {
+protocol SwitchControlArrangeable where Self: UIViewController {
     var arrangeButton: UIButton! { get set }
     
     func didTapOnArrangeButton(_ sender: Any)
     func setArrangeModeActive(_ isActive: Bool)
-    func setArrangable(disabled: Bool)
+    func changeAppearanceDuringArrangement(_ isActive: Bool)
+    func setArrangeable(disabled: Bool)
 }
 
-extension SwitchControlArrangable {
+extension SwitchControlArrangeable {
     
     func setArrangeModeActive(_ isActive: Bool) {
         arrangeButton?.isHidden = !isActive
     }
+    
+    func changeAppearanceDuringArrangement(_ isActive: Bool) { }
     
 }

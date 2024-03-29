@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ArraySwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangable {
+protocol ArraySwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangeable {
     func update(with props: ArraySwitchViewProps)
     func setEnabled(_ isEnabled: Bool)
 }
