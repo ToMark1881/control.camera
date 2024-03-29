@@ -33,10 +33,6 @@ class WhiteBalanceCameraControl: CameraControl {
         }
     }
     
-    var isLightControl: Bool {
-        return true
-    }
-    
     var elementHeight: CGFloat? {
         return 25.0
     }

@@ -12,6 +12,7 @@ protocol SwitchControlArrangable where Self: UIViewController {
     
     func didTapOnArrangeButton(_ sender: Any)
     func setArrangeModeActive(_ isActive: Bool)
+    func setArrangable(disabled: Bool)
 }
 
 extension SwitchControlArrangable {

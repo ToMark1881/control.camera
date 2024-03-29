@@ -70,6 +70,10 @@ extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol 
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func setArrangable(disabled: Bool) {
+        rangePickerView?.view.isUserInteractionEnabled = !disabled
+    }
+    
 }
 
 extension RangeSwitchControlViewController: RangePickerDataSource {

@@ -19,10 +19,6 @@ class LibraryCameraControl: CameraControl {
     
     var valueType: CameraControlValueType!
     
-    var isLightControl: Bool {
-        return true
-    }
-    
     init(action: @escaping (() -> Void)) {
         self.valueType = .action(ActionControlValue(action: action))
     }

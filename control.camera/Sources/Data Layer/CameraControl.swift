@@ -17,15 +17,25 @@ protocol CameraControl {
     var elementHeight: CGFloat? { get }
     /// RangePicker default (pre-selected) index. Used for Array/Range switch controls with default value
     var defaultIndex: Range<Int>.Index? { get }
+    var shouldBeBlockedDuringArrangement: Bool { get }
 }
 
 extension CameraControl {
+    
+    var isLightControl: Bool {
+        return true
+    }
+    
     var elementHeight: CGFloat? {
         return nil
     }
     
     var defaultIndex: Range<Int>.Index? {
         return nil
+    }
+    
+    var shouldBeBlockedDuringArrangement: Bool {
+        return true
     }
     
 }

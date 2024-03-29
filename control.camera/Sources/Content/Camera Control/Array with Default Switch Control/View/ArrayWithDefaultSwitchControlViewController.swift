@@ -100,6 +100,16 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         rangePickerView?.preselectRow(at: index)
     }
     
+    func setArrangable(disabled: Bool) {
+        if disabled {
+            view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })
+        } else {
+            setupDoubleTapGesture()
+        }
+        
+        rangePickerViewContainer.isUserInteractionEnabled = !disabled
+    }
+    
 }
 
 extension ArrayWithDefaultSwitchControlViewController: RangePickerDataSource {

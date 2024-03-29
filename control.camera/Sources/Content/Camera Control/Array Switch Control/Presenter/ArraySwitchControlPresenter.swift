@@ -38,6 +38,10 @@ extension ArraySwitchControlPresenter: ArraySwitchControlModuleInput {
     
     func setArrangeModeActive(_ isActive: Bool) {
         view.setArrangeModeActive(isActive)
+        
+        if switchControl.shouldBeBlockedDuringArrangement {
+            view.setArrangable(disabled: isActive)
+        }
     }
     
     func setupSwitch(for control: CameraControl) {

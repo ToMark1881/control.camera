@@ -17,10 +17,6 @@ class ZoomCameraControl: CameraControl {
         return .zoom
     }
     
-    var isLightControl: Bool {
-        return true
-    }
-    
     var elementHeight: CGFloat? {
         return 20.0
     }

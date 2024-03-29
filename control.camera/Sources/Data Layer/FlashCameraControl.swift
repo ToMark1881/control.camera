@@ -18,10 +18,6 @@ class FlashCameraControl: CameraControl {
         return "Light"
     }
     
-    var isLightControl: Bool {
-        return true
-    }
-    
     var valueType: CameraControlValueType! = .simple(SimpleControlValue(isActive: false))
     
     var flashMode: AVCaptureDevice.FlashMode {

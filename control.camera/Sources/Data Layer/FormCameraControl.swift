@@ -37,10 +37,6 @@ class FormCameraControl: CameraControl {
         return "Form"
     }
     
-    var isLightControl: Bool {
-        return true
-    }
-    
     var elementHeight: CGFloat? {
         return 100.0
     }

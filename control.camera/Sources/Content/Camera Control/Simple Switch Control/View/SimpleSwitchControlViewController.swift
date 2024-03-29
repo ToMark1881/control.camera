@@ -51,6 +51,14 @@ extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtoco
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func setArrangable(disabled: Bool) {
+        if disabled {
+            view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })
+        } else {
+            setupControllerForSimpleSwitch()
+        }
+    }
+    
 }
 
 private extension SimpleSwitchControlViewController {

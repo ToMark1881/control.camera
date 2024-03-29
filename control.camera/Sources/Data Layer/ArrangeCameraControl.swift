@@ -19,8 +19,8 @@ class ArrangeCameraControl: CameraControl {
     
     var valueType: CameraControlValueType!
     
-    var isLightControl: Bool {
-        return true
+    var shouldBeBlockedDuringArrangement: Bool {
+        return false
     }
     
     init(action: @escaping (() -> Void)) {

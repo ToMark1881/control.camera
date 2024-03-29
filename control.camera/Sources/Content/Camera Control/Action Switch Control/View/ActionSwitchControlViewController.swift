@@ -51,6 +51,14 @@ extension ActionSwitchControlViewController: ActionSwitchControlViewInputProtoco
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func setArrangable(disabled: Bool) {
+        if disabled {
+            view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })
+        } else {
+            setupControllerForActionSwitch()
+        }
+    }
+    
 }
 
 private extension ActionSwitchControlViewController {

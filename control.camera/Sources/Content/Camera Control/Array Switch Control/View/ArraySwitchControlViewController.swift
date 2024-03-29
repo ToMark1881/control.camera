@@ -69,6 +69,10 @@ extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol 
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func setArrangable(disabled: Bool) {        
+        rangePickerView?.view.isUserInteractionEnabled = !disabled
+    }
+    
 }
 
 extension ArraySwitchControlViewController: RangePickerDataSource {
