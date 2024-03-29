@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ArrayWithDefaultSwitchControlViewInputProtocol: BaseViewControllerProtocol {
+protocol ArrayWithDefaultSwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangable {
     func preselect(index: Range<Int>.Index)
     func update(with props: ArrayWithDefaultSwitchViewProps)
     func reactOnControlChange()

@@ -25,6 +25,10 @@ class RangeWithDefaultSwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
+    // MARK: - SwitchControlArrangable
+    @IBOutlet weak var arrangeButton: UIButton!
+    
+    
     private var rangeData: [String] = [String]()
     private var elementHeight: CGFloat?
     private var rangePickerView: RangePickerViewController?
@@ -46,6 +50,10 @@ class RangeWithDefaultSwitchControlViewController: BaseViewController {
         }
         
         super.prepare(for: segue, sender: sender)
+    }
+    
+    @IBAction func didTapOnArrangeButton(_ sender: Any) {
+        output.onArrangeButtonTap()
     }
     
     func setupDoubleTapGesture() {

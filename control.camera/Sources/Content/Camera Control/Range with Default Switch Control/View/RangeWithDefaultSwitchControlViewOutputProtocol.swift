@@ -13,4 +13,5 @@ protocol RangeWithDefaultSwitchControlViewOutputProtocol: AnyObject {
     func onDoubleTap()
     func didSelect(index: Range<Int>.Index)
     func willSelect(index: Range<Int>.Index)
+    func onArrangeButtonTap()
 }

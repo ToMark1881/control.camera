@@ -71,6 +71,7 @@ class MainCameraWireframe: BaseWireframe {
         presenter.settingsStorage = storage
         presenter.liveApplier = liveApplier
         presenter.moduleBuilder = builder
+        presenter.arrangeService = arrangeService
         
         builder.router = router
         builder.parent = presenter

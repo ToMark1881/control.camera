@@ -30,6 +30,10 @@ class ArrayWithDefaultSwitchControlPresenter: BasePresenter {
 // MARK: - Module Input
 extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlModuleInput {
     
+    func setArrangeModeActive(_ isActive: Bool) {
+        view.setArrangeModeActive(isActive)
+    }
+    
     func setupSwitch(for control: CameraControl) {
         guard case .arrayWithDefault = control.valueType else {
             fatalError("Wrong CameraControlValueType")
@@ -108,6 +112,10 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlV
         
         switchControl.valueType = .arrayWithDefault(arrayWithDefaultValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
+    }
+    
+    func onArrangeButtonTap() {
+        moduleOutput?.onArrangeButtonTap()
     }
     
 }

@@ -30,6 +30,10 @@ class ArraySwitchControlPresenter: BasePresenter {
 // MARK: - Module Input
 extension ArraySwitchControlPresenter: ArraySwitchControlModuleInput {
     
+    func setArrangeModeActive(_ isActive: Bool) {
+        view.setArrangeModeActive(isActive)
+    }
+    
     func setupSwitch(for control: CameraControl) {
         guard case .array = control.valueType else {
             fatalError("Wrong CameraControlValueType")
@@ -76,6 +80,10 @@ extension ArraySwitchControlPresenter: ArraySwitchControlViewOutputProtocol {
         
         switchControl.valueType = .array(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
+    }
+    
+    func onArrangeButtonTap() {
+        moduleOutput?.onArrangeButtonTap()
     }
     
 }

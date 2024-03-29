@@ -11,4 +11,5 @@ import UIKit
 protocol ActionSwitchControlViewOutputProtocol: AnyObject {
     func onViewDidLoad()
     func didTapOnSwitch()
+    func onArrangeButtonTap()
 }

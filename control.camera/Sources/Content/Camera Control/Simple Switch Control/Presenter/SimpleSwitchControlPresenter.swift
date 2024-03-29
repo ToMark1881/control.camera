@@ -30,6 +30,10 @@ class SimpleSwitchControlPresenter: BasePresenter {
 // MARK: - Module Input
 extension SimpleSwitchControlPresenter: SimpleSwitchControlModuleInput {
     
+    func setArrangeModeActive(_ isActive: Bool) {
+        view.setArrangeModeActive(isActive)
+    }
+    
     func setupSwitch(for control: CameraControl) {
         guard case .simple = control.valueType else {
             fatalError("Wrong CameraControlValueType")
@@ -57,6 +61,10 @@ extension SimpleSwitchControlPresenter: SimpleSwitchControlViewOutputProtocol {
         reloadView()
         view.reactOnControlChange()
         moduleOutput?.didChangeSwitch(for: switchControl)
+    }
+    
+    func onArrangeButtonTap() {
+        moduleOutput?.onArrangeButtonTap()
     }
     
 }

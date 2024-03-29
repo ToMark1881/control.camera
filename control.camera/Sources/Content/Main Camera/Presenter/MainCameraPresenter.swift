@@ -34,9 +34,26 @@ class MainCameraPresenter: BasePresenter {
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
     var settingsStorage: CameraSettingsStorage!
+    var arrangeService: ControlArrangeService!
     
     lazy var shutterButtonAction: (() -> Void) = {
         self.camera.capturePhoto()
+    }
+    
+    private var allSwitchModuleInputes: [SwitchControlModuleInput?] {
+        return [
+            lightModuleInput,
+            formModuleInput,
+            deviceModuleInput,
+            zoomModuleInput,
+            focusModuleInput,
+            exposureModuleInput,
+            isoModuleInput,
+            whiteBalanceModuleInput,
+            arrangeModuleInput,
+            uiModuleInput,
+            libraryModuleInput
+        ]
     }
     
 }
@@ -110,6 +127,10 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
         settingsStorage.store(control)
         
         liveApplier.applyControlIfNeeded(control)
+    }
+    
+    func onArrangeButtonTap() {
+        print(#function)
     }
     
 }
@@ -310,7 +331,7 @@ private extension MainCameraPresenter {
     // MARK: - Arrange control
     func setupArrangeControl() {
         let action: (() -> Void) = { [weak self] in
-            // self?.openLibrary()
+            self?.changeArrangeMode()
         }
         
         let controlValue = ArrangeCameraControl(action: action)
@@ -322,12 +343,9 @@ private extension MainCameraPresenter {
         print(#function)
     }
     
-    func startArrangeState() {
-        
-    }
-    
-    func endArrangeState() {
-        
+    func changeArrangeMode() {
+        arrangeService.isArrangeModeActivated.toggle()
+        allSwitchModuleInputes.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
     }
     
 }

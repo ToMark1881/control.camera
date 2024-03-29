@@ -30,6 +30,10 @@ class ActionSwitchControlPresenter: BasePresenter {
 // MARK: - Module Input
 extension ActionSwitchControlPresenter: ActionSwitchControlModuleInput {
     
+    func setArrangeModeActive(_ isActive: Bool) {
+        view.setArrangeModeActive(isActive)
+    }
+    
     func setupSwitch(for control: CameraControl) {
         guard case .action = control.valueType else {
             fatalError("Wrong CameraControlValueType")
@@ -53,6 +57,10 @@ extension ActionSwitchControlPresenter: ActionSwitchControlViewOutputProtocol {
     func didTapOnSwitch() {
         view.reactOnControlChange()
         controlValue.action()
+    }
+    
+    func onArrangeButtonTap() {
+        moduleOutput?.onArrangeButtonTap()
     }
     
 }

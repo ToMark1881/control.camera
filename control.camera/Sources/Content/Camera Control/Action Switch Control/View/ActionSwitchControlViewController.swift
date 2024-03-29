@@ -18,13 +18,20 @@ class ActionSwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
+    // MARK: - SwitchControlArrangable
+    @IBOutlet weak var arrangeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         output.onViewDidLoad()
         setupControllerForActionSwitch()
     }
-
+    
+    @IBAction func didTapOnArrangeButton(_ sender: Any) {
+        output.onArrangeButtonTap()
+    }
+    
 }
 
 extension ActionSwitchControlViewController: ActionSwitchControlViewInputProtocol {

@@ -11,6 +11,7 @@ protocol SwitchControlModuleInput {
     func setupSwitch(for control: CameraControl)
     func updateSwitch(for control: CameraControl)
     func setEnabled(_ isEnabled: Bool)
+    func setArrangeModeActive(_ isActive: Bool)
 }
 
 extension SwitchControlModuleInput {

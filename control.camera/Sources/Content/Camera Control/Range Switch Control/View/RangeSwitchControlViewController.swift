@@ -17,11 +17,13 @@ class RangeSwitchControlViewController: BaseViewController {
     //MARK: - Injected
     
     var output: RangeSwitchControlViewOutputProtocol!
-    
 
     @IBOutlet weak var switchNameLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
+    
+    // MARK: - SwitchControlArrangable
+    @IBOutlet weak var arrangeButton: UIButton!
     
     private var rangeData: [String] = [String]()
     private var rangePickerView: RangePickerViewController?
@@ -44,7 +46,11 @@ class RangeSwitchControlViewController: BaseViewController {
         
         super.prepare(for: segue, sender: sender)
     }
-
+    
+    @IBAction func didTapOnArrangeButton(_ sender: Any) {
+        output.onArrangeButtonTap()
+    }
+    
 }
 
 extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol {

@@ -10,4 +10,5 @@ import Foundation
 
 protocol SwitchControlModuleOutput: AnyObject {
     func didChangeSwitch(for control: CameraControl)
+    func onArrangeButtonTap()
 }

@@ -12,4 +12,5 @@ protocol ArraySwitchControlViewOutputProtocol: AnyObject {
     func onViewDidLoad()
     func didSelect(index: Array<Int>.Index)
     func willSelect(index: Array<Int>.Index)
+    func onArrangeButtonTap()
 }

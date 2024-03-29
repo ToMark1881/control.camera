@@ -11,4 +11,5 @@ import UIKit
 protocol SimpleSwitchControlViewOutputProtocol: AnyObject {
     func onViewDidLoad()
     func didChangeSimpleSwitchValue()
+    func onArrangeButtonTap()
 }

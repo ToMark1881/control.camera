@@ -8,10 +8,15 @@
 import Foundation
 
 protocol ControlArrangeService {
+    
+    var isArrangeModeActivated: Bool { get set }
+    
     var controlArrangement: [ControlType] { get }
 }
 
 class ControlArrangeServiceImplementation: ControlArrangeService {
+    
+    var isArrangeModeActivated: Bool = false
     
     var controlArrangement: [ControlType] {
         savedInStorageControlArrangement ?? defaultControlArrangement

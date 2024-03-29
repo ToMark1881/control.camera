@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,52 +18,71 @@
             <objects>
                 <viewController storyboardIdentifier="ArraySwitchControlViewController" id="Y6W-OH-hqX" customClass="ArraySwitchControlViewController" customModule="Staging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Background (no lines)" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
-                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                                <rect key="frame" x="12" y="2" width="96" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pKB-Qa-OWC" secondAttribute="height" multiplier="1:1" id="hQH-UU-8eh"/>
+                                </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Interactive Lines" translatesAutoresizingMaskIntoConstraints="NO" id="KF7-9H-bB0">
-                                <rect key="frame" x="2" y="2" width="96" height="96"/>
+                                <rect key="frame" x="12" y="2" width="96" height="96"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOs-F3-8G1">
-                                <rect key="frame" x="4" y="28.666666666666671" width="92" height="19.333333333333329"/>
+                                <rect key="frame" x="14" y="28.666666666666671" width="92" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXw-G1-dKq">
-                                <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                <rect key="frame" x="12" y="8" width="96" height="84"/>
                                 <connections>
                                     <segue destination="fhz-ek-KYL" kind="embed" identifier="RangePickerViewSegue" id="H1o-Uw-sEs"/>
                                 </connections>
                             </containerView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-Os-22z">
+                                <rect key="frame" x="2" y="-8" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="BIj-gm-lDI"/>
+                                    <constraint firstAttribute="height" constant="22" id="GjJ-Dm-CMj"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="Exchange Module Button"/>
+                                <connections>
+                                    <action selector="didTapOnArrangeButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Pg-vl-289"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XVC-z5-mWB"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="YOs-F3-8G1" secondAttribute="trailing" constant="4" id="BJu-L3-VFJ"/>
-                            <constraint firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="trailing" secondItem="YOs-F3-8G1" secondAttribute="trailing" constant="2" id="BJu-L3-VFJ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pKB-Qa-OWC" secondAttribute="trailing" constant="2" id="BwL-79-Wrp"/>
                             <constraint firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" constant="2" id="MWW-Jl-wK9"/>
                             <constraint firstItem="KF7-9H-bB0" firstAttribute="bottom" secondItem="pKB-Qa-OWC" secondAttribute="bottom" id="MdK-Uh-sOK"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="NO1-Qb-0VV"/>
                             <constraint firstItem="KF7-9H-bB0" firstAttribute="top" secondItem="pKB-Qa-OWC" secondAttribute="top" id="Rdu-ng-XHn"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-2" id="Ucy-vK-yGW"/>
+                            <constraint firstItem="P9T-Os-22z" firstAttribute="centerY" secondItem="pKB-Qa-OWC" secondAttribute="top" constant="1" id="V2c-Aw-pqg"/>
                             <constraint firstAttribute="bottom" secondItem="dXw-G1-dKq" secondAttribute="bottom" constant="8" id="YIj-J6-0B1"/>
-                            <constraint firstItem="dXw-G1-dKq" firstAttribute="leading" secondItem="XVC-z5-mWB" secondAttribute="leading" constant="8" id="ZBq-1S-DHN"/>
+                            <constraint firstItem="dXw-G1-dKq" firstAttribute="leading" secondItem="pKB-Qa-OWC" secondAttribute="leading" id="ZBq-1S-DHN"/>
                             <constraint firstItem="YOs-F3-8G1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="4" id="dUq-y0-a2s"/>
                             <constraint firstItem="dXw-G1-dKq" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="8" id="e60-Vx-uyl"/>
-                            <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="4" id="fbR-pf-t2i"/>
-                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="2" id="fgb-cC-x6e"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="egI-2w-3CJ"/>
+                            <constraint firstItem="YOs-F3-8G1" firstAttribute="leading" secondItem="pKB-Qa-OWC" secondAttribute="leading" constant="2" id="fbR-pf-t2i"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="2" id="fgb-cC-x6e"/>
                             <constraint firstItem="KF7-9H-bB0" firstAttribute="leading" secondItem="pKB-Qa-OWC" secondAttribute="leading" id="hdT-Uk-ofr"/>
-                            <constraint firstItem="XVC-z5-mWB" firstAttribute="trailing" secondItem="dXw-G1-dKq" secondAttribute="trailing" constant="8" id="mBd-GZ-CET"/>
+                            <constraint firstItem="pKB-Qa-OWC" firstAttribute="trailing" secondItem="dXw-G1-dKq" secondAttribute="trailing" id="mBd-GZ-CET"/>
+                            <constraint firstItem="P9T-Os-22z" firstAttribute="centerX" secondItem="pKB-Qa-OWC" secondAttribute="leading" constant="1" id="rfi-Tk-5Af"/>
                             <constraint firstItem="KF7-9H-bB0" firstAttribute="trailing" secondItem="pKB-Qa-OWC" secondAttribute="trailing" id="rkE-qs-N7q"/>
                             <constraint firstItem="pKB-Qa-OWC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="2" id="zG9-Gh-UGO"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="100" height="100"/>
+                    <size key="freeformSize" width="120" height="100"/>
                     <connections>
+                        <outlet property="arrangeButton" destination="P9T-Os-22z" id="SpC-o2-iJM"/>
                         <outlet property="backgroundImage" destination="pKB-Qa-OWC" id="7od-Sf-5Ew"/>
                         <outlet property="linesImageView" destination="KF7-9H-bB0" id="sxR-VH-ffg"/>
                         <outlet property="switchNameLabel" destination="YOs-F3-8G1" id="pe3-DD-7U6"/>
@@ -85,5 +104,6 @@
     <resources>
         <image name="Control Background (no lines)" width="114" height="114"/>
         <image name="Control Interactive Lines" width="114" height="114"/>
+        <image name="Exchange Module Button" width="18" height="18"/>
     </resources>
 </document>

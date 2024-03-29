@@ -18,13 +18,20 @@ class SimpleSwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
+    // MARK: - SwitchControlArrangable
+    @IBOutlet weak var arrangeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         output.onViewDidLoad()
         setupControllerForSimpleSwitch()
     }
-
+    
+    @IBAction func didTapOnArrangeButton(_ sender: Any) {
+        output.onArrangeButtonTap()
+    }
+    
 }
 
 extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtocol {

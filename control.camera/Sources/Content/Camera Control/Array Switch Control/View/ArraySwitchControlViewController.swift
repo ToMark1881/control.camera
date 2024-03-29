@@ -22,6 +22,9 @@ class ArraySwitchControlViewController: BaseViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
     
+    // MARK: - SwitchControlArrangable
+    @IBOutlet weak var arrangeButton: UIButton!
+    
     private var rangePickerView: RangePickerViewController?
     private var rangeData: [String] = [String]()
     private var elementHeight: CGFloat?
@@ -44,6 +47,9 @@ class ArraySwitchControlViewController: BaseViewController {
         super.prepare(for: segue, sender: sender)
     }
 
+    @IBAction func didTapOnArrangeButton(_ sender: Any) {
+        output.onArrangeButtonTap()
+    }
 }
 
 extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol {

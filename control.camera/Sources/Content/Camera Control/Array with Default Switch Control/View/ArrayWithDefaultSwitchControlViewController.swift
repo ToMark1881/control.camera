@@ -17,13 +17,15 @@ class ArrayWithDefaultSwitchControlViewController: BaseViewController {
     //MARK: - Injected
     
     var output: ArrayWithDefaultSwitchControlViewOutputProtocol!
-    
 
     @IBOutlet weak var rangePickerViewContainer: UIView!
     @IBOutlet weak var switchNameLabel: UILabel!
     @IBOutlet weak var switchDefaultValueLabel: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var linesImageView: UIImageView!
+    
+    // MARK: - SwitchControlArrangable
+    @IBOutlet weak var arrangeButton: UIButton!
     
     private var rangeData: [String] = [String]()
     private var elementHeight: CGFloat?
@@ -46,6 +48,10 @@ class ArrayWithDefaultSwitchControlViewController: BaseViewController {
         }
         
         super.prepare(for: segue, sender: sender)
+    }
+    
+    @IBAction func didTapOnArrangeButton(_ sender: Any) {
+        output.onArrangeButtonTap()
     }
     
     func setupDoubleTapGesture() {

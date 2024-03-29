@@ -30,6 +30,10 @@ class RangeSwitchControlPresenter: BasePresenter {
 // MARK: - Module Input
 extension RangeSwitchControlPresenter: RangeSwitchControlModuleInput {
     
+    func setArrangeModeActive(_ isActive: Bool) {
+        view.setArrangeModeActive(isActive)
+    }
+    
     func setupSwitch(for control: CameraControl) {
         guard case .range = control.valueType else {
             fatalError("Wrong CameraControlValueType")
@@ -80,6 +84,10 @@ extension RangeSwitchControlPresenter: RangeSwitchControlViewOutputProtocol {
         
         switchControl.valueType = .range(arrayControlValue)
         moduleOutput?.didChangeSwitch(for: switchControl)
+    }
+    
+    func onArrangeButtonTap() {
+        moduleOutput?.onArrangeButtonTap()
     }
     
 }

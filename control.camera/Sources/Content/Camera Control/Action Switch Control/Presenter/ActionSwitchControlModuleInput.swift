@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ActionSwitchControlModuleInput: BasePresenter {
+protocol ActionSwitchControlModuleInput: BasePresenter, SwitchControlModuleInput {
     func setupSwitch(for control: CameraControl)
 }
