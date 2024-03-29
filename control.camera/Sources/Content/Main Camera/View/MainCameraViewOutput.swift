@@ -10,5 +10,9 @@ import UIKit
 
 protocol MainCameraViewOutputProtocol: AnyObject {
     func onViewDidLoad()
+    func onViewWillAppear()
+    func onViewWillDisappear()
+    func onViewDidAppear()
+    func onViewDidDisappear()
     func didSetupCameraLayer()
 }

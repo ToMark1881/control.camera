@@ -21,12 +21,20 @@ class MainCameraRouter: BaseRouter {
     private lazy var actionSwitchWireframe = { ActionSwitchControlWireframe() }()
     private lazy var rangeWithDefaultWireframe = { RangeWithDefaultSwitchControlWireframe() }()
     private lazy var arrayWithDefaultWireframe = { ArrayWithDefaultSwitchControlWireframe() }()
+    private lazy var controlsListWireframe = { ControlsListWireframe() }()
     
 }
 
 extension MainCameraRouter: MainCameraRouterInputProtocol {
     
     // MARK: - Present
+    func presentControlsList(moduleInput: inout ControlsListModuleInput?,
+                             moduleOutput: ControlsListModuleOutput) {
+        controlsListWireframe.presentIn(view,
+                                        moduleInput: &moduleInput,
+                                        moduleOutput: moduleOutput)
+    }
+    
     func setupLightControl(for view: UIView,
                            moduleInput: inout SimpleSwitchControlModuleInput?,
                            moduleOutput: SwitchControlModuleOutput) {

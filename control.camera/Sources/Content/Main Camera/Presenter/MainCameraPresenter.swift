@@ -32,6 +32,8 @@ class MainCameraPresenter: BasePresenter {
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     weak var shutterButtonInput: ShutterButtonCellInput?
     
+    weak var controlsListModuleInput: ControlsListModuleInput?
+    
     var moduleBuilder: MainCameraModulesBuilder!
     var camera: CameraConfiguration!
     var liveApplier: CameraLiveApplier!
@@ -84,6 +86,22 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
         camera.startSession()
     }
     
+    func onViewWillAppear() {
+        
+    }
+    
+    func onViewWillDisappear() {
+        
+    }
+    
+    func onViewDidAppear() {
+        
+    }
+    
+    func onViewDidDisappear() {
+        
+    }
+    
 }
 
 // MARK: - Router - Presenter
@@ -134,6 +152,9 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
     }
     
     func onArrangeButtonTap(on index: Int) {
+        router.presentControlsList(moduleInput: &controlsListModuleInput,
+                                   moduleOutput: self)
+        
         print(#function, index, settingsStorage.orderedControls[index].rawValue)
     }
     
@@ -354,5 +375,9 @@ private extension MainCameraPresenter {
         
         arrangeService.isArrangeModeActivated ? camera.pauseSession() : camera.startSession()
     }
+    
+}
+
+extension MainCameraPresenter: ControlsListModuleOutput {
     
 }

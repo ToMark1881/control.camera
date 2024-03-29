@@ -39,6 +39,26 @@ class MainCameraViewController: BaseViewController {
         ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
         ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        output.onViewWillAppear()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        output.onViewDidAppear()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        output.onViewWillDisappear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        output.onViewDidDisappear()
+    }
 }
 
 extension MainCameraViewController: UICollectionViewDelegate { 
