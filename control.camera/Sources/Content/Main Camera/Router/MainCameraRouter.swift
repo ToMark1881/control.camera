@@ -93,6 +93,21 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
         actionSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
     }
     
+    func setupEmptyControl(for view: UIView,
+                           moduleInput: inout SwitchControlModuleInput?,
+                           moduleOutput: SwitchControlModuleOutput) {
+        let viewController = EmptyControl()
+        moduleInput = viewController
+        viewController.output = moduleOutput
+        
+        let parent = self.view
+        
+        parent?.addChild(viewController)
+        viewController.view.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        view.addSubview(viewController.view)
+        viewController.didMove(toParent: parent)
+    }
+    
     // MARK: - Dismiss
     
 }

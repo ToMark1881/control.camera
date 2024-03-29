@@ -42,7 +42,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1q-9n-tGo">
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1q-9n-tGo" customClass="BounceButton" customModule="Staging" customModuleProvider="target">
                                 <rect key="frame" x="5" y="-5" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="bct-ex-11E"/>

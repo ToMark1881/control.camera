@@ -26,6 +26,8 @@ class MainCameraPresenter: BasePresenter {
     weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
+    var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
+    
     weak var uiModuleInput: SimpleSwitchControlModuleInput?
     weak var libraryModuleInput: ActionSwitchControlModuleInput?
     weak var shutterButtonInput: ShutterButtonCellInput?
@@ -346,6 +348,9 @@ private extension MainCameraPresenter {
     func changeArrangeMode() {
         arrangeService.isArrangeModeActivated.toggle()
         allSwitchModuleInputes.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
+        emptyModuleInputMulticast.invoke({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
+        
+        arrangeService.isArrangeModeActivated ? camera.pauseSession() : camera.startSession()
     }
     
 }

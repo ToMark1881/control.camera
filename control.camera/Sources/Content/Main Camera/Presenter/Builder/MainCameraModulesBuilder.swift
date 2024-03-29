@@ -184,7 +184,16 @@ private extension MainCameraModulesBuilderImplementation {
     }
     
     func buildEmptyViewModel(for index: Int) -> CollectionCellViewModel {
-        return ControlContainerCellViewModel(embeddedView: UIView())
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        var moduleInput: SwitchControlModuleInput?
+        router.setupEmptyControl(for: embeddingView,
+                                 moduleInput: &moduleInput,
+                                 moduleOutput: parent)
+        moduleInput?.setControl(index: index)
+        
+        parent.emptyModuleInputMulticast.add(moduleInput)
+        
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
 }

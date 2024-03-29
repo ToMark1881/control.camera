@@ -42,7 +42,7 @@
                                     <segue destination="2J2-iF-rBg" kind="embed" identifier="RangePickerViewSegue" id="uWh-wZ-0qP"/>
                                 </connections>
                             </containerView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ae-ME-QV8">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ae-ME-QV8" customClass="BounceButton" customModule="Staging" customModuleProvider="target">
                                 <rect key="frame" x="2" y="-8" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="BM4-C7-wmS"/>

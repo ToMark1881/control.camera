@@ -14,6 +14,8 @@ protocol CameraConfiguration: AnyObject {
     
     func configure()
     func startSession()
+    func pauseSession()
+    
     func changeDevice(_ device: AvailableVideoDevice.DeviceType)
     func setZoomFactor(_ zoomFactor: CGFloat)
     
@@ -173,6 +175,12 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     func startSession() {
         DispatchQueue.global(qos: .userInitiated).async {
             self.captureSession.startRunning()
+        }
+    }
+    
+    func pauseSession() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.captureSession.stopRunning()
         }
     }
     

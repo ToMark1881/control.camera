@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SwitchControlModuleInput {
+protocol SwitchControlModuleInput: AnyObject {
     func setupSwitch(for control: CameraControl)
     func updateSwitch(for control: CameraControl)
     func setEnabled(_ isEnabled: Bool)

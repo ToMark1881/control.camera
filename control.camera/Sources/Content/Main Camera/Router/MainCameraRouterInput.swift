@@ -52,4 +52,8 @@ protocol MainCameraRouterInputProtocol: AnyObject {
     func setupArrangeControl(for view: UIView,
                              moduleInput: inout ActionSwitchControlModuleInput?,
                              moduleOutput: SwitchControlModuleOutput)
+    
+    func setupEmptyControl(for view: UIView,
+                           moduleInput: inout SwitchControlModuleInput?,
+                           moduleOutput: SwitchControlModuleOutput)
 }

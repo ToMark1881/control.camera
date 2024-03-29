@@ -12,6 +12,8 @@ class EmptyControl: UIViewController, SwitchControlModuleInput {
     var imageView: UIImageView?
     var controlIndex: Int!
     
+    weak var output: SwitchControlModuleOutput?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,8 +23,13 @@ class EmptyControl: UIViewController, SwitchControlModuleInput {
     func addNewModuleSubview() {
         imageView = UIImageView(image: UIImage(named: "Module"))
         view.addSubview(imageView!)
-        imageView?.pinViewToEdgesOfSuperview()
+        imageView?.pinViewToEdgesOfSuperview(topOffset: 3.0, bottomOffset: 3.0)
         imageView?.isHidden = true
+        imageView?.contentMode = .scaleAspectFit
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        imageView?.addGestureRecognizer(tapGesture)
+        
     }
     
     func setupSwitch(for control: CameraControl) { }
@@ -31,10 +38,16 @@ class EmptyControl: UIViewController, SwitchControlModuleInput {
     
     func setArrangeModeActive(_ isActive: Bool) {
         imageView?.isHidden = !isActive
+        imageView?.isUserInteractionEnabled = isActive
     }
     
     func setControl(index: Int) {
         controlIndex = index
+    }
+    
+    @objc
+    func onTap() {
+        output?.onArrangeButtonTap(on: controlIndex)
     }
 
 }
