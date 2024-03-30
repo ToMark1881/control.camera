@@ -9,10 +9,6 @@ import Foundation
 
 class ZoomCameraControl: CameraControl {
     
-    var title: String {
-        return "Zoom"
-    }
-    
     var controlType: ControlType {
         return .zoom
     }

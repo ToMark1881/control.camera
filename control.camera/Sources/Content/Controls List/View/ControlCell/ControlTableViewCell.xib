@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="TouchSansOne-Regular.ttf">
+            <string>TouchSansOne-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="42" id="KGk-i7-Jjw" customClass="ControlTableViewCell" customModule="Staging" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="42"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Radio Button Off" translatesAutoresizingMaskIntoConstraints="NO" id="LG6-PT-MdG">
+                        <rect key="frame" x="30" y="13" width="16" height="16"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="dya-Rf-19E"/>
+                            <constraint firstAttribute="width" constant="16" id="qrl-MV-PrZ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Control name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPm-UX-Kp2">
+                        <rect key="frame" x="66" y="11" width="234" height="20"/>
+                        <fontDescription key="fontDescription" name="TouchSansOne-Regular" family="Touch Sans One" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="LG6-PT-MdG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="06r-pD-qAA"/>
+                    <constraint firstAttribute="trailing" secondItem="kPm-UX-Kp2" secondAttribute="trailing" constant="20" id="bmh-2p-ZtB"/>
+                    <constraint firstItem="LG6-PT-MdG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="jzI-Cy-bW8"/>
+                    <constraint firstItem="kPm-UX-Kp2" firstAttribute="leading" secondItem="LG6-PT-MdG" secondAttribute="trailing" constant="20" id="l93-K4-v4b"/>
+                    <constraint firstItem="kPm-UX-Kp2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="o6z-vZ-FfG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameLabel" destination="kPm-UX-Kp2" id="r4c-dk-TDx"/>
+                <outlet property="radioButtonImageView" destination="LG6-PT-MdG" id="Egc-3a-iSK"/>
+            </connections>
+            <point key="canvasLocation" x="9" y="42"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Radio Button Off" width="16" height="16"/>
+    </resources>
+</document>

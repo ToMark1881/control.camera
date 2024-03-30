@@ -40,6 +40,17 @@ final class ControlsListWireframe: BaseWireframe {
         let navigationController = UINavigationController(rootViewController: viewController)
         self.presentedViewController = viewController
         
+        navigationController.modalPresentationStyle = .pageSheet
+        
+        if #available(iOS 15.0, *) {
+            if let sheet = navigationController.sheetPresentationController {
+                sheet.detents = [.large()]
+                sheet.prefersGrabberVisible = true
+            }
+        }
+        
+        navigationController.isNavigationBarHidden = true
+        
         parent.present(navigationController, animated: true, completion: nil)
     }
     
@@ -48,11 +59,16 @@ final class ControlsListWireframe: BaseWireframe {
         guard let view: ControlsListViewController = initializeController() else { return nil }
         let presenter = ControlsListPresenter()
         let router = ControlsListRouter()
+        let dataSource = TableViewDataSource()
+        let builder = ControlsListViewModelBuilderImplementation()
         
         presenter.view = view
         presenter.router = router
+        presenter.builder = builder
         
         view.output = presenter
+        view.dataSource = dataSource
+        
         router.output = presenter
         
         router.view = view

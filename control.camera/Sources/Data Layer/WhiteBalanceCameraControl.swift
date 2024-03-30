@@ -14,10 +14,6 @@ enum WhiteBalanceType {
 
 class WhiteBalanceCameraControl: CameraControl {
     
-    var title: String {
-        return "White Balance"
-    }
-    
     var controlType: ControlType {
         return .whiteBalance
     }

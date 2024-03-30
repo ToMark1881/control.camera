@@ -44,7 +44,7 @@ class MainCameraPresenter: BasePresenter {
         self.camera.capturePhoto()
     }
     
-    private var allSwitchModuleInputes: [SwitchControlModuleInput?] {
+    private var allSwitchModuleInputs: [SwitchControlModuleInput?] {
         return [
             lightModuleInput,
             formModuleInput,
@@ -152,10 +152,13 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
     }
     
     func onArrangeButtonTap(on index: Int) {
+        guard let selectedControlType = settingsStorage.orderedControls[safe: index] else {
+            return
+        }
+        
         router.presentControlsList(moduleInput: &controlsListModuleInput,
                                    moduleOutput: self)
-        
-        print(#function, index, settingsStorage.orderedControls[index].rawValue)
+        controlsListModuleInput?.setup(with: selectedControlType)
     }
     
 }
@@ -370,7 +373,7 @@ private extension MainCameraPresenter {
     
     func changeArrangeMode() {
         arrangeService.isArrangeModeActivated.toggle()
-        allSwitchModuleInputes.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
+        allSwitchModuleInputs.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
         emptyModuleInputMulticast.invoke({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
         
         arrangeService.isArrangeModeActivated ? camera.pauseSession() : camera.startSession()

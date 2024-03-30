@@ -10,10 +10,6 @@ import AVFoundation
 
 class VideoDeviceCameraControl: CameraControl {
     
-    var title: String {
-        return "Device"
-    }
-    
     var controlType: ControlType {
         return .device
     }

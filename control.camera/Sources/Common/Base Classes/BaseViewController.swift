@@ -15,17 +15,11 @@ protocol BaseViewControllerProtocol where Self: BaseViewController {
 }
 
 class BaseViewController: UIViewController, BaseViewControllerProtocol {
-
-    fileprivate var isVisible: Bool = false
-    fileprivate var isLoadingSpinnerPresented = false
-    fileprivate lazy var loadingSpinner = { return AlertController.shared.spinner() }()
     
     var needToHideNavigationBar: Bool = false
     
     var needToSubscribeToKeyboardEvents: Bool = false
-    
-    var prefersLargeTitle: Bool = false
-    
+        
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         Logger.shared.log("🆕 required init \(self)", type: .lifecycle)
@@ -39,11 +33,6 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = prefersLargeTitle
-        }
-        
-        self.isVisible = true
         self.subscribeToApplicationEvents()
         Logger.shared.log("viewDidLoad \(self)", type: .lifecycle)
 
@@ -63,8 +52,6 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        self.isVisible = true
         
 		Logger.shared.log("viewDidAppear \(self)", type: .lifecycle)
 		
@@ -83,8 +70,6 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-
-        self.isVisible = false
         
         Logger.shared.log("viewDidDisappear \(self)", type: .lifecycle)
     }
@@ -107,28 +92,6 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     func setupTitle(_ title: String) {
         self.title = title
         self.navigationItem.title = title
-    }
-    
-    func presentLoadingSpinner(animated: Bool = true, completion: (() -> Void)? = nil) {
-        DispatchQueue.main.async {
-            if self.isLoadingSpinnerPresented {
-                return
-            } else {
-                self.isLoadingSpinnerPresented = true
-                self.present(self.loadingSpinner, animated: animated, completion: completion)
-            }
-        }
-    }
-    
-    func dismissLoadingSpinner(animated: Bool = true, completion: (() -> Void)? = nil) { //Use this method!
-        DispatchQueue.main.async {
-            if self.isLoadingSpinnerPresented {
-                self.loadingSpinner.dismiss(animated: animated, completion: {
-                    self.isLoadingSpinnerPresented = false
-                    completion?()
-                })
-            } else { completion?() }
-        }
     }
     
     // MARK: - Application Events
@@ -168,44 +131,5 @@ class BaseViewController: UIViewController, BaseViewControllerProtocol {
     @objc func keyboardWillHide(_ notification: NSNotification) {
         // Override
     }
-
-    // MARK: - Fileprivate
-    fileprivate func showError(_ error: NSError) {
-        guard error.code != ErrorsFactory.General.processIsBusy.code else { return }
-        if (self.presentedViewController as? UIAlertController) != nil { return }
-        
-        if error.code == ErrorsFactory.General.connection.code {
-            AlertController.alert("", message: error.localizedDescription, acceptMessage: "OK", acceptBlock: { })
-            return
-        }
-        
-        AlertController.alert("Error".localized, message: error.localizedDescription, acceptMessage: "OK", acceptBlock: { })
-    }
-}
-
-extension BaseViewController: ErrorsHandlerInterface {
-
-    final func handleError(_ error: NSError?) {
-        guard let error = error else { return }
-        DispatchQueue.main.async {
-            self.dismissLoadingSpinner {
-                if (self.isViewLoaded && self.view.window != nil && self.isVisible) {
-                    self.showError(error)
-                }
-            }
-        }
-    }
     
-    final func handleWarning(_ title: String?, message: String?, proceed: @escaping () -> Void, cancel: @escaping () -> Void) {
-        DispatchQueue.main.async(execute: { () -> Void in
-            AlertController.alert(title ?? "", message: message ?? "", buttons: ["Cancel".localized, "Continue".localized], tapBlock: { (_, index) in
-                switch index {
-                case 0:
-                    cancel()
-                default:
-                    proceed()
-                }
-            })
-        })
-    }
 }

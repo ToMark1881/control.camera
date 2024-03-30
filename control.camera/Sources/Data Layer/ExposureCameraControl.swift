@@ -15,10 +15,6 @@ enum ExposureType {
 
 class ExposureCameraControl: CameraControl {
     
-    var title: String {
-        return "Exposure"
-    }
-    
     var controlType: ControlType {
         return .exposure
     }

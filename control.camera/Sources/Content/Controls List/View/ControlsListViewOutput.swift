@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ControlsListViewOutput: AnyObject {
-    
+    func onViewDidLoad()
 }

@@ -33,10 +33,6 @@ class FormCameraControl: CameraControl {
         return .form
     }
     
-    var title: String {
-        return "Form"
-    }
-    
     var elementHeight: CGFloat? {
         return 100.0
     }

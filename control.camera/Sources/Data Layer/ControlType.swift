@@ -22,6 +22,37 @@ enum ControlType: String, CaseIterable, Codable {
     case arrange
     case empty
     
+    var title: String {
+        switch self {
+        case .flash:
+            "Light"
+        case .form:
+            "Form"
+        case .device:
+            "Device"
+        case .zoom:
+            "Zoom"
+        case .ui:
+            "UI"
+        case .library:
+            "Library"
+        case .focus:
+            "Focus"
+        case .exposure:
+            "Exposure"
+        case .iso:
+            "ISO"
+        case .whiteBalance:
+            "White Balance"
+        case .shutter:
+            "Shutter"
+        case .arrange:
+            "Arrange"
+        case .empty:
+            ""
+        }
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         

@@ -9,10 +9,6 @@ import Foundation
 
 class LibraryCameraControl: CameraControl {
     
-    var title: String {
-        return "Open Library"
-    }
-    
     var controlType: ControlType {
         return .library
     }

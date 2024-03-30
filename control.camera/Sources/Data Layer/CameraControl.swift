@@ -22,6 +22,10 @@ protocol CameraControl {
 
 extension CameraControl {
     
+    var title: String {
+        return controlType.title
+    }
+    
     var isLightControl: Bool {
         return true
     }

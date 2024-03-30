@@ -14,10 +14,6 @@ class FlashCameraControl: CameraControl {
         return .flash
     }
     
-    var title: String {
-        return "Light"
-    }
-    
     var valueType: CameraControlValueType! = .simple(SimpleControlValue(isActive: false))
     
     var flashMode: AVCaptureDevice.FlashMode {

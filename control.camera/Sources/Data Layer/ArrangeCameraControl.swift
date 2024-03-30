@@ -9,10 +9,6 @@ import Foundation
 
 class ArrangeCameraControl: CameraControl {
     
-    var title: String {
-        return "Arrange"
-    }
-    
     var controlType: ControlType {
         return .arrange
     }

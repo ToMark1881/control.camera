@@ -9,10 +9,6 @@ import Foundation
 
 class ShowUICameraControl: CameraControl {
     
-    var title: String {
-        return "UI"
-    }
-    
     var controlType: ControlType {
         return .ui
     }

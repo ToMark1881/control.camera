@@ -14,10 +14,6 @@ enum FocusType {
 
 class FocusCameraControl: CameraControl {
     
-    var title: String {
-        return "Focus"
-    }
-    
     var controlType: ControlType {
         return .focus
     }

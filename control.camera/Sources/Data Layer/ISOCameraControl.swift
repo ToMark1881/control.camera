@@ -15,10 +15,6 @@ enum ISOType {
 
 class ISOCameraControl: CameraControl {
     
-    var title: String {
-        return "ISO"
-    }
-    
     var controlType: ControlType {
         return .iso
     }
