@@ -4,12 +4,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="TouchSansOne-Bold.ttf">
             <string>TouchSansOne-Bold</string>
+        </array>
+        <array key="TouchSansOne-SemiBold.ttf">
+            <string>TouchSansOne-SemiBold</string>
         </array>
     </customFonts>
     <scenes>
@@ -21,31 +25,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gGf-d5-q4s">
-                                <rect key="frame" x="0.0" y="133" width="393" height="685"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modules" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dce-Zf-zzF">
-                                <rect key="frame" x="20" y="79" width="353" height="34"/>
+                                <rect key="frame" x="20" y="79" width="353" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" name="TouchSansOne-Bold" family="Touch Sans One" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3BC-qP-CL6">
+                                <rect key="frame" x="0.0" y="132.66666666666669" width="393" height="685.33333333333326"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrD-HD-U8C" userLabel="Table Container">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="635.33333333333337"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="42" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gGf-d5-q4s">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="635.33333333333337"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="gGf-d5-q4s" secondAttribute="trailing" id="PtJ-7F-cLV"/>
+                                            <constraint firstItem="gGf-d5-q4s" firstAttribute="leading" secondItem="rrD-HD-U8C" secondAttribute="leading" id="YvE-vt-WFm"/>
+                                            <constraint firstAttribute="bottom" secondItem="gGf-d5-q4s" secondAttribute="bottom" id="d4m-Vu-4XX"/>
+                                            <constraint firstItem="gGf-d5-q4s" firstAttribute="top" secondItem="rrD-HD-U8C" secondAttribute="top" id="oSo-fn-pZA"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POe-VK-E49" userLabel="Button Container">
+                                        <rect key="frame" x="0.0" y="635.33333333333337" width="393" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIZ-xd-d0y" customClass="ControlCameraButton" customModule="Staging" customModuleProvider="target">
+                                                <rect key="frame" x="56.666666666666657" y="0.0" width="280" height="50"/>
+                                                <color key="backgroundColor" name="control.yellow"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="280" id="MdA-gg-JQq"/>
+                                                    <constraint firstAttribute="height" constant="50" id="PRx-fx-WVB"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="TouchSansOne-SemiBold" family="Touch Sans One" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Remove control">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapOnRemoveControlButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mLL-V7-tdP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="aIZ-xd-d0y" secondAttribute="bottom" id="SoD-Ae-jgb"/>
+                                            <constraint firstItem="aIZ-xd-d0y" firstAttribute="top" secondItem="POe-VK-E49" secondAttribute="top" id="XZM-qW-IL9"/>
+                                            <constraint firstItem="aIZ-xd-d0y" firstAttribute="centerX" secondItem="POe-VK-E49" secondAttribute="centerX" id="qXe-6u-XAK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="POe-VK-E49" firstAttribute="leading" secondItem="3BC-qP-CL6" secondAttribute="leading" id="Mqu-ID-ssg"/>
+                                    <constraint firstAttribute="trailing" secondItem="POe-VK-E49" secondAttribute="trailing" id="QQS-0F-Rvq"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gGf-d5-q4s" secondAttribute="bottom" id="3Fc-RX-kMi"/>
-                            <constraint firstItem="gGf-d5-q4s" firstAttribute="top" secondItem="dce-Zf-zzF" secondAttribute="bottom" constant="20" id="5BA-Hs-L7t"/>
-                            <constraint firstItem="gGf-d5-q4s" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Lmu-0G-LFb"/>
+                            <constraint firstItem="3BC-qP-CL6" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="0L7-1N-GdZ"/>
                             <constraint firstItem="dce-Zf-zzF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="MfR-vz-mIy"/>
+                            <constraint firstItem="3BC-qP-CL6" firstAttribute="top" secondItem="dce-Zf-zzF" secondAttribute="bottom" constant="20" id="OR4-wK-uzC"/>
                             <constraint firstItem="dce-Zf-zzF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="QOI-OU-Jsk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dce-Zf-zzF" secondAttribute="trailing" constant="20" id="Rq4-YI-mRE"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gGf-d5-q4s" secondAttribute="trailing" id="qe8-E9-tTa"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="3BC-qP-CL6" secondAttribute="bottom" id="egF-cT-prg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3BC-qP-CL6" secondAttribute="trailing" id="hZk-KE-Oc7"/>
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="buttonContainer" destination="POe-VK-E49" id="RBr-Fq-3Od"/>
+                        <outlet property="removeControlButton" destination="aIZ-xd-d0y" id="Qiv-mu-yBW"/>
                         <outlet property="tableView" destination="gGf-d5-q4s" id="X0K-td-BaJ"/>
                     </connections>
                 </viewController>
@@ -54,4 +108,9 @@
             <point key="canvasLocation" x="965.64885496183206" y="18.30985915492958"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="control.yellow">
+            <color red="0.81176470588235294" green="1" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

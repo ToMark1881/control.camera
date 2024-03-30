@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ControlsListViewInput: BaseViewControllerProtocol {
-    func update(with sections: [TableSectionModel])
+    func update(with properties: ControlsListViewProperties)
 }

@@ -10,16 +10,23 @@ import Foundation
 protocol ControlArrangeService {
     
     var isArrangeModeActivated: Bool { get set }
-    
     var controlArrangement: [ControlType] { get }
+    
+    func update(control: ControlType, at index: Int)
 }
 
 class ControlArrangeServiceImplementation: ControlArrangeService {
     
+    static let `default` = ControlArrangeServiceImplementation()
+    
     var isArrangeModeActivated: Bool = false
     
     var controlArrangement: [ControlType] {
-        savedInStorageControlArrangement ?? defaultControlArrangement
+        if isArrangeModeActivated {
+            return temporaryControlArrangement
+        } else {
+            return savedInStorageControlArrangement ?? defaultControlArrangement
+        }
     }
     
     private lazy var defaultControlArrangement: [ControlType] = {
@@ -47,6 +54,23 @@ class ControlArrangeServiceImplementation: ControlArrangeService {
     
     private var savedInStorageControlArrangement: [ControlType]? {
         return nil
+    }
+    
+    private lazy var temporaryControlArrangement: [ControlType] = { return savedInStorageControlArrangement ?? defaultControlArrangement }()
+    
+    func update(control: ControlType, at index: Int) {
+        // just clear control at index
+        if control == .empty {
+            temporaryControlArrangement[index] = .empty
+            return
+        }
+        
+        // clear control if presented at index
+        if let firstIndex = temporaryControlArrangement.firstIndex(where: { $0 == control }) {
+            temporaryControlArrangement[firstIndex] = .empty
+        }
+        
+        temporaryControlArrangement[index] = control
     }
     
 }

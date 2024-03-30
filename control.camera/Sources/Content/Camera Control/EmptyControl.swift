@@ -47,6 +47,7 @@ class EmptyControl: UIViewController, SwitchControlModuleInput {
     
     @objc
     func onTap() {
+        TapticEngineGenerator.generateFeedback(.light)
         output?.onArrangeButtonTap(on: controlIndex)
     }
 

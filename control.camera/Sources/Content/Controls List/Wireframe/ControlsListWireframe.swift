@@ -61,10 +61,12 @@ final class ControlsListWireframe: BaseWireframe {
         let router = ControlsListRouter()
         let dataSource = TableViewDataSource()
         let builder = ControlsListViewModelBuilderImplementation()
+        let arrangeService = ControlArrangeServiceImplementation.default
         
         presenter.view = view
         presenter.router = router
         presenter.builder = builder
+        presenter.arrangeService = arrangeService
         
         view.output = presenter
         view.dataSource = dataSource

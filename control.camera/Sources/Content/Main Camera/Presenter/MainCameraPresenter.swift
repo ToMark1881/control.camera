@@ -152,13 +152,13 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
     }
     
     func onArrangeButtonTap(on index: Int) {
-        guard let selectedControlType = settingsStorage.orderedControls[safe: index] else {
+        guard let selectedControlType = arrangeService.controlArrangement[safe: index] else {
             return
         }
         
         router.presentControlsList(moduleInput: &controlsListModuleInput,
                                    moduleOutput: self)
-        controlsListModuleInput?.setup(with: selectedControlType)
+        controlsListModuleInput?.setup(with: selectedControlType, at: index)
     }
     
 }
@@ -167,7 +167,7 @@ private extension MainCameraPresenter {
     
     // MARK: - Main controls function
     func setupControls() {
-        let sections = moduleBuilder.buildSections(for: settingsStorage.orderedControls)
+        let sections = moduleBuilder.buildSections(for: arrangeService.controlArrangement)
         view.setup(with: sections)
         
         setupLightControl()
@@ -373,14 +373,23 @@ private extension MainCameraPresenter {
     
     func changeArrangeMode() {
         arrangeService.isArrangeModeActivated.toggle()
-        allSwitchModuleInputs.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
-        emptyModuleInputMulticast.invoke({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
+        updateArrangeModeAppearance()
         
         arrangeService.isArrangeModeActivated ? camera.pauseSession() : camera.startSession()
+    }
+    
+    func updateArrangeModeAppearance() {
+        allSwitchModuleInputs.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
+        emptyModuleInputMulticast.invoke({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
     }
     
 }
 
 extension MainCameraPresenter: ControlsListModuleOutput {
+    
+    func didUpdateControlArrangement() {
+        setupControls()
+        updateArrangeModeAppearance()
+    }
     
 }

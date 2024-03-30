@@ -10,4 +10,7 @@ import UIKit
 
 protocol ControlsListViewOutput: AnyObject {
     func onViewDidLoad()
+    
+    func didSelect(model: TableCellViewModel)
+    func onRemoveControlTap()
 }

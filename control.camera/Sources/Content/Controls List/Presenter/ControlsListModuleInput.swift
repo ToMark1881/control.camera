@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ControlsListModuleInput: AnyObject {
-    func setup(with selectedControl: ControlType)
+    func setup(with selectedControl: ControlType, at index: Int)
 }

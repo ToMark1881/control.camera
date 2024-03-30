@@ -319,6 +319,8 @@
 		FAADA0542BB7689900D71D15 /* ControlCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAADA0522BB7689900D71D15 /* ControlCellViewModel.swift */; };
 		FAADA0572BB76C0500D71D15 /* ControlsListViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAADA0562BB76C0500D71D15 /* ControlsListViewModelBuilder.swift */; };
 		FAADA0582BB76C0500D71D15 /* ControlsListViewModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAADA0562BB76C0500D71D15 /* ControlsListViewModelBuilder.swift */; };
+		FAADA05A2BB8219800D71D15 /* ControlsListViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAADA0592BB8219800D71D15 /* ControlsListViewProperties.swift */; };
+		FAADA05B2BB8219800D71D15 /* ControlsListViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAADA0592BB8219800D71D15 /* ControlsListViewProperties.swift */; };
 		FAAE31CC2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */; };
 		FAAE31CD2B87560E00E47CBB /* CameraLiveApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */; };
 		FAAE31D22B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */; };
@@ -619,6 +621,7 @@
 		FAADA04C2BB7684400D71D15 /* ControlTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ControlTableViewCell.xib; sourceTree = "<group>"; };
 		FAADA0522BB7689900D71D15 /* ControlCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCellViewModel.swift; sourceTree = "<group>"; };
 		FAADA0562BB76C0500D71D15 /* ControlsListViewModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsListViewModelBuilder.swift; sourceTree = "<group>"; };
+		FAADA0592BB8219800D71D15 /* ControlsListViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsListViewProperties.swift; sourceTree = "<group>"; };
 		FAAE31CB2B87560E00E47CBB /* CameraLiveApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLiveApplier.swift; sourceTree = "<group>"; };
 		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureCameraControl.swift; sourceTree = "<group>"; };
@@ -1426,6 +1429,7 @@
 			isa = PBXGroup;
 			children = (
 				FAADA0522BB7689900D71D15 /* ControlCellViewModel.swift */,
+				FAADA0592BB8219800D71D15 /* ControlsListViewProperties.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -2072,6 +2076,7 @@
 				FA236DEC2B8691EC0035B653 /* CoreGraphics+Multiplying.swift in Sources */,
 				FA48CC362B7AB4AE00E19814 /* FlashCameraControl.swift in Sources */,
 				FA6F7AF62B7C010D00F7EFB0 /* ArraySwitchControlRouterInputProtocol.swift in Sources */,
+				FAADA05A2BB8219800D71D15 /* ControlsListViewProperties.swift in Sources */,
 				FAEEEF362902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */,
 				FAAB72942B8BC81A0042851F /* RangeSwitchControlViewController.swift in Sources */,
 				FA6F7AEE2B7C010D00F7EFB0 /* ArraySwitchControlViewInputProtocol.swift in Sources */,
@@ -2281,6 +2286,7 @@
 				FA236DED2B8691EC0035B653 /* CoreGraphics+Multiplying.swift in Sources */,
 				FA48CC372B7AB4AE00E19814 /* FlashCameraControl.swift in Sources */,
 				FA6F7AF72B7C010D00F7EFB0 /* ArraySwitchControlRouterInputProtocol.swift in Sources */,
+				FAADA05B2BB8219800D71D15 /* ControlsListViewProperties.swift in Sources */,
 				FAEEEF372902A33B0019EE29 /* MainCameraViewOutput.swift in Sources */,
 				FAAB72952B8BC81A0042851F /* RangeSwitchControlViewController.swift in Sources */,
 				FA6F7AEF2B7C010D00F7EFB0 /* ArraySwitchControlViewInputProtocol.swift in Sources */,

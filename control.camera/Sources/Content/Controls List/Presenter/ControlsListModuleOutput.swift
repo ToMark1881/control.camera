@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ControlsListModuleOutput: AnyObject {
-    
+    func didUpdateControlArrangement()
 }
