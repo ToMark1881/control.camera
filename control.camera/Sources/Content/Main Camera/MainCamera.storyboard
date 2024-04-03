@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpM-d6-CY3" userLabel="Camera Container Container">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="786"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cn-YM-vwS" userLabel="Camera Container" customClass="CameraContainerView" customModule="Staging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="202" width="414" height="414"/>
+                                        <rect key="frame" x="0.0" y="186" width="414" height="414"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6cn-YM-vwS" secondAttribute="height" multiplier="1:1" id="gdt-Bn-Zcb"/>
@@ -72,7 +72,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ENZ-ye-Muy" secondAttribute="bottom" id="75x-Gm-UqI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PpM-d6-CY3" secondAttribute="trailing" id="J5E-rr-QO2"/>
                             <constraint firstItem="OIJ-un-1Pw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UUF-gP-BYe"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PpM-d6-CY3" secondAttribute="bottom" id="cw8-Ue-bHy"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PpM-d6-CY3" secondAttribute="bottom" constant="32" id="cw8-Ue-bHy"/>
                             <constraint firstItem="OIJ-un-1Pw" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fya-BU-iw2"/>
                             <constraint firstItem="ENZ-ye-Muy" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iY4-iV-cam"/>
                             <constraint firstItem="PpM-d6-CY3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="kRK-aA-1MJ"/>

@@ -85,10 +85,6 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         }
     }
     
-    func reactOnControlChange() {
-        TapticEngineGenerator.generateFeedback(.light)
-    }
-    
     func setEnabled(_ isEnabled: Bool) {
         switchNameLabel.textColor = isEnabled ? .white : .gray
         switchDefaultValueLabel.textColor = isEnabled ? .white : .gray
@@ -108,6 +104,10 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         }
         
         rangePickerViewContainer.isUserInteractionEnabled = !disabled
+    }
+    
+    func updateTitle(_ title: String) {
+        switchNameLabel.text = title
     }
     
 }

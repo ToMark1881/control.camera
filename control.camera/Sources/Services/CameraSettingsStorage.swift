@@ -16,6 +16,7 @@ protocol CameraSettingsStorage {
     var exposureControl: ExposureCameraControl! { get }
     var isoControl: ISOCameraControl! { get }
     var whiteBalanceControl: WhiteBalanceCameraControl! { get }
+    var arrangeControl: ArrangeCameraControl! { get }
     
     var maxControlCount: Int { get }
     
@@ -34,6 +35,7 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var exposureControl: ExposureCameraControl!
     var isoControl: ISOCameraControl!
     var whiteBalanceControl: WhiteBalanceCameraControl!
+    var arrangeControl: ArrangeCameraControl!
     
     var maxControlCount: Int {
         return 3 * 6 * 3
@@ -57,6 +59,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
             isoControl = control as? ISOCameraControl
         case is WhiteBalanceCameraControl:
             whiteBalanceControl = control as? WhiteBalanceCameraControl
+        case is ArrangeCameraControl:
+            arrangeControl = control as? ArrangeCameraControl
         default:
             break
         }

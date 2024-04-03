@@ -363,6 +363,7 @@ private extension MainCameraPresenter {
         }
         
         let controlValue = ArrangeCameraControl(action: action)
+        settingsStorage.store(controlValue)
         
         arrangeModuleInput?.setupSwitch(for: controlValue)
     }
@@ -381,6 +382,9 @@ private extension MainCameraPresenter {
     func updateArrangeModeAppearance() {
         allSwitchModuleInputs.forEach({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
         emptyModuleInputMulticast.invoke({ $0?.setArrangeModeActive(arrangeService.isArrangeModeActivated) })
+        
+        let arrangeSwitchTitle = arrangeService.isArrangeModeActivated ? settingsStorage.arrangeControl.arrangementModeTitle : settingsStorage.arrangeControl.title
+        arrangeModuleInput?.updateTitle(arrangeSwitchTitle)
     }
     
 }

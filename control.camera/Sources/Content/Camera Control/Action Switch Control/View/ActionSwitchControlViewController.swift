@@ -41,10 +41,6 @@ extension ActionSwitchControlViewController: ActionSwitchControlViewInputProtoco
         switchValueLabel.text = props.description
     }
     
-    func reactOnControlChange() {
-        TapticEngineGenerator.generateFeedback(.light)
-    }
-    
     func setEnabled(_ isEnabled: Bool) {
         switchValueLabel.textColor = isEnabled ? .white : .gray
         switchNameLabel.textColor = isEnabled ? .white : .gray
@@ -62,6 +58,10 @@ extension ActionSwitchControlViewController: ActionSwitchControlViewInputProtoco
     func changeAppearanceDuringArrangement(_ isActive: Bool) {
         switchNameLabel.textColor = isActive ? ApplicationColors.orangeColor() : ApplicationColors.textLabelColor()
         switchValueLabel.textColor = isActive ? ApplicationColors.orangeColor() : ApplicationColors.textLabelColor()
+    }
+    
+    func updateTitle(_ title: String) {
+        switchNameLabel.text = title
     }
     
 }

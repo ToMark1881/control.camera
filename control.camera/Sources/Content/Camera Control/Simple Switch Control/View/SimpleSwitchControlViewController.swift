@@ -41,10 +41,6 @@ extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtoco
         switchValueLabel.text = props.currentValue
     }
     
-    func reactOnControlChange() {
-        TapticEngineGenerator.generateFeedback(.light)
-    }
-    
     func setEnabled(_ isEnabled: Bool) {
         switchValueLabel.textColor = isEnabled ? .white : .gray
         switchNameLabel.textColor = isEnabled ? .white : .gray
@@ -57,6 +53,10 @@ extension SimpleSwitchControlViewController: SimpleSwitchControlViewInputProtoco
         } else {
             setupControllerForSimpleSwitch()
         }
+    }
+    
+    func updateTitle(_ title: String) {
+        switchNameLabel.text = title
     }
     
 }

@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol ArrayWithDefaultSwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangeable {
-    func preselect(index: Range<Int>.Index)
+protocol ArrayWithDefaultSwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangeable, SwitchControlViewInput {
     func update(with props: ArrayWithDefaultSwitchViewProps)
-    func reactOnControlChange()
-    func setEnabled(_ isEnabled: Bool)
+    func preselect(index: Range<Int>.Index)
 }

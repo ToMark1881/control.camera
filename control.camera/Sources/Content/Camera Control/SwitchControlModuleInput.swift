@@ -10,6 +10,7 @@ import Foundation
 protocol SwitchControlModuleInput: AnyObject {
     func setupSwitch(for control: CameraControl)
     func updateSwitch(for control: CameraControl)
+    func updateTitle(_ title: String)
     func setEnabled(_ isEnabled: Bool)
     func setArrangeModeActive(_ isActive: Bool)
     func setControl(index: Int)

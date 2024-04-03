@@ -37,7 +37,9 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlM
     }
     
     func setArrangeModeActive(_ isActive: Bool) {
-        view.setArrangeModeActive(isActive)
+        if switchControl.couldBeArranged {
+            view.setArrangeModeActive(isActive)
+        }
         
         if switchControl.shouldBeBlockedDuringArrangement {
             view.setArrangeable(disabled: isActive)
@@ -72,6 +74,10 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlM
     
     func setEnabled(_ isEnabled: Bool) {
         view.setEnabled(isEnabled)
+    }
+    
+    func updateTitle(_ title: String) {
+        view.updateTitle(title)
     }
     
 }

@@ -8,8 +8,6 @@
 
 import UIKit
 
-protocol ActionSwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangeable {
+protocol ActionSwitchControlViewInputProtocol: BaseViewControllerProtocol, SwitchControlArrangeable, SwitchControlViewInput {
     func update(with props: ActionSwitchViewProps)
-    func reactOnControlChange()
-    func setEnabled(_ isEnabled: Bool)
 }

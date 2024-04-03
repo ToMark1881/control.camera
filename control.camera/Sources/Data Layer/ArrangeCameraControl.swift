@@ -13,9 +13,17 @@ class ArrangeCameraControl: CameraControl {
         return .arrange
     }
     
+    var arrangementModeTitle: String {
+        return "Save\nArrange"
+    }
+    
     var valueType: CameraControlValueType!
     
     var shouldBeBlockedDuringArrangement: Bool {
+        return false
+    }
+    
+    var couldBeArranged: Bool {
         return false
     }
     

@@ -18,6 +18,7 @@ protocol CameraControl {
     /// RangePicker default (pre-selected) index. Used for Array/Range switch controls with default value
     var defaultIndex: Range<Int>.Index? { get }
     var shouldBeBlockedDuringArrangement: Bool { get }
+    var couldBeArranged: Bool { get }
 }
 
 extension CameraControl {
@@ -39,6 +40,10 @@ extension CameraControl {
     }
     
     var shouldBeBlockedDuringArrangement: Bool {
+        return true
+    }
+    
+    var couldBeArranged: Bool {
         return true
     }
     

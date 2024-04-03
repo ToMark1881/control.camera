@@ -261,6 +261,8 @@
 		FA7EF32029059E12009520C7 /* CameraSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EF31E29059E12009520C7 /* CameraSettings.swift */; };
 		FA84DCF82B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */; };
 		FA84DCF92B82B892006118EF /* CameraStepByStepPostApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */; };
+		FA878F9E2BB95BB2002C88E2 /* SwitchControlViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA878F9D2BB95BB2002C88E2 /* SwitchControlViewInput.swift */; };
+		FA878F9F2BB95BB2002C88E2 /* SwitchControlViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA878F9D2BB95BB2002C88E2 /* SwitchControlViewInput.swift */; };
 		FAA260022BB7390100E2F06E /* ControlsListViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FF52BB7390100E2F06E /* ControlsListViewInput.swift */; };
 		FAA260032BB7390100E2F06E /* ControlsListViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FF52BB7390100E2F06E /* ControlsListViewInput.swift */; };
 		FAA260062BB7390100E2F06E /* ControlsListModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FF72BB7390100E2F06E /* ControlsListModuleOutput.swift */; };
@@ -592,6 +594,7 @@
 		FA6F7AFC2B7C088300F7EFB0 /* FormCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormCameraControl.swift; sourceTree = "<group>"; };
 		FA7EF31E29059E12009520C7 /* CameraSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSettings.swift; sourceTree = "<group>"; };
 		FA84DCF72B82B892006118EF /* CameraStepByStepPostApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStepByStepPostApplier.swift; sourceTree = "<group>"; };
+		FA878F9D2BB95BB2002C88E2 /* SwitchControlViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchControlViewInput.swift; sourceTree = "<group>"; };
 		FAA25FF52BB7390100E2F06E /* ControlsListViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsListViewInput.swift; sourceTree = "<group>"; };
 		FAA25FF72BB7390100E2F06E /* ControlsListModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsListModuleOutput.swift; sourceTree = "<group>"; };
 		FAA25FF82BB7390100E2F06E /* ControlsListRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsListRouterOutput.swift; sourceTree = "<group>"; };
@@ -1018,6 +1021,7 @@
 				FA2644062902D29B00655F22 /* CameraControlValueType.swift */,
 				FA26440E2902D3DF00655F22 /* SwitchControlModuleOutput.swift */,
 				FAFEE5A22B950DF800898388 /* SwitchControlModuleInput.swift */,
+				FA878F9D2BB95BB2002C88E2 /* SwitchControlViewInput.swift */,
 				FA4D50E62BB363D600E514AA /* SwitchControlArrangeable.swift */,
 				FA4D50E92BB36C7000E514AA /* EmptyControl.swift */,
 				FAAB72482B8BC4660042851F /* CameraRangePicker */,
@@ -1991,6 +1995,7 @@
 				FA2491682B906C9E008CCACD /* LibraryCameraControl.swift in Sources */,
 				FAD89AC02BA6DA5100F19558 /* BaseReusableViewModel.swift in Sources */,
 				FA236DE92B8691B60035B653 /* UIImage+Cropping.swift in Sources */,
+				FA878F9E2BB95BB2002C88E2 /* SwitchControlViewInput.swift in Sources */,
 				7D57C47727F8A088007F3CC5 /* ErrorView.swift in Sources */,
 				FA37A70D290262AD00B9F575 /* OnboardingModuleOutput.swift in Sources */,
 				FA6F7AE62B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift in Sources */,
@@ -2201,6 +2206,7 @@
 				FA2491692B906C9E008CCACD /* LibraryCameraControl.swift in Sources */,
 				FAD89AC12BA6DA5100F19558 /* BaseReusableViewModel.swift in Sources */,
 				FA236DEA2B8691B60035B653 /* UIImage+Cropping.swift in Sources */,
+				FA878F9F2BB95BB2002C88E2 /* SwitchControlViewInput.swift in Sources */,
 				7D92BEA227F8A6240025398D /* ErrorView.swift in Sources */,
 				FA37A70E290262AD00B9F575 /* OnboardingModuleOutput.swift in Sources */,
 				FA6F7AE72B7C010D00F7EFB0 /* ArraySwitchControlModuleInput.swift in Sources */,
@@ -2453,7 +2459,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
@@ -2490,7 +2496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";

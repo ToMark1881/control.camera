@@ -37,7 +37,9 @@ extension RangeSwitchControlPresenter: RangeSwitchControlModuleInput {
     }
     
     func setArrangeModeActive(_ isActive: Bool) {
-        view.setArrangeModeActive(isActive)
+        if switchControl.couldBeArranged {
+            view.setArrangeModeActive(isActive)
+        }
         
         if switchControl.shouldBeBlockedDuringArrangement {
             view.setArrangeable(disabled: isActive)
@@ -57,6 +59,10 @@ extension RangeSwitchControlPresenter: RangeSwitchControlModuleInput {
     
     func setEnabled(_ isEnabled: Bool) {
         view.setEnabled(isEnabled)
+    }
+    
+    func updateTitle(_ title: String) {
+        view.updateTitle(title)
     }
     
 }

@@ -73,6 +73,10 @@ extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol 
         rangePickerView?.view.isUserInteractionEnabled = !disabled
     }
     
+    func updateTitle(_ title: String) {
+        switchNameLabel.text = title
+    }
+    
 }
 
 extension ArraySwitchControlViewController: RangePickerDataSource {

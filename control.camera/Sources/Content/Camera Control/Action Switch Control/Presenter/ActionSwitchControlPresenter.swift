@@ -37,7 +37,9 @@ extension ActionSwitchControlPresenter: ActionSwitchControlModuleInput {
     }
     
     func setArrangeModeActive(_ isActive: Bool) {
-        view.setArrangeModeActive(isActive)
+        if switchControl.couldBeArranged {
+            view.setArrangeModeActive(isActive)
+        }
         
         if switchControl.shouldBeBlockedDuringArrangement {
             view.setArrangeable(disabled: isActive)
@@ -57,6 +59,10 @@ extension ActionSwitchControlPresenter: ActionSwitchControlModuleInput {
     
     func setEnabled(_ isEnabled: Bool) {
         view.setEnabled(isEnabled)
+    }
+    
+    func updateTitle(_ title: String) {
+        view.updateTitle(title)
     }
     
 }
@@ -86,7 +92,7 @@ private extension ActionSwitchControlPresenter {
     
     func reloadView() {
         let props: ActionSwitchViewProps = .init(title: switchControl.title,
-                                                 description: "123")
+                                                 description: "")
         
         view?.update(with: props)
     }

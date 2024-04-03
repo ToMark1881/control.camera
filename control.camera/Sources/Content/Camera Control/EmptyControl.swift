@@ -36,6 +36,8 @@ class EmptyControl: UIViewController, SwitchControlModuleInput {
     
     func setEnabled(_ isEnabled: Bool) { }
     
+    func updateTitle(_ title: String) { }
+    
     func setArrangeModeActive(_ isActive: Bool) {
         imageView?.isHidden = !isActive
         imageView?.isUserInteractionEnabled = isActive
