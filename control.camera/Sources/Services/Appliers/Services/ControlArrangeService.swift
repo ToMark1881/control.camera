@@ -17,6 +17,10 @@ protocol ControlArrangeService {
 
 class ControlArrangeServiceImplementation: ControlArrangeService {
     
+    private enum Constants {
+        static let userDefaultsArrangementKey = "userDefaultsArrangementKey"
+    }
+    
     static let `default` = ControlArrangeServiceImplementation()
     
     var isArrangeModeActivated: Bool = false
@@ -53,7 +57,25 @@ class ControlArrangeServiceImplementation: ControlArrangeService {
     }()
     
     private var savedInStorageControlArrangement: [ControlType]? {
-        return nil
+        guard let data = UserDefaults.standard.data(forKey: Constants.userDefaultsArrangementKey) else {
+            return nil
+        }
+        
+        var controlArrangements = [ControlType](repeating: .empty, count: (3 * 6 * 3))
+        let decoder = JSONDecoder()
+        
+        do {
+            let arrangements = try decoder.decode([ControlArrangement].self, from: data)
+            
+            for arrangement in arrangements {
+                let index = (arrangement.page * 3 * 6) + arrangement.index
+                controlArrangements[index] = arrangement.type
+            }
+        } catch let error {
+            print(error)
+        }
+        
+        return controlArrangements
     }
     
     private lazy var temporaryControlArrangement: [ControlType] = { return savedInStorageControlArrangement ?? defaultControlArrangement }()
@@ -71,6 +93,35 @@ class ControlArrangeServiceImplementation: ControlArrangeService {
         }
         
         temporaryControlArrangement[index] = control
+        saveToStorage()
+    }
+    
+    private func saveToStorage() {
+        let perPage = 3 * 6
+        var controlArrangements: [ControlArrangement] = []
+        
+        for index in temporaryControlArrangement.indices {
+            var controlIndex: Int
+            var page: Int = 0
+            
+            if index < perPage {
+                controlIndex = index
+            } else {
+                controlIndex = (index % perPage)
+                page = Int(index / perPage)
+            }
+            
+            let arrangement = ControlArrangement(page: page, index: controlIndex, type: temporaryControlArrangement[index])
+            controlArrangements.append(arrangement)
+        }
+        
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(controlArrangements)
+            UserDefaults.standard.set(data, forKey: Constants.userDefaultsArrangementKey)
+        } catch let error {
+            print(error)
+        }
     }
     
 }

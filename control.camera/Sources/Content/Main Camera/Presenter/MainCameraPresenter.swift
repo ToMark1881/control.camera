@@ -391,8 +391,22 @@ private extension MainCameraPresenter {
 
 extension MainCameraPresenter: ControlsListModuleOutput {
     
-    func didUpdateControlArrangement() {
-        setupControls()
+    func didUpdate(control: ControlType) {
+        let sections = moduleBuilder.buildSections(for: arrangeService.controlArrangement)
+        view.setup(with: sections)
+    
+        lightModuleInput?.setupSwitch(for: settingsStorage.flashControl)
+        formModuleInput?.setupSwitch(for: settingsStorage.formControl)
+        deviceModuleInput?.setupSwitch(for: settingsStorage.deviceControl)
+        zoomModuleInput?.setupSwitch(for: settingsStorage.zoomControl)
+        focusModuleInput?.setupSwitch(for: settingsStorage.focusControl)
+        exposureModuleInput?.setupSwitch(for: settingsStorage.exposureControl)
+        isoModuleInput?.setupSwitch(for: settingsStorage.isoControl)
+        whiteBalanceModuleInput?.setupSwitch(for: settingsStorage.whiteBalanceControl)
+        setupLibraryControl()
+        setupArrangeControl()
+        setupUIControl()
+        
         updateArrangeModeAppearance()
     }
     

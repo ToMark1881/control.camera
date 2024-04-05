@@ -74,7 +74,7 @@ private extension ControlsListPresenter {
     
     func update(control: ControlType) {
         arrangeService.update(control: control, at: selectedIndex)
-        moduleOutput?.didUpdateControlArrangement()
+        moduleOutput?.didUpdate(control: control)
         
         selectedControl = control
         reloadUI()
