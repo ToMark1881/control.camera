@@ -10,16 +10,19 @@ import UIKit
 
 class OnboardingViewController: BaseViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var galleryPermissionButton: UIButton!
     @IBOutlet weak var cameraPermissionButton: UIButton!
     @IBOutlet weak var openCameraButton: ControlCameraButton!
-    
+        
     //MARK: - Injected
     var output: OnboardingViewOutputProtocol!
+    var dataSource: CollectionViewDataSource!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         output.onViewDidLoad()
     }
     
@@ -43,6 +46,18 @@ extension OnboardingViewController: OnboardingViewInputProtocol {
         openCameraButton.setup(with: props.cameraButtonStyle)
         galleryPermissionButton.isHidden = !props.shouldShowGalleryPermissionButton
         cameraPermissionButton.isHidden = !props.shouldShowCameraPermissionButton
+        
+        dataSource.update(with: props.sections)
+        collectionView.reloadData()
     }
 
+}
+
+private extension OnboardingViewController {
+    
+    func setupUI() {
+        collectionView.dataSource = dataSource
+        ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
+    }
+    
 }

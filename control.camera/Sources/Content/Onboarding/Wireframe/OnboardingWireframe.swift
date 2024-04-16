@@ -44,11 +44,21 @@ class OnboardingWireframe: BaseWireframe {
         guard let view: OnboardingViewController = initializeController() else { return nil }
         let presenter = OnboardingPresenter()
         let router = OnboardingRouter()
+        let dataSource = CollectionViewDataSource()
+        let builder = MainCameraModulesBuilderImplementation()
+        let mainCameraRouter = MainCameraRouter()
+        
+        builder.router = mainCameraRouter
+        builder.parent = presenter
+        mainCameraRouter.view = view
         
         presenter.view = view
         presenter.router = router
+        presenter.builder = builder
         
         view.output = presenter
+        view.dataSource = dataSource
+        
         router.output = presenter
         
         router.view = view

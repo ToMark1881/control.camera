@@ -116,7 +116,7 @@ extension MainCameraViewController: CameraViewConfiguration {
     
     func showControlContainer(_ isActive: Bool) {
         UIView.animate(withDuration: 0.25) {
-            
+            self.collectionView.alpha = isActive ? 1.0 : 0.1
         }
     }
     

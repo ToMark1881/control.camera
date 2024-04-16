@@ -18,6 +18,26 @@ class OnboardingPresenter: BasePresenter {
     var router: OnboardingRouterInputProtocol!
     weak var moduleOutput: OnboardingModuleOutput?
     
+    var builder: MainCameraModulesBuilder!
+    
+    weak var lightModuleInput: SimpleSwitchControlModuleInput?
+    weak var formModuleInput: ArraySwitchControlModuleInput?
+    weak var deviceModuleInput: ArraySwitchControlModuleInput?
+    weak var zoomModuleInput: RangeSwitchControlModuleInput?
+    weak var focusModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
+    weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
+    weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var arrangeModuleInput: ActionSwitchControlModuleInput?
+    
+    var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
+    
+    weak var uiModuleInput: SimpleSwitchControlModuleInput?
+    weak var libraryModuleInput: ActionSwitchControlModuleInput?
+    weak var shutterButtonInput: ShutterButtonCellInput?
+    
+    var shutterButtonAction: (() -> Void) = { }
+    
 }
 
 // MARK: - Module Input
@@ -82,6 +102,11 @@ extension OnboardingPresenter: OnboardingRouterOutputProtocol {
     
 }
 
+extension OnboardingPresenter: MainCameraParentDisplayable, SwitchControlModuleOutput {
+    func didChangeSwitch(for control: CameraControl) { }
+    func onArrangeButtonTap(on index: Int) {}
+}
+
 private extension OnboardingPresenter {
     
     func updateView() {
@@ -96,12 +121,40 @@ private extension OnboardingPresenter {
         
         let cameraButtonStyle: ControlCameraButtonStyle = (!shouldShowCameraPermissionButton && !shouldShowGalleryPermissionButton) ? .accentYellow : .disabled
         
+        let sections = builder.buildSections(for: [.flash, .zoom, .whiteBalance])
         
         let props: OnboardingViewProps = .init(cameraButtonStyle: cameraButtonStyle,
                                                shouldShowCameraPermissionButton: shouldShowCameraPermissionButton,
-                                               shouldShowGalleryPermissionButton: shouldShowGalleryPermissionButton)
+                                               shouldShowGalleryPermissionButton: shouldShowGalleryPermissionButton,
+                                               sections: sections)
         
         view.setup(with: props)
+        setupControlsForPreview()
+    }
+    
+    func setupControlsForPreview() {
+        setupZoomControl()
+        setupLightControl()
+        setupWhiteBalanceControl()
+    }
+    
+    func setupZoomControl() {
+        let controlValue = ZoomCameraControl(min: 1.0,
+                                             max: 10.0,
+                                             step: 0.1,
+                                             selected: 1.0)
+        zoomModuleInput?.setupSwitch(for: controlValue)
+    }
+    
+    func setupLightControl() {
+        let controlValue = FlashCameraControl()
+        lightModuleInput?.setupSwitch(for: controlValue)
+    }
+    
+    func setupWhiteBalanceControl() {
+        let controlValue = WhiteBalanceCameraControl(type: .auto)
+        
+        whiteBalanceModuleInput?.setupSwitch(for: controlValue)
     }
     
     func openApplicationSettings() {

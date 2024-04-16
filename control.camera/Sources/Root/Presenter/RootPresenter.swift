@@ -16,6 +16,8 @@ class RootPresenter: BasePresenter {
     var router: RootRouterInputProtocol!
     weak var moduleOutput: RootModuleOutput?
     
+    var onboardingService: OnboardingService!
+    
 }
 
 // MARK: - Module Input
@@ -27,7 +29,11 @@ extension RootPresenter: RootModuleInput {
 extension RootPresenter: RootViewOutputProtocol {
     
     func didCompleteInitialisation() {
-        router.presentOnboarding(with: self)
+        if onboardingService.isOnboarded {
+            router.presentMainCamera()
+        } else {
+            router.presentOnboarding(with: self)
+        }
     }
     
 }
@@ -40,6 +46,8 @@ extension RootPresenter: RootRouterOutputProtocol {
 extension RootPresenter: OnboardingModuleOutput {
     
     func didFinishOnboarding() {
+        onboardingService.mark()
+        
         router.presentMainCamera()
     }
     

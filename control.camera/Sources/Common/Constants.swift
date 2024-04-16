@@ -13,6 +13,11 @@ let kAppStoreLink = ""
 let kServerDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 let kUserInterfaceDateFormat = "EEEE, d MMMM, yyyy"
 
+enum Sounds {
+    static let shutterSound01 = "cc-shot-01" //.wav
+    static let shutterSound02 = "cc-shot-02" //.wav
+}
+
 struct ScreenSize {
     static let SCREEN_WIDTH = UIScreen.main.bounds.size.width
     static let SCREEN_HEIGHT = UIScreen.main.bounds.size.height

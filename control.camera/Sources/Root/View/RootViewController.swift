@@ -36,7 +36,7 @@ private extension RootViewController {
         let startTransformation = CGAffineTransform(scaleX: 0.6, y: 0.6)
         let finalTransformation = CGAffineTransform(scaleX: 1.0, y: 1.0)
         
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.3,
                        delay: 0.3,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 0.5,

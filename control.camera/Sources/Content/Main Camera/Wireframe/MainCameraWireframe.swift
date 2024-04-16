@@ -53,6 +53,7 @@ class MainCameraWireframe: BaseWireframe {
         let builder = MainCameraModulesBuilderImplementation()
         let dataSource = CollectionViewDataSource()
         let arrangeService = ControlArrangeServiceImplementation.default
+        let soundService = ShutterSoundServiceImplementation()
         
         liveApplier.view = view
         liveApplier.camera = camera
@@ -70,6 +71,7 @@ class MainCameraWireframe: BaseWireframe {
         presenter.liveApplier = liveApplier
         presenter.moduleBuilder = builder
         presenter.arrangeService = arrangeService
+        presenter.soundService = soundService
         
         builder.router = router
         builder.parent = presenter

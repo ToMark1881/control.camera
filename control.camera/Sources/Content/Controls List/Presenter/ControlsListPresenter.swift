@@ -62,7 +62,9 @@ extension ControlsListPresenter: ControlsListRouterOutput {
 private extension ControlsListPresenter {
     
     func reloadUI() {
-        let sections = builder.buildSections(for: ControlType.allCases,
+        let controls = ControlType.allCases.sorted(by: { $0.title < $1.title })
+        
+        let sections = builder.buildSections(for: controls,
                                              selectedControl: selectedControl,
                                              shouldIgnoreEmptyControl: true)
         

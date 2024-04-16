@@ -11,4 +11,6 @@ struct OnboardingViewProps {
     let cameraButtonStyle: ControlCameraButtonStyle
     let shouldShowCameraPermissionButton: Bool
     let shouldShowGalleryPermissionButton: Bool
+    
+    let sections: [CollectionSectionModel]
 }

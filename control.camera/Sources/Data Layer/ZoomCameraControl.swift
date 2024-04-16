@@ -14,7 +14,7 @@ class ZoomCameraControl: CameraControl {
     }
     
     var elementHeight: CGFloat? {
-        return 20.0
+        return 12.0
     }
     
     var valueType: CameraControlValueType!

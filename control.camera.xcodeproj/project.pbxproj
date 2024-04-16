@@ -99,6 +99,8 @@
 		FA0307972B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */; };
 		FA0307982B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */; };
 		FA0307992B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */; };
+		FA0861DF2BCBA77F00B11AAC /* ShutterSoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */; };
+		FA0861E02BCBA77F00B11AAC /* ShutterSoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */; };
 		FA1E70F42BB6C7B000BBDCB5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E70F32BB6C7B000BBDCB5 /* MulticastDelegate.swift */; };
 		FA1E70F52BB6C7B000BBDCB5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E70F32BB6C7B000BBDCB5 /* MulticastDelegate.swift */; };
 		FA236DE92B8691B60035B653 /* UIImage+Cropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */; };
@@ -217,6 +219,8 @@
 		FA4D50EB2BB36C7000E514AA /* EmptyControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4D50E92BB36C7000E514AA /* EmptyControl.swift */; };
 		FA4F81022B8F85F70026AA55 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F81012B8F85F70026AA55 /* Double+Extension.swift */; };
 		FA4F81032B8F85F70026AA55 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F81012B8F85F70026AA55 /* Double+Extension.swift */; };
+		FA5399AE2BCF07090021B28F /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5399AD2BCF07090021B28F /* OnboardingService.swift */; };
+		FA5399AF2BCF07090021B28F /* OnboardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5399AD2BCF07090021B28F /* OnboardingService.swift */; };
 		FA552A1E2BAB2A6A00C55025 /* ArrangeCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA552A1D2BAB2A6A00C55025 /* ArrangeCameraControl.swift */; };
 		FA552A1F2BAB2A6A00C55025 /* ArrangeCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA552A1D2BAB2A6A00C55025 /* ArrangeCameraControl.swift */; };
 		FA552A222BAB95CD00C55025 /* DefaultControlArrangement.json in Resources */ = {isa = PBXBuildFile; fileRef = FA552A212BAB95CD00C55025 /* DefaultControlArrangement.json */; };
@@ -381,6 +385,10 @@
 		FADB28992B9F32DA00465C86 /* WhiteBalanceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */; };
 		FADB289B2B9F360800465C86 /* WhiteBalanceCalculatingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */; };
 		FADB289C2B9F360800465C86 /* WhiteBalanceCalculatingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */; };
+		FAED4EC82BCC651A000D8EDB /* cc-shot-01.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAED4EC62BCC651A000D8EDB /* cc-shot-01.wav */; };
+		FAED4EC92BCC651A000D8EDB /* cc-shot-01.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAED4EC62BCC651A000D8EDB /* cc-shot-01.wav */; };
+		FAED4ECA2BCC651A000D8EDB /* cc-shot-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */; };
+		FAED4ECB2BCC651A000D8EDB /* cc-shot-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */; };
 		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
@@ -513,6 +521,7 @@
 		FA0307812B9072C200AC9B27 /* ActionSwitchControlRouterOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouterOutput.swift; sourceTree = "<group>"; };
 		FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouterInput.swift; sourceTree = "<group>"; };
 		FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouter.swift; sourceTree = "<group>"; };
+		FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterSoundService.swift; sourceTree = "<group>"; };
 		FA1E70F32BB6C7B000BBDCB5 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropping.swift"; sourceTree = "<group>"; };
 		FA236DEB2B8691EC0035B653 /* CoreGraphics+Multiplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Multiplying.swift"; sourceTree = "<group>"; };
@@ -572,6 +581,7 @@
 		FA4D50E62BB363D600E514AA /* SwitchControlArrangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchControlArrangeable.swift; sourceTree = "<group>"; };
 		FA4D50E92BB36C7000E514AA /* EmptyControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyControl.swift; sourceTree = "<group>"; };
 		FA4F81012B8F85F70026AA55 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		FA5399AD2BCF07090021B28F /* OnboardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingService.swift; sourceTree = "<group>"; };
 		FA552A1D2BAB2A6A00C55025 /* ArrangeCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrangeCameraControl.swift; sourceTree = "<group>"; };
 		FA552A212BAB95CD00C55025 /* DefaultControlArrangement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultControlArrangement.json; sourceTree = "<group>"; };
 		FA552A252BAB982600C55025 /* ControlArrangeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlArrangeService.swift; sourceTree = "<group>"; };
@@ -654,6 +664,8 @@
 		FAD89ACE2BA6DF8700F19558 /* ControlType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlType.swift; sourceTree = "<group>"; };
 		FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBalanceCameraControl.swift; sourceTree = "<group>"; };
 		FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteBalanceCalculatingService.swift; sourceTree = "<group>"; };
+		FAED4EC62BCC651A000D8EDB /* cc-shot-01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cc-shot-01.wav"; sourceTree = "<group>"; };
+		FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cc-shot-02.wav"; sourceTree = "<group>"; };
 		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
@@ -755,6 +767,7 @@
 			children = (
 				7D57C3E827F898AD007F3CC5 /* Assets.xcassets */,
 				FA37A7262902637200B9F575 /* Colors.xcassets */,
+				FAED4ECC2BCC651F000D8EDB /* Sounds */,
 				FA37A6EA2902619D00B9F575 /* Fonts */,
 			);
 			path = Assets;
@@ -1236,6 +1249,7 @@
 			isa = PBXGroup;
 			children = (
 				FA48CC382B7AB9E200E19814 /* CameraSettingsStorage.swift */,
+				FA5399AD2BCF07090021B28F /* OnboardingService.swift */,
 				FAAE31CE2B87562500E47CBB /* Appliers */,
 				FAEEEF412902AB1C0019EE29 /* CameraConfiguration */,
 			);
@@ -1462,6 +1476,7 @@
 				FA696F342B875248004F78BD /* CroppingService.swift */,
 				FA552A252BAB982600C55025 /* ControlArrangeService.swift */,
 				FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */,
+				FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1565,6 +1580,15 @@
 				FA3C0B4D2BA7200A00679CBC /* MainCameraParentDisplayable.swift */,
 			);
 			path = Builder;
+			sourceTree = "<group>";
+		};
+		FAED4ECC2BCC651F000D8EDB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FAED4EC62BCC651A000D8EDB /* cc-shot-01.wav */,
+				FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		FAEEEF182902A31B0019EE29 /* Main Camera */ = {
@@ -1821,7 +1845,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAED4ECA2BCC651A000D8EDB /* cc-shot-02.wav in Resources */,
 				7D57C3EC27F898AD007F3CC5 /* LaunchScreen.storyboard in Resources */,
+				FAED4EC82BCC651A000D8EDB /* cc-shot-01.wav in Resources */,
 				7D57C3E927F898AD007F3CC5 /* Assets.xcassets in Resources */,
 				FA2644302902D40C00655F22 /* SimpleSwitchControl.storyboard in Resources */,
 				FA37A6FC2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */,
@@ -1869,7 +1895,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAED4ECB2BCC651A000D8EDB /* cc-shot-02.wav in Resources */,
 				7D92BEBB27F8A6240025398D /* LaunchScreen.storyboard in Resources */,
+				FAED4EC92BCC651A000D8EDB /* cc-shot-01.wav in Resources */,
 				7D92BEBC27F8A6240025398D /* Assets.xcassets in Resources */,
 				FA2644312902D40C00655F22 /* SimpleSwitchControl.storyboard in Resources */,
 				FA37A6FD2902622500B9F575 /* TouchSansOne-Black.ttf in Resources */,
@@ -1912,6 +1940,7 @@
 				7D57C45727F89DFB007F3CC5 /* Sequence+Extensions.swift in Sources */,
 				FABD87B72B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */,
 				7D57C48727F8A123007F3CC5 /* AlertController.swift in Sources */,
+				FA5399AE2BCF07090021B28F /* OnboardingService.swift in Sources */,
 				FA4D006F2902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
 				7D57C47527F8A088007F3CC5 /* NothingView.swift in Sources */,
 				FA2644342902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
@@ -1952,6 +1981,7 @@
 				FAD89AAB2BA6D9E300F19558 /* CollectionViewDataSource.swift in Sources */,
 				FA2644072902D29B00655F22 /* CameraControlValueType.swift in Sources */,
 				FA2F427E28BDC86700F6E6A7 /* RootViewController.swift in Sources */,
+				FA0861DF2BCBA77F00B11AAC /* ShutterSoundService.swift in Sources */,
 				FA2644252902D3DF00655F22 /* SimpleSwitchControlRouterInput.swift in Sources */,
 				FAFEE5A02B95056500898388 /* ArrayWithDefaultSwitchControlRouter.swift in Sources */,
 				FABD87B92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */,
@@ -2123,6 +2153,7 @@
 				7D92BE8A27F8A6240025398D /* Sequence+Extensions.swift in Sources */,
 				FABD87B82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */,
 				7D92BE8B27F8A6240025398D /* AlertController.swift in Sources */,
+				FA5399AF2BCF07090021B28F /* OnboardingService.swift in Sources */,
 				FA4D00702902957A00D1CC32 /* OnboardingViewProps.swift in Sources */,
 				7D92BE8C27F8A6240025398D /* NothingView.swift in Sources */,
 				FA2644352902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
@@ -2163,6 +2194,7 @@
 				FAD89AAC2BA6D9E300F19558 /* CollectionViewDataSource.swift in Sources */,
 				FA2644082902D29B00655F22 /* CameraControlValueType.swift in Sources */,
 				FA2F427F28BDC86700F6E6A7 /* RootViewController.swift in Sources */,
+				FA0861E02BCBA77F00B11AAC /* ShutterSoundService.swift in Sources */,
 				FA2644262902D3DF00655F22 /* SimpleSwitchControlRouterInput.swift in Sources */,
 				FAFEE5A12B95056500898388 /* ArrayWithDefaultSwitchControlRouter.swift in Sources */,
 				FABD87BA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */,
@@ -2459,7 +2491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";
@@ -2496,7 +2528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "control.camera/Supporting Files/Info.plist";

@@ -49,9 +49,11 @@ class RootWireframe: BaseWireframe {
         guard let view: RootViewController = initializeController() else { return nil }
         let presenter = RootPresenter()
         let router = RootRouter()
+        let onboardingService = OnboardingServiceImplementation()
         
         presenter.view = view
         presenter.router = router
+        presenter.onboardingService = onboardingService
         
         view.output = presenter
         router.output = presenter

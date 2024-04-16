@@ -39,6 +39,7 @@ class MainCameraPresenter: BasePresenter {
     var liveApplier: CameraLiveApplier!
     var settingsStorage: CameraSettingsStorage!
     var arrangeService: ControlArrangeService!
+    var soundService: ShutterSoundService!
     
     lazy var shutterButtonAction: (() -> Void) = {
         self.camera.capturePhoto()
@@ -78,6 +79,7 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
     func onViewDidLoad() {
         camera.configure()
         camera.settings.logSettings()
+        soundService.prepare()
         
         setupControls()
     }
@@ -130,6 +132,7 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     
     func willCapture() {
         view.setPhotoBorder(active: true)
+        soundService.play()
         shutterButtonInput?.setShutterButton(enabled: false)
     }
     
@@ -368,10 +371,6 @@ private extension MainCameraPresenter {
         arrangeModuleInput?.setupSwitch(for: controlValue)
     }
     
-    func openLibrary() {
-        print(#function)
-    }
-    
     func changeArrangeMode() {
         arrangeService.isArrangeModeActivated.toggle()
         updateArrangeModeAppearance()
@@ -385,6 +384,11 @@ private extension MainCameraPresenter {
         
         let arrangeSwitchTitle = arrangeService.isArrangeModeActivated ? settingsStorage.arrangeControl.arrangementModeTitle : settingsStorage.arrangeControl.title
         arrangeModuleInput?.updateTitle(arrangeSwitchTitle)
+    }
+    
+    // MARK: - Library control
+    func openLibrary() {
+        print(#function)
     }
     
 }
