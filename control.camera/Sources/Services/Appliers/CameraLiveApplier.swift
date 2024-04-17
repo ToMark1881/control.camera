@@ -34,6 +34,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyISOControl(control as? ISOCameraControl)
         case is WhiteBalanceCameraControl:
             applyWhiteBalanceControl(control as? WhiteBalanceCameraControl)
+        case is FormatCameraControl:
+            applyFormatControl(control as? FormatCameraControl)
         default:
             break
         }
@@ -134,6 +136,14 @@ private extension CameraLiveApplierImplementation {
         case .locked(let kelvinTemp):
             camera.setCustomWhiteBalance(kelvinTemp)
         }
+    }
+    
+    func applyFormatControl(_ control: FormatCameraControl?) {
+        guard let control = control else {
+            return
+        }
+        
+        camera.updatePhotoFormat()
     }
     
 }

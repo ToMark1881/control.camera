@@ -9,6 +9,7 @@ import Foundation
 
 protocol CameraConfigurationOutput: AnyObject {
     func didChangeInputDevice()
+    func didChangePhotoFormat()
     
     func didSetAutoISO()
     func didSetAutoExposure()

@@ -31,6 +31,8 @@ protocol CameraConfiguration: AnyObject {
     func setAutoWhiteBalance()
     func setCustomWhiteBalance(_ kelvinTemp: Int)
     
+    func updatePhotoFormat()
+    
     func capturePhoto()
 }
 
@@ -337,6 +339,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         } catch let error {
             print(error)
         }
+    }
+    
+    func updatePhotoFormat() {
+        output.didChangePhotoFormat()
     }
     
     func capturePhoto() {

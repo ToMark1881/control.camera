@@ -124,6 +124,11 @@ extension MainCameraPresenter: CameraConfigurationOutput {
         resetWhiteBalanceControl()
     }
     
+    func didChangePhotoFormat() {        
+        resetZoomControl()
+        resetFormControl()
+    }
+    
     func didSetAutoISO() {
         resetExposureControl()
     }
@@ -170,6 +175,10 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
 
 private extension MainCameraPresenter {
     
+    var isInRAWFormat: Bool {
+        settingsStorage.formatControl.photoFormat == .raw
+    }
+    
     // MARK: - Main controls function
     func setupControls() {
         let sections = moduleBuilder.buildSections(for: arrangeService.controlArrangement)
@@ -208,6 +217,14 @@ private extension MainCameraPresenter {
         settingsStorage.store(controlValue)
     }
     
+    func resetFormControl() {
+        let isControlEnabled = !isInRAWFormat
+        let controlValue = FormCameraControl()
+        
+        formModuleInput?.updateSwitch(for: controlValue)
+        formModuleInput?.setEnabled(isControlEnabled)
+    }
+    
     // MARK: - Device control
     func setupDeviceControl() {
         let availableDevices = camera.availableDevices
@@ -229,11 +246,7 @@ private extension MainCameraPresenter {
     }
     
     func resetZoomControl() {
-        guard camera.settings.isLockedFocusSupported else {
-            zoomModuleInput?.setEnabled(false)
-            return
-        }
-        
+        let isControlEnabled = camera.settings.isLockedFocusSupported && !isInRAWFormat
         let maxZoom = min(10.0, camera.settings.maxZoom)
         
         let controlValue = ZoomCameraControl(min: camera.settings.minZoom,
@@ -242,7 +255,7 @@ private extension MainCameraPresenter {
                                              selected: camera.settings.minZoom)
         
         zoomModuleInput?.updateSwitch(for: controlValue)
-        zoomModuleInput?.setEnabled(true)
+        zoomModuleInput?.setEnabled(isControlEnabled)
     }
     
     // MARK: - Focus
