@@ -18,7 +18,10 @@ class ShutterButtonCollectionViewCell: UICollectionViewCell {
     weak var output: ShutterButtonCellOutput?
     
     @IBAction func didTapOnShutterButton(_ sender: Any) {
-        output?.onShutterButtonTap()
+        // output?.onShutterButtonTap()
     }
     
+    @IBAction func didTouchShutterButton(_ sender: Any) {
+        output?.onShutterButtonTap()
+    }
 }

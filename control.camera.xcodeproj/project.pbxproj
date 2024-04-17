@@ -103,6 +103,8 @@
 		FA0307992B9072C200AC9B27 /* ActionSwitchControlRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */; };
 		FA0861DF2BCBA77F00B11AAC /* ShutterSoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */; };
 		FA0861E02BCBA77F00B11AAC /* ShutterSoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */; };
+		FA16096C2BD069A5005EDE7A /* VolumeButtonListeningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16096B2BD069A5005EDE7A /* VolumeButtonListeningService.swift */; };
+		FA16096D2BD069A5005EDE7A /* VolumeButtonListeningService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16096B2BD069A5005EDE7A /* VolumeButtonListeningService.swift */; };
 		FA1E70F42BB6C7B000BBDCB5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E70F32BB6C7B000BBDCB5 /* MulticastDelegate.swift */; };
 		FA1E70F52BB6C7B000BBDCB5 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1E70F32BB6C7B000BBDCB5 /* MulticastDelegate.swift */; };
 		FA236DE92B8691B60035B653 /* UIImage+Cropping.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */; };
@@ -525,6 +527,7 @@
 		FA0307822B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouterInput.swift; sourceTree = "<group>"; };
 		FA0307832B9072C200AC9B27 /* ActionSwitchControlRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSwitchControlRouter.swift; sourceTree = "<group>"; };
 		FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShutterSoundService.swift; sourceTree = "<group>"; };
+		FA16096B2BD069A5005EDE7A /* VolumeButtonListeningService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeButtonListeningService.swift; sourceTree = "<group>"; };
 		FA1E70F32BB6C7B000BBDCB5 /* MulticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		FA236DE82B8691B60035B653 /* UIImage+Cropping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Cropping.swift"; sourceTree = "<group>"; };
 		FA236DEB2B8691EC0035B653 /* CoreGraphics+Multiplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Multiplying.swift"; sourceTree = "<group>"; };
@@ -1481,6 +1484,7 @@
 				FA552A252BAB982600C55025 /* ControlArrangeService.swift */,
 				FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */,
 				FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */,
+				FA16096B2BD069A5005EDE7A /* VolumeButtonListeningService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -2053,6 +2057,7 @@
 				FAD89ABA2BA6DA5100F19558 /* TableSectionModel.swift in Sources */,
 				FABD87C12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
 				FAFEE59C2B95056500898388 /* ArrayWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
+				FA16096C2BD069A5005EDE7A /* VolumeButtonListeningService.swift in Sources */,
 				FA4D006B29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				FABD87C92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
 				FA0307842B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,
@@ -2267,6 +2272,7 @@
 				FAD89ABB2BA6DA5100F19558 /* TableSectionModel.swift in Sources */,
 				FABD87C22B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
 				FAFEE59D2B95056500898388 /* ArrayWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
+				FA16096D2BD069A5005EDE7A /* VolumeButtonListeningService.swift in Sources */,
 				FA4D006C29028EFF00D1CC32 /* ControlCameraButton.swift in Sources */,
 				FABD87CA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouterOutputProtocol.swift in Sources */,
 				FA0307852B9072C200AC9B27 /* ActionSwitchViewProps.swift in Sources */,

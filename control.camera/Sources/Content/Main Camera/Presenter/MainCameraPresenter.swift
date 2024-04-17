@@ -41,6 +41,7 @@ class MainCameraPresenter: BasePresenter {
     var settingsStorage: CameraSettingsStorage!
     var arrangeService: ControlArrangeService!
     var soundService: ShutterSoundService!
+    var volumeButtonService: VolumeButtonListeningService!
     
     lazy var shutterButtonAction: (() -> Void) = {
         self.camera.capturePhoto()
@@ -99,11 +100,11 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
     }
     
     func onViewDidAppear() {
-        
+        volumeButtonService.start()
     }
     
     func onViewDidDisappear() {
-        
+        volumeButtonService.stop()
     }
     
 }
@@ -125,8 +126,27 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     }
     
     func didChangePhotoFormat() {        
-        resetZoomControl()
-        resetFormControl()
+        // zoom
+        let isZoomControlEnabled = camera.settings.isLockedFocusSupported && !isInRAWFormat
+        
+        if isInRAWFormat {
+            let maxZoom = min(10.0, camera.settings.maxZoom)
+            let controlValue = ZoomCameraControl(min: camera.settings.minZoom,
+                                                 max: maxZoom,
+                                                 step: 0.1,
+                                                 selected: camera.settings.minZoom)
+            zoomModuleInput?.updateSwitch(for: controlValue)
+        }
+        zoomModuleInput?.setEnabled(isZoomControlEnabled)
+        
+        // form
+        let isFormControlEnabled = !isInRAWFormat
+        
+        if isInRAWFormat {
+            let controlValue = FormCameraControl()
+            formModuleInput?.updateSwitch(for: controlValue)
+        }
+        formModuleInput?.setEnabled(isFormControlEnabled)
     }
     
     func didSetAutoISO() {
@@ -448,6 +468,14 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         setupUIControl()
         
         updateArrangeModeAppearance()
+    }
+    
+}
+
+extension MainCameraPresenter: VolumeButtonListeningServiceOutput {
+    
+    func didTapVolumeButton() {
+        camera.capturePhoto()
     }
     
 }
