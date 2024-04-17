@@ -24,6 +24,7 @@ class MainCameraPresenter: BasePresenter {
     weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var formatModuleInput: ArraySwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -57,7 +58,8 @@ class MainCameraPresenter: BasePresenter {
             whiteBalanceModuleInput,
             arrangeModuleInput,
             uiModuleInput,
-            libraryModuleInput
+            libraryModuleInput,
+            formatModuleInput
         ]
     }
     
@@ -182,6 +184,7 @@ private extension MainCameraPresenter {
         setupISOControl()
         setupWhiteBalanceControl()
         setupUIControl()
+        setupFormatControl()
         setupLibraryControl()
         setupArrangeControl()
     }
@@ -194,6 +197,7 @@ private extension MainCameraPresenter {
         
         let controlValue = FlashCameraControl()
         lightModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     // MARK: - Form control
@@ -201,6 +205,7 @@ private extension MainCameraPresenter {
         let controlValue = FormCameraControl()
         
         formModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     // MARK: - Device control
@@ -208,6 +213,7 @@ private extension MainCameraPresenter {
         let availableDevices = camera.availableDevices
         let controlValue = VideoDeviceCameraControl(for: availableDevices)
         deviceModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     // MARK: - Zoom control
@@ -219,6 +225,7 @@ private extension MainCameraPresenter {
                                              step: 0.1,
                                              selected: camera.settings.minZoom)
         zoomModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     func resetZoomControl() {
@@ -249,6 +256,7 @@ private extension MainCameraPresenter {
                                               focus: .auto)
         
         focusModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     func resetFocusControl() {
@@ -276,6 +284,7 @@ private extension MainCameraPresenter {
                                                  exposure: .auto)
         
         exposureModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     func resetExposureControl() {
@@ -303,6 +312,7 @@ private extension MainCameraPresenter {
                                             iso: .auto)
         
         isoModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     func resetISOControl() {
@@ -327,6 +337,7 @@ private extension MainCameraPresenter {
         let controlValue = WhiteBalanceCameraControl(type: .auto)
         
         whiteBalanceModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     func resetWhiteBalanceControl() {
@@ -346,6 +357,7 @@ private extension MainCameraPresenter {
         let controlValue = ShowUICameraControl()
         
         uiModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     // MARK: - Library control
@@ -357,6 +369,15 @@ private extension MainCameraPresenter {
         let controlValue = LibraryCameraControl(action: action)
         
         libraryModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
+    }
+    
+    // MARK: - Format control
+    func setupFormatControl() {
+        let controlValue = FormatCameraControl()
+        
+        formatModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     // MARK: - Arrange control
@@ -369,6 +390,7 @@ private extension MainCameraPresenter {
         settingsStorage.store(controlValue)
         
         arrangeModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
     }
     
     func changeArrangeMode() {
@@ -402,6 +424,7 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         lightModuleInput?.setupSwitch(for: settingsStorage.flashControl)
         formModuleInput?.setupSwitch(for: settingsStorage.formControl)
         deviceModuleInput?.setupSwitch(for: settingsStorage.deviceControl)
+        formatModuleInput?.setupSwitch(for: settingsStorage.formatControl)
         zoomModuleInput?.setupSwitch(for: settingsStorage.zoomControl)
         focusModuleInput?.setupSwitch(for: settingsStorage.focusControl)
         exposureModuleInput?.setupSwitch(for: settingsStorage.exposureControl)

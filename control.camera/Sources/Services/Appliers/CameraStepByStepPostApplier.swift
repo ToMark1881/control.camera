@@ -8,10 +8,14 @@
 import Foundation
 import AVFoundation
 import UIKit
+import Photos
 
 protocol CameraStepByStepPostApplier {
-    func processPhoto(for output: AVCapturePhotoOutput,
-                      didFinishProcessingPhoto photo: AVCapturePhoto)
+    func finishProcessingPhoto(for output: AVCapturePhotoOutput,
+                               didFinishProcessingPhoto photo: AVCapturePhoto)
+    
+    func finishCapture(for output: AVCapturePhotoOutput,
+                       didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings)
 }
 
 class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
@@ -23,29 +27,36 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     // MARK: - Private
     
-    func processPhoto(for output: AVCapturePhotoOutput,
-                      didFinishProcessingPhoto photo: AVCapturePhoto) {
-        let queue = DispatchQueue(label: "photo-processing", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "photo-processing", qos: .userInitiated)
+    private var rawPhotoTempURL: URL?
+    private var compressedData: Data?
+    
+    func finishProcessingPhoto(for output: AVCapturePhotoOutput,
+                               didFinishProcessingPhoto photo: AVCapturePhoto) {
+        print(#function, Date(), photo.isRawPhoto)
         
-        var image: UIImage!
-        
-        queue.sync {
-            image = self.getImage(photo)
+        if photo.isRawPhoto {
+            self.preSave(rawPhoto: photo)
+        } else {
+            self.preSave(photo: photo)
         }
-        
-        queue.sync {
-            self.applyForm(for: &image)
-        }
-        
-        queue.sync {
-            self.save(image)
-        }
-        
+    }
+    
+    func finishCapture(for output: AVCapturePhotoOutput,
+                       didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        print(#function, Date())
+        self.savePhoto()
     }
     
 }
 
 private extension CameraStepByStepPostApplierImplementation {
+    
+    private func makeUniqueDNGFileURL() -> URL {
+        let tempDir = FileManager.default.temporaryDirectory
+        let fileName = ProcessInfo.processInfo.globallyUniqueString
+        return tempDir.appendingPathComponent(fileName).appendingPathExtension("dng")
+    }
     
     func getImage(_ photo: AVCapturePhoto) -> UIImage {
         // Get the image from the photo buffer
@@ -65,34 +76,65 @@ private extension CameraStepByStepPostApplierImplementation {
         }
     }
     
-    func save(_ image: UIImage) {
-        let responder = WriteImageToFileResponder()
-        responder.addCompletion { (image, error) in
-            
+    // https://stackoverflow.com/questions/50079128/how-to-save-jpeg-raw-image-data-to-camera-roll-in-ios-11-cant-access-processed
+    
+    func preSave(photo: AVCapturePhoto) {
+        guard let data = photo.fileDataRepresentation() else {
+            return
         }
         
-        UIImageWriteToSavedPhotosAlbum(image, responder, #selector(WriteImageToFileResponder.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        compressedData = data
     }
     
+    func preSave(rawPhoto: AVCapturePhoto) {
+        guard let data = rawPhoto.fileDataRepresentation() else {
+            return
+        }
+        
+        do {
+            let url = self.makeUniqueDNGFileURL()
+            try data.write(to: url)
+            
+            rawPhotoTempURL = url
+        } catch {
+            fatalError("Couldn't write DNG file to the URL.")
+        }
+    }
     
-    class WriteImageToFileResponder: NSObject {
-        typealias WriteImageToFileResponderCompletion = ((UIImage?, Error?) -> Void)?
-        var completion: WriteImageToFileResponderCompletion = nil
-        
-        override init() {
-            super.init()
+    func savePhoto() {
+        guard let compressedData = compressedData else {
+            return
         }
-        
-        @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-            if (completion != nil) {
-                error == nil ? completion?(image, error) : completion?(nil, error)
-                completion = nil
+                
+        PHPhotoLibrary.shared().performChanges({
+            let creationRequest = PHAssetCreationRequest.forAsset()
+            
+            if let url = self.rawPhotoTempURL {
+                // Add the compressed (HEIF) data as an alternative resource.
+                creationRequest.addResource(with: .photo,
+                                            data: compressedData,
+                                            options: nil)
+                
+                // Save the RAW (DNG) file as the main resource for the Photos asset.
+                let options = PHAssetResourceCreationOptions()
+                options.shouldMoveFile = true
+                creationRequest.addResource(with: .alternatePhoto,
+                                            fileURL: url,
+                                            options: options)
+                print(url, compressedData)
+            } else {
+                creationRequest.addResource(with: .photo,
+                                            data: compressedData,
+                                            options: nil)
             }
-        }
-        
-        func addCompletion(completion: WriteImageToFileResponderCompletion) {
-            self.completion = completion
-        }
+        }, completionHandler: { success, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            self.compressedData = nil
+            self.rawPhotoTempURL = nil
+        })
     }
     
 }

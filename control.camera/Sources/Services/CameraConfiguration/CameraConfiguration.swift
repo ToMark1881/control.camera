@@ -128,7 +128,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         #if !targetEnvironment(simulator)
         // Preset the session for taking photo in full resolution
         captureSession = AVCaptureSession()
-        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        captureSession.sessionPreset = .photo
         
         // Get the front and back-facing camera for taking photos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera,
@@ -340,7 +340,20 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     }
     
     func capturePhoto() {
-        let photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        var photoSettings: AVCapturePhotoSettings!
+        
+        switch settingsStorage.formatControl.photoFormat {
+        case .jpeg:
+            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        case .heic:
+            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
+        case .raw:
+            let availableRawFormat = stillImageOutput.availableRawPhotoPixelFormatTypes.first!
+            let processedFormat = [AVVideoCodecKey: AVVideoCodecType.hevc]
+            photoSettings = AVCapturePhotoSettings(rawPixelFormatType: availableRawFormat,
+                                                   processedFormat: processedFormat)
+        }
+        
         photoSettings.isHighResolutionPhotoEnabled = true
         photoSettings.flashMode = settingsStorage.flashControl.flashMode
         photoSettings.photoQualityPrioritization = .speed
@@ -378,12 +391,16 @@ extension CameraConfigurationImplementation: AVCapturePhotoCaptureDelegate {
             return
         }
          
-        stepByStepApplier.processPhoto(for: output, didFinishProcessingPhoto: photo)
+        stepByStepApplier.finishProcessingPhoto(for: output, didFinishProcessingPhoto: photo)
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput,
                      didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings,
                      error: Error?) {
+        guard error == nil else {
+            return
+        }
         
+        stepByStepApplier.finishCapture(for: output, didFinishCaptureFor: resolvedSettings)
     }
 }

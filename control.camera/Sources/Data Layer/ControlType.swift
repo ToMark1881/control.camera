@@ -20,6 +20,7 @@ enum ControlType: String, CaseIterable, Codable {
     case whiteBalance
     case shutter
     case arrange
+    case format
     case empty
     
     var title: String {
@@ -48,6 +49,8 @@ enum ControlType: String, CaseIterable, Codable {
             "Shutter"
         case .arrange:
             "Arrange"
+        case .format:
+            "File Format"
         case .empty:
             ""
         }

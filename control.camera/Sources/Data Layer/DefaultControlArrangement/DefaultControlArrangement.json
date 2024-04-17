@@ -36,6 +36,11 @@
    },
    {
       "page":0,
+      "index":3,
+      "control_type":"format"
+   },
+   {
+      "page":0,
       "index":8,
       "control_type":"library"
    },
