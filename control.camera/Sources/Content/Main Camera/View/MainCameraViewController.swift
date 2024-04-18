@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer.MPVolumeView
 
 class MainCameraViewController: BaseViewController {
     
@@ -38,6 +39,9 @@ class MainCameraViewController: BaseViewController {
         
         ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
         ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
+        
+        let volumeView = MPVolumeView(frame: CGRect(x: -view.frame.width, y: -view.frame.height, width: 0, height: 0))
+        view.addSubview(volumeView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
