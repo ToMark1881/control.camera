@@ -8,6 +8,8 @@
 import Foundation
 import AVFoundation
 
+typealias PhotoFormatType = FormatCameraControl.PhotoFormat
+
 class FormatCameraControl: CameraControl {
     
     enum PhotoFormat: String {

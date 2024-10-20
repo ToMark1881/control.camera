@@ -36,16 +36,21 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
         print(#function, Date(), photo.isRawPhoto)
         
         if photo.isRawPhoto {
-            self.preSave(rawPhoto: photo)
+            preSave(rawPhoto: photo)
         } else {
-            self.preSave(photo: photo)
+            preSave(photo: photo)
         }
     }
     
     func finishCapture(for output: AVCapturePhotoOutput,
                        didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
         print(#function, Date())
-        self.savePhoto()
+        switch settingsStorage.formControl.aspectRatio {
+        case .threeByFour:
+            savePhoto()
+        case .oneByOne, .nineBySixteen, .tenBySixteen:
+            saveCroppedPhoto()
+        }
     }
     
 }
@@ -75,9 +80,7 @@ private extension CameraStepByStepPostApplierImplementation {
             image = croppedImage
         }
     }
-    
-    // https://stackoverflow.com/questions/50079128/how-to-save-jpeg-raw-image-data-to-camera-roll-in-ios-11-cant-access-processed
-    
+        
     func preSave(photo: AVCapturePhoto) {
         guard let data = photo.fileDataRepresentation() else {
             return
@@ -110,18 +113,15 @@ private extension CameraStepByStepPostApplierImplementation {
             let creationRequest = PHAssetCreationRequest.forAsset()
             
             if let url = self.rawPhotoTempURL {
-                // Add the compressed (HEIF) data as an alternative resource.
                 creationRequest.addResource(with: .photo,
                                             data: compressedData,
                                             options: nil)
                 
-                // Save the RAW (DNG) file as the main resource for the Photos asset.
                 let options = PHAssetResourceCreationOptions()
                 options.shouldMoveFile = true
                 creationRequest.addResource(with: .alternatePhoto,
                                             fileURL: url,
                                             options: options)
-                print(url, compressedData)
             } else {
                 creationRequest.addResource(with: .photo,
                                             data: compressedData,
@@ -134,6 +134,39 @@ private extension CameraStepByStepPostApplierImplementation {
             
             self.compressedData = nil
             self.rawPhotoTempURL = nil
+        })
+    }
+    
+    func saveCroppedPhoto() {
+        guard let fullSizePhotoData = compressedData,
+        var imageToCrop = UIImage(data: fullSizePhotoData) else {
+            return
+        }
+        
+        applyForm(for: &imageToCrop)
+        
+        guard let croppedImageData = imageToCrop.jpegData(compressionQuality: 1.0) else {
+            return
+        }
+        
+        PHPhotoLibrary.shared().performChanges({
+            let creationRequest = PHAssetCreationRequest.forAsset()
+            
+            creationRequest.addResource(with: .photo,
+                                        data: croppedImageData,
+                                        options: nil)
+            
+            let options = PHAssetResourceCreationOptions()
+            options.shouldMoveFile = true
+            creationRequest.addResource(with: .adjustmentBasePhoto,
+                                        data: fullSizePhotoData,
+                                        options: options)
+        }, completionHandler: { success, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            self.compressedData = nil
         })
     }
     

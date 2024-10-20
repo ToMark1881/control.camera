@@ -183,6 +183,7 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         self.view.setCameraLayer(hidden: false)
         #if !targetEnvironment(simulator)
         DispatchQueue.global(qos: .userInitiated).async {
+            self.captureSession.commitConfiguration()
             self.captureSession.startRunning()
         }
         #endif

@@ -25,13 +25,15 @@ class VolumeButtonListeningServiceImplementation: VolumeButtonListeningService {
     private let audioSession = AVAudioSession.sharedInstance()
     
     func start() {
-        do {
-            try audioSession.setActive(true)
-        } catch {}
-
-        outputVolumeObserve = audioSession.observe(\.outputVolume) { [weak self] (audioSession, changes) in
-            self?.output?.didTapVolumeButton()
-        }
+//        do {
+//            try audioSession.setActive(true)
+//        } catch {
+//
+//        }
+//
+//        outputVolumeObserve = audioSession.observe(\.outputVolume) { [weak self] (audioSession, changes) in
+//            self?.output?.didTapVolumeButton()
+//        }
     }
     
     func stop() {
