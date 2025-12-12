@@ -17,10 +17,8 @@ extension UIImage {
     func cropping(to bounds: CGRect) -> UIImage? {
         // if bounds is entirely within image, do simple CGImage `cropping` …
 
-        if CGRect(origin: .zero, size: size).contains(bounds),
-            imageOrientation == .up,
-            let cropped = cgImage?.cropping(to: bounds * scale)
-        {
+        if CGRect(origin: .zero, size: size).contains(bounds), imageOrientation == .up,
+            let cropped = cgImage?.cropping(to: bounds * scale) {
             return UIImage(cgImage: cropped, scale: scale, orientation: imageOrientation)
         }
 

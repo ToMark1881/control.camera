@@ -9,6 +9,8 @@ import Foundation
 import AVFoundation
 import UIKit
 import Photos
+import CoreImage
+import ImageIO
 
 protocol CameraStepByStepPostApplier {
     func finishProcessingPhoto(for output: AVCapturePhotoOutput,
@@ -29,7 +31,8 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     private let queue = DispatchQueue(label: "photo-processing", qos: .userInitiated)
     private var rawPhotoTempURL: URL?
-    private var compressedData: Data?
+    private var compressedPhoto: AVCapturePhoto?
+    private let ciContext = CIContext()
     
     func finishProcessingPhoto(for output: AVCapturePhotoOutput,
                                didFinishProcessingPhoto photo: AVCapturePhoto) {
@@ -82,11 +85,7 @@ private extension CameraStepByStepPostApplierImplementation {
     }
         
     func preSave(photo: AVCapturePhoto) {
-        guard let data = photo.fileDataRepresentation() else {
-            return
-        }
-        
-        compressedData = data
+        compressedPhoto = photo
     }
     
     func preSave(rawPhoto: AVCapturePhoto) {
@@ -105,7 +104,7 @@ private extension CameraStepByStepPostApplierImplementation {
     }
     
     func savePhoto() {
-        guard let compressedData = compressedData else {
+        guard let compressedData = compressedPhoto?.fileDataRepresentation() else {
             return
         }
                 
@@ -132,42 +131,137 @@ private extension CameraStepByStepPostApplierImplementation {
                 print(error.localizedDescription)
             }
             
-            self.compressedData = nil
+            self.compressedPhoto = nil
             self.rawPhotoTempURL = nil
         })
     }
     
     func saveCroppedPhoto() {
-        guard let fullSizePhotoData = compressedData,
-        var imageToCrop = UIImage(data: fullSizePhotoData) else {
-            return
+        guard let originalData = compressedPhoto?.fileDataRepresentation() else { return }
+        
+        do {
+            let compressedData = try cropToAspectPreservingMetadata(
+                originalData: originalData,
+                targetAspect: settingsStorage.formControl.aspectRatio.aspectRatio,
+                ciContext: ciContext
+            )
+            
+            PHPhotoLibrary.shared().performChanges({
+                let creationRequest = PHAssetCreationRequest.forAsset()
+                
+                if let url = self.rawPhotoTempURL {
+                    creationRequest.addResource(with: .photo,
+                                                data: compressedData,
+                                                options: nil)
+                    
+                    let options = PHAssetResourceCreationOptions()
+                    options.shouldMoveFile = true
+                    creationRequest.addResource(with: .alternatePhoto,
+                                                fileURL: url,
+                                                options: options)
+                } else {
+                    creationRequest.addResource(with: .photo,
+                                                data: compressedData,
+                                                options: nil)
+                }
+            }, completionHandler: { success, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                self.compressedPhoto = nil
+                self.rawPhotoTempURL = nil
+            })
+            
+        } catch {
+            print("Crop failed:", error)
         }
-        
-        applyForm(for: &imageToCrop)
-        
-        guard let croppedImageData = imageToCrop.jpegData(compressionQuality: 1.0) else {
-            return
+    }
+    
+    enum PhotoCropError: Error {
+        case cannotCreateSource
+        case cannotReadMetadata
+        case cannotCreateCIImage
+        case cannotCreateCGImage
+        case cannotCreateDestination
+        case cannotFinalize
+    }
+
+    func cropToAspectPreservingMetadata(originalData: Data,
+                                        targetAspect: CGFloat,   // width/height, e.g. 3/4
+                                        ciContext: CIContext) throws -> Data {
+
+        // 1) Read metadata from original encoded image
+        guard let source = CGImageSourceCreateWithData(originalData as CFData, nil) else {
+            throw PhotoCropError.cannotCreateSource
         }
-        
-        PHPhotoLibrary.shared().performChanges({
-            let creationRequest = PHAssetCreationRequest.forAsset()
-            
-            creationRequest.addResource(with: .photo,
-                                        data: croppedImageData,
-                                        options: nil)
-            
-            let options = PHAssetResourceCreationOptions()
-            options.shouldMoveFile = true
-            creationRequest.addResource(with: .adjustmentBasePhoto,
-                                        data: fullSizePhotoData,
-                                        options: options)
-        }, completionHandler: { success, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            
-            self.compressedData = nil
-        })
+        guard var props = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any] else {
+            throw PhotoCropError.cannotReadMetadata
+        }
+
+        let exifOrientation = (props[kCGImagePropertyOrientation] as? UInt32) ?? 1
+        let outputUTI = CGImageSourceGetType(source)
+
+        // 2) Create CIImage and apply EXIF orientation so “what you see” is what you crop
+        guard let ciImage = CIImage(data: originalData) else {
+            throw PhotoCropError.cannotCreateCIImage
+        }
+        let oriented = ciImage.oriented(forExifOrientation: Int32(exifOrientation))
+
+        // 3) Compute a centered crop rect to match target aspect ratio
+        let extent = oriented.extent
+        let currentAspect = extent.width / extent.height
+
+        var cropRect = extent
+
+        if currentAspect > targetAspect {
+            // Image is too wide -> crop width
+            let newWidth = extent.height * targetAspect
+            let x = extent.midX - newWidth / 2
+            cropRect = CGRect(x: x, y: extent.minY, width: newWidth, height: extent.height)
+        } else {
+            // Image is too tall -> crop height
+            let newHeight = extent.width / targetAspect
+            let y = extent.midY - newHeight / 2
+            cropRect = CGRect(x: extent.minX, y: y, width: extent.width, height: newHeight)
+        }
+
+        cropRect = cropRect.integral.intersection(extent)
+
+        let cropped = oriented.cropped(to: cropRect)
+
+        // 4) Render cropped pixels
+        guard let cgImage = ciContext.createCGImage(cropped, from: cropped.extent) else {
+            throw PhotoCropError.cannotCreateCGImage
+        }
+
+        // 5) Update metadata: new dimensions + orientation baked into pixels
+        let newW = Int(cropped.extent.width)
+        let newH = Int(cropped.extent.height)
+
+        props[kCGImagePropertyPixelWidth] = newW
+        props[kCGImagePropertyPixelHeight] = newH
+        props[kCGImagePropertyOrientation] = 1
+
+        if var exif = props[kCGImagePropertyExifDictionary] as? [CFString: Any] {
+            exif[kCGImagePropertyExifPixelXDimension] = newW
+            exif[kCGImagePropertyExifPixelYDimension] = newH
+            props[kCGImagePropertyExifDictionary] = exif
+        }
+
+        // 6) Re-encode with metadata
+        let outData = NSMutableData()
+        guard let outputUTI, let dest = CGImageDestinationCreateWithData(outData, outputUTI, 1, nil) else {
+            throw PhotoCropError.cannotCreateDestination
+        }
+
+        CGImageDestinationAddImage(dest, cgImage, props as CFDictionary)
+
+        guard CGImageDestinationFinalize(dest) else {
+            throw PhotoCropError.cannotFinalize
+        }
+
+        return outData as Data
     }
     
 }

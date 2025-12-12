@@ -40,7 +40,7 @@ enum ControlType: String, CaseIterable, Codable {
         case .focus:
             "Focus"
         case .exposure:
-            "Exposure"
+            "Shutter Speed"
         case .iso:
             "ISO"
         case .whiteBalance:
