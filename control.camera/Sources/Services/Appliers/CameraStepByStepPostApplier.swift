@@ -36,8 +36,6 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     func finishProcessingPhoto(for output: AVCapturePhotoOutput,
                                didFinishProcessingPhoto photo: AVCapturePhoto) {
-        print(#function, Date(), photo.isRawPhoto)
-        
         if photo.isRawPhoto {
             preSave(rawPhoto: photo)
         } else {
@@ -47,7 +45,6 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     func finishCapture(for output: AVCapturePhotoOutput,
                        didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-        print(#function, Date())
         switch settingsStorage.formControl.aspectRatio {
         case .threeByFour:
             savePhoto()
@@ -83,7 +80,7 @@ private extension CameraStepByStepPostApplierImplementation {
             image = croppedImage
         }
     }
-        
+    
     func preSave(photo: AVCapturePhoto) {
         compressedPhoto = photo
     }
@@ -107,7 +104,7 @@ private extension CameraStepByStepPostApplierImplementation {
         guard let compressedData = compressedPhoto?.fileDataRepresentation() else {
             return
         }
-                
+        
         PHPhotoLibrary.shared().performChanges({
             let creationRequest = PHAssetCreationRequest.forAsset()
             
@@ -139,58 +136,74 @@ private extension CameraStepByStepPostApplierImplementation {
     func saveCroppedPhoto() {
         guard let originalData = compressedPhoto?.fileDataRepresentation() else { return }
         
-        do {
-            let compressedData = try cropToAspectPreservingMetadata(
-                originalData: originalData,
-                targetAspect: settingsStorage.formControl.aspectRatio.aspectRatio,
-                ciContext: ciContext
-            )
+        var createdAssetId: String?
+        
+        PHPhotoLibrary.shared().performChanges({
+            let req = PHAssetCreationRequest.forAsset()
+            req.addResource(with: .photo, data: originalData, options: nil)  // ✅ original
+            createdAssetId = req.placeholderForCreatedAsset?.localIdentifier
+        }, completionHandler: { success, error in
+            guard success, error == nil, let id = createdAssetId else { return }
             
-            PHPhotoLibrary.shared().performChanges({
-                let creationRequest = PHAssetCreationRequest.forAsset()
-                
-                if let url = self.rawPhotoTempURL {
-                    creationRequest.addResource(with: .photo,
-                                                data: compressedData,
-                                                options: nil)
-                    
-                    let options = PHAssetResourceCreationOptions()
-                    options.shouldMoveFile = true
-                    creationRequest.addResource(with: .alternatePhoto,
-                                                fileURL: url,
-                                                options: options)
-                } else {
-                    creationRequest.addResource(with: .photo,
-                                                data: compressedData,
-                                                options: nil)
-                }
-            }, completionHandler: { success, error in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                
-                self.compressedPhoto = nil
-                self.rawPhotoTempURL = nil
-            })
+            // Apply crop as an edit so user can "Revert to Original"
+            self.applyCropEdit(assetLocalId: id,
+                               aspect: self.settingsStorage.formControl.aspectRatio,
+                               ciContext: self.ciContext)
+        })
+    }
+    
+    func applyCropEdit(assetLocalId: String,
+                       aspect: FormCameraControl.PhotoAspectRatio,
+                       ciContext: CIContext) {
+        
+        let asset = PHAsset.fetchAssets(withLocalIdentifiers: [assetLocalId], options: nil).firstObject
+        guard let asset else { return }
+        
+        let inputOptions = PHContentEditingInputRequestOptions()
+        inputOptions.canHandleAdjustmentData = { adj in
+            adj.formatIdentifier == "tomark.controlcamera.crop" && adj.formatVersion == "1"
+        }
+        
+        asset.requestContentEditingInput(with: inputOptions) { input, _ in
+            guard let input, let originalURL = input.fullSizeImageURL else { return }
             
-        } catch {
-            print("Crop failed:", error)
+            do {
+                let originalData = try Data(contentsOf: originalURL)
+                
+                let renderedData = try self.cropToAspectPreservingMetadata(
+                    originalData: originalData,
+                    targetAspect: aspect.aspectRatio,
+                    ciContext: ciContext
+                )
+                
+                let output = PHContentEditingOutput(contentEditingInput: input)
+                
+                // Write the edited (cropped) image
+                try renderedData.write(to: output.renderedContentURL, options: .atomic)
+                
+                // Save adjustment data so Photos (and your app) knows an edit exists
+                let payload = try JSONEncoder().encode(CropAdjustment(aspectRawValue: aspect.rawValue))
+                output.adjustmentData = PHAdjustmentData(
+                    formatIdentifier: "tomark.controlcamera.crop",
+                    formatVersion: "1",
+                    data: payload
+                )
+                
+                PHPhotoLibrary.shared().performChanges({
+                    let change = PHAssetChangeRequest(for: asset)
+                    change.contentEditingOutput = output
+                }, completionHandler: nil)
+                
+            } catch {
+                print("applyCropEdit error:", error)
+            }
         }
     }
     
-    enum PhotoCropError: Error {
-        case cannotCreateSource
-        case cannotReadMetadata
-        case cannotCreateCIImage
-        case cannotCreateCGImage
-        case cannotCreateDestination
-        case cannotFinalize
-    }
-
     func cropToAspectPreservingMetadata(originalData: Data,
-                                        targetAspect: CGFloat,   // width/height, e.g. 3/4
+                                        targetAspect: CGFloat,
                                         ciContext: CIContext) throws -> Data {
-
+        
         // 1) Read metadata from original encoded image
         guard let source = CGImageSourceCreateWithData(originalData as CFData, nil) else {
             throw PhotoCropError.cannotCreateSource
@@ -198,22 +211,22 @@ private extension CameraStepByStepPostApplierImplementation {
         guard var props = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any] else {
             throw PhotoCropError.cannotReadMetadata
         }
-
+        
         let exifOrientation = (props[kCGImagePropertyOrientation] as? UInt32) ?? 1
         let outputUTI = CGImageSourceGetType(source)
-
+        
         // 2) Create CIImage and apply EXIF orientation so “what you see” is what you crop
         guard let ciImage = CIImage(data: originalData) else {
             throw PhotoCropError.cannotCreateCIImage
         }
         let oriented = ciImage.oriented(forExifOrientation: Int32(exifOrientation))
-
+        
         // 3) Compute a centered crop rect to match target aspect ratio
         let extent = oriented.extent
         let currentAspect = extent.width / extent.height
-
+        
         var cropRect = extent
-
+        
         if currentAspect > targetAspect {
             // Image is too wide -> crop width
             let newWidth = extent.height * targetAspect
@@ -225,43 +238,56 @@ private extension CameraStepByStepPostApplierImplementation {
             let y = extent.midY - newHeight / 2
             cropRect = CGRect(x: extent.minX, y: y, width: extent.width, height: newHeight)
         }
-
+        
         cropRect = cropRect.integral.intersection(extent)
-
+        
         let cropped = oriented.cropped(to: cropRect)
-
+        
         // 4) Render cropped pixels
         guard let cgImage = ciContext.createCGImage(cropped, from: cropped.extent) else {
             throw PhotoCropError.cannotCreateCGImage
         }
-
+        
         // 5) Update metadata: new dimensions + orientation baked into pixels
         let newW = Int(cropped.extent.width)
         let newH = Int(cropped.extent.height)
-
+        
         props[kCGImagePropertyPixelWidth] = newW
         props[kCGImagePropertyPixelHeight] = newH
         props[kCGImagePropertyOrientation] = 1
-
+        
         if var exif = props[kCGImagePropertyExifDictionary] as? [CFString: Any] {
             exif[kCGImagePropertyExifPixelXDimension] = newW
             exif[kCGImagePropertyExifPixelYDimension] = newH
             props[kCGImagePropertyExifDictionary] = exif
         }
-
+        
         // 6) Re-encode with metadata
         let outData = NSMutableData()
         guard let outputUTI, let dest = CGImageDestinationCreateWithData(outData, outputUTI, 1, nil) else {
             throw PhotoCropError.cannotCreateDestination
         }
-
+        
         CGImageDestinationAddImage(dest, cgImage, props as CFDictionary)
-
+        
         guard CGImageDestinationFinalize(dest) else {
             throw PhotoCropError.cannotFinalize
         }
-
+        
         return outData as Data
+    }
+    
+    private struct CropAdjustment: Codable {
+        let aspectRawValue: String
+    }
+    
+    enum PhotoCropError: Error {
+        case cannotCreateSource
+        case cannotReadMetadata
+        case cannotCreateCIImage
+        case cannotCreateCGImage
+        case cannotCreateDestination
+        case cannotFinalize
     }
     
 }
