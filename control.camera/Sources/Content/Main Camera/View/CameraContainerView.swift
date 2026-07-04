@@ -9,13 +9,18 @@ import UIKit
 
 class CameraContainerView: UIView {
     
-    var cameraLayer: CALayer!
-    
+    var cameraLayer: CALayer?
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         #if !targetEnvironment(simulator)
-        
+
+        // The camera layer is attached asynchronously after the session is
+        // configured and is never attached if configuration fails (e.g. camera
+        // permission denied), so layout passes must tolerate its absence
+        guard let cameraLayer = cameraLayer, cameraLayer.superlayer == layer else { return }
+
         // If the view is animating apply the animation to the sublayer
         CATransaction.begin()
         if let animation = layer.animation(forKey: "position") {
@@ -24,11 +29,9 @@ class CameraContainerView: UIView {
         } else {
             CATransaction.disableActions()
         }
-        
-        if cameraLayer.superlayer == layer {
-            cameraLayer.frame = bounds
-        }
-        
+
+        cameraLayer.frame = bounds
+
         CATransaction.commit()
         #endif
     }

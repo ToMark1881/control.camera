@@ -41,7 +41,7 @@ class MainCameraPresenter: BasePresenter {
     var settingsStorage: CameraSettingsStorage!
     var arrangeService: ControlArrangeService!
     var soundService: ShutterSoundService!
-    var volumeButtonService: VolumeButtonListeningService!
+    var captureEventService: CaptureEventListeningService!
     
     lazy var shutterButtonAction: (() -> Void) = {
         self.camera.capturePhoto()
@@ -83,12 +83,11 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
         camera.configure()
         camera.settings.logSettings()
         soundService.prepare()
-        
-        setupControls()
     }
     
     func didSetupCameraLayer() {
         camera.startSession()
+        setupControls()
     }
     
     func onViewWillAppear() {
@@ -100,11 +99,11 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
     }
     
     func onViewDidAppear() {
-        volumeButtonService.start()
+        captureEventService.start()
     }
-    
+
     func onViewDidDisappear() {
-        volumeButtonService.stop()
+        captureEventService.stop()
     }
     
 }
@@ -472,10 +471,10 @@ extension MainCameraPresenter: ControlsListModuleOutput {
     
 }
 
-extension MainCameraPresenter: VolumeButtonListeningServiceOutput {
-    
-    func didTapVolumeButton() {
+extension MainCameraPresenter: CaptureEventListeningServiceOutput {
+
+    func didReceiveCaptureEvent() {
         camera.capturePhoto()
     }
-    
+
 }
