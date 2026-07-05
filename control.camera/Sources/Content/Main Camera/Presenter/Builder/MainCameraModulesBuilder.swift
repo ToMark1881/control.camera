@@ -53,6 +53,8 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildFormatViewModel(for: index)
             case .frame:
                 viewModel = buildFrameViewModel(for: index)
+            case .borderColor:
+                viewModel = buildBorderColorViewModel(for: index)
             case .empty:
                 viewModel = buildEmptyViewModel(for: index)
             }
@@ -186,6 +188,16 @@ private extension MainCameraModulesBuilderImplementation {
                                  moduleInput: &parent.frameModuleInput,
                                  moduleOutput: parent)
         parent.frameModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildBorderColorViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupBorderColorControl(for: embeddingView,
+                                       moduleInput: &parent.borderColorModuleInput,
+                                       moduleOutput: parent)
+        parent.borderColorModuleInput?.setControl(index: index)
 
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }

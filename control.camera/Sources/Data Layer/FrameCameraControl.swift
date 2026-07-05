@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import UIKit
 
 class FrameCameraControl: CameraControl {
 
@@ -17,10 +16,6 @@ class FrameCameraControl: CameraControl {
     var elementHeight: CGFloat? {
         return 12.0
     }
-
-    /// Border color for the saved photo. White for now,
-    /// color selection will be introduced in a later iteration
-    var borderColor: CGColor = UIColor.white.cgColor
 
     /// Selected border width as a percent of the shorter image side (1...20).
     /// 0 when the control is off

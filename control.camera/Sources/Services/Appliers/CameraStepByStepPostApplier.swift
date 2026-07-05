@@ -192,8 +192,10 @@ private extension CameraStepByStepPostApplierImplementation {
 
                 // Save adjustment data so Photos (and your app) knows an edit exists
                 let frameControl = self.settingsStorage.frameControl
+                let isFrameActive = frameControl?.isActive == true
                 let payload = try JSONEncoder().encode(CropAdjustment(aspectRawValue: aspect.rawValue,
-                                                                      frameWidth: frameControl?.isActive == true ? frameControl?.selectedWidth : nil))
+                                                                      frameWidth: isFrameActive ? frameControl?.selectedWidth : nil,
+                                                                      frameColor: isFrameActive ? self.settingsStorage.borderColorControl?.selectedColor.rawValue : nil))
                 output.adjustmentData = PHAdjustmentData(
                     formatIdentifier: "tomark.controlcamera.crop",
                     formatVersion: "1",
@@ -259,15 +261,21 @@ private extension CameraStepByStepPostApplierImplementation {
         // 3.1) Add the frame border around the cropped image if the control is active
         var processed = cropped
         if let frameControl = settingsStorage.frameControl, frameControl.isActive {
+            let borderColor = settingsStorage.borderColorControl?.selectedColor ?? .white
             processed = frameApplyingService.applyFrame(to: processed,
                                                         relativeWidth: frameControl.selectedWidth,
-                                                        color: frameControl.borderColor)
+                                                        color: borderColor.cgColor)
         }
 
         // 4) Render processed pixels
-        guard let cgImage = ciContext.createCGImage(processed, from: processed.extent) else {
+        guard let renderedImage = ciContext.createCGImage(processed, from: processed.extent) else {
             throw PhotoCropError.cannotCreateCGImage
         }
+
+        // CIContext renders with a premultiplied alpha channel even though the
+        // photo is fully opaque, which bloats the file and doubles the memory
+        // needed for decoding (writeImageAtIndex warning), so strip the alpha
+        let cgImage = makeOpaqueCGImage(renderedImage)
 
         // 5) Update metadata: new dimensions + orientation baked into pixels
         let newW = Int(processed.extent.width)
@@ -298,9 +306,29 @@ private extension CameraStepByStepPostApplierImplementation {
         return outData as Data
     }
     
+    func makeOpaqueCGImage(_ image: CGImage) -> CGImage {
+        let colorSpace = image.colorSpace ?? CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
+
+        guard let context = CGContext(data: nil,
+                                      width: image.width,
+                                      height: image.height,
+                                      bitsPerComponent: 8,
+                                      bytesPerRow: 0,
+                                      space: colorSpace,
+                                      bitmapInfo: bitmapInfo.rawValue) else {
+            return image
+        }
+
+        context.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
+
+        return context.makeImage() ?? image
+    }
+
     private struct CropAdjustment: Codable {
         let aspectRawValue: String
         let frameWidth: CGFloat?
+        let frameColor: String?
     }
     
     enum PhotoCropError: Error {

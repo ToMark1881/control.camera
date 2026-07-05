@@ -19,6 +19,7 @@ protocol CameraSettingsStorage {
     var arrangeControl: ArrangeCameraControl! { get }
     var formatControl: FormatCameraControl! { get }
     var frameControl: FrameCameraControl! { get }
+    var borderColorControl: BorderColorCameraControl! { get }
 
     var maxControlCount: Int { get }
     
@@ -40,6 +41,7 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var arrangeControl: ArrangeCameraControl!
     var formatControl: FormatCameraControl!
     var frameControl: FrameCameraControl!
+    var borderColorControl: BorderColorCameraControl!
 
     var maxControlCount: Int {
         return 3 * 6 * 3
@@ -69,6 +71,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
             formatControl = control as? FormatCameraControl
         case is FrameCameraControl:
             frameControl = control as? FrameCameraControl
+        case is BorderColorCameraControl:
+            borderColorControl = control as? BorderColorCameraControl
         default:
             break
         }

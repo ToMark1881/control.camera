@@ -21,6 +21,7 @@ protocol MainCameraParentDisplayable: AnyObject {
     var shutterButtonInput: ShutterButtonCellInput? { get set }
     var formatModuleInput: ArraySwitchControlModuleInput? { get set }
     var frameModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
+    var borderColorModuleInput: ArraySwitchControlModuleInput? { get set }
     var arrangeModuleInput: ActionSwitchControlModuleInput? { get set }
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> { get set }

@@ -26,6 +26,7 @@ class MainCameraPresenter: BasePresenter {
     weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var formatModuleInput: ArraySwitchControlModuleInput?
     weak var frameModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var borderColorModuleInput: ArraySwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -62,7 +63,8 @@ class MainCameraPresenter: BasePresenter {
             uiModuleInput,
             libraryModuleInput,
             formatModuleInput,
-            frameModuleInput
+            frameModuleInput,
+            borderColorModuleInput
         ]
     }
     
@@ -186,9 +188,14 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
     func didChangeSwitch(for control: CameraControl) {
         #if !targetEnvironment(simulator)
         settingsStorage.store(control)
-        
+
         liveApplier.applyControlIfNeeded(control)
         #endif
+
+        // The border color only makes sense while the border itself is on
+        if let frameControl = control as? FrameCameraControl {
+            borderColorModuleInput?.setEnabled(frameControl.isActive)
+        }
     }
     
     func onArrangeButtonTap(on index: Int) {
@@ -225,6 +232,7 @@ private extension MainCameraPresenter {
         setupUIControl()
         setupFormatControl()
         setupFrameControl()
+        setupBorderColorControl()
         setupLibraryControl()
         setupArrangeControl()
     }
@@ -432,6 +440,16 @@ private extension MainCameraPresenter {
         settingsStorage.store(controlValue)
     }
 
+    // MARK: - Border color control
+    func setupBorderColorControl() {
+        let controlValue = BorderColorCameraControl()
+
+        borderColorModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
+
+        borderColorModuleInput?.setEnabled(settingsStorage.frameControl?.isActive ?? false)
+    }
+
     // MARK: - Arrange control
     func setupArrangeControl() {
         let action: (() -> Void) = { [weak self] in
@@ -483,6 +501,8 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         isoModuleInput?.setupSwitch(for: settingsStorage.isoControl)
         whiteBalanceModuleInput?.setupSwitch(for: settingsStorage.whiteBalanceControl)
         frameModuleInput?.setupSwitch(for: settingsStorage.frameControl)
+        borderColorModuleInput?.setupSwitch(for: settingsStorage.borderColorControl)
+        borderColorModuleInput?.setEnabled(settingsStorage.frameControl?.isActive ?? false)
         setupLibraryControl()
         setupArrangeControl()
         setupUIControl()

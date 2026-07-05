@@ -339,6 +339,8 @@
 		FABBB17F2B94DCF7002336C2 /* ExposureCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */; };
 		FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
 		FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
+		FAA7AE676964FC4A8FD51EB2 /* BorderColorCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB75536E1CE44FA05135F1A /* BorderColorCameraControl.swift */; };
+		FA81BAC669B9A7E451040DCC /* BorderColorCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB75536E1CE44FA05135F1A /* BorderColorCameraControl.swift */; };
 		FA7E555DB900BC4B02F3C5CA /* FrameCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */; };
 		FA527125748C9463FED55E1D /* FrameCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */; };
 		FAA38D080EFB611EE8AAA6B5 /* FrameApplyingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */; };
@@ -649,6 +651,7 @@
 		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureCameraControl.swift; sourceTree = "<group>"; };
 		FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCameraControl.swift; sourceTree = "<group>"; };
+		FAB75536E1CE44FA05135F1A /* BorderColorCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderColorCameraControl.swift; sourceTree = "<group>"; };
 		FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCameraControl.swift; sourceTree = "<group>"; };
 		FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameApplyingService.swift; sourceTree = "<group>"; };
 		FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchViewProps.swift; sourceTree = "<group>"; };
@@ -854,6 +857,7 @@
 				FA2491642B906A4C008CCACD /* ShowUICameraControl.swift */,
 				FA2491672B906C9E008CCACD /* LibraryCameraControl.swift */,
 				FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */,
+				FAB75536E1CE44FA05135F1A /* BorderColorCameraControl.swift */,
 				FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */,
 				FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */,
 				FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */,
@@ -1962,6 +1966,7 @@
 				FA2644342902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
 				7D57C45D27F89DFB007F3CC5 /* Array+Extensions.swift in Sources */,
 				FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */,
+				FAA7AE676964FC4A8FD51EB2 /* BorderColorCameraControl.swift in Sources */,
 				FA7E555DB900BC4B02F3C5CA /* FrameCameraControl.swift in Sources */,
 				FA2F427C28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
 				FA552A292BAB994A00C55025 /* ControlArrangement.swift in Sources */,
@@ -2179,6 +2184,7 @@
 				FA2644352902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
 				7D92BE8D27F8A6240025398D /* Array+Extensions.swift in Sources */,
 				FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */,
+				FA81BAC669B9A7E451040DCC /* BorderColorCameraControl.swift in Sources */,
 				FA527125748C9463FED55E1D /* FrameCameraControl.swift in Sources */,
 				FA2F427D28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
 				FA552A2A2BAB994A00C55025 /* ControlArrangement.swift in Sources */,

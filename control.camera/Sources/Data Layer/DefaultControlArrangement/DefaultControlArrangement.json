@@ -11,6 +11,11 @@
    },
    {
       "page":0,
+      "index":10,
+      "control_type":"borderColor"
+   },
+   {
+      "page":0,
       "index":6,
       "control_type":"device"
    },

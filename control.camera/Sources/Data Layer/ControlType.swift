@@ -22,6 +22,7 @@ enum ControlType: String, CaseIterable, Codable {
     case arrange
     case format
     case frame
+    case borderColor
     case empty
     
     var title: String {
@@ -54,6 +55,8 @@ enum ControlType: String, CaseIterable, Codable {
             "File Format"
         case .frame:
             "Border"
+        case .borderColor:
+            "Border Color"
         case .empty:
             ""
         }
