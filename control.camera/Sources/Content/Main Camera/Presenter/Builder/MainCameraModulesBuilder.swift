@@ -65,6 +65,8 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.greenModuleInput)
             case .blue:
                 viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.blueModuleInput)
+            case .blackWhite:
+                viewModel = buildBlackWhiteViewModel(for: index)
             case .empty:
                 viewModel = buildEmptyViewModel(for: index)
             }
@@ -229,6 +231,16 @@ private extension MainCameraModulesBuilderImplementation {
                                            moduleInput: &moduleInput,
                                            moduleOutput: parent)
         moduleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildBlackWhiteViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupBlackWhiteControl(for: embeddingView,
+                                      moduleInput: &parent.blackWhiteModuleInput,
+                                      moduleOutput: parent)
+        parent.blackWhiteModuleInput?.setControl(index: index)
 
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }

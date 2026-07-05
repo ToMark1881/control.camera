@@ -32,6 +32,7 @@ class MainCameraPresenter: BasePresenter {
     weak var redModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var greenModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var blueModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var blackWhiteModuleInput: SimpleSwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -74,7 +75,8 @@ class MainCameraPresenter: BasePresenter {
             contrastModuleInput,
             redModuleInput,
             greenModuleInput,
-            blueModuleInput
+            blueModuleInput,
+            blackWhiteModuleInput
         ]
     }
     
@@ -253,6 +255,7 @@ private extension MainCameraPresenter {
         setupBorderColorControl()
         setupNoiseControl()
         setupColorCorrectionControls()
+        setupBlackWhiteControl()
         setupLibraryControl()
         setupArrangeControl()
     }
@@ -495,6 +498,14 @@ private extension MainCameraPresenter {
         }
     }
 
+    // MARK: - Black and white control
+    func setupBlackWhiteControl() {
+        let controlValue = BlackWhiteCameraControl()
+
+        blackWhiteModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
+    }
+
     // MARK: - Arrange control
     func setupArrangeControl() {
         let action: (() -> Void) = { [weak self] in
@@ -553,6 +564,7 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         redModuleInput?.setupSwitch(for: settingsStorage.redControl)
         greenModuleInput?.setupSwitch(for: settingsStorage.greenControl)
         blueModuleInput?.setupSwitch(for: settingsStorage.blueControl)
+        blackWhiteModuleInput?.setupSwitch(for: settingsStorage.blackWhiteControl)
         setupLibraryControl()
         setupArrangeControl()
         setupUIControl()

@@ -28,6 +28,7 @@ enum ControlType: String, CaseIterable, Codable {
     case red
     case green
     case blue
+    case blackWhite
     case empty
     
     var title: String {
@@ -72,6 +73,8 @@ enum ControlType: String, CaseIterable, Codable {
             "Green"
         case .blue:
             "Blue"
+        case .blackWhite:
+            "B&W"
         case .empty:
             ""
         }

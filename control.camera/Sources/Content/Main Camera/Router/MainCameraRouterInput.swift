@@ -75,6 +75,10 @@ protocol MainCameraRouterInputProtocol: AnyObject {
     func setupColorCorrectionControl(for view: UIView,
                                      moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
                                      moduleOutput: SwitchControlModuleOutput)
+
+    func setupBlackWhiteControl(for view: UIView,
+                                moduleInput: inout SimpleSwitchControlModuleInput?,
+                                moduleOutput: SwitchControlModuleOutput)
     
     func setupEmptyControl(for view: UIView,
                            moduleInput: inout SwitchControlModuleInput?,

@@ -53,7 +53,8 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
         let isFrameActive = settingsStorage.frameControl?.isActive ?? false
         let isNoiseActive = settingsStorage.noiseControl?.isActive ?? false
         let isColorCorrectionActive = !currentColorCorrection.isNeutral
-        let hasRenderedEdits = (isFrameActive || isNoiseActive || isColorCorrectionActive) && rawPhotoTempURL == nil
+        let isBlackWhiteActive = settingsStorage.blackWhiteControl?.isActive ?? false
+        let hasRenderedEdits = (isFrameActive || isNoiseActive || isColorCorrectionActive || isBlackWhiteActive) && rawPhotoTempURL == nil
 
         switch settingsStorage.formControl.aspectRatio {
         case .threeByFour:
@@ -205,7 +206,8 @@ private extension CameraStepByStepPostApplierImplementation {
                                                                       frameWidth: isFrameActive ? frameControl?.selectedWidth : nil,
                                                                       frameColor: isFrameActive ? self.settingsStorage.borderColorControl?.selectedColor.rawValue : nil,
                                                                       noiseLevel: isNoiseActive ? noiseControl?.selectedLevel : nil,
-                                                                      colorCorrection: colorCorrection.isNeutral ? nil : ColorCorrectionAdjustment(correction: colorCorrection)))
+                                                                      colorCorrection: colorCorrection.isNeutral ? nil : ColorCorrectionAdjustment(correction: colorCorrection),
+                                                                      blackAndWhite: self.settingsStorage.blackWhiteControl?.isActive == true ? true : nil))
                 output.adjustmentData = PHAdjustmentData(
                     formatIdentifier: "tomark.controlcamera.crop",
                     formatVersion: "1",
@@ -276,7 +278,14 @@ private extension CameraStepByStepPostApplierImplementation {
             processed = colorCorrectionApplyingService.applyCorrection(colorCorrection, to: processed)
         }
 
-        // 3.2) Overlay film grain if the control is active. Applied before
+        // 3.2) Convert to black and white after the curves: the channel
+        // controls keep working as classic monochrome color filters,
+        // so the B&W look stays tunable
+        if settingsStorage.blackWhiteControl?.isActive == true {
+            processed = colorCorrectionApplyingService.applyMonochrome(to: processed)
+        }
+
+        // 3.3) Overlay film grain if the control is active. Applied before
         // the frame so the border itself stays clean
         if let noiseControl = settingsStorage.noiseControl, noiseControl.isActive {
             processed = filmGrainApplyingService.applyGrain(to: processed,
@@ -284,7 +293,7 @@ private extension CameraStepByStepPostApplierImplementation {
                                                             grainSize: noiseControl.grainSize)
         }
 
-        // 3.3) Add the frame border around the image if the control is active
+        // 3.4) Add the frame border around the image if the control is active
         if let frameControl = settingsStorage.frameControl, frameControl.isActive {
             let borderColor = settingsStorage.borderColorControl?.selectedColor ?? .white
             processed = frameApplyingService.applyFrame(to: processed,
@@ -377,6 +386,7 @@ private extension CameraStepByStepPostApplierImplementation {
         let frameColor: String?
         let noiseLevel: CGFloat?
         let colorCorrection: ColorCorrectionAdjustment?
+        let blackAndWhite: Bool?
     }
     
     enum PhotoCropError: Error {

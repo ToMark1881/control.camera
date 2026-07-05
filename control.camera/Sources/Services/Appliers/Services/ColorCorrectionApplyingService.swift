@@ -20,6 +20,7 @@ struct CurveColorCorrection {
 
 protocol ColorCorrectionApplyingService {
     func applyCorrection(_ correction: CurveColorCorrection, to image: CIImage) -> CIImage
+    func applyMonochrome(to image: CIImage) -> CIImage
 }
 
 class ColorCorrectionApplyingServiceImplementation: ColorCorrectionApplyingService {
@@ -45,6 +46,14 @@ class ColorCorrectionApplyingServiceImplementation: ColorCorrectionApplyingServi
                                     to: result)
 
         return result
+    }
+
+    /// Neutral luminance-preserving black and white conversion. Applied
+    /// after the curves, so the channel controls act like classic color
+    /// filters in monochrome photography (e.g. boosting red darkens the sky)
+    func applyMonochrome(to image: CIImage) -> CIImage {
+        return image.applyingFilter("CIColorControls",
+                                    parameters: [kCIInputSaturationKey: 0.0])
     }
 
 }
