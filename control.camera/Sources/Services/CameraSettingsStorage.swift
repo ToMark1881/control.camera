@@ -21,6 +21,10 @@ protocol CameraSettingsStorage {
     var frameControl: FrameCameraControl! { get }
     var borderColorControl: BorderColorCameraControl! { get }
     var noiseControl: NoiseCameraControl! { get }
+    var contrastControl: ColorCorrectionCameraControl! { get }
+    var redControl: ColorCorrectionCameraControl! { get }
+    var greenControl: ColorCorrectionCameraControl! { get }
+    var blueControl: ColorCorrectionCameraControl! { get }
 
     var maxControlCount: Int { get }
     
@@ -44,6 +48,10 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var frameControl: FrameCameraControl!
     var borderColorControl: BorderColorCameraControl!
     var noiseControl: NoiseCameraControl!
+    var contrastControl: ColorCorrectionCameraControl!
+    var redControl: ColorCorrectionCameraControl!
+    var greenControl: ColorCorrectionCameraControl!
+    var blueControl: ColorCorrectionCameraControl!
 
     var maxControlCount: Int {
         return 3 * 6 * 3
@@ -77,6 +85,17 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
             borderColorControl = control as? BorderColorCameraControl
         case is NoiseCameraControl:
             noiseControl = control as? NoiseCameraControl
+        case let colorCorrectionControl as ColorCorrectionCameraControl:
+            switch colorCorrectionControl.channel {
+            case .contrast:
+                contrastControl = colorCorrectionControl
+            case .red:
+                redControl = colorCorrectionControl
+            case .green:
+                greenControl = colorCorrectionControl
+            case .blue:
+                blueControl = colorCorrectionControl
+            }
         default:
             break
         }

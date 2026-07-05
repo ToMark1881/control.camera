@@ -20,6 +20,26 @@
       "control_type":"noise"
    },
    {
+      "page":1,
+      "index":0,
+      "control_type":"contrast"
+   },
+   {
+      "page":1,
+      "index":3,
+      "control_type":"red"
+   },
+   {
+      "page":1,
+      "index":6,
+      "control_type":"green"
+   },
+   {
+      "page":1,
+      "index":9,
+      "control_type":"blue"
+   },
+   {
       "page":0,
       "index":6,
       "control_type":"device"

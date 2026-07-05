@@ -24,6 +24,10 @@ enum ControlType: String, CaseIterable, Codable {
     case frame
     case borderColor
     case noise
+    case contrast
+    case red
+    case green
+    case blue
     case empty
     
     var title: String {
@@ -60,6 +64,14 @@ enum ControlType: String, CaseIterable, Codable {
             "Border Color"
         case .noise:
             "Noise"
+        case .contrast:
+            "Contrast"
+        case .red:
+            "Red"
+        case .green:
+            "Green"
+        case .blue:
+            "Blue"
         case .empty:
             ""
         }

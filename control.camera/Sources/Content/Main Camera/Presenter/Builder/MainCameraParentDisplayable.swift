@@ -23,6 +23,10 @@ protocol MainCameraParentDisplayable: AnyObject {
     var frameModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
     var borderColorModuleInput: ArraySwitchControlModuleInput? { get set }
     var noiseModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
+    var contrastModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
+    var redModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
+    var greenModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
+    var blueModuleInput: RangeWithDefaultSwitchControlModuleInput? { get set }
     var arrangeModuleInput: ActionSwitchControlModuleInput? { get set }
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> { get set }

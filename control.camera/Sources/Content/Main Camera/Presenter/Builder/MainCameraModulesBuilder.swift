@@ -57,6 +57,14 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildBorderColorViewModel(for: index)
             case .noise:
                 viewModel = buildNoiseViewModel(for: index)
+            case .contrast:
+                viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.contrastModuleInput)
+            case .red:
+                viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.redModuleInput)
+            case .green:
+                viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.greenModuleInput)
+            case .blue:
+                viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.blueModuleInput)
             case .empty:
                 viewModel = buildEmptyViewModel(for: index)
             }
@@ -210,6 +218,17 @@ private extension MainCameraModulesBuilderImplementation {
                                  moduleInput: &parent.noiseModuleInput,
                                  moduleOutput: parent)
         parent.noiseModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildColorCorrectionViewModel(for index: Int,
+                                       moduleInput: inout RangeWithDefaultSwitchControlModuleInput?) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupColorCorrectionControl(for: embeddingView,
+                                           moduleInput: &moduleInput,
+                                           moduleOutput: parent)
+        moduleInput?.setControl(index: index)
 
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }

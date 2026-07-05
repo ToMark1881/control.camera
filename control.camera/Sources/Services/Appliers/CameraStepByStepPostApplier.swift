@@ -28,6 +28,7 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     var croppingService: CroppingService!
     var frameApplyingService: FrameApplyingService!
     var filmGrainApplyingService: FilmGrainApplyingService!
+    var colorCorrectionApplyingService: ColorCorrectionApplyingService!
     
     // MARK: - Private
     
@@ -47,11 +48,12 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     func finishCapture(for output: AVCapturePhotoOutput,
                        didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
-        // The frame and grain are rendered into the compressed photo only,
+        // Rendered edits go into the compressed photo only,
         // so a RAW capture is always saved untouched through the plain path
         let isFrameActive = settingsStorage.frameControl?.isActive ?? false
         let isNoiseActive = settingsStorage.noiseControl?.isActive ?? false
-        let hasRenderedEdits = (isFrameActive || isNoiseActive) && rawPhotoTempURL == nil
+        let isColorCorrectionActive = !currentColorCorrection.isNeutral
+        let hasRenderedEdits = (isFrameActive || isNoiseActive || isColorCorrectionActive) && rawPhotoTempURL == nil
 
         switch settingsStorage.formControl.aspectRatio {
         case .threeByFour:
@@ -198,10 +200,12 @@ private extension CameraStepByStepPostApplierImplementation {
                 let noiseControl = self.settingsStorage.noiseControl
                 let isFrameActive = frameControl?.isActive == true
                 let isNoiseActive = noiseControl?.isActive == true
+                let colorCorrection = self.currentColorCorrection
                 let payload = try JSONEncoder().encode(CropAdjustment(aspectRawValue: aspect.rawValue,
                                                                       frameWidth: isFrameActive ? frameControl?.selectedWidth : nil,
                                                                       frameColor: isFrameActive ? self.settingsStorage.borderColorControl?.selectedColor.rawValue : nil,
-                                                                      noiseLevel: isNoiseActive ? noiseControl?.selectedLevel : nil))
+                                                                      noiseLevel: isNoiseActive ? noiseControl?.selectedLevel : nil,
+                                                                      colorCorrection: colorCorrection.isNeutral ? nil : ColorCorrectionAdjustment(correction: colorCorrection)))
                 output.adjustmentData = PHAdjustmentData(
                     formatIdentifier: "tomark.controlcamera.crop",
                     formatVersion: "1",
@@ -264,16 +268,23 @@ private extension CameraStepByStepPostApplierImplementation {
 
         let cropped = oriented.cropped(to: cropRect)
 
-        // 3.1) Overlay film grain if the control is active. Applied before
-        // the frame so the border itself stays clean
+        // 3.1) Apply the curve color correction first, so the grain and the
+        // frame are laid over the already corrected image
         var processed = cropped
+        let colorCorrection = currentColorCorrection
+        if !colorCorrection.isNeutral {
+            processed = colorCorrectionApplyingService.applyCorrection(colorCorrection, to: processed)
+        }
+
+        // 3.2) Overlay film grain if the control is active. Applied before
+        // the frame so the border itself stays clean
         if let noiseControl = settingsStorage.noiseControl, noiseControl.isActive {
             processed = filmGrainApplyingService.applyGrain(to: processed,
                                                             intensity: noiseControl.grainIntensity,
                                                             grainSize: noiseControl.grainSize)
         }
 
-        // 3.2) Add the frame border around the image if the control is active
+        // 3.3) Add the frame border around the image if the control is active
         if let frameControl = settingsStorage.frameControl, frameControl.isActive {
             let borderColor = settingsStorage.borderColorControl?.selectedColor ?? .white
             processed = frameApplyingService.applyFrame(to: processed,
@@ -320,6 +331,13 @@ private extension CameraStepByStepPostApplierImplementation {
         return outData as Data
     }
     
+    var currentColorCorrection: CurveColorCorrection {
+        return CurveColorCorrection(contrast: settingsStorage.contrastControl?.normalizedLevel ?? 0,
+                                    red: settingsStorage.redControl?.normalizedLevel ?? 0,
+                                    green: settingsStorage.greenControl?.normalizedLevel ?? 0,
+                                    blue: settingsStorage.blueControl?.normalizedLevel ?? 0)
+    }
+
     func makeOpaqueCGImage(_ image: CGImage) -> CGImage {
         let colorSpace = image.colorSpace ?? CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.noneSkipLast.rawValue)
@@ -339,11 +357,26 @@ private extension CameraStepByStepPostApplierImplementation {
         return context.makeImage() ?? image
     }
 
+    private struct ColorCorrectionAdjustment: Codable {
+        let contrast: CGFloat
+        let red: CGFloat
+        let green: CGFloat
+        let blue: CGFloat
+
+        init(correction: CurveColorCorrection) {
+            contrast = correction.contrast
+            red = correction.red
+            green = correction.green
+            blue = correction.blue
+        }
+    }
+
     private struct CropAdjustment: Codable {
         let aspectRawValue: String
         let frameWidth: CGFloat?
         let frameColor: String?
         let noiseLevel: CGFloat?
+        let colorCorrection: ColorCorrectionAdjustment?
     }
     
     enum PhotoCropError: Error {

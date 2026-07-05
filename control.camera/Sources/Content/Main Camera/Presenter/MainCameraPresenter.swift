@@ -28,6 +28,10 @@ class MainCameraPresenter: BasePresenter {
     weak var frameModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var borderColorModuleInput: ArraySwitchControlModuleInput?
     weak var noiseModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var contrastModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var redModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var greenModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var blueModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -66,7 +70,11 @@ class MainCameraPresenter: BasePresenter {
             formatModuleInput,
             frameModuleInput,
             borderColorModuleInput,
-            noiseModuleInput
+            noiseModuleInput,
+            contrastModuleInput,
+            redModuleInput,
+            greenModuleInput,
+            blueModuleInput
         ]
     }
     
@@ -244,6 +252,7 @@ private extension MainCameraPresenter {
         setupFrameControl()
         setupBorderColorControl()
         setupNoiseControl()
+        setupColorCorrectionControls()
         setupLibraryControl()
         setupArrangeControl()
     }
@@ -469,6 +478,23 @@ private extension MainCameraPresenter {
         settingsStorage.store(controlValue)
     }
 
+    // MARK: - Color correction controls
+    func setupColorCorrectionControls() {
+        let channelInputs: [(ColorCorrectionCameraControl.Channel, RangeWithDefaultSwitchControlModuleInput?)] = [
+            (.contrast, contrastModuleInput),
+            (.red, redModuleInput),
+            (.green, greenModuleInput),
+            (.blue, blueModuleInput)
+        ]
+
+        for (channel, moduleInput) in channelInputs {
+            let controlValue = ColorCorrectionCameraControl(channel: channel, selected: nil)
+
+            moduleInput?.setupSwitch(for: controlValue)
+            settingsStorage.store(controlValue)
+        }
+    }
+
     // MARK: - Arrange control
     func setupArrangeControl() {
         let action: (() -> Void) = { [weak self] in
@@ -523,6 +549,10 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         borderColorModuleInput?.setupSwitch(for: settingsStorage.borderColorControl)
         borderColorModuleInput?.setEnabled(settingsStorage.frameControl?.isActive ?? false)
         noiseModuleInput?.setupSwitch(for: settingsStorage.noiseControl)
+        contrastModuleInput?.setupSwitch(for: settingsStorage.contrastControl)
+        redModuleInput?.setupSwitch(for: settingsStorage.redControl)
+        greenModuleInput?.setupSwitch(for: settingsStorage.greenControl)
+        blueModuleInput?.setupSwitch(for: settingsStorage.blueControl)
         setupLibraryControl()
         setupArrangeControl()
         setupUIControl()
