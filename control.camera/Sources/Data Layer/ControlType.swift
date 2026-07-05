@@ -21,6 +21,7 @@ enum ControlType: String, CaseIterable, Codable {
     case shutter
     case arrange
     case format
+    case frame
     case empty
     
     var title: String {
@@ -30,7 +31,7 @@ enum ControlType: String, CaseIterable, Codable {
         case .form:
             "Form"
         case .device:
-            "Device"
+            "Lens"
         case .zoom:
             "Zoom"
         case .ui:
@@ -51,6 +52,8 @@ enum ControlType: String, CaseIterable, Codable {
             "Arrange"
         case .format:
             "File Format"
+        case .frame:
+            "Border"
         case .empty:
             ""
         }

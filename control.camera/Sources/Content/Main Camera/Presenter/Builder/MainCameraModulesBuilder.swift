@@ -51,6 +51,8 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildArrangeViewModel(for: index)
             case .format:
                 viewModel = buildFormatViewModel(for: index)
+            case .frame:
+                viewModel = buildFrameViewModel(for: index)
             case .empty:
                 viewModel = buildEmptyViewModel(for: index)
             }
@@ -178,6 +180,16 @@ private extension MainCameraModulesBuilderImplementation {
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }
     
+    func buildFrameViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupFrameControl(for: embeddingView,
+                                 moduleInput: &parent.frameModuleInput,
+                                 moduleOutput: parent)
+        parent.frameModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
     func buildShutterButtonViewModel(for index: Int) -> CollectionCellViewModel {
         let viewModel = ShutterButtonCellViewModel(action: parent.shutterButtonAction)
         parent.shutterButtonInput = viewModel

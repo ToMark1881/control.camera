@@ -154,7 +154,7 @@ private extension RangeWithDefaultSwitchControlPresenter {
         let selectedIndex = controlValue.range.range.firstIndex(where: { $0 == controlValue.range.selected })
         let arrayOfStrings: [String]
         
-        if controlValue.range.step > 1 {
+        if controlValue.range.step >= 1 {
             arrayOfStrings =  controlValue.range.range.map { value in
                 let rounded = Int(value).description
                 

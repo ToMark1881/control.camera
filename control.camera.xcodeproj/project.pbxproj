@@ -339,6 +339,10 @@
 		FABBB17F2B94DCF7002336C2 /* ExposureCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */; };
 		FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
 		FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */; };
+		FA7E555DB900BC4B02F3C5CA /* FrameCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */; };
+		FA527125748C9463FED55E1D /* FrameCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */; };
+		FAA38D080EFB611EE8AAA6B5 /* FrameApplyingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */; };
+		FA1AD8906CFF57136CD645F6 /* FrameApplyingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */; };
 		FABD87B72B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */; };
 		FABD87B82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */; };
 		FABD87B92B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */; };
@@ -645,6 +649,8 @@
 		FAAE31D12B8758FF00E47CBB /* NSLayoutConstraint+Multiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Multiplier.swift"; sourceTree = "<group>"; };
 		FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureCameraControl.swift; sourceTree = "<group>"; };
 		FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCameraControl.swift; sourceTree = "<group>"; };
+		FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCameraControl.swift; sourceTree = "<group>"; };
+		FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameApplyingService.swift; sourceTree = "<group>"; };
 		FABD87A82B9118AB00CBFA49 /* RangeWithDefaultSwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchViewProps.swift; sourceTree = "<group>"; };
 		FABD87AA2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlModuleInput.swift; sourceTree = "<group>"; };
 		FABD87AB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeWithDefaultSwitchControlPresenter.swift; sourceTree = "<group>"; };
@@ -848,6 +854,7 @@
 				FA2491642B906A4C008CCACD /* ShowUICameraControl.swift */,
 				FA2491672B906C9E008CCACD /* LibraryCameraControl.swift */,
 				FABD87A32B90E8E300CBFA49 /* FocusCameraControl.swift */,
+				FAE9067D8329AB9E2EA9CCBE /* FrameCameraControl.swift */,
 				FABBB17D2B94DCF7002336C2 /* ExposureCameraControl.swift */,
 				FA014EF72B9EF0E300DB928F /* ISOCameraControl.swift */,
 				FADB28972B9F32DA00465C86 /* WhiteBalanceCameraControl.swift */,
@@ -1481,6 +1488,7 @@
 			isa = PBXGroup;
 			children = (
 				FA696F342B875248004F78BD /* CroppingService.swift */,
+				FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */,
 				FA552A252BAB982600C55025 /* ControlArrangeService.swift */,
 				FADB289A2B9F360800465C86 /* WhiteBalanceCalculatingService.swift */,
 				FA0861DE2BCBA77F00B11AAC /* ShutterSoundService.swift */,
@@ -1954,6 +1962,7 @@
 				FA2644342902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
 				7D57C45D27F89DFB007F3CC5 /* Array+Extensions.swift in Sources */,
 				FABD87A42B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */,
+				FA7E555DB900BC4B02F3C5CA /* FrameCameraControl.swift in Sources */,
 				FA2F427C28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
 				FA552A292BAB994A00C55025 /* ControlArrangement.swift in Sources */,
 				FA2491652B906A4C008CCACD /* ShowUICameraControl.swift in Sources */,
@@ -2084,6 +2093,7 @@
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
 				FA0307962B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */,
 				FA696F352B875249004F78BD /* CroppingService.swift in Sources */,
+				FAA38D080EFB611EE8AAA6B5 /* FrameApplyingService.swift in Sources */,
 				FA2644192902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAD89ACC2BA6DB4F00F19558 /* MainCameraModulesBuilder.swift in Sources */,
 				FAEEEF462902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,
@@ -2169,6 +2179,7 @@
 				FA2644352902DC7C00655F22 /* SimpleSwitchViewProps.swift in Sources */,
 				7D92BE8D27F8A6240025398D /* Array+Extensions.swift in Sources */,
 				FABD87A52B90E8E300CBFA49 /* FocusCameraControl.swift in Sources */,
+				FA527125748C9463FED55E1D /* FrameCameraControl.swift in Sources */,
 				FA2F427D28BDC86700F6E6A7 /* RootRouter.swift in Sources */,
 				FA552A2A2BAB994A00C55025 /* ControlArrangement.swift in Sources */,
 				FA2491662B906A4C008CCACD /* ShowUICameraControl.swift in Sources */,
@@ -2299,6 +2310,7 @@
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
 				FA0307972B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */,
 				FA696F362B875249004F78BD /* CroppingService.swift in Sources */,
+				FA1AD8906CFF57136CD645F6 /* FrameApplyingService.swift in Sources */,
 				FA26441A2902D3DF00655F22 /* SwitchControlModuleOutput.swift in Sources */,
 				FAD89ACD2BA6DB4F00F19558 /* MainCameraModulesBuilder.swift in Sources */,
 				FAEEEF472902AD310019EE29 /* CameraConfigurationOutput.swift in Sources */,

@@ -25,6 +25,7 @@ class OnboardingPresenter: BasePresenter {
     weak var deviceModuleInput: ArraySwitchControlModuleInput?
     weak var zoomModuleInput: RangeSwitchControlModuleInput?
     weak var focusModuleInput: RangeWithDefaultSwitchControlModuleInput?
+    weak var frameModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var exposureModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?

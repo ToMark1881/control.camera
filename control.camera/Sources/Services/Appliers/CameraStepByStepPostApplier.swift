@@ -26,6 +26,7 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     var settingsStorage: CameraSettingsStorage!
     var croppingService: CroppingService!
+    var frameApplyingService: FrameApplyingService!
     
     // MARK: - Private
     
@@ -45,9 +46,13 @@ class CameraStepByStepPostApplierImplementation: CameraStepByStepPostApplier {
     
     func finishCapture(for output: AVCapturePhotoOutput,
                        didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        // The frame is rendered into the compressed photo only, so a RAW
+        // capture is always saved untouched through the plain path
+        let needsFrame = (settingsStorage.frameControl?.isActive ?? false) && rawPhotoTempURL == nil
+
         switch settingsStorage.formControl.aspectRatio {
         case .threeByFour:
-            savePhoto()
+            needsFrame ? saveCroppedPhoto() : savePhoto()
         case .oneByOne, .nineBySixteen, .tenBySixteen:
             saveCroppedPhoto()
         }
@@ -166,23 +171,29 @@ private extension CameraStepByStepPostApplierImplementation {
         
         asset.requestContentEditingInput(with: inputOptions) { input, _ in
             guard let input, let originalURL = input.fullSizeImageURL else { return }
-            
+
             do {
                 let originalData = try Data(contentsOf: originalURL)
-                
+
+                // 3:4 matches the sensor output, so no crop is needed —
+                // the edit then consists of the frame only
+                let targetAspect: CGFloat? = aspect == .threeByFour ? nil : aspect.aspectRatio
+
                 let renderedData = try self.cropToAspectPreservingMetadata(
                     originalData: originalData,
-                    targetAspect: aspect.aspectRatio,
+                    targetAspect: targetAspect,
                     ciContext: ciContext
                 )
-                
+
                 let output = PHContentEditingOutput(contentEditingInput: input)
-                
+
                 // Write the edited (cropped) image
                 try renderedData.write(to: output.renderedContentURL, options: .atomic)
-                
+
                 // Save adjustment data so Photos (and your app) knows an edit exists
-                let payload = try JSONEncoder().encode(CropAdjustment(aspectRawValue: aspect.rawValue))
+                let frameControl = self.settingsStorage.frameControl
+                let payload = try JSONEncoder().encode(CropAdjustment(aspectRawValue: aspect.rawValue,
+                                                                      frameWidth: frameControl?.isActive == true ? frameControl?.selectedWidth : nil))
                 output.adjustmentData = PHAdjustmentData(
                     formatIdentifier: "tomark.controlcamera.crop",
                     formatVersion: "1",
@@ -201,7 +212,7 @@ private extension CameraStepByStepPostApplierImplementation {
     }
     
     func cropToAspectPreservingMetadata(originalData: Data,
-                                        targetAspect: CGFloat,
+                                        targetAspect: CGFloat?,
                                         ciContext: CIContext) throws -> Data {
         
         // 1) Read metadata from original encoded image
@@ -224,33 +235,43 @@ private extension CameraStepByStepPostApplierImplementation {
         // 3) Compute a centered crop rect to match target aspect ratio
         let extent = oriented.extent
         let currentAspect = extent.width / extent.height
-        
+
         var cropRect = extent
-        
-        if currentAspect > targetAspect {
-            // Image is too wide -> crop width
-            let newWidth = extent.height * targetAspect
-            let x = extent.midX - newWidth / 2
-            cropRect = CGRect(x: x, y: extent.minY, width: newWidth, height: extent.height)
-        } else {
-            // Image is too tall -> crop height
-            let newHeight = extent.width / targetAspect
-            let y = extent.midY - newHeight / 2
-            cropRect = CGRect(x: extent.minX, y: y, width: extent.width, height: newHeight)
+
+        if let targetAspect = targetAspect {
+            if currentAspect > targetAspect {
+                // Image is too wide -> crop width
+                let newWidth = extent.height * targetAspect
+                let x = extent.midX - newWidth / 2
+                cropRect = CGRect(x: x, y: extent.minY, width: newWidth, height: extent.height)
+            } else {
+                // Image is too tall -> crop height
+                let newHeight = extent.width / targetAspect
+                let y = extent.midY - newHeight / 2
+                cropRect = CGRect(x: extent.minX, y: y, width: extent.width, height: newHeight)
+            }
+
+            cropRect = cropRect.integral.intersection(extent)
         }
-        
-        cropRect = cropRect.integral.intersection(extent)
-        
+
         let cropped = oriented.cropped(to: cropRect)
-        
-        // 4) Render cropped pixels
-        guard let cgImage = ciContext.createCGImage(cropped, from: cropped.extent) else {
+
+        // 3.1) Add the frame border around the cropped image if the control is active
+        var processed = cropped
+        if let frameControl = settingsStorage.frameControl, frameControl.isActive {
+            processed = frameApplyingService.applyFrame(to: processed,
+                                                        relativeWidth: frameControl.selectedWidth,
+                                                        color: frameControl.borderColor)
+        }
+
+        // 4) Render processed pixels
+        guard let cgImage = ciContext.createCGImage(processed, from: processed.extent) else {
             throw PhotoCropError.cannotCreateCGImage
         }
-        
+
         // 5) Update metadata: new dimensions + orientation baked into pixels
-        let newW = Int(cropped.extent.width)
-        let newH = Int(cropped.extent.height)
+        let newW = Int(processed.extent.width)
+        let newH = Int(processed.extent.height)
         
         props[kCGImagePropertyPixelWidth] = newW
         props[kCGImagePropertyPixelHeight] = newH
@@ -279,6 +300,7 @@ private extension CameraStepByStepPostApplierImplementation {
     
     private struct CropAdjustment: Codable {
         let aspectRawValue: String
+        let frameWidth: CGFloat?
     }
     
     enum PhotoCropError: Error {

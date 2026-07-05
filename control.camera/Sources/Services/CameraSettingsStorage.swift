@@ -18,7 +18,8 @@ protocol CameraSettingsStorage {
     var whiteBalanceControl: WhiteBalanceCameraControl! { get }
     var arrangeControl: ArrangeCameraControl! { get }
     var formatControl: FormatCameraControl! { get }
-    
+    var frameControl: FrameCameraControl! { get }
+
     var maxControlCount: Int { get }
     
     func store(_ control: CameraControl)
@@ -38,7 +39,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var whiteBalanceControl: WhiteBalanceCameraControl!
     var arrangeControl: ArrangeCameraControl!
     var formatControl: FormatCameraControl!
-    
+    var frameControl: FrameCameraControl!
+
     var maxControlCount: Int {
         return 3 * 6 * 3
     }
@@ -65,6 +67,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
             arrangeControl = control as? ArrangeCameraControl
         case is FormatCameraControl:
             formatControl = control as? FormatCameraControl
+        case is FrameCameraControl:
+            frameControl = control as? FrameCameraControl
         default:
             break
         }

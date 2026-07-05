@@ -6,6 +6,11 @@
    },
    {
       "page":0,
+      "index":4,
+      "control_type":"frame"
+   },
+   {
+      "page":0,
       "index":6,
       "control_type":"device"
    },

@@ -25,6 +25,7 @@ class MainCameraPresenter: BasePresenter {
     weak var isoModuleInput: ArrayWithDefaultSwitchControlModuleInput?
     weak var whiteBalanceModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var formatModuleInput: ArraySwitchControlModuleInput?
+    weak var frameModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -60,7 +61,8 @@ class MainCameraPresenter: BasePresenter {
             arrangeModuleInput,
             uiModuleInput,
             libraryModuleInput,
-            formatModuleInput
+            formatModuleInput,
+            frameModuleInput
         ]
     }
     
@@ -213,6 +215,7 @@ private extension MainCameraPresenter {
         setupWhiteBalanceControl()
         setupUIControl()
         setupFormatControl()
+        setupFrameControl()
         setupLibraryControl()
         setupArrangeControl()
     }
@@ -412,6 +415,14 @@ private extension MainCameraPresenter {
         settingsStorage.store(controlValue)
     }
     
+    // MARK: - Frame control
+    func setupFrameControl() {
+        let controlValue = FrameCameraControl(selected: nil)
+
+        frameModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
+    }
+
     // MARK: - Arrange control
     func setupArrangeControl() {
         let action: (() -> Void) = { [weak self] in
@@ -462,6 +473,7 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         exposureModuleInput?.setupSwitch(for: settingsStorage.exposureControl)
         isoModuleInput?.setupSwitch(for: settingsStorage.isoControl)
         whiteBalanceModuleInput?.setupSwitch(for: settingsStorage.whiteBalanceControl)
+        frameModuleInput?.setupSwitch(for: settingsStorage.frameControl)
         setupLibraryControl()
         setupArrangeControl()
         setupUIControl()

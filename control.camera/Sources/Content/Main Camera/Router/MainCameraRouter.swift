@@ -95,6 +95,12 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
         arraySwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
     }
     
+    func setupFrameControl(for view: UIView,
+                           moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
+                           moduleOutput: SwitchControlModuleOutput) {
+        rangeWithDefaultWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+    }
+
     func setupLibraryControl(for view: UIView,
                              moduleInput: inout ActionSwitchControlModuleInput?,
                              moduleOutput: SwitchControlModuleOutput) {

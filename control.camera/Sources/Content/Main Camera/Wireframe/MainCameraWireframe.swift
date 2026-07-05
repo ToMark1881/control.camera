@@ -48,6 +48,7 @@ class MainCameraWireframe: BaseWireframe {
         let storage = CameraSettingsStorageImplementation.default
         let stepByStepApplier = CameraStepByStepPostApplierImplementation()
         let croppingService = CroppingServiceImplementation()
+        let frameApplyingService = FrameApplyingServiceImplementation()
         let liveApplier = CameraLiveApplierImplementation()
         let whiteBalanceService = WhiteBalanceCalculatingServiceImplementation()
         let builder = MainCameraModulesBuilderImplementation()
@@ -61,6 +62,7 @@ class MainCameraWireframe: BaseWireframe {
         
         stepByStepApplier.settingsStorage = storage
         stepByStepApplier.croppingService = croppingService
+        stepByStepApplier.frameApplyingService = frameApplyingService
         
         camera.settingsStorage = storage
         camera.stepByStepApplier = stepByStepApplier        
