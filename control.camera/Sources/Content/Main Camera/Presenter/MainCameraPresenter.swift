@@ -148,6 +148,15 @@ extension MainCameraPresenter: CameraConfigurationOutput {
             formModuleInput?.updateSwitch(for: controlValue)
         }
         formModuleInput?.setEnabled(isFormControlEnabled)
+        
+        // border
+        let isBorderControlEnabled = !isInRAWFormat
+        
+        if isInRAWFormat {
+            let controlValue = FrameCameraControl(selected: nil)
+            frameModuleInput?.updateSwitch(for: controlValue)
+        }
+        frameModuleInput?.setEnabled(isBorderControlEnabled)
     }
     
     func didSetAutoISO() {
@@ -159,13 +168,13 @@ extension MainCameraPresenter: CameraConfigurationOutput {
     }
     
     func willCapture() {
-        view.setPhotoBorder(active: true)
+        view.setCaptureAnimation(active: true)
         soundService.play()
         shutterButtonInput?.setShutterButton(enabled: false)
     }
     
     func didCapture() {
-        view.setPhotoBorder(active: false)
+        view.setCaptureAnimation(active: false)
         shutterButtonInput?.setShutterButton(enabled: true)
     }
     

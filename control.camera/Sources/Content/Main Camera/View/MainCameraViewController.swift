@@ -94,8 +94,8 @@ extension MainCameraViewController: MainCameraViewInputProtocol {
         collectionView.reloadData()
     }
     
-    func setPhotoBorder(active: Bool) {
-        cameraContainerView.borderWidth = active ? 1.0 : 0.0
+    func setCaptureAnimation(active: Bool) {
+        cameraContainerView.setCaptureAnimation(active: active)
     }
     
 }
