@@ -27,6 +27,7 @@ class MainCameraPresenter: BasePresenter {
     weak var formatModuleInput: ArraySwitchControlModuleInput?
     weak var frameModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var borderColorModuleInput: ArraySwitchControlModuleInput?
+    weak var noiseModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -64,7 +65,8 @@ class MainCameraPresenter: BasePresenter {
             libraryModuleInput,
             formatModuleInput,
             frameModuleInput,
-            borderColorModuleInput
+            borderColorModuleInput,
+            noiseModuleInput
         ]
     }
     
@@ -159,6 +161,14 @@ extension MainCameraPresenter: CameraConfigurationOutput {
             frameModuleInput?.updateSwitch(for: controlValue)
         }
         frameModuleInput?.setEnabled(isBorderControlEnabled)
+        
+        // noise
+        let isNoiseControlEnabled = !isInRAWFormat
+        if isInRAWFormat {
+            let controlValue = NoiseCameraControl(selected: nil)
+            noiseModuleInput?.updateSwitch(for: controlValue)
+        }
+        noiseModuleInput?.setEnabled(isNoiseControlEnabled)
     }
     
     func didSetAutoISO() {
@@ -233,6 +243,7 @@ private extension MainCameraPresenter {
         setupFormatControl()
         setupFrameControl()
         setupBorderColorControl()
+        setupNoiseControl()
         setupLibraryControl()
         setupArrangeControl()
     }
@@ -450,6 +461,14 @@ private extension MainCameraPresenter {
         borderColorModuleInput?.setEnabled(settingsStorage.frameControl?.isActive ?? false)
     }
 
+    // MARK: - Noise control
+    func setupNoiseControl() {
+        let controlValue = NoiseCameraControl(selected: nil)
+
+        noiseModuleInput?.setupSwitch(for: controlValue)
+        settingsStorage.store(controlValue)
+    }
+
     // MARK: - Arrange control
     func setupArrangeControl() {
         let action: (() -> Void) = { [weak self] in
@@ -503,6 +522,7 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         frameModuleInput?.setupSwitch(for: settingsStorage.frameControl)
         borderColorModuleInput?.setupSwitch(for: settingsStorage.borderColorControl)
         borderColorModuleInput?.setEnabled(settingsStorage.frameControl?.isActive ?? false)
+        noiseModuleInput?.setupSwitch(for: settingsStorage.noiseControl)
         setupLibraryControl()
         setupArrangeControl()
         setupUIControl()

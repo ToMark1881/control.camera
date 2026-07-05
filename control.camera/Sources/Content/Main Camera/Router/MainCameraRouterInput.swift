@@ -67,6 +67,10 @@ protocol MainCameraRouterInputProtocol: AnyObject {
     func setupBorderColorControl(for view: UIView,
                                  moduleInput: inout ArraySwitchControlModuleInput?,
                                  moduleOutput: SwitchControlModuleOutput)
+
+    func setupNoiseControl(for view: UIView,
+                           moduleInput: inout RangeWithDefaultSwitchControlModuleInput?,
+                           moduleOutput: SwitchControlModuleOutput)
     
     func setupEmptyControl(for view: UIView,
                            moduleInput: inout SwitchControlModuleInput?,

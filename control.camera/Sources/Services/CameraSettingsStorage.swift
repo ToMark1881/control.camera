@@ -20,6 +20,7 @@ protocol CameraSettingsStorage {
     var formatControl: FormatCameraControl! { get }
     var frameControl: FrameCameraControl! { get }
     var borderColorControl: BorderColorCameraControl! { get }
+    var noiseControl: NoiseCameraControl! { get }
 
     var maxControlCount: Int { get }
     
@@ -42,6 +43,7 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var formatControl: FormatCameraControl!
     var frameControl: FrameCameraControl!
     var borderColorControl: BorderColorCameraControl!
+    var noiseControl: NoiseCameraControl!
 
     var maxControlCount: Int {
         return 3 * 6 * 3
@@ -73,6 +75,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
             frameControl = control as? FrameCameraControl
         case is BorderColorCameraControl:
             borderColorControl = control as? BorderColorCameraControl
+        case is NoiseCameraControl:
+            noiseControl = control as? NoiseCameraControl
         default:
             break
         }

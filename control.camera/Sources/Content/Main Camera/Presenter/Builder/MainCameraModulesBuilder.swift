@@ -55,6 +55,8 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildFrameViewModel(for: index)
             case .borderColor:
                 viewModel = buildBorderColorViewModel(for: index)
+            case .noise:
+                viewModel = buildNoiseViewModel(for: index)
             case .empty:
                 viewModel = buildEmptyViewModel(for: index)
             }
@@ -198,6 +200,16 @@ private extension MainCameraModulesBuilderImplementation {
                                        moduleInput: &parent.borderColorModuleInput,
                                        moduleOutput: parent)
         parent.borderColorModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildNoiseViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupNoiseControl(for: embeddingView,
+                                 moduleInput: &parent.noiseModuleInput,
+                                 moduleOutput: parent)
+        parent.noiseModuleInput?.setControl(index: index)
 
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }

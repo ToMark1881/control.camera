@@ -23,6 +23,7 @@ enum ControlType: String, CaseIterable, Codable {
     case format
     case frame
     case borderColor
+    case noise
     case empty
     
     var title: String {
@@ -57,6 +58,8 @@ enum ControlType: String, CaseIterable, Codable {
             "Border"
         case .borderColor:
             "Border Color"
+        case .noise:
+            "Noise"
         case .empty:
             ""
         }

@@ -16,6 +16,11 @@
    },
    {
       "page":0,
+      "index":15,
+      "control_type":"noise"
+   },
+   {
+      "page":0,
       "index":6,
       "control_type":"device"
    },
