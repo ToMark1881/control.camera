@@ -14,7 +14,7 @@ class NoiseCameraControl: CameraControl {
     var valueType: CameraControlValueType!
 
     var elementHeight: CGFloat? {
-        return 12.0
+        return 24.0
     }
 
     /// Grain level selected by the user (1...10), 0 when the control is off
@@ -35,9 +35,9 @@ class NoiseCameraControl: CameraControl {
     /// may drive it in a later iteration
     let grainSize: CGFloat = 1.0
 
-    init(selected: CGFloat?) {
-        let range = RangeControlValue(min: 1, max: 10, step: 1, selected: selected)
-        self.valueType = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Off", range: range))
+    init(selected: CGFloat) {
+        let range = RangeControlValue(min: 0, max: 10, step: 1, selected: selected)
+        self.valueType = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "0", range: range))
     }
 
 }

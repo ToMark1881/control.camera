@@ -32,8 +32,11 @@ protocol CameraConfiguration: AnyObject {
     func setCustomWhiteBalance(_ kelvinTemp: Int)
     
     func updatePhotoFormat()
-    
+
     func capturePhoto()
+
+    var previewFrameDelegate: AVCaptureVideoDataOutputSampleBufferDelegate? { get set }
+    func setLivePreviewEffects(active: Bool)
 }
 
 class CameraConfigurationImplementation: NSObject, CameraConfiguration {
@@ -54,8 +57,14 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
     var currentDevice: AVCaptureDevice!
     
     var stillImageOutput: AVCapturePhotoOutput!
-    
+
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
+
+    weak var previewFrameDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
+
+    private var videoDataOutput: AVCaptureVideoDataOutput?
+    private var isLivePreviewEffectsActive = false
+    private let previewEffectsQueue = DispatchQueue(label: "preview-effects", qos: .userInteractive)
     
     var settings: CameraSettings {
         #if targetEnvironment(simulator)
@@ -171,6 +180,19 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         // Configure the session with the input and the output devices
         captureSession.addInput(captureDeviceInput)
         captureSession.addOutput(stillImageOutput)
+
+        // Provide frames for the live effects preview. The connection stays
+        // disabled until at least one live effect is activated
+        let videoOutput = AVCaptureVideoDataOutput()
+        videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+        videoOutput.alwaysDiscardsLateVideoFrames = true
+        videoOutput.setSampleBufferDelegate(previewFrameDelegate, queue: previewEffectsQueue)
+
+        if captureSession.canAddOutput(videoOutput) {
+            captureSession.addOutput(videoOutput)
+            videoDataOutput = videoOutput
+            applyPreviewEffectsConnectionState()
+        }
         
         // Provide a camera preview
         cameraPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -224,8 +246,36 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
         captureSession.inputs.forEach({ captureSession.removeInput($0) })
         captureSession.addInput(captureDeviceInput)
         currentDevice = device
-        
+
+        // Swapping the input recreates the video data output connection,
+        // so its state must be applied again
+        applyPreviewEffectsConnectionState()
+
         output.didChangeInputDevice()
+    }
+
+    func setLivePreviewEffects(active: Bool) {
+        #if !targetEnvironment(simulator)
+        isLivePreviewEffectsActive = active
+        applyPreviewEffectsConnectionState()
+        #endif
+    }
+
+    private func applyPreviewEffectsConnectionState() {
+        guard let connection = videoDataOutput?.connection(with: .video) else {
+            return
+        }
+
+        if connection.isVideoOrientationSupported {
+            connection.videoOrientation = .portrait
+        }
+
+        if connection.isVideoMirroringSupported {
+            connection.automaticallyAdjustsVideoMirroring = false
+            connection.isVideoMirrored = currentDevice?.position == .front
+        }
+
+        connection.isEnabled = isLivePreviewEffectsActive
     }
     
     func setZoomFactor(_ zoomFactor: CGFloat) {

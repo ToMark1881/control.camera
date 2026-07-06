@@ -31,7 +31,7 @@ class ISOCameraControl: CameraControl {
     }
     
     var elementHeight: CGFloat? {
-        return 25.0
+        return 24.0
     }
     
     var defaultIndex: Range<Int>.Index? {

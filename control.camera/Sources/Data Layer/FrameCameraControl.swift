@@ -14,7 +14,7 @@ class FrameCameraControl: CameraControl {
     var valueType: CameraControlValueType!
 
     var elementHeight: CGFloat? {
-        return 12.0
+        return 24.0
     }
 
     /// Selected border width as a percent of the shorter image side (1...20).
@@ -27,8 +27,8 @@ class FrameCameraControl: CameraControl {
         return selectedWidth > 0
     }
 
-    init(selected: CGFloat?) {
-        let range = RangeControlValue(min: 1, max: 20, step: 1, selected: selected)
+    init(selected: CGFloat) {
+        let range = RangeControlValue(min: 0, max: 20, step: 1, selected: selected)
         self.valueType = .rangeWithDefault(RangeWithDefaultControlValue(defaultValue: "Off", range: range))
     }
 

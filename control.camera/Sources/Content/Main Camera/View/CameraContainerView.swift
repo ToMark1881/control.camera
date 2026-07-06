@@ -17,10 +17,31 @@ class CameraContainerView: UIView {
     var cameraLayer: CALayer?
 
     private var flashLayer: CALayer?
+    private var createdFilteredPreviewView: FilteredPreviewView?
+
+    /// Metal render target for the live effects preview,
+    /// created lazily above the camera layer
+    var filteredPreviewView: FilteredPreviewView {
+        if let existingView = createdFilteredPreviewView {
+            return existingView
+        }
+
+        let previewView = FilteredPreviewView(frame: bounds)
+        previewView.isHidden = true
+        addSubview(previewView)
+        createdFilteredPreviewView = previewView
+
+        return previewView
+    }
+
+    func setFilteredPreview(visible: Bool) {
+        filteredPreviewView.isHidden = !visible
+    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        createdFilteredPreviewView?.frame = bounds
         layoutCaptureAnimationLayers()
 
         #if !targetEnvironment(simulator)

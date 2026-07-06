@@ -36,7 +36,7 @@ class ColorCorrectionCameraControl: CameraControl {
     var valueType: CameraControlValueType!
 
     var elementHeight: CGFloat? {
-        return 12.0
+        return 24.0
     }
 
     /// Selected level (-10...10), 0 when neutral
@@ -53,7 +53,7 @@ class ColorCorrectionCameraControl: CameraControl {
         return selectedLevel / 10.0
     }
 
-    init(channel: Channel, selected: CGFloat?) {
+    init(channel: Channel, selected: CGFloat) {
         self.channel = channel
 
         let range = RangeControlValue(min: -10, max: 10, step: 1, selected: selected)

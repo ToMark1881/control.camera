@@ -51,6 +51,7 @@ class MainCameraWireframe: BaseWireframe {
         let frameApplyingService = FrameApplyingServiceImplementation()
         let filmGrainApplyingService = FilmGrainApplyingServiceImplementation()
         let colorCorrectionApplyingService = ColorCorrectionApplyingServiceImplementation()
+        let previewEffectsService = LivePreviewEffectsServiceImplementation()
         let liveApplier = CameraLiveApplierImplementation()
         let whiteBalanceService = WhiteBalanceCalculatingServiceImplementation()
         let builder = MainCameraModulesBuilderImplementation()
@@ -61,6 +62,17 @@ class MainCameraWireframe: BaseWireframe {
         
         liveApplier.view = view
         liveApplier.camera = camera
+        liveApplier.previewEffectsService = previewEffectsService
+
+        previewEffectsService.view = view
+        previewEffectsService.camera = camera
+        previewEffectsService.settingsStorage = storage
+        previewEffectsService.colorCorrectionApplyingService = colorCorrectionApplyingService
+        previewEffectsService.filmGrainApplyingService = filmGrainApplyingService
+        previewEffectsService.frameApplyingService = frameApplyingService
+        previewEffectsService.croppingService = croppingService
+
+        camera.previewFrameDelegate = previewEffectsService
         
         stepByStepApplier.settingsStorage = storage
         stepByStepApplier.croppingService = croppingService

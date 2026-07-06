@@ -15,7 +15,8 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
     
     weak var view: CameraViewConfiguration!
     weak var camera: CameraConfiguration!
-    
+    var previewEffectsService: LivePreviewEffectsService!
+
     func applyControlIfNeeded(_ control: CameraControl) {
         switch control {
         case is FormCameraControl:
@@ -36,6 +37,12 @@ class CameraLiveApplierImplementation: CameraLiveApplier {
             applyWhiteBalanceControl(control as? WhiteBalanceCameraControl)
         case is FormatCameraControl:
             applyFormatControl(control as? FormatCameraControl)
+        case is NoiseCameraControl,
+             is ColorCorrectionCameraControl,
+             is BlackWhiteCameraControl,
+             is FrameCameraControl,
+             is BorderColorCameraControl:
+            previewEffectsService.refresh()
         default:
             break
         }
@@ -59,6 +66,10 @@ private extension CameraLiveApplierImplementation {
         UIView.animate(withDuration: 0.3) {
             self.view.view.layoutIfNeeded()
         }
+
+        // The bordered preview crops to the selected aspect itself,
+        // so its state snapshot must follow the form changes
+        previewEffectsService.refresh()
     }
     
     func applyDeviceControl(_ control: VideoDeviceCameraControl?) {
@@ -142,8 +153,12 @@ private extension CameraLiveApplierImplementation {
         guard let control = control else {
             return
         }
-        
+
         camera.updatePhotoFormat()
+
+        // RAW disables the live effects preview, so the pipeline state
+        // must follow the format changes
+        previewEffectsService.refresh()
     }
     
 }

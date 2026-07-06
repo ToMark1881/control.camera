@@ -167,7 +167,7 @@ extension MainCameraPresenter: CameraConfigurationOutput {
         let isBorderControlEnabled = !isInRAWFormat
         
         if isInRAWFormat {
-            let controlValue = FrameCameraControl(selected: nil)
+            let controlValue = FrameCameraControl(selected: 0)
             frameModuleInput?.updateSwitch(for: controlValue)
         }
         frameModuleInput?.setEnabled(isBorderControlEnabled)
@@ -175,7 +175,7 @@ extension MainCameraPresenter: CameraConfigurationOutput {
         // noise
         let isNoiseControlEnabled = !isInRAWFormat
         if isInRAWFormat {
-            let controlValue = NoiseCameraControl(selected: nil)
+            let controlValue = NoiseCameraControl(selected: 0)
             noiseModuleInput?.updateSwitch(for: controlValue)
         }
         noiseModuleInput?.setEnabled(isNoiseControlEnabled)
@@ -457,7 +457,7 @@ private extension MainCameraPresenter {
     
     // MARK: - Frame control
     func setupFrameControl() {
-        let controlValue = FrameCameraControl(selected: nil)
+        let controlValue = FrameCameraControl(selected: 0)
 
         frameModuleInput?.setupSwitch(for: controlValue)
         settingsStorage.store(controlValue)
@@ -475,7 +475,7 @@ private extension MainCameraPresenter {
 
     // MARK: - Noise control
     func setupNoiseControl() {
-        let controlValue = NoiseCameraControl(selected: nil)
+        let controlValue = NoiseCameraControl(selected: 0)
 
         noiseModuleInput?.setupSwitch(for: controlValue)
         settingsStorage.store(controlValue)
@@ -491,7 +491,7 @@ private extension MainCameraPresenter {
         ]
 
         for (channel, moduleInput) in channelInputs {
-            let controlValue = ColorCorrectionCameraControl(channel: channel, selected: nil)
+            let controlValue = ColorCorrectionCameraControl(channel: channel, selected: 0)
 
             moduleInput?.setupSwitch(for: controlValue)
             settingsStorage.store(controlValue)

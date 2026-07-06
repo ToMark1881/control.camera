@@ -243,6 +243,10 @@
 		FA56FF352B88DDB700CC1080 /* VideoDeviceCameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */; };
 		FA56FF372B88E3A600CC1080 /* CameraContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */; };
 		FA56FF382B88E3A600CC1080 /* CameraContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */; };
+		FAB326527E69F0B2C8AD391A /* FilteredPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BE8957098CBC76DDBF232 /* FilteredPreviewView.swift */; };
+		FA3EE6C305D9E280E2C81D63 /* FilteredPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1BE8957098CBC76DDBF232 /* FilteredPreviewView.swift */; };
+		FA118371941757FDD71F3DEF /* LivePreviewEffectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE118D2316BA5F02D3A29 /* LivePreviewEffectsService.swift */; };
+		FAD138E5DCDAAED33C678224 /* LivePreviewEffectsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9CE118D2316BA5F02D3A29 /* LivePreviewEffectsService.swift */; };
 		FA696F352B875249004F78BD /* CroppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA696F342B875248004F78BD /* CroppingService.swift */; };
 		FA696F362B875249004F78BD /* CroppingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA696F342B875248004F78BD /* CroppingService.swift */; };
 		FA6F7AE22B7C010D00F7EFB0 /* ArraySwitchViewProps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */; };
@@ -614,6 +618,8 @@
 		FA5576452BA8CB7C00F1F0DD /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		FA56FF332B88DDB700CC1080 /* VideoDeviceCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDeviceCameraControl.swift; sourceTree = "<group>"; };
 		FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraContainerView.swift; sourceTree = "<group>"; };
+		FA1BE8957098CBC76DDBF232 /* FilteredPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredPreviewView.swift; sourceTree = "<group>"; };
+		FA9CE118D2316BA5F02D3A29 /* LivePreviewEffectsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePreviewEffectsService.swift; sourceTree = "<group>"; };
 		FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameApplyingService.swift; sourceTree = "<group>"; };
 		FA696F342B875248004F78BD /* CroppingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroppingService.swift; sourceTree = "<group>"; };
 		FA6F7AD12B7C010D00F7EFB0 /* ArraySwitchViewProps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArraySwitchViewProps.swift; sourceTree = "<group>"; };
@@ -1510,6 +1516,7 @@
 			isa = PBXGroup;
 			children = (
 				FA696F342B875248004F78BD /* CroppingService.swift */,
+				FA9CE118D2316BA5F02D3A29 /* LivePreviewEffectsService.swift */,
 				FA5085202FDEB79FDD71579A /* ColorCorrectionApplyingService.swift */,
 				FA706045275B293F9A655CDD /* FilmGrainApplyingService.swift */,
 				FA693656C68698EA9DAEC7A7 /* FrameApplyingService.swift */,
@@ -1651,6 +1658,7 @@
 				FAEEEF212902A33B0019EE29 /* MainCameraViewController.swift */,
 				FAEEEF242902A33B0019EE29 /* MainCameraViewOutput.swift */,
 				FA56FF362B88E3A600CC1080 /* CameraContainerView.swift */,
+				FA1BE8957098CBC76DDBF232 /* FilteredPreviewView.swift */,
 				FA289AA22BA79E8700511567 /* Shutter Button Cell */,
 				FAFE39DE2BA763EF00DAB5A2 /* Control Container Cell */,
 			);
@@ -2111,6 +2119,7 @@
 				7D57C47B27F8A088007F3CC5 /* LoadingView.swift in Sources */,
 				FABD87CB2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */,
 				FA56FF372B88E3A600CC1080 /* CameraContainerView.swift in Sources */,
+				FAB326527E69F0B2C8AD391A /* FilteredPreviewView.swift in Sources */,
 				FAEEEF2E2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
 				FAD89ABC2BA6DA5100F19558 /* BaseCollectionReusableViewModel.swift in Sources */,
 				FAEEEF2A2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
@@ -2121,6 +2130,7 @@
 				7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */,
 				FA0307962B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */,
 				FA696F352B875249004F78BD /* CroppingService.swift in Sources */,
+				FA118371941757FDD71F3DEF /* LivePreviewEffectsService.swift in Sources */,
 				FAA61C900A0CEF228ADF57C3 /* ColorCorrectionApplyingService.swift in Sources */,
 				FA0A984FE9B47E5CB91E5A58 /* FilmGrainApplyingService.swift in Sources */,
 				FAA38D080EFB611EE8AAA6B5 /* FrameApplyingService.swift in Sources */,
@@ -2334,6 +2344,7 @@
 				7D92BEA827F8A6240025398D /* LoadingView.swift in Sources */,
 				FABD87CC2B9118AB00CBFA49 /* RangeWithDefaultSwitchControlRouter.swift in Sources */,
 				FA56FF382B88E3A600CC1080 /* CameraContainerView.swift in Sources */,
+				FA3EE6C305D9E280E2C81D63 /* FilteredPreviewView.swift in Sources */,
 				FAEEEF2F2902A33B0019EE29 /* MainCameraRouter.swift in Sources */,
 				FAD89ABD2BA6DA5100F19558 /* BaseCollectionReusableViewModel.swift in Sources */,
 				FAEEEF2B2902A33B0019EE29 /* MainCameraRouterOutput.swift in Sources */,
@@ -2344,6 +2355,7 @@
 				7D92BEA927F8A6240025398D /* BounceButton.swift in Sources */,
 				FA0307972B9072C200AC9B27 /* ActionSwitchControlRouterInput.swift in Sources */,
 				FA696F362B875249004F78BD /* CroppingService.swift in Sources */,
+				FAD138E5DCDAAED33C678224 /* LivePreviewEffectsService.swift in Sources */,
 				FAC3D58495E7CF8408F4BDC3 /* ColorCorrectionApplyingService.swift in Sources */,
 				FA98111D107DE27323E59F03 /* FilmGrainApplyingService.swift in Sources */,
 				FA1AD8906CFF57136CD645F6 /* FrameApplyingService.swift in Sources */,
