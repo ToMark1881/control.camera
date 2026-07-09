@@ -20,6 +20,8 @@ class ActionSwitchControlViewController: BaseViewController {
     
     // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
+
+    private var adaptiveTextColor: UIColor = .white
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +44,29 @@ extension ActionSwitchControlViewController: ActionSwitchControlViewInputProtoco
     }
     
     func setEnabled(_ isEnabled: Bool) {
-        switchValueLabel.textColor = isEnabled ? .white : .gray
-        switchNameLabel.textColor = isEnabled ? .white : .gray
+        switchValueLabel.textColor = isEnabled ? adaptiveTextColor : .gray
+        switchNameLabel.textColor = isEnabled ? adaptiveTextColor : .gray
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func setOnLightBackground(_ isOnLightBackground: Bool) {
+        let color: UIColor = isOnLightBackground ? .black : .white
+
+        guard color != adaptiveTextColor else { return }
+
+        adaptiveTextColor = color
+
+        guard view.isUserInteractionEnabled else { return }
+
+        UIView.transition(with: view,
+                          duration: 0.2,
+                          options: [.transitionCrossDissolve, .allowUserInteraction],
+                          animations: {
+            self.switchValueLabel.textColor = color
+            self.switchNameLabel.textColor = color
+        })
+    }
+
     func setArrangeable(disabled: Bool) {
         if disabled {
             view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })

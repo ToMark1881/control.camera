@@ -24,6 +24,8 @@ class RangeSwitchControlViewController: BaseViewController {
     
     // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
+
+    private var adaptiveTextColor: UIColor = .white
     
     private var rangeData: [String] = [String]()
     private var rangePickerView: RangePickerViewController?
@@ -65,11 +67,28 @@ extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol 
     }
     
     func setEnabled(_ isEnabled: Bool) {
-        switchNameLabel.textColor = isEnabled ? .white : .gray
+        switchNameLabel.textColor = isEnabled ? adaptiveTextColor : .gray
         rangePickerView?.setEnabled(isEnabled)
         view.isUserInteractionEnabled = isEnabled
     }
     
+    func setOnLightBackground(_ isOnLightBackground: Bool) {
+        let color: UIColor = isOnLightBackground ? .black : .white
+
+        guard color != adaptiveTextColor else { return }
+
+        adaptiveTextColor = color
+
+        guard view.isUserInteractionEnabled else { return }
+
+        UIView.transition(with: view,
+                          duration: 0.2,
+                          options: [.transitionCrossDissolve, .allowUserInteraction],
+                          animations: {
+            self.switchNameLabel.textColor = color
+        })
+    }
+
     func setArrangeable(disabled: Bool) {
         rangePickerView?.view.isUserInteractionEnabled = !disabled
     }

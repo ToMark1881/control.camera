@@ -52,6 +52,7 @@ class MainCameraWireframe: BaseWireframe {
         let filmGrainApplyingService = FilmGrainApplyingServiceImplementation()
         let colorCorrectionApplyingService = ColorCorrectionApplyingServiceImplementation()
         let previewEffectsService = LivePreviewEffectsServiceImplementation()
+        let legibilityService = ControlLegibilityServiceImplementation()
         let liveApplier = CameraLiveApplierImplementation()
         let whiteBalanceService = WhiteBalanceCalculatingServiceImplementation()
         let builder = MainCameraModulesBuilderImplementation()
@@ -71,6 +72,7 @@ class MainCameraWireframe: BaseWireframe {
         previewEffectsService.filmGrainApplyingService = filmGrainApplyingService
         previewEffectsService.frameApplyingService = frameApplyingService
         previewEffectsService.croppingService = croppingService
+        previewEffectsService.legibilityService = legibilityService
 
         camera.previewFrameDelegate = previewEffectsService
         
@@ -93,6 +95,7 @@ class MainCameraWireframe: BaseWireframe {
         presenter.soundService = soundService
         presenter.presetsStorage = PresetsStorageImplementation.default
         presenter.presetMapper = PresetMapperImplementation()
+        presenter.legibilityService = legibilityService
         presenter.captureEventService = captureEventService
 
         captureEventService.output = presenter

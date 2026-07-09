@@ -55,6 +55,7 @@ class MainCameraPresenter: BasePresenter {
     var captureEventService: CaptureEventListeningService!
     var presetsStorage: PresetsStorage!
     var presetMapper: PresetMapper!
+    var legibilityService: ControlLegibilityService!
 
     /// setupSwitch fires didChangeSwitch synchronously, so programmatic
     /// rebuilds of the select preset control must not re-apply presets
@@ -111,6 +112,14 @@ extension MainCameraPresenter: MainCameraViewOutputProtocol {
         camera.configure()
         camera.settings.logSettings()
         soundService.prepare()
+
+        legibilityService.onLegibilityChange = { [weak self] lightIndexes in
+            self?.applyControlsLegibility(lightIndexes)
+        }
+    }
+
+    func didUpdateControlRegions(_ regions: [Int: CGRect]) {
+        legibilityService.update(regions: regions)
     }
     
     func didSetupCameraLayer() {
@@ -620,25 +629,72 @@ private extension MainCameraPresenter {
     }
 
     func updateModuleInput(for type: ControlType, with control: CameraControl) {
+        moduleInput(for: type)?.updateSwitch(for: control)
+    }
+
+    // MARK: - Controls legibility
+    func applyControlsLegibility(_ lightIndexes: [Int: Bool]) {
+        let arrangement = arrangeService.controlArrangement
+
+        for (index, isOnLightBackground) in lightIndexes {
+            guard let type = arrangement[safe: index] else {
+                continue
+            }
+
+            moduleInput(for: type)?.setOnLightBackground(isOnLightBackground)
+        }
+    }
+
+    func moduleInput(for type: ControlType) -> SwitchControlModuleInput? {
         switch type {
+        case .flash:
+            return lightModuleInput
+        case .form:
+            return formModuleInput
+        case .device:
+            return deviceModuleInput
+        case .zoom:
+            return zoomModuleInput
+        case .focus:
+            return focusModuleInput
+        case .exposure:
+            return exposureModuleInput
+        case .iso:
+            return isoModuleInput
+        case .whiteBalance:
+            return whiteBalanceModuleInput
+        case .ui:
+            return uiModuleInput
+        case .library:
+            return libraryModuleInput
+        case .arrange:
+            return arrangeModuleInput
+        case .format:
+            return formatModuleInput
         case .frame:
-            frameModuleInput?.updateSwitch(for: control)
+            return frameModuleInput
         case .borderColor:
-            borderColorModuleInput?.updateSwitch(for: control)
+            return borderColorModuleInput
         case .noise:
-            noiseModuleInput?.updateSwitch(for: control)
+            return noiseModuleInput
         case .contrast:
-            contrastModuleInput?.updateSwitch(for: control)
+            return contrastModuleInput
         case .red:
-            redModuleInput?.updateSwitch(for: control)
+            return redModuleInput
         case .green:
-            greenModuleInput?.updateSwitch(for: control)
+            return greenModuleInput
         case .blue:
-            blueModuleInput?.updateSwitch(for: control)
+            return blueModuleInput
         case .blackWhite:
-            blackWhiteModuleInput?.updateSwitch(for: control)
-        default:
-            break
+            return blackWhiteModuleInput
+        case .savePreset:
+            return savePresetModuleInput
+        case .selectPreset:
+            return selectPresetModuleInput
+        case .managePresets:
+            return managePresetsModuleInput
+        case .shutter, .empty:
+            return nil
         }
     }
 

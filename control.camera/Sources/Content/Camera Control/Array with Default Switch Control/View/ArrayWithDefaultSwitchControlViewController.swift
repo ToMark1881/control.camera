@@ -26,6 +26,8 @@ class ArrayWithDefaultSwitchControlViewController: BaseViewController {
     
     // MARK: - SwitchControlArrangeable
     @IBOutlet weak var arrangeButton: UIButton!
+
+    private var adaptiveTextColor: UIColor = .white
     
     private var rangeData: [String] = [String]()
     private var elementHeight: CGFloat?
@@ -86,8 +88,8 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
     }
     
     func setEnabled(_ isEnabled: Bool) {
-        switchNameLabel.textColor = isEnabled ? .white : .gray
-        switchDefaultValueLabel.textColor = isEnabled ? .white : .gray
+        switchNameLabel.textColor = isEnabled ? adaptiveTextColor : .gray
+        switchDefaultValueLabel.textColor = isEnabled ? adaptiveTextColor : .gray
         rangePickerView?.setEnabled(isEnabled)
         view.isUserInteractionEnabled = isEnabled
     }
@@ -96,6 +98,24 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         rangePickerView?.preselectRow(at: index)
     }
     
+    func setOnLightBackground(_ isOnLightBackground: Bool) {
+        let color: UIColor = isOnLightBackground ? .black : .white
+
+        guard color != adaptiveTextColor else { return }
+
+        adaptiveTextColor = color
+
+        guard view.isUserInteractionEnabled else { return }
+
+        UIView.transition(with: view,
+                          duration: 0.2,
+                          options: [.transitionCrossDissolve, .allowUserInteraction],
+                          animations: {
+            self.switchNameLabel.textColor = color
+            self.switchDefaultValueLabel.textColor = color
+        })
+    }
+
     func setArrangeable(disabled: Bool) {
         if disabled {
             view.gestureRecognizers?.forEach({ view.removeGestureRecognizer($0) })

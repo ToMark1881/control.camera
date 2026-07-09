@@ -275,7 +275,10 @@ class CameraConfigurationImplementation: NSObject, CameraConfiguration {
             connection.isVideoMirrored = currentDevice?.position == .front
         }
 
-        connection.isEnabled = isLivePreviewEffectsActive
+        // The connection stays enabled even without active effects: the
+        // control legibility sampling needs a low-rate look at the frames.
+        // The effects rendering itself is still gated by the effects state
+        connection.isEnabled = true
     }
     
     func setZoomFactor(_ zoomFactor: CGFloat) {

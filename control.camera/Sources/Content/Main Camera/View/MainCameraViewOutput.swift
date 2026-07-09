@@ -15,4 +15,8 @@ protocol MainCameraViewOutputProtocol: AnyObject {
     func onViewDidAppear()
     func onViewDidDisappear()
     func didSetupCameraLayer()
+
+    /// Normalized (0...1) control cell rects within the camera container,
+    /// keyed by the control grid index. Used for legibility sampling
+    func didUpdateControlRegions(_ regions: [Int: CGRect])
 }

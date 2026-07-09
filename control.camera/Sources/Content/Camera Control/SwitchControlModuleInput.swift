@@ -14,12 +14,19 @@ protocol SwitchControlModuleInput: AnyObject {
     func setEnabled(_ isEnabled: Bool)
     func setArrangeModeActive(_ isActive: Bool)
     func setControl(index: Int)
+    /// Tells the control it currently sits on light preview content,
+    /// so its text should temporarily turn dark to stay legible
+    func setOnLightBackground(_ isOnLightBackground: Bool)
 }
 
 extension SwitchControlModuleInput {
-    
+
     func updateSwitch(for control: CameraControl) {
         setupSwitch(for: control)
     }
-    
+
+    func setOnLightBackground(_ isOnLightBackground: Bool) {
+
+    }
+
 }

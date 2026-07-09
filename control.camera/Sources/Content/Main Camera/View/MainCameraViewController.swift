@@ -29,6 +29,39 @@ class MainCameraViewController: BaseViewController {
         output.onViewDidLoad()
     }
     
+    /// Maps the visible control cells into normalized camera container
+    /// coordinates. Cells outside the preview are skipped: they sit
+    /// on the black screen background
+    func reportControlSamplingRegions() {
+        let containerBounds = cameraContainerView.bounds
+
+        guard containerBounds.width > 0, containerBounds.height > 0 else {
+            return
+        }
+
+        var regions = [Int: CGRect]()
+
+        for cell in collectionView.visibleCells {
+            guard let indexPath = collectionView.indexPath(for: cell) else {
+                continue
+            }
+
+            let cellFrame = cell.convert(cell.bounds, to: cameraContainerView)
+            let intersection = cellFrame.intersection(containerBounds)
+
+            guard !intersection.isEmpty else {
+                continue
+            }
+
+            regions[indexPath.item] = CGRect(x: intersection.minX / containerBounds.width,
+                                             y: intersection.minY / containerBounds.height,
+                                             width: intersection.width / containerBounds.width,
+                                             height: intersection.height / containerBounds.height)
+        }
+
+        output.didUpdateControlRegions(regions)
+    }
+
     func setupUI() {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -43,6 +76,11 @@ class MainCameraViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         output.onViewWillAppear()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        reportControlSamplingRegions()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,7 +108,11 @@ extension MainCameraViewController: UICollectionViewDelegate {
 
         pageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
     }
-    
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        reportControlSamplingRegions()
+    }
+
 }
 
 extension MainCameraViewController: UICollectionViewDelegateFlowLayout {

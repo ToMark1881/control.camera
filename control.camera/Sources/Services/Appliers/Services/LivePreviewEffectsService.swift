@@ -24,6 +24,7 @@ class LivePreviewEffectsServiceImplementation: NSObject, LivePreviewEffectsServi
     var filmGrainApplyingService: FilmGrainApplyingService!
     var frameApplyingService: FrameApplyingService!
     var croppingService: CroppingService!
+    var legibilityService: ControlLegibilityService!
 
     // MARK: - Private
 
@@ -89,47 +90,53 @@ extension LivePreviewEffectsServiceImplementation: AVCaptureVideoDataOutputSampl
         let currentState = state
         stateLock.unlock()
 
-        guard currentState.isActive,
-              let renderView = renderView,
-              let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return
         }
 
         var image = CIImage(cvPixelBuffer: pixelBuffer)
 
-        // The same services as in the saving pipeline, so the preview
-        // matches the stored photo: correction -> black and white -> grain
-        if !currentState.colorCorrection.isNeutral {
-            image = colorCorrectionApplyingService.applyCorrection(currentState.colorCorrection, to: image)
+        if currentState.isActive, let renderView = renderView {
+            // The same services as in the saving pipeline, so the preview
+            // matches the stored photo: correction -> black and white -> grain
+            if !currentState.colorCorrection.isNeutral {
+                image = colorCorrectionApplyingService.applyCorrection(currentState.colorCorrection, to: image)
+            }
+
+            if currentState.isBlackWhiteActive {
+                image = colorCorrectionApplyingService.applyMonochrome(to: image)
+            }
+
+            if currentState.noiseIntensity > 0 {
+                image = filmGrainApplyingService.applyGrain(to: image,
+                                                            intensity: currentState.noiseIntensity,
+                                                            grainSize: currentState.noiseGrainSize)
+            }
+
+            if currentState.frameRelativeWidth > 0 {
+                // Emulate the aspect crop of the saving pipeline first, so the
+                // border wraps the final composition, and fit the result over a
+                // border-colored background to keep it fully visible
+                let cropRect = croppingService.crop(size: image.extent.size,
+                                                    for: currentState.formAspectRatio)
+                image = image.cropped(to: cropRect)
+                image = frameApplyingService.applyFrame(to: image,
+                                                        relativeWidth: currentState.frameRelativeWidth,
+                                                        color: currentState.frameColor)
+
+                renderView.render(image, fittedOver: CIColor(cgColor: currentState.frameColor))
+            } else {
+                renderView.render(image)
+            }
+
+            revealRenderViewIfNeeded()
         }
 
-        if currentState.isBlackWhiteActive {
-            image = colorCorrectionApplyingService.applyMonochrome(to: image)
+        // Low-rate legibility sampling of what the user actually sees,
+        // so the controls text can adapt to light content under it
+        if legibilityService.isSampleDue {
+            legibilityService.process(containerImage: containerComposition(of: image, state: currentState))
         }
-
-        if currentState.noiseIntensity > 0 {
-            image = filmGrainApplyingService.applyGrain(to: image,
-                                                        intensity: currentState.noiseIntensity,
-                                                        grainSize: currentState.noiseGrainSize)
-        }
-
-        if currentState.frameRelativeWidth > 0 {
-            // Emulate the aspect crop of the saving pipeline first, so the
-            // border wraps the final composition, and fit the result over a
-            // border-colored background to keep it fully visible
-            let cropRect = croppingService.crop(size: image.extent.size,
-                                                for: currentState.formAspectRatio)
-            image = image.cropped(to: cropRect)
-            image = frameApplyingService.applyFrame(to: image,
-                                                    relativeWidth: currentState.frameRelativeWidth,
-                                                    color: currentState.frameColor)
-
-            renderView.render(image, fittedOver: CIColor(cgColor: currentState.frameColor))
-        } else {
-            renderView.render(image)
-        }
-
-        revealRenderViewIfNeeded()
     }
 
 }
@@ -149,6 +156,43 @@ extension LivePreviewEffectsServiceImplementation {
         DispatchQueue.main.async { [weak self] in
             self?.view?.cameraContainerView?.setFilteredPreview(visible: true)
         }
+    }
+
+    /// Builds the image the user sees in the camera container: aspect fill
+    /// for the plain preview, aspect fit over the border color when the
+    /// frame is active. Mirrors the FilteredPreviewView composition
+    private func containerComposition(of image: CIImage, state: EffectsState) -> CIImage {
+        let canvasWidth: CGFloat = 240.0
+        let canvas = CGRect(x: 0,
+                            y: 0,
+                            width: canvasWidth,
+                            height: (canvasWidth / state.formAspectRatio).rounded())
+
+        if state.frameRelativeWidth > 0 {
+            let background = CIImage(color: CIColor(cgColor: state.frameColor)).cropped(to: canvas)
+
+            return fitted(image, in: canvas, fill: false).composited(over: background)
+        }
+
+        return fitted(image, in: canvas, fill: true).cropped(to: canvas)
+    }
+
+    private func fitted(_ image: CIImage, in bounds: CGRect, fill: Bool) -> CIImage {
+        let extent = image.extent
+
+        guard extent.width > 0, extent.height > 0 else {
+            return image
+        }
+
+        let scaleX = bounds.width / extent.width
+        let scaleY = bounds.height / extent.height
+        let scale = fill ? max(scaleX, scaleY) : min(scaleX, scaleY)
+
+        let scaled = image.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        let dx = bounds.midX - scaled.extent.midX
+        let dy = bounds.midY - scaled.extent.midY
+
+        return scaled.transformed(by: CGAffineTransform(translationX: dx, y: dy))
     }
 
     private func currentState() -> EffectsState {

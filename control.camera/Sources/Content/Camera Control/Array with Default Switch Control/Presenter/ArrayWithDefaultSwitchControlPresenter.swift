@@ -75,6 +75,10 @@ extension ArrayWithDefaultSwitchControlPresenter: ArrayWithDefaultSwitchControlM
     func setEnabled(_ isEnabled: Bool) {
         view.setEnabled(isEnabled)
     }
+
+    func setOnLightBackground(_ isOnLightBackground: Bool) {
+        view.setOnLightBackground(isOnLightBackground)
+    }
     
     func updateTitle(_ title: String) {
         view.updateTitle(title)
