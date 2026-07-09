@@ -29,6 +29,9 @@ enum ControlType: String, CaseIterable, Codable {
     case green
     case blue
     case blackWhite
+    case savePreset
+    case selectPreset
+    case managePresets
     case empty
     
     var title: String {
@@ -75,6 +78,12 @@ enum ControlType: String, CaseIterable, Codable {
             "Blue"
         case .blackWhite:
             "B&W"
+        case .savePreset:
+            "Save Preset"
+        case .selectPreset:
+            "Preset"
+        case .managePresets:
+            "Manage Presets"
         case .empty:
             ""
         }

@@ -79,6 +79,20 @@ protocol MainCameraRouterInputProtocol: AnyObject {
     func setupBlackWhiteControl(for view: UIView,
                                 moduleInput: inout SimpleSwitchControlModuleInput?,
                                 moduleOutput: SwitchControlModuleOutput)
+
+    func setupSavePresetControl(for view: UIView,
+                                moduleInput: inout ActionSwitchControlModuleInput?,
+                                moduleOutput: SwitchControlModuleOutput)
+
+    func setupSelectPresetControl(for view: UIView,
+                                  moduleInput: inout ArraySwitchControlModuleInput?,
+                                  moduleOutput: SwitchControlModuleOutput)
+
+    func setupManagePresetsControl(for view: UIView,
+                                   moduleInput: inout ActionSwitchControlModuleInput?,
+                                   moduleOutput: SwitchControlModuleOutput)
+
+    func presentManagePresets(moduleOutput: ManagePresetsModuleOutput)
     
     func setupEmptyControl(for view: UIView,
                            moduleInput: inout SwitchControlModuleInput?,

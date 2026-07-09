@@ -45,6 +45,21 @@
       "control_type":"blackWhite"
    },
    {
+      "page":1,
+      "index":2,
+      "control_type":"selectPreset"
+   },
+   {
+      "page":1,
+      "index":5,
+      "control_type":"savePreset"
+   },
+   {
+      "page":1,
+      "index":8,
+      "control_type":"managePresets"
+   },
+   {
       "page":0,
       "index":6,
       "control_type":"device"

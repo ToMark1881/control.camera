@@ -91,6 +91,8 @@ class MainCameraWireframe: BaseWireframe {
         presenter.moduleBuilder = builder
         presenter.arrangeService = arrangeService
         presenter.soundService = soundService
+        presenter.presetsStorage = PresetsStorageImplementation.default
+        presenter.presetMapper = PresetMapperImplementation()
         presenter.captureEventService = captureEventService
 
         captureEventService.output = presenter

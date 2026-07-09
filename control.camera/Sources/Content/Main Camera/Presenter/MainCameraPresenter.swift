@@ -33,6 +33,9 @@ class MainCameraPresenter: BasePresenter {
     weak var greenModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var blueModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var blackWhiteModuleInput: SimpleSwitchControlModuleInput?
+    weak var savePresetModuleInput: ActionSwitchControlModuleInput?
+    weak var selectPresetModuleInput: ArraySwitchControlModuleInput?
+    weak var managePresetsModuleInput: ActionSwitchControlModuleInput?
     weak var arrangeModuleInput: ActionSwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
@@ -50,6 +53,12 @@ class MainCameraPresenter: BasePresenter {
     var arrangeService: ControlArrangeService!
     var soundService: ShutterSoundService!
     var captureEventService: CaptureEventListeningService!
+    var presetsStorage: PresetsStorage!
+    var presetMapper: PresetMapper!
+
+    /// setupSwitch fires didChangeSwitch synchronously, so programmatic
+    /// rebuilds of the select preset control must not re-apply presets
+    private var isRebuildingSelectPresetControl = false
     
     lazy var shutterButtonAction: (() -> Void) = {
         self.camera.capturePhoto()
@@ -76,7 +85,10 @@ class MainCameraPresenter: BasePresenter {
             redModuleInput,
             greenModuleInput,
             blueModuleInput,
-            blackWhiteModuleInput
+            blackWhiteModuleInput,
+            savePresetModuleInput,
+            selectPresetModuleInput,
+            managePresetsModuleInput
         ]
     }
     
@@ -216,6 +228,10 @@ extension MainCameraPresenter: SwitchControlModuleOutput {
         if let frameControl = control as? FrameCameraControl {
             borderColorModuleInput?.setEnabled(frameControl.isActive)
         }
+
+        if let selectPresetControl = control as? SelectPresetCameraControl {
+            handlePresetSelection(named: selectPresetControl.selectedPresetName)
+        }
     }
     
     func onArrangeButtonTap(on index: Int) {
@@ -256,8 +272,23 @@ private extension MainCameraPresenter {
         setupNoiseControl()
         setupColorCorrectionControls()
         setupBlackWhiteControl()
+        setupSavePresetControl()
+        setupSelectPresetControl()
+        setupManagePresetsControl()
         setupLibraryControl()
         setupArrangeControl()
+
+        // The selection is persisted, but the effect controls start with the
+        // base values, so the last selected preset is re-applied explicitly
+        applySelectedPresetIfNeeded()
+    }
+
+    func applySelectedPresetIfNeeded() {
+        guard let preset = presetsStorage.selectedPreset else {
+            return
+        }
+
+        apply(values: preset.values)
     }
     
     // MARK: - Light control
@@ -503,7 +534,112 @@ private extension MainCameraPresenter {
         let controlValue = BlackWhiteCameraControl()
 
         blackWhiteModuleInput?.setupSwitch(for: controlValue)
-        settingsStorage.store(controlValue)
+         settingsStorage.store(controlValue)
+    }
+
+    // MARK: - Preset controls
+    
+    func setupSavePresetControl() {
+        let action: (() -> Void) = { [weak self] in
+            self?.saveCurrentPreset()
+        }
+
+        let controlValue = SavePresetCameraControl(action: action)
+        savePresetModuleInput?.setupSwitch(for: controlValue)
+    }
+
+    func setupSelectPresetControl() {
+        let names = presetsStorage.presets.map({ $0.name })
+        let controlValue = SelectPresetCameraControl(presetNames: names,
+                                                     selected: presetsStorage.selectedPreset?.name)
+
+        isRebuildingSelectPresetControl = true
+        selectPresetModuleInput?.setupSwitch(for: controlValue)
+        isRebuildingSelectPresetControl = false
+    }
+
+    func setupManagePresetsControl() {
+        let action: (() -> Void) = { [weak self] in
+            self?.openManagePresets()
+        }
+
+        let controlValue = ManagePresetsCameraControl(action: action)
+        managePresetsModuleInput?.setupSwitch(for: controlValue)
+    }
+
+    func openManagePresets() {
+        router.presentManagePresets(moduleOutput: self)
+    }
+
+    func saveCurrentPreset() {
+        let values = presetMapper.snapshot(from: settingsStorage)
+
+        if let selectedId = presetsStorage.selectedPresetId {
+            presetsStorage.updatePreset(id: selectedId, values: values)
+        } else {
+            let preset = presetsStorage.createPreset(values: values)
+            presetsStorage.selectedPresetId = preset.id
+        }
+
+        setupSelectPresetControl()
+    }
+
+    func handlePresetSelection(named name: String?) {
+        guard !isRebuildingSelectPresetControl else {
+            return
+        }
+
+        guard let name = name else {
+            // The virtual "Off" preset: drops the selection
+            // and resets every effect to the base values
+            presetsStorage.selectedPresetId = nil
+            apply(values: [:])
+            return
+        }
+
+        guard let preset = presetsStorage.preset(named: name),
+              preset.id != presetsStorage.selectedPresetId else {
+            return
+        }
+
+        presetsStorage.selectedPresetId = preset.id
+        apply(values: preset.values)
+    }
+
+    /// Restores every preset-able control: values from the preset,
+    /// everything else back to the base settings
+    func apply(values: [String: PresetValue]) {
+        for type in presetMapper.presetableControlTypes {
+            guard let control = presetMapper.makeControl(for: type, from: values[type.rawValue]) else {
+                continue
+            }
+
+            settingsStorage.store(control)
+            updateModuleInput(for: type, with: control)
+        }
+    }
+
+    func updateModuleInput(for type: ControlType, with control: CameraControl) {
+        switch type {
+        case .frame:
+            frameModuleInput?.updateSwitch(for: control)
+        case .borderColor:
+            borderColorModuleInput?.updateSwitch(for: control)
+        case .noise:
+            noiseModuleInput?.updateSwitch(for: control)
+        case .contrast:
+            contrastModuleInput?.updateSwitch(for: control)
+        case .red:
+            redModuleInput?.updateSwitch(for: control)
+        case .green:
+            greenModuleInput?.updateSwitch(for: control)
+        case .blue:
+            blueModuleInput?.updateSwitch(for: control)
+        case .blackWhite:
+            blackWhiteModuleInput?.updateSwitch(for: control)
+        default:
+            break
+        }
     }
 
     // MARK: - Arrange control
@@ -541,6 +677,14 @@ private extension MainCameraPresenter {
     
 }
 
+extension MainCameraPresenter: ManagePresetsModuleOutput {
+
+    func didUpdatePresets() {
+        setupSelectPresetControl()
+    }
+
+}
+
 extension MainCameraPresenter: ControlsListModuleOutput {
     
     func didUpdate(control: ControlType) {
@@ -565,6 +709,9 @@ extension MainCameraPresenter: ControlsListModuleOutput {
         greenModuleInput?.setupSwitch(for: settingsStorage.greenControl)
         blueModuleInput?.setupSwitch(for: settingsStorage.blueControl)
         blackWhiteModuleInput?.setupSwitch(for: settingsStorage.blackWhiteControl)
+        setupSavePresetControl()
+        setupSelectPresetControl()
+        setupManagePresetsControl()
         setupLibraryControl()
         setupArrangeControl()
         setupUIControl()

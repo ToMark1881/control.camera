@@ -67,6 +67,12 @@ class MainCameraModulesBuilderImplementation: MainCameraModulesBuilder {
                 viewModel = buildColorCorrectionViewModel(for: index, moduleInput: &parent.blueModuleInput)
             case .blackWhite:
                 viewModel = buildBlackWhiteViewModel(for: index)
+            case .savePreset:
+                viewModel = buildSavePresetViewModel(for: index)
+            case .selectPreset:
+                viewModel = buildSelectPresetViewModel(for: index)
+            case .managePresets:
+                viewModel = buildManagePresetsViewModel(for: index)
             case .empty:
                 viewModel = buildEmptyViewModel(for: index)
             }
@@ -241,6 +247,36 @@ private extension MainCameraModulesBuilderImplementation {
                                       moduleInput: &parent.blackWhiteModuleInput,
                                       moduleOutput: parent)
         parent.blackWhiteModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildSavePresetViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupSavePresetControl(for: embeddingView,
+                                      moduleInput: &parent.savePresetModuleInput,
+                                      moduleOutput: parent)
+        parent.savePresetModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildSelectPresetViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupSelectPresetControl(for: embeddingView,
+                                        moduleInput: &parent.selectPresetModuleInput,
+                                        moduleOutput: parent)
+        parent.selectPresetModuleInput?.setControl(index: index)
+
+        return ControlContainerCellViewModel(embeddedView: embeddingView)
+    }
+
+    func buildManagePresetsViewModel(for index: Int) -> CollectionCellViewModel {
+        let embeddingView = UIView(frame: CGRect(x: 0, y: 0, width: 120, height: 120))
+        router.setupManagePresetsControl(for: embeddingView,
+                                         moduleInput: &parent.managePresetsModuleInput,
+                                         moduleOutput: parent)
+        parent.managePresetsModuleInput?.setControl(index: index)
 
         return ControlContainerCellViewModel(embeddedView: embeddingView)
     }

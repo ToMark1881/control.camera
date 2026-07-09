@@ -22,6 +22,7 @@ class MainCameraRouter: BaseRouter {
     private lazy var rangeWithDefaultWireframe = { RangeWithDefaultSwitchControlWireframe() }()
     private lazy var arrayWithDefaultWireframe = { ArrayWithDefaultSwitchControlWireframe() }()
     private lazy var controlsListWireframe = { ControlsListWireframe() }()
+    private lazy var managePresetsWireframe = { ManagePresetsWireframe() }()
     
 }
 
@@ -123,6 +124,28 @@ extension MainCameraRouter: MainCameraRouterInputProtocol {
                                 moduleInput: inout SimpleSwitchControlModuleInput?,
                                 moduleOutput: SwitchControlModuleOutput) {
         simpleSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+    }
+
+    func setupSavePresetControl(for view: UIView,
+                                moduleInput: inout ActionSwitchControlModuleInput?,
+                                moduleOutput: SwitchControlModuleOutput) {
+        actionSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+    }
+
+    func setupSelectPresetControl(for view: UIView,
+                                  moduleInput: inout ArraySwitchControlModuleInput?,
+                                  moduleOutput: SwitchControlModuleOutput) {
+        arraySwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+    }
+
+    func setupManagePresetsControl(for view: UIView,
+                                   moduleInput: inout ActionSwitchControlModuleInput?,
+                                   moduleOutput: SwitchControlModuleOutput) {
+        actionSwitchWireframe.embeddedIn(self.view, view: view, moduleInput: &moduleInput, moduleOutput: moduleOutput)
+    }
+
+    func presentManagePresets(moduleOutput: ManagePresetsModuleOutput) {
+        managePresetsWireframe.presentIn(view, moduleOutput: moduleOutput)
     }
 
     func setupLibraryControl(for view: UIView,

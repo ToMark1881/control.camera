@@ -38,6 +38,9 @@ class OnboardingPresenter: BasePresenter {
     weak var greenModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var blueModuleInput: RangeWithDefaultSwitchControlModuleInput?
     weak var blackWhiteModuleInput: SimpleSwitchControlModuleInput?
+    weak var managePresetsModuleInput: ActionSwitchControlModuleInput?
+    weak var savePresetModuleInput: ActionSwitchControlModuleInput?
+    weak var selectPresetModuleInput: ArraySwitchControlModuleInput?
     
     var emptyModuleInputMulticast: MulticastDelegate<SwitchControlModuleInput?> = MulticastDelegate<SwitchControlModuleInput?>()
     
