@@ -17,6 +17,11 @@ class SelectPresetCameraControl: CameraControl {
         return 100.0
     }
 
+    // Lives in the dock row, so it can not be rearranged
+    var couldBeArranged: Bool {
+        return false
+    }
+
     /// nil when the virtual "Off" preset is selected
     var selectedPresetName: String? {
         guard let selected = controlValue.selected,

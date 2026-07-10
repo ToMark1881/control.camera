@@ -103,6 +103,7 @@ class MainCameraWireframe: BaseWireframe {
         
         view.output = presenter
         view.dataSource = dataSource
+        view.dockDataSource = CollectionViewDataSource()
         
         router.output = presenter
         

@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {    
+protocol MainCameraViewInputProtocol: BaseViewControllerProtocol {
     func setup(with sections: [CollectionSectionModel])
-    
+    func setupDock(with sections: [CollectionSectionModel])
+
     func setCaptureAnimation(active: Bool)
 }

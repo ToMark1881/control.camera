@@ -62,7 +62,11 @@ extension ControlsListPresenter: ControlsListRouterOutput {
 private extension ControlsListPresenter {
     
     func reloadUI() {
-        let controls = ControlType.allCases.sorted(by: { $0.title < $1.title })
+        // Dock controls are pinned to their own row
+        // and can not be placed into the grid
+        let controls = ControlType.allCases
+            .filter({ !$0.isDockControl })
+            .sorted(by: { $0.title < $1.title })
         
         let sections = builder.buildSections(for: controls,
                                              selectedControl: selectedControl,

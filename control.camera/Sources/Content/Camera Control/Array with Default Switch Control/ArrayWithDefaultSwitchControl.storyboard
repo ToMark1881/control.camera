@@ -24,7 +24,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Background (no lines)" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-Qa-OWC">
                                 <rect key="frame" x="12" y="2" width="96" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="pKB-Qa-OWC" secondAttribute="height" multiplier="1:1" id="Icd-uE-hqU"/>
+                                    <constraint firstAttribute="width" secondItem="pKB-Qa-OWC" secondAttribute="height" multiplier="1:1" priority="999" id="Icd-uE-hqU"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Control Interactive Lines" translatesAutoresizingMaskIntoConstraints="NO" id="KF7-9H-bB0">

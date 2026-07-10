@@ -14,12 +14,15 @@ class MainCameraViewController: BaseViewController {
     
     var output: MainCameraViewOutputProtocol!
     var dataSource: CollectionViewDataSource!
+    var dockDataSource: CollectionViewDataSource!
 
     let pageControl = UIPageControl()
     let cameraContainerContainer = UIView()
     var cameraContainerView = CameraContainerView()
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: AlignedCollectionViewFlowLayout())
+    let dockCollectionView = UICollectionView(frame: .zero,
+                                              collectionViewLayout: AlignedCollectionViewFlowLayout())
     
     var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
     
@@ -56,6 +59,8 @@ class MainCameraViewController: BaseViewController {
 extension MainCameraViewController: UICollectionViewDelegate { 
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView === collectionView else { return }
+
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width
         let horizontalCenter = width / 2
@@ -71,8 +76,13 @@ extension MainCameraViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sizeByWidth = collectionView.frame.size.width / 3.0
-        let sizeByHeight = collectionView.frame.size.height / 6.0
         
+        if collectionView === dockCollectionView {
+            return .init(width: sizeByWidth, height: collectionView.frame.size.height)
+        }
+
+        let sizeByHeight = collectionView.frame.size.height / 5.0
+
         return .init(width: sizeByWidth, height: sizeByHeight)
     }
     
@@ -82,8 +92,14 @@ extension MainCameraViewController: MainCameraViewInputProtocol {
 
     func setup(with sections: [CollectionSectionModel]) {
         dataSource.update(with: sections)
-        
+
         collectionView.reloadData()
+    }
+
+    func setupDock(with sections: [CollectionSectionModel]) {
+        dockDataSource.update(with: sections)
+
+        dockCollectionView.reloadData()
     }
     
     func setCaptureAnimation(active: Bool) {
@@ -132,13 +148,21 @@ private extension MainCameraViewController {
         cameraContainerView.ezl.bottomToSuperview(relation: .lessThanOrEqual)
         cameraContainerAspectRatioConstraint = cameraContainerView.ezl.aspectRatio(1.0)
 
-        view.addSubview(pageControl)
-        pageControl.ezl.bottomToSuperview(usingSafeArea: true)
-        pageControl.ezl.centerXToSuperview()
-
         view.addSubview(collectionView)
         collectionView.ezl.edgesToSuperview(excluding: .bottom, usingSafeArea: true)
-        collectionView.ezl.bottomToTop(of: pageControl, offset: -6)
+
+        // The page indicator sits between the grid and the dock
+        view.addSubview(pageControl)
+        pageControl.ezl.topToBottom(of: collectionView)
+        pageControl.ezl.centerXToSuperview()
+
+        view.addSubview(dockCollectionView)
+        dockCollectionView.ezl.topToBottom(of: pageControl, offset: 6)
+        dockCollectionView.ezl.leadingToSuperview(usingSafeArea: true)
+        dockCollectionView.ezl.trailingToSuperview(usingSafeArea: true)
+        dockCollectionView.ezl.bottomToSuperview(usingSafeArea: true)
+        // The dock is one row of the same height as the five grid rows
+        dockCollectionView.ezl.height(to: collectionView, multiplier: 0.2)
     }
 
     func setupUI() {
@@ -154,6 +178,7 @@ private extension MainCameraViewController {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.clipsToBounds = false
 
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -163,9 +188,22 @@ private extension MainCameraViewController {
         alignedFlowLayout?.scrollDirection = .horizontal
         alignedFlowLayout?.minimumLineSpacing = 0.0
         alignedFlowLayout?.minimumInteritemSpacing = 0.0
-        
+
+        dockCollectionView.backgroundColor = .clear
+        dockCollectionView.isScrollEnabled = false
+        dockCollectionView.dataSource = dockDataSource
+        dockCollectionView.delegate = self
+
+        let dockFlowLayout = dockCollectionView.collectionViewLayout as? AlignedCollectionViewFlowLayout
+        dockFlowLayout?.horizontalAlignment = .justified
+        dockFlowLayout?.scrollDirection = .horizontal
+        dockFlowLayout?.minimumLineSpacing = 0.0
+        dockFlowLayout?.minimumInteritemSpacing = 0.0
+
         ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
         ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
+        ControlContainerCollectionViewCell.registerFor(collectionView: dockCollectionView)
+        ShutterButtonCollectionViewCell.registerFor(collectionView: dockCollectionView)
     }
     
 }

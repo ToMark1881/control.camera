@@ -256,6 +256,10 @@ private extension MainCameraPresenter {
     func setupControls() {
         let sections = moduleBuilder.buildSections(for: arrangeService.controlArrangement)
         view.setup(with: sections)
+
+        // The dock row is fixed: it is not part of the arrangement
+        let dockSections = moduleBuilder.buildSections(for: ControlType.dockControls)
+        view.setupDock(with: dockSections)
         
         setupLightControl()
         setupFormControl()

@@ -56,7 +56,8 @@ final class CameraSettingsStorageImplementation: CameraSettingsStorage {
     var blackWhiteControl: BlackWhiteCameraControl!
 
     var maxControlCount: Int {
-        return 3 * 6 * 3
+        // The sixth row is occupied by the fixed dock
+        return 3 * 5 * 3
     }
     
     func store(_ control: CameraControl) {

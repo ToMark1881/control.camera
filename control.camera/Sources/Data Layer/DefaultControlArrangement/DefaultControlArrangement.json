@@ -1,122 +1,107 @@
 [
    {
-      "page":0,
-      "index":0,
-      "control_type":"form"
+      "page": 0,
+      "index": 0,
+      "control_type": "form"
    },
    {
-      "page":0,
-      "index":4,
-      "control_type":"frame"
+      "page": 0,
+      "index": 4,
+      "control_type": "frame"
    },
    {
-      "page":0,
-      "index":10,
-      "control_type":"borderColor"
+      "page": 0,
+      "index": 10,
+      "control_type": "borderColor"
    },
    {
-      "page":0,
-      "index":15,
-      "control_type":"noise"
+      "page": 0,
+      "index": 11,
+      "control_type": "noise"
    },
    {
-      "page":1,
-      "index":0,
-      "control_type":"contrast"
+      "page": 1,
+      "index": 0,
+      "control_type": "contrast"
    },
    {
-      "page":1,
-      "index":3,
-      "control_type":"red"
+      "page": 1,
+      "index": 3,
+      "control_type": "red"
    },
    {
-      "page":1,
-      "index":6,
-      "control_type":"green"
+      "page": 1,
+      "index": 6,
+      "control_type": "green"
    },
    {
-      "page":1,
-      "index":9,
-      "control_type":"blue"
+      "page": 1,
+      "index": 9,
+      "control_type": "blue"
    },
    {
-      "page":1,
-      "index":12,
-      "control_type":"blackWhite"
+      "page": 1,
+      "index": 12,
+      "control_type": "blackWhite"
    },
    {
-      "page":1,
-      "index":2,
-      "control_type":"selectPreset"
+      "page": 1,
+      "index": 5,
+      "control_type": "savePreset"
    },
    {
-      "page":1,
-      "index":5,
-      "control_type":"savePreset"
+      "page": 1,
+      "index": 8,
+      "control_type": "managePresets"
    },
    {
-      "page":1,
-      "index":8,
-      "control_type":"managePresets"
+      "page": 0,
+      "index": 6,
+      "control_type": "device"
    },
    {
-      "page":0,
-      "index":6,
-      "control_type":"device"
+      "page": 0,
+      "index": 12,
+      "control_type": "zoom"
    },
    {
-      "page":0,
-      "index":12,
-      "control_type":"zoom"
+      "page": 0,
+      "index": 1,
+      "control_type": "exposure"
    },
    {
-      "page":0,
-      "index":1,
-      "control_type":"exposure"
+      "page": 0,
+      "index": 7,
+      "control_type": "iso"
    },
    {
-      "page":0,
-      "index":7,
-      "control_type":"iso"
+      "page": 0,
+      "index": 13,
+      "control_type": "whiteBalance"
    },
    {
-      "page":0,
-      "index":13,
-      "control_type":"whiteBalance"
+      "page": 0,
+      "index": 2,
+      "control_type": "ui"
    },
    {
-      "page":0,
-      "index":2,
-      "control_type":"ui"
+      "page": 0,
+      "index": 3,
+      "control_type": "format"
    },
    {
-      "page":0,
-      "index":3,
-      "control_type":"format"
+      "page": 0,
+      "index": 8,
+      "control_type": "library"
    },
    {
-      "page":0,
-      "index":8,
-      "control_type":"library"
+      "page": 0,
+      "index": 14,
+      "control_type": "focus"
    },
    {
-      "page":0,
-      "index":14,
-      "control_type":"focus"
-   },
-   {
-      "page":0,
-      "index":9,
-      "control_type":"flash"
-   },
-   {
-      "page":0,
-      "index":11,
-      "control_type":"shutter"
-   },
-   {
-      "page":0,
-      "index":5,
-      "control_type":"arrange"
+      "page": 0,
+      "index": 9,
+      "control_type": "flash"
    }
 ]

@@ -89,6 +89,15 @@ enum ControlType: String, CaseIterable, Codable {
         }
     }
     
+    /// Controls pinned to the dock row below the grid, always in this
+    /// order. They can not be removed, rearranged or hidden, and they
+    /// never appear in the controls list or in stored arrangements
+    static let dockControls: [ControlType] = [.arrange, .shutter, .selectPreset]
+
+    var isDockControl: Bool {
+        return ControlType.dockControls.contains(self)
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         
