@@ -52,14 +52,14 @@ private extension PresetTableViewCell {
 
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.textColor = .white
-        nameTextField.font = .systemFont(ofSize: 17.0, weight: .medium)
+        nameTextField.font = .touchSans(weight: .semiBold, size: 17)
         nameTextField.returnKeyType = .done
         nameTextField.delegate = self
         contentView.addSubview(nameTextField)
 
         parametersLabel.translatesAutoresizingMaskIntoConstraints = false
         parametersLabel.textColor = .lightGray
-        parametersLabel.font = .systemFont(ofSize: 13.0)
+        parametersLabel.font = .touchSans(weight: .regular, size: 13)
         parametersLabel.numberOfLines = 0
         contentView.addSubview(parametersLabel)
 

@@ -43,11 +43,17 @@ extension ManagePresetsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completion in
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { [weak self] _, _, completion in
             self?.output.didDeletePreset(at: indexPath.row)
             completion(true)
         }
-
+        
+        let label = UILabel()
+        label.text = "Delete"
+        label.font = .touchSans(weight: .semiBold, size: 13)
+        label.sizeToFit()
+        deleteAction.image = UIImage(view: label)
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 
@@ -61,7 +67,7 @@ private extension ManagePresetsViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = ControlType.managePresets.title
         titleLabel.textColor = .white
-        titleLabel.font = .systemFont(ofSize: 20.0, weight: .semibold)
+        titleLabel.font = .touchSans(weight: .bold, size: 28)
         view.addSubview(titleLabel)
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
