@@ -47,13 +47,32 @@ extension ControlsListViewController: ControlsListViewInput {
 }
 
 extension ControlsListViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = dataSource.objectAtIndexPath(indexPath)
-        
+
         output.didSelect(model: model)
     }
-    
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerViewModel = dataSource.sections[safe: section]?.header as? ControlGroupHeaderViewModel,
+              let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ControlGroupHeaderView.reuseIdentifier()) as? ControlGroupHeaderView else {
+            return nil
+        }
+
+        headerViewModel.setup(on: headerView)
+
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard dataSource.sections[safe: section]?.header != nil else {
+            return 0.0
+        }
+
+        return ControlGroupHeaderView.preferredHeight
+    }
+
 }
 
 private extension ControlsListViewController {
@@ -63,6 +82,8 @@ private extension ControlsListViewController {
         tableView.delegate = self
         
         ControlTableViewCell.registerFor(tableView: tableView)
+        tableView.register(ControlGroupHeaderView.self,
+                           forHeaderFooterViewReuseIdentifier: ControlGroupHeaderView.reuseIdentifier())
     }
     
 }
