@@ -41,7 +41,7 @@ class MainCameraWireframe: BaseWireframe {
     }
     
     func createModule(moduleOutput: MainCameraModuleOutput?) -> MainCameraViewController? {
-        guard let view: MainCameraViewController = initializeController() else { return nil }
+        let view: MainCameraViewController = .init()
         let presenter = MainCameraPresenter()
         let router = MainCameraRouter()
         let camera = CameraConfigurationImplementation()

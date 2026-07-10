@@ -40,6 +40,18 @@
 		7D57C48327F8A0E8007F3CC5 /* TapticEngineGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C48127F8A0E8007F3CC5 /* TapticEngineGenerator.swift */; };
 		7D57C48427F8A0E8007F3CC5 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C48227F8A0E8007F3CC5 /* BounceButton.swift */; };
 		7D57C48727F8A123007F3CC5 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C48627F8A123007F3CC5 /* AlertController.swift */; };
+		7D7AAC4130018DC100AA6E06 /* UIView+Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3F30018DC100AA6E06 /* UIView+Constrainable.swift */; };
+		7D7AAC4230018DC100AA6E06 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3E30018DC100AA6E06 /* UIEdgeInsets+Extensions.swift */; };
+		7D7AAC4330018DC100AA6E06 /* Constrainable+Superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3C30018DC100AA6E06 /* Constrainable+Superview.swift */; };
+		7D7AAC4430018DC100AA6E06 /* Constrainable+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3A30018DC100AA6E06 /* Constrainable+Constraints.swift */; };
+		7D7AAC4530018DC100AA6E06 /* Constraints+Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3D30018DC100AA6E06 /* Constraints+Activation.swift */; };
+		7D7AAC4630018DC100AA6E06 /* Constrainable+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3B30018DC100AA6E06 /* Constrainable+Stack.swift */; };
+		7D7AAC4730018DC100AA6E06 /* UIView+Constrainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3F30018DC100AA6E06 /* UIView+Constrainable.swift */; };
+		7D7AAC4830018DC100AA6E06 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3E30018DC100AA6E06 /* UIEdgeInsets+Extensions.swift */; };
+		7D7AAC4930018DC100AA6E06 /* Constrainable+Superview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3C30018DC100AA6E06 /* Constrainable+Superview.swift */; };
+		7D7AAC4A30018DC100AA6E06 /* Constrainable+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3A30018DC100AA6E06 /* Constrainable+Constraints.swift */; };
+		7D7AAC4B30018DC100AA6E06 /* Constraints+Activation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3D30018DC100AA6E06 /* Constraints+Activation.swift */; };
+		7D7AAC4C30018DC100AA6E06 /* Constrainable+Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7AAC3B30018DC100AA6E06 /* Constrainable+Stack.swift */; };
 		7D92BE8627F8A4D00025398D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92BE8527F8A4D00025398D /* Constants.swift */; };
 		7D92BE8A27F8A6240025398D /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C44F27F89DFB007F3CC5 /* Sequence+Extensions.swift */; };
 		7D92BE8B27F8A6240025398D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D57C48627F8A123007F3CC5 /* AlertController.swift */; };
@@ -453,8 +465,6 @@
 		FAED4ECA2BCC651A000D8EDB /* cc-shot-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */; };
 		FAED4ECB2BCC651A000D8EDB /* cc-shot-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */; };
 		FAEDD1EDA470A34C55A70024 /* ManagePresetsModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACF0FD2AE8D0B1E074D21CC /* ManagePresetsModuleOutput.swift */; };
-		FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
-		FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */; };
 		FAEEEF262902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
 		FAEEEF272902A33B0019EE29 /* MainCameraViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */; };
 		FAEEEF282902A33B0019EE29 /* MainCameraModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */; };
@@ -572,6 +582,12 @@
 		7D57C48127F8A0E8007F3CC5 /* TapticEngineGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngineGenerator.swift; sourceTree = "<group>"; };
 		7D57C48227F8A0E8007F3CC5 /* BounceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
 		7D57C48627F8A123007F3CC5 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		7D7AAC3A30018DC100AA6E06 /* Constrainable+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Constraints.swift"; sourceTree = "<group>"; };
+		7D7AAC3B30018DC100AA6E06 /* Constrainable+Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Stack.swift"; sourceTree = "<group>"; };
+		7D7AAC3C30018DC100AA6E06 /* Constrainable+Superview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constrainable+Superview.swift"; sourceTree = "<group>"; };
+		7D7AAC3D30018DC100AA6E06 /* Constraints+Activation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Activation.swift"; sourceTree = "<group>"; };
+		7D7AAC3E30018DC100AA6E06 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
+		7D7AAC3F30018DC100AA6E06 /* UIView+Constrainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrainable.swift"; sourceTree = "<group>"; };
 		7D92BE8527F8A4D00025398D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D92BEC627F8A6240025398D /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D92BEC827F8AAB50025398D /* StagingInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StagingInfo.plist; sourceTree = "<group>"; };
@@ -762,7 +778,6 @@
 		FAED0F95FF02F852D1B20343 /* BlackWhiteCameraControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackWhiteCameraControl.swift; sourceTree = "<group>"; };
 		FAED4EC62BCC651A000D8EDB /* cc-shot-01.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cc-shot-01.wav"; sourceTree = "<group>"; };
 		FAED4EC72BCC651A000D8EDB /* cc-shot-02.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "cc-shot-02.wav"; sourceTree = "<group>"; };
-		FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainCamera.storyboard; sourceTree = "<group>"; };
 		FAEEEF1C2902A33B0019EE29 /* MainCameraViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraViewInput.swift; sourceTree = "<group>"; };
 		FAEEEF1D2902A33B0019EE29 /* MainCameraModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraModuleOutput.swift; sourceTree = "<group>"; };
 		FAEEEF1E2902A33B0019EE29 /* MainCameraRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCameraRouterOutput.swift; sourceTree = "<group>"; };
@@ -898,6 +913,7 @@
 			isa = PBXGroup;
 			children = (
 				7D92BE8527F8A4D00025398D /* Constants.swift */,
+				7D7AAC4030018DC100AA6E06 /* Layout */,
 				FAD89AA92BA6D9D400F19558 /* Data Source */,
 				7D57C43127F89C68007F3CC5 /* Base Classes */,
 				7D57C44B27F89DD2007F3CC5 /* Entity */,
@@ -1082,6 +1098,19 @@
 				7D57C48627F8A123007F3CC5 /* AlertController.swift */,
 			);
 			path = "Alert Controller";
+			sourceTree = "<group>";
+		};
+		7D7AAC4030018DC100AA6E06 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				7D7AAC3A30018DC100AA6E06 /* Constrainable+Constraints.swift */,
+				7D7AAC3B30018DC100AA6E06 /* Constrainable+Stack.swift */,
+				7D7AAC3C30018DC100AA6E06 /* Constrainable+Superview.swift */,
+				7D7AAC3D30018DC100AA6E06 /* Constraints+Activation.swift */,
+				7D7AAC3E30018DC100AA6E06 /* UIEdgeInsets+Extensions.swift */,
+				7D7AAC3F30018DC100AA6E06 /* UIView+Constrainable.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		7D8FB9CD30001B93007AACBB /* Presenter */ = {
@@ -1773,7 +1802,6 @@
 		FAEEEF182902A31B0019EE29 /* Main Camera */ = {
 			isa = PBXGroup;
 			children = (
-				FAEEEF192902A32F0019EE29 /* MainCamera.storyboard */,
 				FA48CC3B2B7ABCD300E19814 /* Entities */,
 				FAEEEF3A2902A3440019EE29 /* View */,
 				FAEEEF3B2902A34B0019EE29 /* Presenter */,
@@ -2038,7 +2066,6 @@
 				FA37A6FA2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
 				FA37A6F42902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D57C41E27F89B96007F3CC5 /* Root.storyboard in Resources */,
-				FAEEEF1A2902A32F0019EE29 /* MainCamera.storyboard in Resources */,
 				FA37A6FE2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
 				FA37A6F22902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				FABD87C52B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard in Resources */,
@@ -2088,7 +2115,6 @@
 				FA37A6FB2902622500B9F575 /* TouchSansOne-Bold.ttf in Resources */,
 				FA37A6F52902622500B9F575 /* TouchSansOne-Thin.ttf in Resources */,
 				7D92BEBE27F8A6240025398D /* Root.storyboard in Resources */,
-				FAEEEF1B2902A32F0019EE29 /* MainCamera.storyboard in Resources */,
 				FA37A6FF2902622500B9F575 /* TouchSansOne-ExtraLight.ttf in Resources */,
 				FA37A6F32902622500B9F575 /* TouchSansOne-Light.ttf in Resources */,
 				FABD87C62B9118AB00CBFA49 /* RangeWithDefaultSwitchControl.storyboard in Resources */,
@@ -2250,6 +2276,12 @@
 				FAADA0572BB76C0500D71D15 /* ControlsListViewModelBuilder.swift in Sources */,
 				FAA2601A2BB7390100E2F06E /* ControlsListWireframe.swift in Sources */,
 				FA26441B2902D3DF00655F22 /* SimpleSwitchControlRouterOutput.swift in Sources */,
+				7D7AAC4730018DC100AA6E06 /* UIView+Constrainable.swift in Sources */,
+				7D7AAC4830018DC100AA6E06 /* UIEdgeInsets+Extensions.swift in Sources */,
+				7D7AAC4930018DC100AA6E06 /* Constrainable+Superview.swift in Sources */,
+				7D7AAC4A30018DC100AA6E06 /* Constrainable+Constraints.swift in Sources */,
+				7D7AAC4B30018DC100AA6E06 /* Constraints+Activation.swift in Sources */,
+				7D7AAC4C30018DC100AA6E06 /* Constrainable+Stack.swift in Sources */,
 				FAD89AC22BA6DA5100F19558 /* TableCellViewModel.swift in Sources */,
 				FAD89ABA2BA6DA5100F19558 /* TableSectionModel.swift in Sources */,
 				FABD87C12B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,
@@ -2496,6 +2528,12 @@
 				FAADA0582BB76C0500D71D15 /* ControlsListViewModelBuilder.swift in Sources */,
 				FAA2601B2BB7390100E2F06E /* ControlsListWireframe.swift in Sources */,
 				FA26441C2902D3DF00655F22 /* SimpleSwitchControlRouterOutput.swift in Sources */,
+				7D7AAC4130018DC100AA6E06 /* UIView+Constrainable.swift in Sources */,
+				7D7AAC4230018DC100AA6E06 /* UIEdgeInsets+Extensions.swift in Sources */,
+				7D7AAC4330018DC100AA6E06 /* Constrainable+Superview.swift in Sources */,
+				7D7AAC4430018DC100AA6E06 /* Constrainable+Constraints.swift in Sources */,
+				7D7AAC4530018DC100AA6E06 /* Constraints+Activation.swift in Sources */,
+				7D7AAC4630018DC100AA6E06 /* Constrainable+Stack.swift in Sources */,
 				FAD89AC32BA6DA5100F19558 /* TableCellViewModel.swift in Sources */,
 				FAD89ABB2BA6DA5100F19558 /* TableSectionModel.swift in Sources */,
 				FABD87C22B9118AB00CBFA49 /* RangeWithDefaultSwitchControlViewOutputProtocol.swift in Sources */,

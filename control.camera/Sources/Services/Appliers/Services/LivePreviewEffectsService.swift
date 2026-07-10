@@ -61,7 +61,7 @@ class LivePreviewEffectsServiceImplementation: NSObject, LivePreviewEffectsServi
     func refresh() {
         let newState = currentState()
 
-        renderView = view?.cameraContainerView?.filteredPreviewView
+        renderView = view?.cameraContainerView.filteredPreviewView
 
         let shouldReveal = newState.isActive && (renderView?.isHidden ?? true)
 
@@ -73,7 +73,7 @@ class LivePreviewEffectsServiceImplementation: NSObject, LivePreviewEffectsServi
         camera?.setLivePreviewEffects(active: newState.isActive)
 
         if !newState.isActive {
-            view?.cameraContainerView?.setFilteredPreview(visible: false)
+            view?.cameraContainerView.setFilteredPreview(visible: false)
         }
     }
 
@@ -147,7 +147,7 @@ extension LivePreviewEffectsServiceImplementation {
         guard shouldReveal else { return }
 
         DispatchQueue.main.async { [weak self] in
-            self?.view?.cameraContainerView?.setFilteredPreview(visible: true)
+            self?.view?.cameraContainerView.setFilteredPreview(visible: true)
         }
     }
 

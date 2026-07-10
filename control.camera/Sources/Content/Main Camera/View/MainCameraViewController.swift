@@ -15,29 +15,21 @@ class MainCameraViewController: BaseViewController {
     var output: MainCameraViewOutputProtocol!
     var dataSource: CollectionViewDataSource!
 
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var cameraContainerContainer: UIView!
-    @IBOutlet weak var cameraContainerView: CameraContainerView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    let pageControl = UIPageControl()
+    let cameraContainerContainer = UIView()
+    var cameraContainerView = CameraContainerView()
+    let collectionView = UICollectionView(frame: .zero,
+                                          collectionViewLayout: AlignedCollectionViewFlowLayout())
     
-    @IBOutlet weak var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
+    var cameraContainerAspectRatioConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLayout()
         setupUI()
+        
         output.onViewDidLoad()
-    }
-    
-    func setupUI() {
-        collectionView.dataSource = dataSource
-        collectionView.delegate = self
-        
-        let alignedFlowLayout = collectionView?.collectionViewLayout as? AlignedCollectionViewFlowLayout
-        alignedFlowLayout?.horizontalAlignment = .justified
-        
-        ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
-        ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -118,6 +110,62 @@ extension MainCameraViewController: CameraViewConfiguration {
         UIView.animate(withDuration: 0.25) {
             self.collectionView.alpha = isActive ? 1.0 : 0.1
         }
+    }
+    
+}
+
+private extension MainCameraViewController {
+    
+    func setupLayout() {
+        view.addSubview(cameraContainerContainer)
+        cameraContainerContainer.ezl.edgesToSuperview(excluding: .bottom, usingSafeArea: true)
+        cameraContainerContainer.ezl.bottomToSuperview(offset: -32, usingSafeArea: true)
+        
+        cameraContainerContainer.addSubview(cameraContainerView)
+        cameraContainerView.ezl.centerXToSuperview()
+        cameraContainerView.ezl.centerYToSuperview()
+        cameraContainerView.ezl.widthToSuperview(priority: .defaultLow)
+        cameraContainerView.ezl.heightToSuperview(priority: .defaultLow)
+        cameraContainerView.ezl.topToSuperview(relation: .greaterThanOrEqual)
+        cameraContainerView.ezl.leadingToSuperview(relation: .greaterThanOrEqual)
+        cameraContainerView.ezl.trailingToSuperview(relation: .lessThanOrEqual)
+        cameraContainerView.ezl.bottomToSuperview(relation: .lessThanOrEqual)
+        cameraContainerAspectRatioConstraint = cameraContainerView.ezl.aspectRatio(1.0)
+
+        view.addSubview(pageControl)
+        pageControl.ezl.bottomToSuperview(usingSafeArea: true)
+        pageControl.ezl.centerXToSuperview()
+
+        view.addSubview(collectionView)
+        collectionView.ezl.edgesToSuperview(excluding: .bottom, usingSafeArea: true)
+        collectionView.ezl.bottomToTop(of: pageControl, offset: -6)
+    }
+
+    func setupUI() {
+        view.backgroundColor = .black
+        cameraContainerContainer.backgroundColor = .clear
+        cameraContainerView.backgroundColor = .clear
+        cameraContainerView.clipsToBounds = true
+        cameraContainerView.layer.cornerRadius = 10.0
+
+        pageControl.numberOfPages = 3
+
+        collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+
+        collectionView.dataSource = dataSource
+        collectionView.delegate = self
+
+        let alignedFlowLayout = collectionView.collectionViewLayout as? AlignedCollectionViewFlowLayout
+        alignedFlowLayout?.horizontalAlignment = .justified
+        alignedFlowLayout?.scrollDirection = .horizontal
+        alignedFlowLayout?.minimumLineSpacing = 0.0
+        alignedFlowLayout?.minimumInteritemSpacing = 0.0
+        
+        ControlContainerCollectionViewCell.registerFor(collectionView: collectionView)
+        ShutterButtonCollectionViewCell.registerFor(collectionView: collectionView)
     }
     
 }
