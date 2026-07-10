@@ -14,12 +14,16 @@ class SelectPresetCameraControl: CameraControl {
     var valueType: CameraControlValueType!
 
     var elementHeight: CGFloat? {
-        return 100.0
+        return 50.0
     }
 
     // Lives in the dock row, so it can not be rearranged
     var couldBeArranged: Bool {
         return false
+    }
+    
+    var isPanDirectionInverted: Bool {
+        return true
     }
 
     /// nil when the virtual "Off" preset is selected

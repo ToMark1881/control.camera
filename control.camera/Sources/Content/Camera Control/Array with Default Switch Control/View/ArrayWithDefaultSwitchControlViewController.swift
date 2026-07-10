@@ -75,6 +75,7 @@ extension ArrayWithDefaultSwitchControlViewController: ArrayWithDefaultSwitchCon
         rangeData = props.array
         elementHeight = props.elementHeight
         
+        rangePickerView?.isPanDirectionInverted = props.isPanDirectionInverted
         rangePickerView?.reloadData()
         rangePickerView?.setValueHidden(props.isDefaultValuePresented)
         switchDefaultValueLabel.isHidden = !props.isDefaultValuePresented

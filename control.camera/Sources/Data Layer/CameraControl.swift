@@ -19,6 +19,9 @@ protocol CameraControl {
     var defaultIndex: Range<Int>.Index? { get }
     var shouldBeBlockedDuringArrangement: Bool { get }
     var couldBeArranged: Bool { get }
+    /// Inverts the picker pan direction. Useful for controls at the bottom
+    /// of the screen, where there is no room to swipe downwards
+    var isPanDirectionInverted: Bool { get }
 }
 
 extension CameraControl {
@@ -46,5 +49,9 @@ extension CameraControl {
     var couldBeArranged: Bool {
         return true
     }
-    
+
+    var isPanDirectionInverted: Bool {
+        return false
+    }
+
 }

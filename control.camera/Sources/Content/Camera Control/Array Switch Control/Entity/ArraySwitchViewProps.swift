@@ -12,4 +12,5 @@ struct ArraySwitchViewProps {
     let array: [String]
     let selectedIndex: Array<Int>.Index
     let elementHeight: CGFloat?
+    let isPanDirectionInverted: Bool
 }

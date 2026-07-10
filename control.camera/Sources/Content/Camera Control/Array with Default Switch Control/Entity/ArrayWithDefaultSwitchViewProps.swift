@@ -15,4 +15,5 @@ struct ArrayWithDefaultSwitchViewProps {
     
     let isDefaultValuePresented: Bool
     let defaultValue: String
+    let isPanDirectionInverted: Bool
 }

@@ -12,4 +12,5 @@ struct RangeSwitchViewProps {
     let array: [String]
     let selectedIndex: Range<Int>.Index
     let elementHeight: CGFloat?
+    let isPanDirectionInverted: Bool
 }

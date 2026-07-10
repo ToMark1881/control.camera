@@ -174,7 +174,8 @@ private extension RangeWithDefaultSwitchControlPresenter {
                                                            selectedIndex: selectedIndex,
                                                            elementHeight: switchControl.elementHeight,
                                                            isDefaultValuePresented: controlValue.isDefaultSelected,
-                                                           defaultValue: controlValue.defaultValue)
+                                                           defaultValue: controlValue.defaultValue,
+                                                           isPanDirectionInverted: switchControl.isPanDirectionInverted)
         view?.update(with: props)
     }
     

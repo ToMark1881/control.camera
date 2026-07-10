@@ -41,9 +41,13 @@ class RangePickerViewController: BaseViewController {
     }
     
     // MARK: - Public
-    
+
     weak var delegate: RangePickerDelegate?
     weak var dataSource: RangePickerDataSource!
+
+    /// Inverts the pan direction, so values can be changed with
+    /// an upward swipe when there is no room below the control
+    var isPanDirectionInverted = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +107,12 @@ private extension RangePickerViewController {
         let minRow = 0
         let maxRow = dataSource.rangePickerView(numbersOfRowsForRangePicker: self) - 1
         
-        let difference = -(initialCenter.y - point.y)
+        var difference = -(initialCenter.y - point.y)
+
+        if isPanDirectionInverted {
+            difference = -difference
+        }
+
         let differenceDividedByStep = difference / step
         let row = Int(differenceDividedByStep.rounded(.toNearestOrAwayFromZero)) + initialRow
         

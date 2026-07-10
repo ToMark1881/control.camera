@@ -118,7 +118,8 @@ private extension ArraySwitchControlPresenter {
         let props: ArraySwitchViewProps = .init(title: switchControl.title,
                                                 array: arrayOfStrings,
                                                 selectedIndex: selectedIndex,
-                                                elementHeight: switchControl.elementHeight)
+                                                elementHeight: switchControl.elementHeight,
+                                                isPanDirectionInverted: switchControl.isPanDirectionInverted)
         
         view?.update(with: props)
     }

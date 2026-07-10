@@ -136,7 +136,8 @@ private extension RangeSwitchControlPresenter {
         let props: RangeSwitchViewProps = .init(title: switchControl.title,
                                                 array: arrayOfStrings,
                                                 selectedIndex: selectedIndex,
-                                                elementHeight: switchControl.elementHeight)
+                                                elementHeight: switchControl.elementHeight,
+                                                isPanDirectionInverted: switchControl.isPanDirectionInverted)
         
         view?.update(with: props)
     }

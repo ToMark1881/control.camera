@@ -60,6 +60,7 @@ extension RangeSwitchControlViewController: RangeSwitchControlViewInputProtocol 
         rangeData = props.array
         elementHeight = props.elementHeight
         
+        rangePickerView?.isPanDirectionInverted = props.isPanDirectionInverted
         rangePickerView?.reloadData()
         rangePickerView?.selectRow(at: props.selectedIndex)
     }

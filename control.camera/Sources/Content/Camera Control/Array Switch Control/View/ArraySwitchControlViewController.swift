@@ -58,7 +58,8 @@ extension ArraySwitchControlViewController: ArraySwitchControlViewInputProtocol 
         switchNameLabel.text = props.title
         rangeData = props.array
         elementHeight = props.elementHeight
-        
+
+        rangePickerView?.isPanDirectionInverted = props.isPanDirectionInverted
         rangePickerView?.reloadData()
         rangePickerView?.selectRow(at: props.selectedIndex)
     }
