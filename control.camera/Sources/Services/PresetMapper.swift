@@ -24,7 +24,7 @@ protocol PresetMapper {
 class PresetMapperImplementation: PresetMapper {
 
     var presetableControlTypes: [ControlType] {
-        return [.frame, .borderColor, .noise, .contrast, .red, .green, .blue, .blackWhite]
+        return [.form, .frame, .borderColor, .noise, .contrast, .red, .green, .blue, .blackWhite]
     }
 
     func snapshot(from storage: CameraSettingsStorage) -> [String: PresetValue] {
@@ -46,6 +46,15 @@ class PresetMapperImplementation: PresetMapper {
         let value = value ?? defaultValue(for: type)
 
         switch (type, value) {
+        case (.form, .string(let aspectRatio)):
+            let control = FormCameraControl()
+
+            if case let .array(existing) = control.valueType {
+                control.valueType = .array(ArrayControlValue(array: existing.array, selected: aspectRatio))
+            }
+
+            return control
+
         case (.frame, .number(let width)):
             return FrameCameraControl(selected: width)
 
@@ -101,6 +110,8 @@ private extension PresetMapperImplementation {
 
     func defaultValue(for type: ControlType) -> PresetValue {
         switch type {
+        case .form:
+            return .string(FormCameraControl.PhotoAspectRatio.threeByFour.rawValue)
         case .borderColor:
             return .string(BorderColorCameraControl.BorderColor.white.rawValue)
         case .blackWhite:
@@ -112,6 +123,8 @@ private extension PresetMapperImplementation {
 
     func currentValue(for type: ControlType, in storage: CameraSettingsStorage) -> PresetValue? {
         switch type {
+        case .form:
+            return (storage.formControl).map { .string($0.aspectRatio.rawValue) }
         case .frame:
             return (storage.frameControl).map { .number($0.selectedWidth) }
         case .borderColor:

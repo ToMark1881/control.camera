@@ -574,12 +574,13 @@ private extension MainCameraPresenter {
     func saveCurrentPreset() {
         let values = presetMapper.snapshot(from: settingsStorage)
 
-        if let selectedId = presetsStorage.selectedPresetId {
-            presetsStorage.updatePreset(id: selectedId, values: values)
-        } else {
-            let preset = presetsStorage.createPreset(values: values)
-            presetsStorage.selectedPresetId = preset.id
+        // The selected preset without any changes: nothing new to save
+        if let selectedPreset = presetsStorage.selectedPreset, selectedPreset.values == values {
+            return
         }
+
+        let preset = presetsStorage.createPreset(values: values)
+        presetsStorage.selectedPresetId = preset.id
 
         setupSelectPresetControl()
     }
@@ -610,6 +611,11 @@ private extension MainCameraPresenter {
     /// everything else back to the base settings
     func apply(values: [String: PresetValue]) {
         for type in presetMapper.presetableControlTypes {
+            // RAW locks the aspect ratio to 3:4, so the form value stays intact
+            if type == .form && isInRAWFormat {
+                continue
+            }
+
             guard let control = presetMapper.makeControl(for: type, from: values[type.rawValue]) else {
                 continue
             }
